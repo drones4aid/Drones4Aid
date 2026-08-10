@@ -72,6 +72,8 @@
       top: 10px;
     }
 
+    /* TOP BAR */
+
     .topbar {
       background: var(--navy);
       color: var(--white);
@@ -79,6 +81,8 @@
       padding: 8px 15px;
       font-size: 0.88rem;
     }
+
+    /* HEADER */
 
     header {
       background: var(--white);
@@ -142,6 +146,8 @@
       font-size: 1rem;
     }
 
+    /* HERO */
+
     .hero {
       min-height: 620px;
       display: grid;
@@ -197,6 +203,8 @@
       margin-bottom: 28px;
     }
 
+    /* BUTTONS */
+
     .button {
       display: inline-block;
       border: 2px solid var(--orange);
@@ -229,6 +237,8 @@
       color: var(--navy);
     }
 
+    /* SECTIONS */
+
     section {
       padding: 85px 0;
     }
@@ -246,6 +256,8 @@
       color: var(--muted);
     }
 
+    /* GRID */
+
     .grid {
       display: grid;
       gap: 22px;
@@ -258,6 +270,8 @@
     .two-columns {
       grid-template-columns: repeat(2, 1fr);
     }
+
+    /* CARDS */
 
     .card {
       background: var(--white);
@@ -292,6 +306,8 @@
       margin-top: 10px;
     }
 
+    /* PROCESS */
+
     .process-number {
       width: 38px;
       height: 38px;
@@ -304,6 +320,8 @@
       margin-bottom: 13px;
     }
 
+    /* NOTICE */
+
     .notice {
       border-left: 5px solid var(--orange);
       background: #fff4df;
@@ -312,6 +330,8 @@
       margin-top: 25px;
       border-radius: 5px;
     }
+
+    /* LOCATIONS */
 
     .locations {
       display: flex;
@@ -328,6 +348,8 @@
       font-weight: 700;
       font-size: 0.9rem;
     }
+
+    /* GALLERY */
 
     .gallery {
       grid-template-columns: repeat(3, 1fr);
@@ -349,6 +371,8 @@
       color: var(--muted);
       font-size: 0.9rem;
     }
+
+    /* QUOTES */
 
     .quote {
       position: relative;
@@ -374,6 +398,8 @@
       font-style: normal;
     }
 
+    /* FAQ */
+
     .faq details {
       background: var(--white);
       border: 1px solid var(--border);
@@ -392,6 +418,8 @@
       color: var(--muted);
       margin-top: 12px;
     }
+
+    /* FORM */
 
     form {
       display: grid;
@@ -425,6 +453,8 @@
       color: var(--blue);
       font-weight: 700;
     }
+
+    /* FOOTER */
 
     footer {
       background: var(--navy);
@@ -466,6 +496,8 @@
       color: #d9e2ec;
       font-size: 0.9rem;
     }
+
+    /* MOBILE */
 
     @media (max-width: 800px) {
       .menu-button {
@@ -509,13 +541,21 @@
 
 <body>
 
+  <!-- SKIP LINK -->
+
   <a class="skip-link" href="#main-content">
     Skip to main content
   </a>
 
+
+  <!-- TOP BAR -->
+
   <div class="topbar">
     DRONES4AID is a strictly non-profit and non-governmental humanitarian organisation.
   </div>
+
+
+  <!-- HEADER -->
 
   <header>
     <div class="container nav-wrapper">
@@ -545,7 +585,8 @@
             <a href="about.html">About</a>
           </li>
 
-          <!-- FIXED: This now opens mission.html -->
+          <!-- THIS NOW OPENS mission.html -->
+
           <li>
             <a href="mission.html">Mission</a>
           </li>
@@ -576,7 +617,13 @@
     </div>
   </header>
 
+
+  <!-- MAIN CONTENT -->
+
   <main id="main-content">
+
+
+    <!-- HERO -->
 
     <section class="hero" id="home">
 
@@ -596,7 +643,8 @@
           peaceful action.
         </p>
 
-        <!-- FIXED: This now opens mission.html -->
+        <!-- THIS NOW OPENS mission.html -->
+
         <a class="button" href="mission.html">
           Learn About Our Mission
         </a>
@@ -608,6 +656,9 @@
       </div>
 
     </section>
+
+
+    <!-- ABOUT -->
 
     <section id="about">
 
@@ -631,6 +682,7 @@
 
         </div>
 
+
         <div class="grid three-columns">
 
           <article class="card">
@@ -650,6 +702,7 @@
 
           </article>
 
+
           <article class="card">
 
             <div class="icon" aria-hidden="true">
@@ -666,6 +719,7 @@
             </p>
 
           </article>
+
 
           <article class="card">
 
@@ -690,7 +744,10 @@
 
     </section>
 
-    <section id="mission">
+
+    <!-- MISSION PREVIEW -->
+
+    <section id="mission-preview">
 
       <div class="container">
 
@@ -712,6 +769,9 @@
 
         </div>
 
+        <!-- IMPORTANT: This is only a preview.
+             The actual Mission page is mission.html. -->
+
         <div class="grid two-columns">
 
           <article class="card">
@@ -721,14 +781,31 @@
             </h3>
 
             <ul>
-              <li>Deliver lifesaving supplies to people in need.</li>
-              <li>Support civilians affected by conflict and displacement.</li>
-              <li>Work with trusted local organisations and humanitarian partners.</li>
-              <li>Promote peaceful dialogue and conflict resolution.</li>
-              <li>Maintain transparency, accountability, and independence.</li>
+
+              <li>
+                Deliver lifesaving supplies to people in need.
+              </li>
+
+              <li>
+                Support civilians affected by conflict and displacement.
+              </li>
+
+              <li>
+                Work with trusted local organisations and humanitarian partners.
+              </li>
+
+              <li>
+                Promote peaceful dialogue and conflict resolution.
+              </li>
+
+              <li>
+                Maintain transparency, accountability, and independence.
+              </li>
+
             </ul>
 
           </article>
+
 
           <article class="card">
 
@@ -749,22 +826,21 @@
 
         </div>
 
-        <div class="notice">
 
-          <strong>
-            Safety notice:
-          </strong>
+        <div style="margin-top: 25px;">
 
-          Drone operations are considered only for clearly defined civilian
-          humanitarian purposes and only when legal, authorised, necessary, and
-          sufficiently safe. We do not transport weapons or support military
-          targeting.
+          <a class="button" href="mission.html">
+            View Full Mission Page
+          </a>
 
         </div>
 
       </div>
 
     </section>
+
+
+    <!-- OPERATIONS -->
 
     <section id="operations">
 
@@ -787,60 +863,102 @@
 
         </div>
 
+
         <div class="grid three-columns">
 
           <article class="card">
+
             <div class="process-number">1</div>
-            <h3>Assess needs</h3>
+
+            <h3>
+              Assess needs
+            </h3>
+
             <p>
               We listen to affected communities and consult local partners,
               medical organisations, and humanitarian actors.
             </p>
+
           </article>
 
+
           <article class="card">
+
             <div class="process-number">2</div>
-            <h3>Plan responsibly</h3>
+
+            <h3>
+              Plan responsibly
+            </h3>
+
             <p>
               Teams review security, weather, airspace, permissions, privacy,
               and the possibility of misunderstanding.
             </p>
+
           </article>
 
+
           <article class="card">
+
             <div class="process-number">3</div>
-            <h3>Coordinate locally</h3>
+
+            <h3>
+              Coordinate locally
+            </h3>
+
             <p>
               We seek appropriate authorisations and coordinate with relevant
               authorities and humanitarian partners.
             </p>
+
           </article>
 
+
           <article class="card">
+
             <div class="process-number">4</div>
-            <h3>Deliver assistance</h3>
+
+            <h3>
+              Deliver assistance
+            </h3>
+
             <p>
               Approved systems may support small humanitarian deliveries,
               mapping, and access assessments where appropriate.
             </p>
+
           </article>
 
+
           <article class="card">
+
             <div class="process-number">5</div>
-            <h3>Protect information</h3>
+
+            <h3>
+              Protect information
+            </h3>
+
             <p>
               We minimise personal-data collection and securely handle
               operational information.
             </p>
+
           </article>
 
+
           <article class="card">
+
             <div class="process-number">6</div>
-            <h3>Evaluate impact</h3>
+
+            <h3>
+              Evaluate impact
+            </h3>
+
             <p>
               We document results, gather feedback, and improve future
               humanitarian programmes.
             </p>
+
           </article>
 
         </div>
@@ -848,6 +966,9 @@
       </div>
 
     </section>
+
+
+    <!-- REGIONS -->
 
     <section id="regions">
 
@@ -870,6 +991,7 @@
           </p>
 
         </div>
+
 
         <div class="locations" aria-label="Regions">
 
@@ -894,6 +1016,9 @@
 
     </section>
 
+
+    <!-- AID -->
+
     <section id="aid">
 
       <div class="container">
@@ -910,33 +1035,60 @@
 
         </div>
 
+
         <div class="grid three-columns">
 
           <article class="card">
-            <div class="icon" aria-hidden="true">▣</div>
-            <h3>Food and water</h3>
+
+            <div class="icon" aria-hidden="true">
+              ▣
+            </div>
+
+            <h3>
+              Food and water
+            </h3>
+
             <p>
               Food packages, clean-water supplies, and water-purification
               essentials where available.
             </p>
+
           </article>
 
+
           <article class="card">
-            <div class="icon" aria-hidden="true">✚</div>
-            <h3>Medical essentials</h3>
+
+            <div class="icon" aria-hidden="true">
+              ✚
+            </div>
+
+            <h3>
+              Medical essentials
+            </h3>
+
             <p>
               First-aid kits and basic medical supplies distributed through
               appropriate partners.
             </p>
+
           </article>
 
+
           <article class="card">
-            <div class="icon" aria-hidden="true">⌂</div>
-            <h3>Emergency essentials</h3>
+
+            <div class="icon" aria-hidden="true">
+              ⌂
+            </div>
+
+            <h3>
+              Emergency essentials
+            </h3>
+
             <p>
               Hygiene products, blankets, clothing, shelter items, and family
               support packages.
             </p>
+
           </article>
 
         </div>
@@ -944,6 +1096,9 @@
       </div>
 
     </section>
+
+
+    <!-- DRONES -->
 
     <section id="drones">
 
@@ -966,42 +1121,67 @@
 
         </div>
 
+
         <div class="grid two-columns">
 
           <article class="card">
-            <h3>Humanitarian delivery drones</h3>
+
+            <h3>
+              Humanitarian delivery drones
+            </h3>
+
             <p>
               Used only where authorised to transport small, lightweight relief
               packages to approved delivery points.
             </p>
+
           </article>
 
+
           <article class="card">
-            <h3>Mapping and assessment drones</h3>
+
+            <h3>
+              Mapping and assessment drones
+            </h3>
+
             <p>
               Used, where appropriate, to assess roads, bridges, shelters,
               farmland, and public infrastructure.
             </p>
+
           </article>
 
+
           <article class="card">
-            <h3>Medical-support drones</h3>
+
+            <h3>
+              Medical-support drones
+            </h3>
+
             <p>
               May support urgent transport of small medical items under proper
               medical oversight and aviation approval.
             </p>
+
           </article>
 
+
           <article class="card">
-            <h3>Safety and accountability</h3>
+
+            <h3>
+              Safety and accountability
+            </h3>
+
             <p>
               Flights require trained operators, documented plans, equipment
               checks, emergency procedures, secure data handling, and relevant
               permissions.
             </p>
+
           </article>
 
         </div>
+
 
         <div class="notice">
 
@@ -1014,6 +1194,9 @@
       </div>
 
     </section>
+
+
+    <!-- PAST OPERATIONS -->
 
     <section id="past-operations">
 
@@ -1036,29 +1219,47 @@
 
         </div>
 
+
         <div class="grid three-columns">
 
           <article class="card">
-            <h3>Project location</h3>
+
+            <h3>
+              Project location
+            </h3>
+
             <p>
               Location and date will be published only when safe to do so.
             </p>
+
           </article>
 
+
           <article class="card">
-            <h3>Humanitarian impact</h3>
+
+            <h3>
+              Humanitarian impact
+            </h3>
+
             <p>
               We report the type of aid delivered and the number of people
               reached where reliable data is available.
             </p>
+
           </article>
 
+
           <article class="card">
-            <h3>Community feedback</h3>
+
+            <h3>
+              Community feedback
+            </h3>
+
             <p>
               We listen to communities and use their feedback to improve our
               programmes.
             </p>
+
           </article>
 
         </div>
@@ -1066,6 +1267,9 @@
       </div>
 
     </section>
+
+
+    <!-- GALLERY -->
 
     <section id="gallery">
 
@@ -1088,36 +1292,48 @@
 
         </div>
 
+
         <div class="grid gallery">
 
           <figure>
+
             <img
               src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=900&q=80"
               alt="Volunteers preparing humanitarian supplies"
             />
+
             <figcaption>
               Preparing relief packages.
             </figcaption>
+
           </figure>
 
+
           <figure>
+
             <img
               src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=900&q=80"
               alt="People working together at a humanitarian activity"
             />
+
             <figcaption>
               Community and volunteer cooperation.
             </figcaption>
+
           </figure>
 
+
           <figure>
+
             <img
               src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=900&q=80"
               alt="Humanitarian team meeting outdoors"
             />
+
             <figcaption>
               Working with local partners.
             </figcaption>
+
           </figure>
 
         </div>
@@ -1125,6 +1341,9 @@
       </div>
 
     </section>
+
+
+    <!-- VOLUNTEERS -->
 
     <section id="volunteers">
 
@@ -1147,6 +1366,7 @@
 
         </div>
 
+
         <div class="grid three-columns">
 
           <article class="card quote">
@@ -1162,6 +1382,7 @@
 
           </article>
 
+
           <article class="card quote">
 
             <p>
@@ -1174,6 +1395,7 @@
             </cite>
 
           </article>
+
 
           <article class="card quote">
 
@@ -1193,6 +1415,9 @@
       </div>
 
     </section>
+
+
+    <!-- VETERANS -->
 
     <section id="veterans">
 
@@ -1216,6 +1441,7 @@
 
         </div>
 
+
         <div class="grid two-columns">
 
           <article class="card">
@@ -1225,13 +1451,27 @@
             </h3>
 
             <ul>
-              <li>Emergency response and disaster preparedness.</li>
-              <li>First aid and medical logistics.</li>
-              <li>Transport and supply coordination.</li>
-              <li>Team leadership and risk awareness.</li>
+
+              <li>
+                Emergency response and disaster preparedness.
+              </li>
+
+              <li>
+                First aid and medical logistics.
+              </li>
+
+              <li>
+                Transport and supply coordination.
+              </li>
+
+              <li>
+                Team leadership and risk awareness.
+              </li>
+
             </ul>
 
           </article>
+
 
           <article class="card">
 
@@ -1252,6 +1492,9 @@
 
     </section>
 
+
+    <!-- FAQ -->
+
     <section id="faq">
 
       <div class="container">
@@ -1268,34 +1511,28 @@
 
         </div>
 
+
         <div class="faq">
 
           <details>
-            <summary>
-              Is DRONES4AID a government organisation?
-            </summary>
-
+            <summary>Is DRONES4AID a government organisation?</summary>
             <p>
               No. DRONES4AID is a non-profit, non-governmental organisation.
             </p>
           </details>
 
-          <details>
-            <summary>
-              Are your drones armed?
-            </summary>
 
+          <details>
+            <summary>Are your drones armed?</summary>
             <p>
               No. Our drones are intended for civilian humanitarian purposes
               only. We do not transport weapons or support military targeting.
             </p>
           </details>
 
-          <details>
-            <summary>
-              Why use drones?
-            </summary>
 
+          <details>
+            <summary>Why use drones?</summary>
             <p>
               Drones may help assess inaccessible areas or deliver small,
               urgent supplies when conventional options are unavailable. They
@@ -1303,22 +1540,18 @@
             </p>
           </details>
 
-          <details>
-            <summary>
-              Do you operate in active conflict zones?
-            </summary>
 
+          <details>
+            <summary>Do you operate in active conflict zones?</summary>
             <p>
               Operations depend on security assessments, legal permissions,
               local consent, humanitarian coordination, and available capacity.
             </p>
           </details>
 
-          <details>
-            <summary>
-              How do you protect privacy?
-            </summary>
 
+          <details>
+            <summary>How do you protect privacy?</summary>
             <p>
               We aim to collect only necessary information, avoid unnecessary
               recording, secure operational data, and limit access to authorised
@@ -1326,22 +1559,18 @@
             </p>
           </details>
 
-          <details>
-            <summary>
-              Can I volunteer?
-            </summary>
 
+          <details>
+            <summary>Can I volunteer?</summary>
             <p>
               Yes. Volunteers may assist with fundraising, translation,
               logistics, communications, research, packaging, and outreach.
             </p>
           </details>
 
-          <details>
-            <summary>
-              How can a community request assistance?
-            </summary>
 
+          <details>
+            <summary>How can a community request assistance?</summary>
             <p>
               Communities and local organisations can use the contact form.
               Requests are reviewed according to urgency, safety, feasibility,
@@ -1354,6 +1583,9 @@
       </div>
 
     </section>
+
+
+    <!-- CONTACT -->
 
     <section id="contact">
 
@@ -1377,6 +1609,7 @@
 
         </div>
 
+
         <div class="grid two-columns">
 
           <div class="card">
@@ -1386,11 +1619,13 @@
             </h3>
 
             <ul>
+
               <li>Volunteer your time and skills.</li>
               <li>Support verified humanitarian programmes.</li>
               <li>Partner as a local organisation.</li>
               <li>Help with translation and communications.</li>
               <li>Organise a school or community fundraiser.</li>
+
             </ul>
 
             <br />
@@ -1422,48 +1657,74 @@
 
           </div>
 
+
           <div class="card">
 
             <form id="contact-form">
 
               <div>
-                <label for="name">Name</label>
+
+                <label for="name">
+                  Name
+                </label>
+
                 <input
                   id="name"
                   name="name"
                   type="text"
                   required
                 />
+
               </div>
 
+
               <div>
-                <label for="email">Email address</label>
+
+                <label for="email">
+                  Email address
+                </label>
+
                 <input
                   id="email"
                   name="email"
                   type="email"
                   required
                 />
+
               </div>
 
+
               <div>
-                <label for="reason">Reason for contacting us</label>
+
+                <label for="reason">
+                  Reason for contacting us
+                </label>
 
                 <select
                   id="reason"
                   name="reason"
                   required
                 >
-                  <option value="">Select one</option>
+
+                  <option value="">
+                    Select one
+                  </option>
+
                   <option>Volunteering</option>
                   <option>Partnership</option>
                   <option>Donation</option>
                   <option>General enquiry</option>
+
                 </select>
+
               </div>
 
+
               <div>
-                <label for="message">Message</label>
+
+                <label for="message">
+                  Message
+                </label>
 
                 <textarea
                   id="message"
@@ -1471,7 +1732,9 @@
                   placeholder="Please do not include sensitive or urgent operational information."
                   required
                 ></textarea>
+
               </div>
+
 
               <button
                 class="button"
@@ -1479,6 +1742,7 @@
               >
                 Send Enquiry
               </button>
+
 
               <p
                 class="form-message"
@@ -1498,11 +1762,15 @@
 
   </main>
 
+
+  <!-- FOOTER -->
+
   <footer>
 
     <div class="container">
 
       <div class="footer-grid">
+
 
         <div>
 
@@ -1526,6 +1794,7 @@
 
         </div>
 
+
         <div>
 
           <h3>
@@ -1546,8 +1815,9 @@
               </a>
             </li>
 
+            <!-- THIS NOW OPENS mission.html -->
+
             <li>
-              <!-- FIXED -->
               <a href="mission.html">
                 Our mission
               </a>
@@ -1568,6 +1838,7 @@
           </ul>
 
         </div>
+
 
         <div>
 
@@ -1607,6 +1878,7 @@
 
       </div>
 
+
       <div class="copyright">
 
         © 2026 DRONES4AID. This website is a demonstration template. Verify
@@ -1619,6 +1891,9 @@
 
   </footer>
 
+
+  <!-- MENU + FORM SCRIPT -->
+
   <script>
 
     const menuButton =
@@ -1626,6 +1901,7 @@
 
     const menu =
       document.querySelector("#site-menu");
+
 
     menuButton.addEventListener("click", () => {
 
@@ -1638,6 +1914,7 @@
       );
 
     });
+
 
     document
       .querySelectorAll("#site-menu a")
@@ -1656,6 +1933,7 @@
 
       });
 
+
     document
       .querySelector("#contact-form")
       .addEventListener("submit", (event) => {
@@ -1672,6 +1950,9 @@
       });
 
   </script>
+
+
+  <!-- TAWK CHAT -->
 
   <script type="text/javascript">
 
