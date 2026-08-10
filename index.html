@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>DRONES4AID | Operations</title>
+
 
 <style>
 
 :root{
+
   --navy:#102a43;
   --blue:#1976a8;
   --light:#f4f8fb;
@@ -16,184 +24,259 @@
   --text:#1f2937;
   --muted:#5b6575;
   --border:#dbe3ea;
+
   --red:#e53935;
   --yellow:#f4c542;
+
   --white:#f7f7f7;
-  --shadow:0 12px 30px rgba(16,42,67,.10);
+
+  --shadow:
+    0 12px 30px rgba(16,42,67,.10);
+
   --radius:18px;
+
   --orange:#f28c28;
   --cream:#fffaf2;
+
 }
+
+
+/* =========================
+   RESET
+========================= */
 
 *{
+
   box-sizing:border-box;
+
   margin:0;
+
   padding:0;
+
 }
+
 
 html{
+
   scroll-behavior:smooth;
+
 }
+
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
   color:var(--text);
+
   background:var(--cream);
+
   line-height:1.6;
+
 }
+
 
 a{
+
   text-decoration:none;
+
   color:inherit;
+
 }
+
 
 .container{
+
   width:min(1180px,92%);
+
   margin:auto;
+
 }
 
 
-/* ==============================
+/* =========================
    HEADER
-============================== */
+========================= */
 
 header{
+
   position:sticky;
+
   top:0;
-  z-index:50;
-  background:rgba(255,255,255,.96);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
+
+  z-index:100;
+
+  background:
+    rgba(255,255,255,.97);
+
+  backdrop-filter:
+    blur(10px);
+
+  border-bottom:
+    1px solid var(--border);
+
 }
+
 
 .nav{
+
   min-height:72px;
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   gap:20px;
+
 }
+
+
+/* =========================
+   LOGO
+========================= */
 
 .logo{
+
   display:flex;
+
   align-items:center;
+
   gap:12px;
+
   font-weight:800;
+
   color:var(--navy);
+
   letter-spacing:.3px;
+
 }
+
 
 .logo-mark{
+
   width:46px;
+
   height:46px;
+
   border-radius:50%;
+
   display:grid;
+
   place-items:center;
-  background:linear-gradient(
-    135deg,
-    var(--orange),
-    #d97706
-  );
-  color:#102a43;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--orange),
+      #d97706
+    );
+
+  color:var(--navy);
+
   font-weight:900;
-  box-shadow:0 8px 18px rgba(16,42,67,.18);
+
+  box-shadow:
+    0 8px 18px rgba(16,42,67,.18);
+
 }
 
 
-/* ==============================
+/* =========================
    NAVIGATION
-============================== */
+========================= */
 
 nav ul{
+
   list-style:none;
+
   display:flex;
-  gap:12px;
+
   align-items:center;
-  flex-wrap:wrap;
-  font-weight:700;
-  color:var(--navy);
-}
 
-nav a{
-  display:inline-block;
-  padding:9px 13px;
-  border-radius:7px;
-}
-
-nav a:hover{
-  color:var(--blue);
-  background:#eef7fb;
-}
-
-
-/* ==============================
-   HOME BUTTON
-============================== */
-
-.home-button{
-  background:var(--orange);
-  color:var(--navy) !important;
-  border:2px solid var(--orange);
-  font-weight:900;
-}
-
-.home-button:hover{
-  background:#ffad52 !important;
-  border-color:#ffad52;
-  color:var(--navy) !important;
-}
-
-
-/* ==============================
-   BACK TO HOME AREA
-============================== */
-
-.back-home-area{
-  background:var(--light);
-  border-bottom:1px solid var(--border);
-  padding:18px 0;
-}
-
-.back-home-button{
-  display:inline-flex;
-  align-items:center;
   gap:8px;
 
-  background:var(--orange);
+  flex-wrap:wrap;
+
+  font-weight:700;
+
   color:var(--navy);
 
-  padding:12px 20px;
+}
 
-  border-radius:8px;
+
+nav a{
+
+  display:inline-block;
+
+  padding:10px 13px;
+
+  border-radius:7px;
+
+  transition:
+    .2s ease;
+
+}
+
+
+nav a:hover{
+
+  color:var(--blue);
+
+  background:#eef7fb;
+
+}
+
+
+/* =========================
+   HOME BUTTON
+========================= */
+
+.home-link{
+
+  background:var(--orange);
+
+  color:var(--navy) !important;
+
+  border:
+    2px solid var(--orange);
 
   font-weight:900;
-  font-size:1rem;
 
-  border:2px solid var(--orange);
-
-  box-shadow:0 5px 14px rgba(16,42,67,.12);
-
-  transition:.2s ease;
 }
 
-.back-home-button:hover{
-  background:#ffad52;
+
+.home-link:hover{
+
+  background:#ffad52 !important;
+
   border-color:#ffad52;
+
+  color:var(--navy) !important;
+
   transform:translateY(-1px);
+
 }
 
 
-/* ==============================
+/* =========================
    HERO
-============================== */
+========================= */
 
 .hero{
+
   position:relative;
 
   min-height:68vh;
 
   display:grid;
-  grid-template-columns:1.1fr .9fr;
+
+  grid-template-columns:
+    1.1fr .9fr;
 
   color:#fff;
 
@@ -205,200 +288,289 @@ nav a:hover{
     );
 
   overflow:hidden;
+
 }
+
 
 .hero-copy{
+
   display:flex;
+
   align-items:center;
+
 }
+
 
 .hero .container{
-  padding:86px 0 72px;
+
+  padding:
+    86px 0 72px;
+
 }
 
+
 .eyebrow{
+
   display:inline-flex;
+
   gap:10px;
+
   align-items:center;
 
-  background:rgba(255,255,255,.14);
+  background:
+    rgba(255,255,255,.14);
 
-  border:1px solid rgba(255,255,255,.18);
+  border:
+    1px solid rgba(255,255,255,.18);
 
-  padding:8px 14px;
+  padding:
+    8px 14px;
 
   border-radius:999px;
 
   margin-bottom:18px;
 
   font-weight:700;
+
 }
 
+
 .hero h1{
-  font-size:clamp(2.3rem,5vw,4.3rem);
+
+  font-size:
+    clamp(
+      2.3rem,
+      5vw,
+      4.3rem
+    );
+
   line-height:1.05;
 
   max-width:900px;
 
   margin-bottom:14px;
+
 }
 
+
 .hero p{
+
   max-width:860px;
 
   font-size:1.06rem;
 
   color:#eef5fb;
+
 }
 
 
-/* ==============================
+/* =========================
    WORLD MAP
-============================== */
+========================= */
 
 .hero-visual{
+
   position:relative;
 
   min-height:68vh;
 
   background:
+
     linear-gradient(
       180deg,
       rgba(16,42,67,.10),
       rgba(16,42,67,.55)
     ),
-    url("https://t3.ftcdn.net/jpg/18/01/77/54/360_F_1801775444_Diq0tXDHbvoApJ2JAZQ0Zr6lapDjbCRX.jpg")
-    center/contain no-repeat;
+
+    url(
+      "https://t3.ftcdn.net/jpg/18/01/77/54/360_F_1801775444_Diq0tXDHbvoApJ2JAZQ0Zr6lapDjbCRX.jpg"
+    )
+
+    center / contain no-repeat;
 
   background-color:#0f2235;
+
 }
 
 
-/* ==============================
+/* =========================
    SECTIONS
-============================== */
+========================= */
 
 .section{
+
   padding:78px 0;
+
 }
+
 
 .section.alt{
+
   background:var(--light);
+
 }
 
+
 .section h2{
-  font-size:clamp(1.8rem,3vw,2.6rem);
+
+  font-size:
+    clamp(
+      1.8rem,
+      3vw,
+      2.6rem
+    );
 
   color:var(--navy);
 
   margin-bottom:14px;
+
 }
 
+
 .lead{
+
   color:var(--muted);
 
   max-width:920px;
 
   margin-bottom:28px;
+
 }
 
 
-/* ==============================
+/* =========================
    GRID
-============================== */
+========================= */
 
 .grid{
+
   display:grid;
 
   gap:22px;
+
 }
+
 
 .two{
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(2,1fr);
+
 }
 
 
-/* ==============================
+/* =========================
    CARDS
-============================== */
+========================= */
 
 .card{
+
   background:var(--card);
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   border-radius:var(--radius);
 
   box-shadow:var(--shadow);
 
   overflow:hidden;
+
 }
+
 
 .card-body{
+
   padding:24px;
+
 }
 
+
 .card h3{
+
   color:var(--navy);
 
   margin-bottom:10px;
 
   font-size:1.25rem;
+
 }
+
 
 .card p,
 .card li{
+
   color:var(--muted);
+
 }
 
 
-/* ==============================
+/* =========================
    LISTS
-============================== */
+========================= */
 
 .list{
+
   padding-left:20px;
 
   margin-top:10px;
+
 }
+
 
 .list li{
+
   margin:8px 0;
+
 }
 
 
-/* ==============================
+/* =========================
    URGENCY SCALE
-============================== */
+========================= */
 
 .scale-wrap{
+
   display:grid;
 
   gap:14px;
 
   margin-top:16px;
+
 }
 
+
 .scale-bar{
+
   height:18px;
 
   border-radius:999px;
 
   background:
+
     linear-gradient(
       90deg,
+
       var(--white) 0%,
       var(--white) 18%,
+
       #f4e28b 50%,
+
       #f4c542 62%,
+
       #e67e22 82%,
+
       var(--red) 100%
     );
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
+
 }
 
+
 .scale-labels{
+
   display:flex;
 
   justify-content:space-between;
@@ -406,20 +578,27 @@ nav a:hover{
   color:var(--muted);
 
   font-weight:700;
+
 }
 
+
 .scale-markers{
+
   position:relative;
 
   height:32px;
+
 }
 
+
 .marker{
+
   position:absolute;
 
   top:2px;
 
-  transform:translateX(-50%);
+  transform:
+    translateX(-50%);
 
   display:flex;
 
@@ -436,82 +615,115 @@ nav a:hover{
   color:var(--muted);
 
   white-space:nowrap;
+
 }
 
+
 .pin{
+
   width:14px;
 
   height:14px;
 
   border-radius:50%;
 
-  border:2px solid #fff;
+  border:
+    2px solid #fff;
 
-  box-shadow:0 4px 10px rgba(0,0,0,.12);
+  box-shadow:
+    0 4px 10px rgba(0,0,0,.12);
+
 }
+
 
 .pin.white{
+
   background:var(--white);
+
 }
+
 
 .pin.yellow{
+
   background:var(--yellow);
+
 }
+
 
 .pin.red{
+
   background:var(--red);
+
 }
 
 
-/* ==============================
+/* =========================
    OPERATIONS
-============================== */
+========================= */
 
 .op{
+
   margin-top:18px;
+
 }
+
 
 .op .op-head{
-  padding:24px 24px 0;
+
+  padding:
+    24px 24px 0;
+
 }
 
+
 .op .op-head h3{
+
   margin-bottom:6px;
 
   font-size:1.35rem;
+
 }
 
+
 .op .scale{
+
   color:var(--muted);
 
   font-weight:700;
 
   margin-bottom:10px;
+
 }
 
+
 .op img{
+
   width:100%;
 
   height:250px;
 
   object-fit:cover;
 
-  border-bottom:1px solid var(--border);
+  border-bottom:
+    1px solid var(--border);
+
 }
 
 
-/* ==============================
+/* =========================
    STATUS
-============================== */
+========================= */
 
 .status{
+
   display:inline-flex;
 
   align-items:center;
 
   gap:10px;
 
-  padding:10px 14px;
+  padding:
+    10px 14px;
 
   border-radius:999px;
 
@@ -519,12 +731,16 @@ nav a:hover{
 
   margin-bottom:14px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   background:#fff;
+
 }
 
+
 .dot{
+
   width:11px;
 
   height:11px;
@@ -532,33 +748,47 @@ nav a:hover{
   border-radius:50%;
 
   display:inline-block;
+
 }
+
 
 .dot.red{
+
   background:var(--red);
+
 }
+
 
 .dot.yellow{
+
   background:var(--yellow);
+
 }
+
 
 .dot.white{
+
   background:var(--white);
 
-  border:1px solid #cbd5e1;
+  border:
+    1px solid #cbd5e1;
+
 }
 
 
-/* ==============================
+/* =========================
    NOTE
-============================== */
+========================= */
 
 .note{
+
   margin-top:22px;
 
-  padding:20px 22px;
+  padding:
+    20px 22px;
 
-  border-left:5px solid var(--blue);
+  border-left:
+    5px solid var(--blue);
 
   background:#eff7fb;
 
@@ -567,80 +797,105 @@ nav a:hover{
   color:var(--navy);
 
   font-weight:600;
+
 }
 
 
-/* ==============================
+/* =========================
    FOOTER
-============================== */
+========================= */
 
 footer{
+
   background:var(--navy);
 
   color:#fff;
 
   padding:34px 0;
+
 }
+
 
 footer p{
+
   color:#d8e3ee;
+
 }
 
 
-/* ==============================
+/* =========================
    MOBILE
-============================== */
+========================= */
 
 @media(max-width:900px){
 
   .hero{
+
     grid-template-columns:1fr;
+
   }
+
 
   .hero-visual{
+
     min-height:320px;
+
   }
+
 
   .two{
+
     grid-template-columns:1fr;
+
   }
 
+
   .nav{
+
     flex-direction:column;
 
     padding:14px 0;
+
   }
 
+
   nav ul{
+
     justify-content:center;
+
   }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ==================================================
+<!-- =====================================================
      HEADER
-================================================== -->
+===================================================== -->
 
 <header>
 
   <div class="container nav">
 
 
-    <!-- LOGO ALSO RETURNS HOME -->
+    <!-- LOGO → HOME -->
 
     <a
       class="logo"
       href="index.html"
+      aria-label="DRONES4AID Home"
     >
 
-      <span class="logo-mark">
+      <span
+        class="logo-mark"
+        aria-hidden="true"
+      >
         ✦
       </span>
 
@@ -649,47 +904,61 @@ footer p{
     </a>
 
 
-    <nav>
+    <!-- NAVIGATION -->
+
+    <nav aria-label="Operations navigation">
 
       <ul>
 
 
-        <!-- HOME LINK -->
+        <!-- THIS IS THE HOME BUTTON -->
 
         <li>
 
           <a
-            class="home-button"
+            class="home-link"
             href="index.html"
           >
-            HOME
+            Home
           </a>
 
         </li>
 
+
+        <!-- OPERATIONS -->
 
         <li>
 
-          <a href="#operation">
+          <a href="operations.html">
+
             Operations
+
           </a>
 
         </li>
 
+
+        <!-- ONGOING -->
 
         <li>
 
           <a href="#ongoing">
+
             Ongoing Operations
+
           </a>
 
         </li>
 
 
+        <!-- SUCCESSFUL -->
+
         <li>
 
           <a href="#successful">
+
             Successful Operations
+
           </a>
 
         </li>
@@ -705,30 +974,9 @@ footer p{
 
 
 
-<!-- ==================================================
-     LARGE BACK TO HOME BUTTON
-================================================== -->
-
-<div class="back-home-area">
-
-  <div class="container">
-
-    <a
-      class="back-home-button"
-      href="index.html"
-    >
-      ← Back to Home
-    </a>
-
-  </div>
-
-</div>
-
-
-
-<!-- ==================================================
+<!-- =====================================================
      HERO
-================================================== -->
+===================================================== -->
 
 <section class="hero">
 
@@ -737,21 +985,29 @@ footer p{
 
     <div class="container">
 
+
       <div class="eyebrow">
+
         Operations
+
       </div>
 
 
       <h1>
+
         Ongoing Operations Across War-Affected and War-Prone Areas
+
       </h1>
 
 
       <p>
+
         We operate in several war-prone and war-affected areas, focusing on
         civilian humanitarian support, access assessments, and urgent relief
         delivery based on stress scale and need.
+
       </p>
+
 
     </div>
 
@@ -768,9 +1024,9 @@ footer p{
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      OPERATIONS
-================================================== -->
+===================================================== -->
 
 <section
   id="operation"
@@ -781,36 +1037,48 @@ footer p{
 
 
     <h2>
+
       Operations
+
     </h2>
 
 
     <p class="lead">
+
       We operate in several war-prone and war-affected areas, including Russia,
       Ukraine, Burkina Faso, Niger, Sudan, South Sudan, Mali, Pakistan,
       Afghanistan, the Baloch region, Iran, Lebanon, Palestine, and Israel.
+
     </p>
 
 
     <div class="grid two">
 
 
+      <!-- URGENCY SCALE -->
+
       <article class="card">
 
         <div class="card-body">
 
+
           <h3>
+
             Urgency Scale
+
           </h3>
 
 
           <p>
+
             Our operations are divided into three classes based on a
             war-affected and war-prone stress scale.
+
           </p>
 
 
           <div class="scale-wrap">
+
 
             <div class="scale-bar"></div>
 
@@ -879,6 +1147,7 @@ footer p{
 
             </div>
 
+
           </div>
 
         </div>
@@ -887,12 +1156,17 @@ footer p{
 
 
 
+      <!-- HOW WE CLASSIFY -->
+
       <article class="card">
 
         <div class="card-body">
 
+
           <h3>
+
             How We Classify
+
           </h3>
 
 
@@ -905,8 +1179,8 @@ footer p{
                 Severe urgency (7–10):
               </strong>
 
-              critical humanitarian situations requiring the highest level of
-              response.
+              critical humanitarian situations requiring the highest level
+              of response.
 
             </li>
 
@@ -917,8 +1191,8 @@ footer p{
                 Medium urgency (4–6):
               </strong>
 
-              serious humanitarian pressure where additional support may be
-              required.
+              serious humanitarian pressure where additional support may
+              be required.
 
             </li>
 
@@ -962,9 +1236,9 @@ footer p{
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      ONGOING OPERATIONS
-================================================== -->
+===================================================== -->
 
 <section
   id="ongoing"
@@ -975,23 +1249,30 @@ footer p{
 
 
     <h2>
+
       Ongoing Operations
+
     </h2>
 
 
     <p class="lead">
+
       According to the stress scale, we take more drastic measures where
       needed, but we treat every affected area equally and with the same
       humanitarian purpose.
+
     </p>
 
 
     <div class="grid">
 
 
-      <!-- ISRAEL / PALESTINE -->
+      <!-- =================================================
+           ISRAEL / PALESTINE
+      ================================================= -->
 
       <article class="card op">
+
 
         <img
           src="https://npr.brightspotcdn.com/dims3/default/strip/false/crop/6720x4480+0+0/resize/6720x4480!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fb8%2F08%2F293bdfc64a6e9247b968de5b894a%2Fgettyimages-2185216531.jpg"
@@ -1000,6 +1281,7 @@ footer p{
 
 
         <div class="op-head">
+
 
           <div class="status">
 
@@ -1011,18 +1293,24 @@ footer p{
 
 
           <h3>
+
             1. Israel and Palestine
+
           </h3>
 
 
           <div class="scale">
+
             Stress level: 8.5
+
           </div>
+
 
         </div>
 
 
         <div class="card-body">
+
 
           <h3>
             The Situation
@@ -1030,11 +1318,13 @@ footer p{
 
 
           <p>
+
             The Israel–Palestine conflict has created severe humanitarian
             challenges, with civilians facing shortages of food, clean water,
             medical supplies and basic necessities. Damage to infrastructure
             and disruption to transport routes have also made it difficult for
             aid to reach some communities quickly and consistently.
+
           </p>
 
 
@@ -1047,6 +1337,7 @@ footer p{
 
 
           <p>
+
             In our Israel–Palestine operation, DRONES4AID focused on providing
             direct humanitarian assistance to affected civilians. In Khan
             Younis, our teams delivered 250 emergency food packages to
@@ -1062,7 +1353,9 @@ footer p{
             focused exclusively on civilian humanitarian assistance,
             prioritising food, water, hygiene supplies and basic medical
             essentials while maintaining safety, privacy and accountability.
+
           </p>
+
 
         </div>
 
@@ -1070,9 +1363,12 @@ footer p{
 
 
 
-      <!-- RUSSIA / UKRAINE -->
+      <!-- =================================================
+           RUSSIA / UKRAINE
+      ================================================= -->
 
       <article class="card op">
+
 
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUqACWJnUXvInkp4NCGbY4YIMFeSp0btYC1hFsHvT1yOTH3ogF5EehYhta&s=10"
@@ -1082,6 +1378,7 @@ footer p{
 
         <div class="op-head">
 
+
           <div class="status">
 
             <span class="dot red"></span>
@@ -1092,18 +1389,24 @@ footer p{
 
 
           <h3>
+
             2. Russia–Ukraine war tensions
+
           </h3>
 
 
           <div class="scale">
+
             Stress level: 8.2
+
           </div>
+
 
         </div>
 
 
         <div class="card-body">
+
 
           <h3>
             The Situation
@@ -1111,11 +1414,13 @@ footer p{
 
 
           <p>
+
             The Russia–Ukraine war has caused widespread displacement, damage
-            to homes and infrastructure, and disruption to access to food, water
-            and medical necessities. Communities close to heavily affected areas
-            can face additional difficulties when roads, bridges and local
-            supply networks are damaged or disrupted.
+            to homes and infrastructure, and disruption to access to food,
+            water and medical necessities. Communities close to heavily
+            affected areas can face additional difficulties when roads,
+            bridges and local supply networks are damaged or disrupted.
+
           </p>
 
 
@@ -1128,20 +1433,24 @@ footer p{
 
 
           <p>
+
             In our Russia–Ukraine humanitarian operation, DRONES4AID focused on
             supporting civilians affected by displacement and infrastructure
             damage. In Kharkiv, our teams delivered 300 emergency food packages
-            containing basic non-perishable supplies to displaced families. In
-            Kherson, we distributed 200 water and hygiene packages to households
-            experiencing disruption to essential services. In Mykolaiv,
-            DRONES4AID provided 150 emergency-support packages containing food,
-            hygiene products and basic first-aid materials. Our teams also
-            conducted humanitarian access assessments around damaged
-            infrastructure to identify areas where conventional relief delivery
-            was difficult. The operation prioritised civilian needs and used
-            drone technology only for authorised humanitarian purposes, with no
-            weapons, military targeting or combat activity involved.
+            containing basic non-perishable supplies to displaced families.
+            In Kherson, we distributed 200 water and hygiene packages to
+            households experiencing disruption to essential services. In
+            Mykolaiv, DRONES4AID provided 150 emergency-support packages
+            containing food, hygiene products and basic first-aid materials.
+            Our teams also conducted humanitarian access assessments around
+            damaged infrastructure to identify areas where conventional relief
+            delivery was difficult. The operation prioritised civilian needs
+            and used drone technology only for authorised humanitarian
+            purposes, with no weapons, military targeting or combat activity
+            involved.
+
           </p>
+
 
         </div>
 
@@ -1149,9 +1458,12 @@ footer p{
 
 
 
-      <!-- SAHEL -->
+      <!-- =================================================
+           SAHEL
+      ================================================= -->
 
       <article class="card op">
+
 
         <img
           src="https://featured.undp.org/sahel/assets/4.jpeg"
@@ -1161,6 +1473,7 @@ footer p{
 
         <div class="op-head">
 
+
           <div class="status">
 
             <span class="dot red"></span>
@@ -1171,18 +1484,24 @@ footer p{
 
 
           <h3>
+
             3. The Sahel region conflict
+
           </h3>
 
 
           <div class="scale">
+
             Stress level: 7.5
+
           </div>
+
 
         </div>
 
 
         <div class="card-body">
+
 
           <h3>
             The Situation
@@ -1190,12 +1509,14 @@ footer p{
 
 
           <p>
+
             Conflict and insecurity across the Sahel region, particularly in
             areas of Mali, Burkina Faso and Niger, have displaced communities
             and disrupted access to food, clean water, healthcare and other
             basic necessities. Damaged infrastructure and insecurity can make
             conventional humanitarian deliveries difficult, particularly for
             communities located far from major distribution centres.
+
           </p>
 
 
@@ -1208,22 +1529,25 @@ footer p{
 
 
           <p>
-            In our Sahel humanitarian operation, DRONES4AID focused on assisting
-            civilians affected by displacement and shortages of essential
-            supplies. In Mopti, Mali, our teams delivered 220 emergency food
-            packages containing basic non-perishable supplies to displaced
-            families. In Tillabéri, Niger, we distributed 160 water and hygiene
-            packages to communities experiencing difficulties accessing
-            essential services. In Djibo, Burkina Faso, DRONES4AID provided 140
-            emergency-relief packages containing food, hygiene products and
-            basic medical supplies. Our teams also conducted humanitarian access
-            assessments to identify communities where damaged infrastructure or
-            difficult terrain made conventional delivery challenging. The
-            operation remained focused exclusively on civilian assistance, with
-            drone technology considered only for authorised humanitarian
-            purposes and with safety, impartiality and protection of civilians
-            kept at the centre of the programme.
+
+            In our Sahel humanitarian operation, DRONES4AID focused on
+            assisting civilians affected by displacement and shortages of
+            essential supplies. In Mopti, Mali, our teams delivered 220
+            emergency food packages containing basic non-perishable supplies
+            to displaced families. In Tillabéri, Niger, we distributed 160
+            water and hygiene packages to communities experiencing difficulties
+            accessing essential services. In Djibo, Burkina Faso, DRONES4AID
+            provided 140 emergency-relief packages containing food, hygiene
+            products and basic medical supplies. Our teams also conducted
+            humanitarian access assessments to identify communities where
+            damaged infrastructure or difficult terrain made conventional
+            delivery challenging. The operation remained focused exclusively on
+            civilian assistance, with drone technology considered only for
+            authorised humanitarian purposes and with safety, impartiality and
+            protection of civilians kept at the centre of the programme.
+
           </p>
+
 
         </div>
 
@@ -1231,9 +1555,12 @@ footer p{
 
 
 
-      <!-- SUDAN -->
+      <!-- =================================================
+           SUDAN
+      ================================================= -->
 
       <article class="card op">
+
 
         <img
           src="https://i.guim.co.uk/img/media/dd8c5f5b7fc514c61fc3cb21f00cc95c9b869b3a/0_0_3000_1800/master/3000.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=ee482e7c81e1400348c20e0769e6d61e"
@@ -1242,6 +1569,7 @@ footer p{
 
 
         <div class="op-head">
+
 
           <div class="status">
 
@@ -1253,18 +1581,24 @@ footer p{
 
 
           <h3>
+
             4. The Sudanese Civil War
+
           </h3>
 
 
           <div class="scale">
+
             Stress scale: 6.3
+
           </div>
+
 
         </div>
 
 
         <div class="card-body">
+
 
           <h3>
             The Situation
@@ -1272,11 +1606,13 @@ footer p{
 
 
           <p>
+
             The Sudanese civil war has caused massive displacement and severe
             disruption to food supplies, healthcare, clean water and essential
             infrastructure. Communities in areas affected by fighting and
             displacement have faced particularly difficult access to
             humanitarian assistance.
+
           </p>
 
 
@@ -1289,22 +1625,25 @@ footer p{
 
 
           <p>
+
             In our Sudan humanitarian operation, DRONES4AID focused on
             supporting civilians displaced by the conflict and helping
             communities access essential supplies. In Khartoum, our teams
             delivered 200 emergency food packages containing basic
             non-perishable supplies to displaced families. In Omdurman, we
             distributed 150 water and hygiene packages to households
-            experiencing disruption to essential services. In El Fasher, Darfur,
-            DRONES4AID provided 120 emergency-relief packages containing food,
-            hygiene materials and basic first-aid supplies. Our teams also
-            carried out humanitarian access assessments to identify areas where
-            damaged roads and infrastructure made conventional delivery
-            difficult. Throughout the operation, our focus remained on civilian
-            assistance, with drone technology used only for authorised
-            humanitarian purposes and with safety, impartiality and protection
-            of civilians prioritised.
+            experiencing disruption to essential services. In El Fasher,
+            Darfur, DRONES4AID provided 120 emergency-relief packages
+            containing food, hygiene materials and basic first-aid supplies.
+            Our teams also carried out humanitarian access assessments to
+            identify areas where damaged roads and infrastructure made
+            conventional delivery difficult. Throughout the operation, our
+            focus remained on civilian assistance, with drone technology used
+            only for authorised humanitarian purposes and with safety,
+            impartiality and protection of civilians prioritised.
+
           </p>
+
 
         </div>
 
@@ -1312,9 +1651,12 @@ footer p{
 
 
 
-      <!-- BALOCHISTAN -->
+      <!-- =================================================
+           BALOCH REGION
+      ================================================= -->
 
       <article class="card op">
+
 
         <img
           src="https://www.aljazeera.com/wp-content/uploads/2026/05/afp_6a143f2188bf-1779711777.jpg?resize=730%2C410&quality=80"
@@ -1323,6 +1665,7 @@ footer p{
 
 
         <div class="op-head">
+
 
           <div class="status">
 
@@ -1334,18 +1677,24 @@ footer p{
 
 
           <h3>
+
             5. Baloch Region Disputes
+
           </h3>
 
 
           <div class="scale">
+
             Stress scale: 3.2
+
           </div>
+
 
         </div>
 
 
         <div class="card-body">
+
 
           <h3>
             The Situation
@@ -1353,6 +1702,7 @@ footer p{
 
 
           <p>
+
             The Balochistan region of Pakistan has faced humanitarian pressures
             linked to insecurity, displacement, poverty, and natural disasters.
             In previous emergencies, heavy snowfall, rain and flooding have
@@ -1360,6 +1710,7 @@ footer p{
             have experienced shortages of food and clean drinking water. A
             UN-backed assessment, for example, identified food, WASH, shelter
             and healthcare as major needs in affected Balochistan districts.
+
           </p>
 
 
@@ -1372,20 +1723,23 @@ footer p{
 
 
           <p>
+
             In our Balochistan humanitarian operation, DRONES4AID focused on
             supporting civilians affected by disrupted access to essential
             supplies. In Quetta, our teams delivered 200 emergency food
             packages containing basic non-perishable supplies, while in Ziarat
             we distributed 150 water and hygiene packages to families affected
-            by disruption to local services. In Pishin, DRONES4AID provided 120
-            emergency-relief packages containing food, hygiene materials and
-            basic first-aid supplies. Our teams also carried out humanitarian
-            access assessments around damaged roads and infrastructure to
-            identify communities where conventional relief delivery was
-            difficult. The operation remained focused on civilian humanitarian
-            assistance, with safety, lawful access, impartiality and protection
-            of affected communities treated as priorities.
+            by disruption to local services. In Pishin, DRONES4AID provided
+            120 emergency-relief packages containing food, hygiene materials
+            and basic first-aid supplies. Our teams also carried out
+            humanitarian access assessments around damaged roads and
+            infrastructure to identify communities where conventional relief
+            delivery was difficult. The operation remained focused on civilian
+            humanitarian assistance, with safety, lawful access, impartiality
+            and protection of affected communities treated as priorities.
+
           </p>
+
 
         </div>
 
@@ -1397,10 +1751,12 @@ footer p{
 
     <div class="note">
 
-      DRONES4AID is committed to responding based on urgency, but every affected
-      community is treated with equal dignity, respect and humanitarian purpose.
+      DRONES4AID is committed to responding based on urgency, but every
+      affected community is treated with equal dignity, respect and
+      humanitarian purpose.
 
     </div>
+
 
   </div>
 
@@ -1408,9 +1764,9 @@ footer p{
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      SUCCESSFUL OPERATIONS
-================================================== -->
+===================================================== -->
 
 <section
   id="successful"
@@ -1421,14 +1777,18 @@ footer p{
 
 
     <h2>
+
       Successful Operations
+
     </h2>
 
 
     <p class="lead">
+
       A structured overview of completed humanitarian initiatives and areas
       where DRONES4AID has contributed to civilian support and emergency
       preparedness.
+
     </p>
 
 
@@ -1601,17 +1961,19 @@ footer p{
 
 
 
-<!-- ==================================================
+<!-- =====================================================
      FOOTER
-================================================== -->
+===================================================== -->
 
 <footer>
 
   <div class="container">
 
     <p>
-      © 2026 DRONES4AID — Humanitarian operations driven by urgency, safety,
-      and equal care for every affected community.
+
+      © 2026 DRONES4AID — Humanitarian operations driven by urgency,
+      safety, and equal care for every affected community.
+
     </p>
 
   </div>
@@ -1620,4 +1982,5 @@ footer p{
 
 
 </body>
+
 </html>
