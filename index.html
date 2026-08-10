@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <meta
     name="description"
     content="DRONES4AID is a non-profit, non-governmental humanitarian organisation supporting communities affected by conflict and crisis."
   />
+
   <title>DRONES4AID | Humanitarian Support Through Responsible Technology</title>
 
   <style>
@@ -23,9 +25,15 @@
       --shadow: 0 10px 30px rgba(16, 42, 67, 0.1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -34,11 +42,21 @@
       line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    img { display: block; width: 100%; object-fit: cover; }
+    img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+    }
 
-    .container { width: min(1120px, 92%); margin: auto; }
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
 
     .skip-link {
       position: absolute;
@@ -50,7 +68,11 @@
       z-index: 1000;
     }
 
-    .skip-link:focus { top: 10px; }
+    .skip-link:focus {
+      top: 10px;
+    }
+
+    /* TOP BAR */
 
     .topbar {
       background: var(--navy);
@@ -59,6 +81,8 @@
       padding: 8px 15px;
       font-size: 0.88rem;
     }
+
+    /* HEADER */
 
     header {
       background: var(--white);
@@ -106,7 +130,10 @@
       font-weight: 700;
     }
 
-    nav a:hover, nav a:focus { color: var(--blue); }
+    nav a:hover,
+    nav a:focus {
+      color: var(--blue);
+    }
 
     .menu-button {
       display: none;
@@ -119,18 +146,28 @@
       font-size: 1rem;
     }
 
+    /* HERO */
+
     .hero {
       min-height: 620px;
       display: grid;
       place-items: center;
+
       background:
-        linear-gradient(rgba(16, 42, 67, 0.76), rgba(16, 42, 67, 0.76)),
+        linear-gradient(
+          rgba(16, 42, 67, 0.76),
+          rgba(16, 42, 67, 0.76)
+        ),
         url("https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=1800&q=85")
         center / cover;
+
       color: var(--white);
     }
 
-    .hero-content { max-width: 760px; padding: 80px 0; }
+    .hero-content {
+      max-width: 760px;
+      padding: 80px 0;
+    }
 
     .eyebrow {
       color: var(--orange);
@@ -154,7 +191,10 @@
       margin-bottom: 16px;
     }
 
-    h3 { color: var(--navy); margin-bottom: 9px; }
+    h3 {
+      color: var(--navy);
+      margin-bottom: 9px;
+    }
 
     .hero p {
       max-width: 680px;
@@ -162,6 +202,8 @@
       font-size: 1.12rem;
       margin-bottom: 28px;
     }
+
+    /* BUTTONS */
 
     .button {
       display: inline-block;
@@ -176,7 +218,8 @@
       transition: 0.2s ease;
     }
 
-    .button:hover, .button:focus {
+    .button:hover,
+    .button:focus {
       background: #ffad52;
       border-color: #ffad52;
       transform: translateY(-1px);
@@ -188,24 +231,47 @@
       border-color: var(--white);
     }
 
-    .button.secondary:hover, .button.secondary:focus {
+    .button.secondary:hover,
+    .button.secondary:focus {
       background: var(--white);
       color: var(--navy);
     }
 
-    section { padding: 85px 0; }
+    /* SECTIONS */
 
-    section:nth-of-type(even) { background: var(--white); }
+    section {
+      padding: 85px 0;
+    }
 
-    .section-intro { max-width: 740px; margin-bottom: 35px; }
+    section:nth-of-type(even) {
+      background: var(--white);
+    }
 
-    .section-intro p { color: var(--muted); }
+    .section-intro {
+      max-width: 740px;
+      margin-bottom: 35px;
+    }
 
-    .grid { display: grid; gap: 22px; }
+    .section-intro p {
+      color: var(--muted);
+    }
 
-    .three-columns { grid-template-columns: repeat(3, 1fr); }
+    /* GRID */
 
-    .two-columns { grid-template-columns: repeat(2, 1fr); }
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .three-columns {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .two-columns {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* CARDS */
 
     .card {
       background: var(--white);
@@ -215,7 +281,9 @@
       box-shadow: var(--shadow);
     }
 
-    section:nth-of-type(even) .card { background: var(--cream); }
+    section:nth-of-type(even) .card {
+      background: var(--cream);
+    }
 
     .icon {
       width: 48px;
@@ -228,9 +296,17 @@
       margin-bottom: 15px;
     }
 
-    .card p, .card li { color: var(--muted); }
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
 
-    .card ul { padding-left: 20px; margin-top: 10px; }
+    .card ul {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+
+    /* PROCESS */
 
     .process-number {
       width: 38px;
@@ -244,6 +320,8 @@
       margin-bottom: 13px;
     }
 
+    /* NOTICE */
+
     .notice {
       border-left: 5px solid var(--orange);
       background: #fff4df;
@@ -252,6 +330,8 @@
       margin-top: 25px;
       border-radius: 5px;
     }
+
+    /* LOCATIONS */
 
     .locations {
       display: flex;
@@ -269,7 +349,11 @@
       font-size: 0.9rem;
     }
 
-    .gallery { grid-template-columns: repeat(3, 1fr); }
+    /* GALLERY */
+
+    .gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
 
     .gallery figure {
       overflow: hidden;
@@ -278,7 +362,9 @@
       box-shadow: var(--shadow);
     }
 
-    .gallery img { height: 220px; }
+    .gallery img {
+      height: 220px;
+    }
 
     figcaption {
       padding: 13px;
@@ -286,7 +372,11 @@
       font-size: 0.9rem;
     }
 
-    .quote { position: relative; }
+    /* QUOTES */
+
+    .quote {
+      position: relative;
+    }
 
     .quote::before {
       content: "“";
@@ -297,13 +387,18 @@
       font-weight: 900;
     }
 
-    .quote p { font-style: italic; margin: 12px 0; }
+    .quote p {
+      font-style: italic;
+      margin: 12px 0;
+    }
 
     .quote cite {
       color: var(--navy);
       font-weight: 800;
       font-style: normal;
     }
+
+    /* FAQ */
 
     .faq details {
       background: var(--white);
@@ -319,9 +414,17 @@
       font-weight: 800;
     }
 
-    .faq details p { color: var(--muted); margin-top: 12px; }
+    .faq details p {
+      color: var(--muted);
+      margin-top: 12px;
+    }
 
-    form { display: grid; gap: 15px; }
+    /* FORM */
+
+    form {
+      display: grid;
+      gap: 15px;
+    }
 
     label {
       display: block;
@@ -330,7 +433,9 @@
       margin-bottom: 5px;
     }
 
-    input, textarea, select {
+    input,
+    textarea,
+    select {
       width: 100%;
       border: 1px solid #9fb3c8;
       border-radius: 5px;
@@ -339,9 +444,17 @@
       background: var(--white);
     }
 
-    textarea { min-height: 135px; resize: vertical; }
+    textarea {
+      min-height: 135px;
+      resize: vertical;
+    }
 
-    .form-message { color: var(--blue); font-weight: 700; }
+    .form-message {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    /* FOOTER */
 
     footer {
       background: var(--navy);
@@ -349,9 +462,15 @@
       padding: 50px 0 25px;
     }
 
-    footer .logo { color: var(--white); margin-bottom: 15px; }
+    footer .logo {
+      color: var(--white);
+      margin-bottom: 15px;
+    }
 
-    footer p { color: #d9e2ec; max-width: 600px; }
+    footer p {
+      color: #d9e2ec;
+      max-width: 600px;
+    }
 
     .footer-grid {
       display: grid;
@@ -360,7 +479,9 @@
       margin-bottom: 35px;
     }
 
-    footer h3 { color: var(--orange); }
+    footer h3 {
+      color: var(--orange);
+    }
 
     footer ul {
       list-style: none;
@@ -370,14 +491,23 @@
     }
 
     .copyright {
-      border-top: 1px solid rgba(255,255,255,0.25);
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
       padding-top: 20px;
       color: #d9e2ec;
       font-size: 0.9rem;
     }
 
+    /* MOBILE */
+
     @media (max-width: 800px) {
-      .menu-button { display: block; }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-wrapper {
+        position: relative;
+      }
 
       nav ul {
         display: none;
@@ -392,30 +522,47 @@
         align-items: flex-start;
       }
 
-      nav ul.open { display: flex; }
+      nav ul.open {
+        display: flex;
+      }
 
-      .three-columns, .two-columns, .gallery, .footer-grid {
+      .three-columns,
+      .two-columns,
+      .gallery,
+      .footer-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero { min-height: 570px; }
+      .hero {
+        min-height: 570px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- SKIP LINK -->
+
+  <a class="skip-link" href="#main-content">
+    Skip to main content
+  </a>
+
+
+  <!-- TOP BAR -->
 
   <div class="topbar">
     DRONES4AID is a strictly non-profit and non-governmental humanitarian organisation.
   </div>
 
-  <!-- FIXED: There is now only ONE header/navigation structure -->
+
+  <!-- HEADER -->
+
   <header>
     <div class="container nav-wrapper">
 
       <a class="logo" href="index.html">
-        <span class="logo-mark">✦</span>
+        <span class="logo-mark" aria-hidden="true">✦</span>
         DRONES4AID
       </a>
 
@@ -430,104 +577,235 @@
 
       <nav aria-label="Main navigation">
         <ul id="site-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="#mission">Mission</a></li>
-          <li><a href="#operations">Operations</a></li>
-          <li><a href="#drones">Drones</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#faq">FAQs</a></li>
-          <li><a class="button" href="#contact">Get Involved</a></li>
+
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+
+          <li>
+            <a href="about.html">About</a>
+          </li>
+
+          <li>
+            <a href="#mission">Mission</a>
+          </li>
+
+          <li>
+            <a href="#operations">Operations</a>
+          </li>
+
+          <li>
+            <a href="#drones">Drones</a>
+          </li>
+
+          <li>
+            <a href="#gallery">Gallery</a>
+          </li>
+
+          <li>
+            <a href="#faq">FAQs</a>
+          </li>
+
+          <li>
+            <a class="button" href="#contact">Get Involved</a>
+          </li>
+
         </ul>
       </nav>
 
     </div>
   </header>
 
+
+  <!-- MAIN CONTENT -->
+
   <main id="main-content">
+
+
+    <!-- HERO -->
+
     <section class="hero" id="home">
+
       <div class="container hero-content">
-        <div class="eyebrow">Humanitarian action • Peace • Dignity</div>
-        <h1>Delivering hope where help is hardest to reach.</h1>
+
+        <div class="eyebrow">
+          Humanitarian action • Peace • Dignity
+        </div>
+
+        <h1>
+          Delivering hope where help is hardest to reach.
+        </h1>
+
         <p>
           DRONES4AID supports people affected by war, displacement, and crisis
           through responsible humanitarian aid, community partnerships, and
           peaceful action.
         </p>
-        <a class="button" href="#mission">Learn About Our Mission</a>
-        <a class="button secondary" href="#contact">Volunteer With Us</a>
+
+        <a class="button" href="#mission">
+          Learn About Our Mission
+        </a>
+
+        <a class="button secondary" href="#contact">
+          Volunteer With Us
+        </a>
+
       </div>
+
     </section>
 
+
+    <!-- ABOUT -->
+
     <section id="about">
+
       <div class="container">
+
         <div class="section-intro">
-          <div class="eyebrow">About us</div>
-          <h2>Humanitarian support without borders.</h2>
+
+          <div class="eyebrow">
+            About us
+          </div>
+
+          <h2>
+            Humanitarian support without borders.
+          </h2>
+
           <p>
             DRONES4AID is a strictly non-profit, non-governmental organisation
             committed to supporting communities affected by war, armed conflict,
             displacement, and humanitarian emergencies.
           </p>
+
         </div>
 
+
         <div class="grid three-columns">
+
           <article class="card">
-            <div class="icon" aria-hidden="true">❤</div>
-            <h3>People first</h3>
+
+            <div class="icon" aria-hidden="true">
+              ❤
+            </div>
+
+            <h3>
+              People first
+            </h3>
+
             <p>
               We place civilian safety, dignity, consent, and community needs at
               the centre of every programme.
             </p>
+
           </article>
 
+
           <article class="card">
-            <div class="icon" aria-hidden="true">✚</div>
-            <h3>Essential aid</h3>
+
+            <div class="icon" aria-hidden="true">
+              ✚
+            </div>
+
+            <h3>
+              Essential aid
+            </h3>
+
             <p>
               We support the delivery of food, first-aid kits, emergency
               packages, hygiene items, and other necessary essentials.
             </p>
+
           </article>
 
+
           <article class="card">
-            <div class="icon" aria-hidden="true">☮</div>
-            <h3>Peaceful action</h3>
+
+            <div class="icon" aria-hidden="true">
+              ☮
+            </div>
+
+            <h3>
+              Peaceful action
+            </h3>
+
             <p>
               We strive to reduce suffering and encourage dialogue,
               cooperation, and peaceful approaches to disputes.
             </p>
+
           </article>
+
         </div>
+
       </div>
+
     </section>
 
+
+    <!-- MISSION -->
+
     <section id="mission">
+
       <div class="container">
+
         <div class="section-intro">
-          <div class="eyebrow">Our mission</div>
-          <h2>Advocating for peace and humanitarian aid.</h2>
+
+          <div class="eyebrow">
+            Our mission
+          </div>
+
+          <h2>
+            Advocating for peace and humanitarian aid.
+          </h2>
+
           <p>
             We aim to reach vulnerable communities quickly, safely, and fairly,
             especially when roads, infrastructure, or traditional delivery
             methods are disrupted.
           </p>
+
         </div>
 
+
         <div class="grid two-columns">
-          <article class="card">
-            <h3>What we aim to do</h3>
-            <ul>
-              <li>Deliver lifesaving supplies to people in need.</li>
-              <li>Support civilians affected by conflict and displacement.</li>
-              <li>Work with trusted local organisations and humanitarian partners.</li>
-              <li>Promote peaceful dialogue and conflict resolution.</li>
-              <li>Maintain transparency, accountability, and independence.</li>
-            </ul>
-          </article>
 
           <article class="card">
-            <h3>Our principles</h3>
+
+            <h3>
+              What we aim to do
+            </h3>
+
+            <ul>
+              <li>
+                Deliver lifesaving supplies to people in need.
+              </li>
+
+              <li>
+                Support civilians affected by conflict and displacement.
+              </li>
+
+              <li>
+                Work with trusted local organisations and humanitarian partners.
+              </li>
+
+              <li>
+                Promote peaceful dialogue and conflict resolution.
+              </li>
+
+              <li>
+                Maintain transparency, accountability, and independence.
+              </li>
+            </ul>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>
+              Our principles
+            </h3>
+
             <ul>
               <li>Humanity</li>
               <li>Neutrality</li>
@@ -536,101 +814,185 @@
               <li>Do no harm</li>
               <li>Respect for privacy and local communities</li>
             </ul>
+
           </article>
+
         </div>
 
+
         <div class="notice">
-          <strong>Safety notice:</strong>
+
+          <strong>
+            Safety notice:
+          </strong>
+
           Drone operations are considered only for clearly defined civilian
           humanitarian purposes and only when legal, authorised, necessary, and
           sufficiently safe. We do not transport weapons or support military
           targeting.
+
         </div>
+
       </div>
+
     </section>
 
+
+    <!-- OPERATIONS -->
+
     <section id="operations">
+
       <div class="container">
+
         <div class="section-intro">
-          <div class="eyebrow">How we operate</div>
-          <h2>Careful planning. Local cooperation. Accountable delivery.</h2>
+
+          <div class="eyebrow">
+            How we operate
+          </div>
+
+          <h2>
+            Careful planning. Local cooperation. Accountable delivery.
+          </h2>
+
           <p>
             Every programme is adapted to local conditions and reviewed for
             safety, legality, feasibility, and humanitarian value.
           </p>
+
         </div>
 
+
         <div class="grid three-columns">
+
           <article class="card">
+
             <div class="process-number">1</div>
-            <h3>Assess needs</h3>
+
+            <h3>
+              Assess needs
+            </h3>
+
             <p>
               We listen to affected communities and consult local partners,
               medical organisations, and humanitarian actors.
             </p>
+
           </article>
 
+
           <article class="card">
+
             <div class="process-number">2</div>
-            <h3>Plan responsibly</h3>
+
+            <h3>
+              Plan responsibly
+            </h3>
+
             <p>
               Teams review security, weather, airspace, permissions, privacy,
               and the possibility of misunderstanding.
             </p>
+
           </article>
 
+
           <article class="card">
+
             <div class="process-number">3</div>
-            <h3>Coordinate locally</h3>
+
+            <h3>
+              Coordinate locally
+            </h3>
+
             <p>
               We seek appropriate authorisations and coordinate with relevant
               authorities and humanitarian partners.
             </p>
+
           </article>
 
+
           <article class="card">
+
             <div class="process-number">4</div>
-            <h3>Deliver assistance</h3>
+
+            <h3>
+              Deliver assistance
+            </h3>
+
             <p>
               Approved systems may support small humanitarian deliveries,
               mapping, and access assessments where appropriate.
             </p>
+
           </article>
 
+
           <article class="card">
+
             <div class="process-number">5</div>
-            <h3>Protect information</h3>
+
+            <h3>
+              Protect information
+            </h3>
+
             <p>
               We minimise personal-data collection and securely handle
               operational information.
             </p>
+
           </article>
 
+
           <article class="card">
+
             <div class="process-number">6</div>
-            <h3>Evaluate impact</h3>
+
+            <h3>
+              Evaluate impact
+            </h3>
+
             <p>
               We document results, gather feedback, and improve future
               humanitarian programmes.
             </p>
+
           </article>
+
         </div>
+
       </div>
+
     </section>
 
+
+    <!-- REGIONS -->
+
     <section id="regions">
+
       <div class="container">
+
         <div class="section-intro">
-          <div class="eyebrow">Areas of concern</div>
-          <h2>Supporting communities affected by crisis.</h2>
+
+          <div class="eyebrow">
+            Areas of concern
+          </div>
+
+          <h2>
+            Supporting communities affected by crisis.
+          </h2>
+
           <p>
             Our work depends on security, local consent, permissions,
             humanitarian need, funding, and operational capacity. The regions
             below are not a claim of active operations in every location.
           </p>
+
         </div>
 
+
         <div class="locations" aria-label="Regions">
+
           <span class="location">Ukraine</span>
           <span class="location">Russia</span>
           <span class="location">Sudan</span>
@@ -645,158 +1007,1039 @@
           <span class="location">Palestine</span>
           <span class="location">Lebanon</span>
           <span class="location">Iran</span>
+
         </div>
+
       </div>
+
     </section>
 
+
+    <!-- AID -->
+
     <section id="aid">
+
       <div class="container">
+
         <div class="section-intro">
-          <div class="eyebrow">What we provide</div>
-          <h2>Practical support for urgent needs.</h2>
+
+          <div class="eyebrow">
+            What we provide
+          </div>
+
+          <h2>
+            Practical support for urgent needs.
+          </h2>
+
         </div>
 
+
         <div class="grid three-columns">
+
           <article class="card">
-            <div class="icon" aria-hidden="true">▣</div>
-            <h3>Food and water</h3>
+
+            <div class="icon" aria-hidden="true">
+              ▣
+            </div>
+
+            <h3>
+              Food and water
+            </h3>
+
             <p>
               Food packages, clean-water supplies, and water-purification
               essentials where available.
             </p>
+
           </article>
 
+
           <article class="card">
-            <div class="icon" aria-hidden="true">✚</div>
-            <h3>Medical essentials</h3>
+
+            <div class="icon" aria-hidden="true">
+              ✚
+            </div>
+
+            <h3>
+              Medical essentials
+            </h3>
+
             <p>
               First-aid kits and basic medical supplies distributed through
               appropriate partners.
             </p>
+
           </article>
 
+
           <article class="card">
-            <div class="icon" aria-hidden="true">⌂</div>
-            <h3>Emergency essentials</h3>
+
+            <div class="icon" aria-hidden="true">
+              ⌂
+            </div>
+
+            <h3>
+              Emergency essentials
+            </h3>
+
             <p>
               Hygiene products, blankets, clothing, shelter items, and family
               support packages.
             </p>
+
           </article>
+
         </div>
+
       </div>
+
     </section>
 
+
+    <!-- DRONES -->
+
     <section id="drones">
+
       <div class="container">
+
         <div class="section-intro">
-          <div class="eyebrow">Our drone models</div>
-          <h2>Technology used responsibly.</h2>
+
+          <div class="eyebrow">
+            Our drone models
+          </div>
+
+          <h2>
+            Technology used responsibly.
+          </h2>
+
           <p>
             The exact equipment used may vary according to local regulations,
             terrain, weather, payload requirements, and partner guidance.
           </p>
+
         </div>
 
+
         <div class="grid two-columns">
+
           <article class="card">
-            <h3>Humanitarian delivery drones</h3>
+
+            <h3>
+              Humanitarian delivery drones
+            </h3>
+
             <p>
               Used only where authorised to transport small, lightweight relief
               packages to approved delivery points.
             </p>
+
           </article>
 
+
           <article class="card">
-            <h3>Mapping and assessment drones</h3>
+
+            <h3>
+              Mapping and assessment drones
+            </h3>
+
             <p>
               Used, where appropriate, to assess roads, bridges, shelters,
               farmland, and public infrastructure.
             </p>
+
           </article>
 
+
           <article class="card">
-            <h3>Medical-support drones</h3>
+
+            <h3>
+              Medical-support drones
+            </h3>
+
             <p>
               May support urgent transport of small medical items under proper
               medical oversight and aviation approval.
             </p>
+
           </article>
 
+
           <article class="card">
-            <h3>Safety and accountability</h3>
+
+            <h3>
+              Safety and accountability
+            </h3>
+
             <p>
               Flights require trained operators, documented plans, equipment
               checks, emergency procedures, secure data handling, and relevant
               permissions.
             </p>
+
           </article>
+
         </div>
 
+
         <div class="notice">
+
           We do not publish real-time flight paths, exact delivery points,
           beneficiary identities, or other information that could endanger
           people or humanitarian operations.
+
         </div>
+
       </div>
+
     </section>
 
+
+    <!-- PAST OPERATIONS -->
+
     <section id="past-operations">
+
       <div class="container">
+
         <div class="section-intro">
-          <div class="eyebrow">Past operations</div>
-          <h2>Transparency matters.</h2>
+
+          <div class="eyebrow">
+            Past operations
+          </div>
+
+          <h2>
+            Transparency matters.
+          </h2>
+
           <p>
             Verified projects will be published with appropriate details while
             protecting communities, volunteers, partners, and future missions.
           </p>
+
         </div>
 
+
         <div class="grid three-columns">
-          <article class="card">
-            <h3>Project location</h3>
-            <p>Location and date will be published only when safe to do so.</p>
-          </article>
 
           <article class="card">
-            <h3>Humanitarian impact</h3>
+
+            <h3>
+              Project location
+            </h3>
+
+            <p>
+              Location and date will be published only when safe to do so.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>
+              Humanitarian impact
+            </h3>
+
             <p>
               We report the type of aid delivered and the number of people
               reached where reliable data is available.
             </p>
+
           </article>
 
+
           <article class="card">
-            <h3>Community feedback</h3>
+
+            <h3>
+              Community feedback
+            </h3>
+
             <p>
               We listen to communities and use their feedback to improve our
               programmes.
             </p>
+
           </article>
+
         </div>
+
       </div>
+
     </section>
 
+
+    <!-- GALLERY -->
+
     <section id="gallery">
+
       <div class="container">
+
         <div class="section-intro">
-          <div class="eyebrow">Gallery</div>
-          <h2>Humanitarian action in the field.</h2>
+
+          <div class="eyebrow">
+            Gallery
+          </div>
+
+          <h2>
+            Humanitarian action in the field.
+          </h2>
+
           <p>
             Replace these sample images with photographs owned by DRONES4AID and
             published with informed consent.
           </p>
+
         </div>
 
+
         <div class="grid gallery">
+
           <figure>
+
             <img
               src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=900&q=80"
               alt="Volunteers preparing humanitarian supplies"
             />
-            <figcaption>Preparing relief packages.</figcaption>
+
+            <figcaption>
+              Preparing relief packages.
+            </figcaption>
+
           </figure>
 
+
           <figure>
+
             <img
-              src="https://images.unsplash.com/photo-1469571486292-0ba
+              src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=900&q=80"
+              alt="People working together at a humanitarian activity"
+            />
+
+            <figcaption>
+              Community and volunteer cooperation.
+            </figcaption>
+
+          </figure>
+
+
+          <figure>
+
+            <img
+              src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=900&q=80"
+              alt="Humanitarian team meeting outdoors"
+            />
+
+            <figcaption>
+              Working with local partners.
+            </figcaption>
+
+          </figure>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- VOLUNTEERS -->
+
+    <section id="volunteers">
+
+      <div class="container">
+
+        <div class="section-intro">
+
+          <div class="eyebrow">
+            Volunteer reviews
+          </div>
+
+          <h2>
+            People who help make the work possible.
+          </h2>
+
+          <p>
+            The following examples are placeholders. Publish real reviews only
+            with permission from each volunteer.
+          </p>
+
+        </div>
+
+
+        <div class="grid three-columns">
+
+          <article class="card quote">
+
+            <p>
+              The work showed me that humanitarian aid begins with listening to
+              communities and respecting their priorities.
+            </p>
+
+            <cite>
+              — Volunteer, community-support programme
+            </cite>
+
+          </article>
+
+
+          <article class="card quote">
+
+            <p>
+              I appreciated the organisation’s emphasis on safety, teamwork, and
+              accountability.
+            </p>
+
+            <cite>
+              — Logistics volunteer
+            </cite>
+
+          </article>
+
+
+          <article class="card quote">
+
+            <p>
+              Every contribution mattered, from preparing packages to documenting
+              supplies responsibly.
+            </p>
+
+            <cite>
+              — Student volunteer
+            </cite>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- VETERANS -->
+
+    <section id="veterans">
+
+      <div class="container">
+
+        <div class="section-intro">
+
+          <div class="eyebrow">
+            Our veterans
+          </div>
+
+          <h2>
+            Experience in service of humanitarian goals.
+          </h2>
+
+          <p>
+            Veteran volunteers and advisers may contribute experience in
+            emergency response, first aid, logistics, leadership, preparedness,
+            and community engagement.
+          </p>
+
+        </div>
+
+
+        <div class="grid two-columns">
+
+          <article class="card">
+
+            <h3>
+              Areas of expertise
+            </h3>
+
+            <ul>
+              <li>
+                Emergency response and disaster preparedness.
+              </li>
+
+              <li>
+                First aid and medical logistics.
+              </li>
+
+              <li>
+                Transport and supply coordination.
+              </li>
+
+              <li>
+                Team leadership and risk awareness.
+              </li>
+            </ul>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>
+              Humanitarian role
+            </h3>
+
+            <p>
+              Our veterans serve as advisers, trainers, and volunteers. Their
+              role within DRONES4AID is humanitarian and non-combatant.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section id="faq">
+
+      <div class="container">
+
+        <div class="section-intro">
+
+          <div class="eyebrow">
+            FAQs
+          </div>
+
+          <h2>
+            Questions and answers.
+          </h2>
+
+        </div>
+
+
+        <div class="faq">
+
+          <details>
+
+            <summary>
+              Is DRONES4AID a government organisation?
+            </summary>
+
+            <p>
+              No. DRONES4AID is a non-profit, non-governmental organisation.
+            </p>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              Are your drones armed?
+            </summary>
+
+            <p>
+              No. Our drones are intended for civilian humanitarian purposes
+              only. We do not transport weapons or support military targeting.
+            </p>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              Why use drones?
+            </summary>
+
+            <p>
+              Drones may help assess inaccessible areas or deliver small,
+              urgent supplies when conventional options are unavailable. They
+              are used only when lawful, necessary, and sufficiently safe.
+            </p>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              Do you operate in active conflict zones?
+            </summary>
+
+            <p>
+              Operations depend on security assessments, legal permissions,
+              local consent, humanitarian coordination, and available capacity.
+            </p>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              How do you protect privacy?
+            </summary>
+
+            <p>
+              We aim to collect only necessary information, avoid unnecessary
+              recording, secure operational data, and limit access to authorised
+              personnel.
+            </p>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              Can I volunteer?
+            </summary>
+
+            <p>
+              Yes. Volunteers may assist with fundraising, translation,
+              logistics, communications, research, packaging, and outreach.
+            </p>
+
+          </details>
+
+
+          <details>
+
+            <summary>
+              How can a community request assistance?
+            </summary>
+
+            <p>
+              Communities and local organisations can use the contact form.
+              Requests are reviewed according to urgency, safety, feasibility,
+              local partnership, and available resources.
+            </p>
+
+          </details>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="section-intro">
+
+          <div class="eyebrow">
+            Get involved
+          </div>
+
+          <h2>
+            Support humanitarian action.
+          </h2>
+
+          <p>
+            Volunteer, partner with us, or send a general enquiry. Do not submit
+            sensitive personal information or real-time operational details
+            through this demonstration form.
+          </p>
+
+        </div>
+
+
+        <div class="grid two-columns">
+
+          <div class="card">
+
+            <h3>
+              Ways to help
+            </h3>
+
+            <ul>
+
+              <li>
+                Volunteer your time and skills.
+              </li>
+
+              <li>
+                Support verified humanitarian programmes.
+              </li>
+
+              <li>
+                Partner as a local organisation.
+              </li>
+
+              <li>
+                Help with translation and communications.
+              </li>
+
+              <li>
+                Organise a school or community fundraiser.
+              </li>
+
+            </ul>
+
+
+            <br />
+
+
+            <h3>
+              Contact details
+            </h3>
+
+            <p>
+              Email:
+              <a href="mailto:contact@drones4aid.org">
+                contact@drones4aid.org
+              </a>
+            </p>
+
+            <p>
+              Partnerships:
+              <a href="mailto:partnerships@drones4aid.org">
+                partnerships@drones4aid.org
+              </a>
+            </p>
+
+            <p>
+              Volunteers:
+              <a href="mailto:volunteer@drones4aid.org">
+                volunteer@drones4aid.org
+              </a>
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <form id="contact-form">
+
+              <div>
+
+                <label for="name">
+                  Name
+                </label>
+
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                />
+
+              </div>
+
+
+              <div>
+
+                <label for="email">
+                  Email address
+                </label>
+
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                />
+
+              </div>
+
+
+              <div>
+
+                <label for="reason">
+                  Reason for contacting us
+                </label>
+
+                <select
+                  id="reason"
+                  name="reason"
+                  required
+                >
+
+                  <option value="">
+                    Select one
+                  </option>
+
+                  <option>
+                    Volunteering
+                  </option>
+
+                  <option>
+                    Partnership
+                  </option>
+
+                  <option>
+                    Donation
+                  </option>
+
+                  <option>
+                    General enquiry
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div>
+
+                <label for="message">
+                  Message
+                </label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Please do not include sensitive or urgent operational information."
+                  required
+                ></textarea>
+
+              </div>
+
+
+              <button
+                class="button"
+                type="submit"
+              >
+                Send Enquiry
+              </button>
+
+
+              <p
+                class="form-message"
+                id="form-message"
+                role="status"
+              ></p>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+
+        <div>
+
+          <a class="logo" href="#home">
+
+            <span
+              class="logo-mark"
+              aria-hidden="true"
+            >
+              ✦
+            </span>
+
+            DRONES4AID
+
+          </a>
+
+          <p>
+            Humanitarian support, peaceful action, and responsible technology
+            for communities affected by crisis.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Explore
+          </h3>
+
+          <ul>
+
+            <li>
+              <a href="#about">
+                About us
+              </a>
+            </li>
+
+            <li>
+              <a href="about.html">
+                About
+              </a>
+            </li>
+
+            <li>
+              <a href="#mission">
+                Our mission
+              </a>
+            </li>
+
+            <li>
+              <a href="#operations">
+                How we operate
+              </a>
+            </li>
+
+            <li>
+              <a href="#faq">
+                FAQs
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Important
+          </h3>
+
+          <ul>
+
+            <li>
+              <a href="#contact">
+                Contact
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Privacy policy
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Safeguarding
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Financial transparency
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+
+        © 2026 DRONES4AID. This website is a demonstration template. Verify
+        organisational registration, project claims, images, testimonials,
+        contact details, and operational policies before publication.
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- MENU + FORM SCRIPT -->
+
+  <script>
+
+    const menuButton =
+      document.querySelector(".menu-button");
+
+    const menu =
+      document.querySelector("#site-menu");
+
+
+    menuButton.addEventListener("click", () => {
+
+      const isOpen =
+        menu.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
+
+    });
+
+
+    document
+      .querySelectorAll("#site-menu a")
+      .forEach((link) => {
+
+        link.addEventListener("click", () => {
+
+          menu.classList.remove("open");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+        });
+
+      });
+
+
+    document
+      .querySelector("#contact-form")
+      .addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        document.querySelector(
+          "#form-message"
+        ).textContent =
+          "Thank you. This demonstration form is ready to connect to an email or form service.";
+
+        event.target.reset();
+
+      });
+
+  </script>
+
+
+  <!-- TAWK CHAT -->
+
+  <script type="text/javascript">
+
+    var Tawk_API = Tawk_API || {};
+    var Tawk_LoadStart = new Date();
+
+    (function () {
+
+      var s1 = document.createElement("script");
+      var s0 = document.getElementsByTagName("script")[0];
+
+      s1.async = true;
+
+      s1.src =
+        "https://embed.tawk.to/6a795d73224bc71d4a539ae5/1jvl1a3l8";
+
+      s1.charset = "UTF-8";
+
+      s1.setAttribute(
+        "crossorigin",
+        "*"
+      );
+
+      s0.parentNode.insertBefore(
+        s1,
+        s0
+      );
+
+    })();
+
+  </script>
+
+</body>
+</html>
