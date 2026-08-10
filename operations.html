@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Operations</title>
+<title>Operations | DRONES4AID</title>
 
 <style>
 :root{
@@ -20,34 +20,34 @@
   --shadow:0 12px 30px rgba(16,42,67,.10);
   --radius:18px;
   --orange:#f28c28;
-  --cream:#fffaf2
+  --cream:#fffaf2;
 }
 
 *{
   box-sizing:border-box;
   margin:0;
-  padding:0
+  padding:0;
 }
 
 html{
-  scroll-behavior:smooth
+  scroll-behavior:smooth;
 }
 
 body{
   font-family:Arial,Helvetica,sans-serif;
   color:var(--text);
   background:var(--cream);
-  line-height:1.6
+  line-height:1.6;
 }
 
 a{
   text-decoration:none;
-  color:inherit
+  color:inherit;
 }
 
 .container{
   width:min(1180px,92%);
-  margin:auto
+  margin:auto;
 }
 
 /* HEADER */
@@ -56,9 +56,9 @@ header{
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(255,255,255,.92);
+  background:rgba(255,255,255,.96);
   backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border)
+  border-bottom:1px solid var(--border);
 }
 
 .nav{
@@ -66,7 +66,7 @@ header{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:20px
+  gap:20px;
 }
 
 .logo{
@@ -75,7 +75,7 @@ header{
   gap:12px;
   font-weight:800;
   color:var(--navy);
-  letter-spacing:.3px
+  letter-spacing:.3px;
 }
 
 .logo-mark{
@@ -87,20 +87,44 @@ header{
   background:linear-gradient(135deg,var(--orange),#d97706);
   color:#102a43;
   font-weight:900;
-  box-shadow:0 8px 18px rgba(16,42,67,.18)
+  font-size:1.2rem;
+  box-shadow:0 8px 18px rgba(16,42,67,.18);
 }
 
 nav ul{
   list-style:none;
   display:flex;
+  align-items:center;
   gap:18px;
   flex-wrap:wrap;
   font-weight:700;
-  color:var(--navy)
+  color:var(--navy);
 }
 
-nav a:hover{
-  color:var(--blue)
+nav a{
+  display:inline-block;
+  padding:10px 13px;
+  border-radius:7px;
+  transition:.2s ease;
+}
+
+nav a:hover,
+nav a:focus{
+  color:var(--navy);
+  background:#fff0df;
+}
+
+/* HOME BUTTON */
+
+nav a.home-button{
+  background:var(--orange);
+  color:var(--navy);
+  font-weight:800;
+}
+
+nav a.home-button:hover,
+nav a.home-button:focus{
+  background:#ffad52;
 }
 
 /* HERO */
@@ -116,16 +140,16 @@ nav a:hover{
     #102a43 0%,
     #1976a8 100%
   );
-  overflow:hidden
+  overflow:hidden;
 }
 
 .hero-copy{
   display:flex;
-  align-items:center
+  align-items:center;
 }
 
 .hero .container{
-  padding:86px 0 72px
+  padding:86px 0 72px;
 }
 
 .eyebrow{
@@ -137,20 +161,20 @@ nav a:hover{
   padding:8px 14px;
   border-radius:999px;
   margin-bottom:18px;
-  font-weight:700
+  font-weight:700;
 }
 
 .hero h1{
   font-size:clamp(2.3rem,5vw,4.3rem);
   line-height:1.05;
   max-width:900px;
-  margin-bottom:14px
+  margin-bottom:14px;
 }
 
 .hero p{
   max-width:860px;
   font-size:1.06rem;
-  color:#eef5fb
+  color:#eef5fb;
 }
 
 /* WORLD MAP */
@@ -166,40 +190,40 @@ nav a:hover{
     ),
     url("https://t3.ftcdn.net/jpg/18/01/77/54/360_F_1801775444_Diq0tXDHbvoApJ2JAZQ0Zr6lapDjbCRX.jpg")
     center/contain no-repeat;
-  background-color:#0f2235
+  background-color:#0f2235;
 }
 
 /* SECTIONS */
 
 .section{
-  padding:78px 0
+  padding:78px 0;
 }
 
 .section.alt{
-  background:var(--light)
+  background:var(--light);
 }
 
 .section h2{
   font-size:clamp(1.8rem,3vw,2.6rem);
   color:var(--navy);
-  margin-bottom:14px
+  margin-bottom:14px;
 }
 
 .lead{
   color:var(--muted);
   max-width:920px;
-  margin-bottom:28px
+  margin-bottom:28px;
 }
 
 /* GRID */
 
 .grid{
   display:grid;
-  gap:22px
+  gap:22px;
 }
 
 .two{
-  grid-template-columns:repeat(2,1fr)
+  grid-template-columns:repeat(2,1fr);
 }
 
 /* CARDS */
@@ -209,33 +233,33 @@ nav a:hover{
   border:1px solid var(--border);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  overflow:hidden
+  overflow:hidden;
 }
 
 .card-body{
-  padding:24px
+  padding:24px;
 }
 
 .card h3{
   color:var(--navy);
   margin-bottom:10px;
-  font-size:1.25rem
+  font-size:1.25rem;
 }
 
 .card p,
 .card li{
-  color:var(--muted)
+  color:var(--muted);
 }
 
 /* LISTS */
 
 .list{
   padding-left:20px;
-  margin-top:10px
+  margin-top:10px;
 }
 
 .list li{
-  margin:8px 0
+  margin:8px 0;
 }
 
 /* URGENCY SCALE */
@@ -243,7 +267,7 @@ nav a:hover{
 .scale-wrap{
   display:grid;
   gap:14px;
-  margin-top:16px
+  margin-top:16px;
 }
 
 .scale-bar{
@@ -259,19 +283,19 @@ nav a:hover{
       #e67e22 82%,
       var(--red) 100%
     );
-  border:1px solid var(--border)
+  border:1px solid var(--border);
 }
 
 .scale-labels{
   display:flex;
   justify-content:space-between;
   color:var(--muted);
-  font-weight:700
+  font-weight:700;
 }
 
 .scale-markers{
   position:relative;
-  height:32px
+  height:32px;
 }
 
 .marker{
@@ -285,7 +309,7 @@ nav a:hover{
   font-size:.82rem;
   font-weight:700;
   color:var(--muted);
-  white-space:nowrap
+  white-space:nowrap;
 }
 
 .pin{
@@ -293,47 +317,47 @@ nav a:hover{
   height:14px;
   border-radius:50%;
   border:2px solid #fff;
-  box-shadow:0 4px 10px rgba(0,0,0,.12)
+  box-shadow:0 4px 10px rgba(0,0,0,.12);
 }
 
 .pin.white{
-  background:var(--white)
+  background:var(--white);
 }
 
 .pin.yellow{
-  background:var(--yellow)
+  background:var(--yellow);
 }
 
 .pin.red{
-  background:var(--red)
+  background:var(--red);
 }
 
 /* OPERATIONS */
 
 .op{
-  margin-top:18px
+  margin-top:18px;
 }
 
 .op .op-head{
-  padding:24px 24px 0
+  padding:24px 24px 0;
 }
 
 .op .op-head h3{
   margin-bottom:6px;
-  font-size:1.35rem
+  font-size:1.35rem;
 }
 
 .op .scale{
   color:var(--muted);
   font-weight:700;
-  margin-bottom:10px
+  margin-bottom:10px;
 }
 
 .op img{
   width:100%;
   height:250px;
   object-fit:cover;
-  border-bottom:1px solid var(--border)
+  border-bottom:1px solid var(--border);
 }
 
 /* STATUS */
@@ -347,27 +371,27 @@ nav a:hover{
   font-weight:800;
   margin-bottom:14px;
   border:1px solid var(--border);
-  background:#fff
+  background:#fff;
 }
 
 .dot{
   width:11px;
   height:11px;
   border-radius:50%;
-  display:inline-block
+  display:inline-block;
 }
 
 .dot.red{
-  background:var(--red)
+  background:var(--red);
 }
 
 .dot.yellow{
-  background:var(--yellow)
+  background:var(--yellow);
 }
 
 .dot.white{
   background:var(--white);
-  border:1px solid #cbd5e1
+  border:1px solid #cbd5e1;
 }
 
 /* NOTE */
@@ -379,7 +403,7 @@ nav a:hover{
   background:#eff7fb;
   border-radius:14px;
   color:var(--navy);
-  font-weight:600
+  font-weight:600;
 }
 
 /* FOOTER */
@@ -387,11 +411,11 @@ nav a:hover{
 footer{
   background:var(--navy);
   color:#fff;
-  padding:34px 0
+  padding:34px 0;
 }
 
 footer p{
-  color:#d8e3ee
+  color:#d8e3ee;
 }
 
 /* MOBILE */
@@ -399,20 +423,24 @@ footer p{
 @media(max-width:900px){
 
   .hero{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .hero-visual{
-    min-height:320px
+    min-height:320px;
   }
 
   .two{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .nav{
     flex-direction:column;
-    padding:14px 0
+    padding:14px 0;
+  }
+
+  nav ul{
+    justify-content:center;
   }
 
 }
@@ -427,7 +455,9 @@ footer p{
 
   <div class="container nav">
 
-    <a class="logo" href="./index.html">
+    <!-- LOGO ALSO GOES BACK TO HOME -->
+
+    <a class="logo" href="index.html" aria-label="DRONES4AID Home">
 
       <span class="logo-mark">✦</span>
 
@@ -435,29 +465,38 @@ footer p{
 
     </a>
 
-    <nav>
+
+    <nav aria-label="Main navigation">
 
       <ul>
 
-        <!-- HOME BUTTON — LINKS BACK TO INDEX -->
+        <!-- THIS IS THE HOME BUTTON -->
 
         <li>
-          <a href="./index.html">
+          <a
+            href="index.html"
+            class="home-button"
+          >
             Home
           </a>
         </li>
 
+
+        <!-- CURRENT PAGE -->
+
         <li>
-          <a href="#operation">
+          <a href="operations.html">
             Operations
           </a>
         </li>
+
 
         <li>
           <a href="#ongoing">
             Ongoing Operations
           </a>
         </li>
+
 
         <li>
           <a href="#successful">
@@ -875,6 +914,7 @@ footer p{
             3. The Sahel region conflict
           </h3>
 
+
           <div class="scale">
             Stress level: 7.5
           </div>
@@ -953,6 +993,7 @@ footer p{
             4. The Sudanese Civil War
           </h3>
 
+
           <div class="scale">
             Stress scale: 6.3
           </div>
@@ -1029,6 +1070,7 @@ footer p{
           <h3>
             5. Baloch Region Disputes
           </h3>
+
 
           <div class="scale">
             Stress scale: 3.2
