@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About DRONES4AID, our team, base, locations, and humanitarian mission." />
+  <title>About Us | DRONES4AID</title>
+  <style>
+    :root {
+      --navy: #102a43;
+      --blue: #1976a8;
+      --light-blue: #e9f5fb;
+      --orange: #f28c28;
+      --cream: #fffaf2;
+      --dark: #17202a;
+      --muted: #5d6d7e;
+      --white: #ffffff;
+      --border: #d9e2ec;
+      --shadow: 0 10px 30px rgba(16, 42, 67, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-wrapper {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 1.35rem;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      background: var(--orange);
+      color: var(--navy);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.35rem;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      background: linear-gradient(rgba(16,42,67,.8), rgba(16,42,67,.8)),
+        url("https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+      color: var(--white);
+      padding: 110px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 1.1rem;
+      color: #f4f8fb;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    section:nth-of-type(even) {
+      background: var(--white);
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      margin-bottom: 16px;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .intro p {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .two-columns {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .three-columns {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: var(--shadow);
+    }
+
+    section:nth-of-type(even) .card {
+      background: var(--cream);
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .card ul {
+      padding-left: 18px;
+      margin-top: 10px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      background: var(--light-blue);
+      color: var(--navy);
+      padding: 8px 13px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .gallery {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery figure {
+      overflow: hidden;
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .gallery img {
+      height: 230px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    figcaption {
+      padding: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      padding: 35px 0;
+      text-align: center;
+    }
+
+    footer p {
+      color: #d9e2ec;
+    }
+
+    @media (max-width: 800px) {
+      nav ul,
+      .two-columns,
+      .three-columns,
+      .gallery {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .nav-wrapper {
+        flex-direction: column;
+        padding: 15px 0;
+      }
+
+      nav ul {
+        gap: 12px;
+        justify-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-wrapper">
+      <a class="logo" href="index.html">
+        <span class="logo-mark">✦</span>
+        DRONES4AID
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>About DRONES4AID</h1>
+      <p>
+        We are a non-profit, non-governmental humanitarian organisation committed to peace,
+        aid, and support for people affected by crisis in war-affected and war-prone regions.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="intro">
+        <h2>Who We Are</h2>
+        <p>
+          DRONES4AID works to support vulnerable communities through humanitarian assistance,
+          responsible drone-based support, and community-focused relief efforts. Our work is
+          driven by compassion, safety, and dignity.
+        </p>
+      </div>
+
+      <div class="grid two-columns">
+        <article class="card">
+          <h3>Our Overall Goal</h3>
+          <p>
+            Our overall goal is to reduce suffering, deliver essential aid efficiently, and
+            support peace-building efforts in communities affected by conflict, displacement,
+            and emergency situations.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Our Base</h3>
+          <p>
+            Our base of operations is in <strong>Gurgaon</strong>, India, where our team
+            coordinates planning, communication, logistics, and outreach.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="intro">
+        <h2>Our Team</h2>
+        <p>
+          Our team includes humanitarian volunteers, logistics coordinators, research members,
+          community outreach workers, and drone support staff working together for one purpose:
+          to bring relief where it is needed most.
+        </p>
+      </div>
+
+      <div class="grid three-columns">
+        <article class="card">
+          <h3>Leadership Team</h3>
+          <p>Guides the organisation’s mission, partnerships, and long-term humanitarian goals.</p>
+        </article>
+
+        <article class="card">
+          <h3>Operations Team</h3>
+          <p>Handles aid coordination, packaging, planning, and safe delivery support.</p>
+        </article>
+
+        <article class="card">
+          <h3>Volunteer Team</h3>
+          <p>Supports outreach, fundraising, communication, and on-ground humanitarian work.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="intro">
+        <h2>Our Vast Locations</h2>
+        <p>
+          We focus on humanitarian support across many crisis-affected regions around the world.
+          Our reach is built around partnerships, need, and safe operational conditions.
+        </p>
+      </div>
+
+      <div class="tag-list">
+        <span class="tag">Ukraine</span>
+        <span class="tag">Russia</span>
+        <span class="tag">Sudan</span>
+        <span class="tag">South Sudan</span>
+        <span class="tag">Niger</span>
+        <span class="tag">Mali</span>
+        <span class="tag">Burkina Faso</span>
+        <span class="tag">Pakistan</span>
+        <span class="tag">Afghanistan</span>
+        <span class="tag">Balochistan Region</span>
+        <span class="tag">Israel</span>
+        <span class="tag">Palestine</span>
+        <span class="tag">Lebanon</span>
+        <span class="tag">Iran</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="intro">
+        <h2>Photo Gallery</h2>
+        <p>
+          Replace these sample images with your own approved images later. I used open web placeholders
+          so the page looks complete now.
+        </p>
+      </div>
+
+      <div class="grid gallery">
+        <figure>
+          <img src="https://www.rand.org/content/rand/pubs/research_briefs/RB9995/_jcr_content/par/product/par-research-brief/imagewithclass.fit.1000x0.jpeg/1603164164798.jpeg" alt="Humanitarian image placeholder" />
+          <figcaption>Humanitarian support and field coordination.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://www.shutterstock.com/shutterstock/videos/3953010351/thumb/1.jpg?ip=x480" alt="Drone and field support placeholder" />
+          <figcaption>Drone-based support and monitoring.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=900&q=80" alt="Volunteers working together" />
+          <figcaption>Volunteer teamwork and humanitarian preparation.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="intro">
+        <h2>What We Stand For</h2>
+        <p>
+          We stand for peace, dignity, compassion, and practical action. DRONES4AID is committed
+          to helping people in crisis while respecting communities, safety, and humanitarian values.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 DRONES4AID — Non-profit humanitarian organisation.</p>
+    </div>
+  </footer>
+</body>
+</html>
