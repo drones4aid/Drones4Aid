@@ -72,7 +72,9 @@
       top: 10px;
     }
 
-    /* TOP BAR */
+    /* =========================
+       TOP BAR
+    ========================= */
 
     .topbar {
       background: var(--navy);
@@ -82,7 +84,9 @@
       font-size: 0.88rem;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       background: var(--white);
@@ -146,7 +150,9 @@
       font-size: 1rem;
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       min-height: 620px;
@@ -203,7 +209,9 @@
       margin-bottom: 28px;
     }
 
-    /* BUTTONS */
+    /* =========================
+       BUTTONS
+    ========================= */
 
     .button {
       display: inline-block;
@@ -237,7 +245,9 @@
       color: var(--navy);
     }
 
-    /* SECTIONS */
+    /* =========================
+       SECTIONS
+    ========================= */
 
     section {
       padding: 85px 0;
@@ -256,7 +266,9 @@
       color: var(--muted);
     }
 
-    /* GRID */
+    /* =========================
+       GRID
+    ========================= */
 
     .grid {
       display: grid;
@@ -271,7 +283,9 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
-    /* CARDS */
+    /* =========================
+       CARDS
+    ========================= */
 
     .card {
       background: var(--white);
@@ -306,7 +320,9 @@
       margin-top: 10px;
     }
 
-    /* PROCESS */
+    /* =========================
+       PROCESS
+    ========================= */
 
     .process-number {
       width: 38px;
@@ -320,7 +336,9 @@
       margin-bottom: 13px;
     }
 
-    /* NOTICE */
+    /* =========================
+       NOTICE
+    ========================= */
 
     .notice {
       border-left: 5px solid var(--orange);
@@ -331,7 +349,9 @@
       border-radius: 5px;
     }
 
-    /* LOCATIONS */
+    /* =========================
+       LOCATIONS
+    ========================= */
 
     .locations {
       display: flex;
@@ -349,7 +369,9 @@
       font-size: 0.9rem;
     }
 
-    /* GALLERY */
+    /* =========================
+       GALLERY
+    ========================= */
 
     .gallery {
       grid-template-columns: repeat(3, 1fr);
@@ -372,7 +394,9 @@
       font-size: 0.9rem;
     }
 
-    /* QUOTES */
+    /* =========================
+       QUOTES
+    ========================= */
 
     .quote {
       position: relative;
@@ -398,7 +422,9 @@
       font-style: normal;
     }
 
-    /* FAQ */
+    /* =========================
+       FAQ
+    ========================= */
 
     .faq details {
       background: var(--white);
@@ -419,7 +445,9 @@
       margin-top: 12px;
     }
 
-    /* FORM */
+    /* =========================
+       FORM
+    ========================= */
 
     form {
       display: grid;
@@ -454,7 +482,9 @@
       font-weight: 700;
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
       background: var(--navy);
@@ -497,9 +527,12 @@
       font-size: 0.9rem;
     }
 
-    /* MOBILE */
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 800px) {
+
       .menu-button {
         display: block;
       }
@@ -541,21 +574,27 @@
 
 <body>
 
-  <!-- SKIP LINK -->
+  <!-- =========================
+       SKIP LINK
+  ========================= -->
 
   <a class="skip-link" href="#main-content">
     Skip to main content
   </a>
 
 
-  <!-- TOP BAR -->
+  <!-- =========================
+       TOP BAR
+  ========================= -->
 
   <div class="topbar">
     DRONES4AID is a strictly non-profit and non-governmental humanitarian organisation.
   </div>
 
 
-  <!-- HEADER -->
+  <!-- =========================
+       HEADER
+  ========================= -->
 
   <header>
 
@@ -589,12 +628,16 @@
 
         <ul id="site-menu">
 
+          <!-- HOME -->
+
           <li>
             <a href="index.html">
               Home
             </a>
           </li>
 
+
+          <!-- ABOUT -->
 
           <li>
             <a href="about.html">
@@ -603,7 +646,7 @@
           </li>
 
 
-          <!-- MISSION OPENS A SEPARATE PAGE -->
+          <!-- MISSION = SEPARATE PAGE -->
 
           <li>
             <a href="mission.html">
@@ -612,14 +655,17 @@
           </li>
 
 
-          <!-- OPERATIONS OPENS A SEPARATE PAGE -->
+          <!-- OPERATIONS = SEPARATE PAGE -->
+          <!-- DO NOT CHANGE THIS TO #operations -->
 
           <li>
-            <a href="Operations.html">
+            <a href="./Operations.html">
               Operations
             </a>
           </li>
 
+
+          <!-- DRONES -->
 
           <li>
             <a href="#drones">
@@ -628,6 +674,8 @@
           </li>
 
 
+          <!-- GALLERY -->
+
           <li>
             <a href="#gallery">
               Gallery
@@ -635,12 +683,16 @@
           </li>
 
 
+          <!-- FAQ -->
+
           <li>
             <a href="#faq">
               FAQs
             </a>
           </li>
 
+
+          <!-- CONTACT -->
 
           <li>
             <a
@@ -660,12 +712,16 @@
   </header>
 
 
-  <!-- MAIN CONTENT -->
+  <!-- =========================
+       MAIN
+  ========================= -->
 
   <main id="main-content">
 
 
-    <!-- HERO -->
+    <!-- =========================
+         HERO
+    ========================= -->
 
     <section
       class="hero"
@@ -711,7 +767,9 @@
     </section>
 
 
-    <!-- ABOUT -->
+    <!-- =========================
+         ABOUT
+    ========================= -->
 
     <section id="about">
 
@@ -723,11 +781,9 @@
             About us
           </div>
 
-
           <h2>
             Humanitarian support without borders.
           </h2>
-
 
           <p>
             DRONES4AID is a strictly non-profit, non-governmental organisation
@@ -742,18 +798,13 @@
 
           <article class="card">
 
-            <div
-              class="icon"
-              aria-hidden="true"
-            >
+            <div class="icon" aria-hidden="true">
               ❤
             </div>
-
 
             <h3>
               People first
             </h3>
-
 
             <p>
               We place civilian safety, dignity, consent, and community needs at
@@ -765,18 +816,13 @@
 
           <article class="card">
 
-            <div
-              class="icon"
-              aria-hidden="true"
-            >
+            <div class="icon" aria-hidden="true">
               ✚
             </div>
-
 
             <h3>
               Essential aid
             </h3>
-
 
             <p>
               We support the delivery of food, first-aid kits, emergency
@@ -788,18 +834,13 @@
 
           <article class="card">
 
-            <div
-              class="icon"
-              aria-hidden="true"
-            >
+            <div class="icon" aria-hidden="true">
               ☮
             </div>
-
 
             <h3>
               Peaceful action
             </h3>
-
 
             <p>
               We strive to reduce suffering and encourage dialogue,
@@ -815,7 +856,9 @@
     </section>
 
 
-    <!-- MISSION PREVIEW -->
+    <!-- =========================
+         MISSION PREVIEW
+    ========================= -->
 
     <section id="mission-preview">
 
@@ -827,11 +870,9 @@
             Our mission
           </div>
 
-
           <h2>
             Advocating for peace and humanitarian aid.
           </h2>
-
 
           <p>
             We aim to reach vulnerable communities quickly, safely, and fairly,
@@ -849,7 +890,6 @@
             <h3>
               What we aim to do
             </h3>
-
 
             <ul>
 
@@ -883,7 +923,6 @@
             <h3>
               Our principles
             </h3>
-
 
             <ul>
 
@@ -934,7 +973,16 @@
     </section>
 
 
-    <!-- OPERATIONS PREVIEW -->
+    <!-- =========================
+         OPERATIONS PREVIEW
+         
+         IMPORTANT:
+         This is NOT called "operations".
+         Therefore there is no accidental #operations link.
+         
+         The actual Operations page is:
+         Operations.html
+    ========================= -->
 
     <section id="operations-preview">
 
@@ -946,11 +994,9 @@
             Operations
           </div>
 
-
           <h2>
             Careful planning. Local cooperation. Accountable delivery.
           </h2>
-
 
           <p>
             Every programme is adapted to local conditions and reviewed for
@@ -968,11 +1014,9 @@
               1
             </div>
 
-
             <h3>
               Assess needs
             </h3>
-
 
             <p>
               We listen to affected communities and consult local partners,
@@ -988,11 +1032,9 @@
               2
             </div>
 
-
             <h3>
               Plan responsibly
             </h3>
-
 
             <p>
               Teams review security, weather, airspace, permissions, privacy,
@@ -1008,11 +1050,9 @@
               3
             </div>
 
-
             <h3>
               Coordinate locally
             </h3>
-
 
             <p>
               We seek appropriate authorisations and coordinate with relevant
@@ -1028,11 +1068,9 @@
               4
             </div>
 
-
             <h3>
               Deliver assistance
             </h3>
-
 
             <p>
               Approved systems may support small humanitarian deliveries,
@@ -1048,11 +1086,9 @@
               5
             </div>
 
-
             <h3>
               Protect information
             </h3>
-
 
             <p>
               We minimise personal-data collection and securely handle
@@ -1068,11 +1104,9 @@
               6
             </div>
 
-
             <h3>
               Evaluate impact
             </h3>
-
 
             <p>
               We document results, gather feedback, and improve future
@@ -1084,15 +1118,15 @@
         </div>
 
 
-        <!-- THIS OPENS Operations.html -->
+        <!-- SEPARATE OPERATIONS PAGE -->
 
         <div style="margin-top: 25px;">
 
           <a
             class="button"
-            href="Operations.html"
+            href="./Operations.html"
           >
-            View Operations
+            View Full Operations
           </a>
 
         </div>
@@ -1102,7 +1136,9 @@
     </section>
 
 
-    <!-- REGIONS -->
+    <!-- =========================
+         REGIONS
+    ========================= -->
 
     <section id="regions">
 
@@ -1114,11 +1150,9 @@
             Areas of concern
           </div>
 
-
           <h2>
             Supporting communities affected by crisis.
           </h2>
-
 
           <p>
             Our work depends on security, local consent, permissions,
@@ -1134,61 +1168,20 @@
           aria-label="Regions"
         >
 
-          <span class="location">
-            Ukraine
-          </span>
-
-          <span class="location">
-            Russia
-          </span>
-
-          <span class="location">
-            Sudan
-          </span>
-
-          <span class="location">
-            South Sudan
-          </span>
-
-          <span class="location">
-            Niger
-          </span>
-
-          <span class="location">
-            Mali
-          </span>
-
-          <span class="location">
-            Burkina Faso
-          </span>
-
-          <span class="location">
-            Pakistan
-          </span>
-
-          <span class="location">
-            Afghanistan
-          </span>
-
-          <span class="location">
-            Balochistan region
-          </span>
-
-          <span class="location">
-            Israel
-          </span>
-
-          <span class="location">
-            Palestine
-          </span>
-
-          <span class="location">
-            Lebanon
-          </span>
-
-          <span class="location">
-            Iran
-          </span>
+          <span class="location">Ukraine</span>
+          <span class="location">Russia</span>
+          <span class="location">Sudan</span>
+          <span class="location">South Sudan</span>
+          <span class="location">Niger</span>
+          <span class="location">Mali</span>
+          <span class="location">Burkina Faso</span>
+          <span class="location">Pakistan</span>
+          <span class="location">Afghanistan</span>
+          <span class="location">Balochistan region</span>
+          <span class="location">Israel</span>
+          <span class="location">Palestine</span>
+          <span class="location">Lebanon</span>
+          <span class="location">Iran</span>
 
         </div>
 
@@ -1197,7 +1190,9 @@
     </section>
 
 
-    <!-- AID -->
+    <!-- =========================
+         AID
+    ========================= -->
 
     <section id="aid">
 
@@ -1208,7 +1203,6 @@
           <div class="eyebrow">
             What we provide
           </div>
-
 
           <h2>
             Practical support for urgent needs.
@@ -1221,18 +1215,13 @@
 
           <article class="card">
 
-            <div
-              class="icon"
-              aria-hidden="true"
-            >
+            <div class="icon" aria-hidden="true">
               ▣
             </div>
-
 
             <h3>
               Food and water
             </h3>
-
 
             <p>
               Food packages, clean-water supplies, and water-purification
@@ -1244,18 +1233,13 @@
 
           <article class="card">
 
-            <div
-              class="icon"
-              aria-hidden="true"
-            >
+            <div class="icon" aria-hidden="true">
               ✚
             </div>
-
 
             <h3>
               Medical essentials
             </h3>
-
 
             <p>
               First-aid kits and basic medical supplies distributed through
@@ -1267,18 +1251,13 @@
 
           <article class="card">
 
-            <div
-              class="icon"
-              aria-hidden="true"
-            >
+            <div class="icon" aria-hidden="true">
               ⌂
             </div>
-
 
             <h3>
               Emergency essentials
             </h3>
-
 
             <p>
               Hygiene products, blankets, clothing, shelter items, and family
@@ -1294,7 +1273,9 @@
     </section>
 
 
-    <!-- DRONES -->
+    <!-- =========================
+         DRONES
+    ========================= -->
 
     <section id="drones">
 
@@ -1306,11 +1287,9 @@
             Our drone models
           </div>
 
-
           <h2>
             Technology used responsibly.
           </h2>
-
 
           <p>
             The exact equipment used may vary according to local regulations,
@@ -1328,7 +1307,6 @@
               Humanitarian delivery drones
             </h3>
 
-
             <p>
               Used only where authorised to transport small, lightweight relief
               packages to approved delivery points.
@@ -1342,7 +1320,6 @@
             <h3>
               Mapping and assessment drones
             </h3>
-
 
             <p>
               Used, where appropriate, to assess roads, bridges, shelters,
@@ -1358,7 +1335,6 @@
               Medical-support drones
             </h3>
 
-
             <p>
               May support urgent transport of small medical items under proper
               medical oversight and aviation approval.
@@ -1372,7 +1348,6 @@
             <h3>
               Safety and accountability
             </h3>
-
 
             <p>
               Flights require trained operators, documented plans, equipment
@@ -1398,7 +1373,9 @@
     </section>
 
 
-    <!-- PAST OPERATIONS -->
+    <!-- =========================
+         PAST OPERATIONS
+    ========================= -->
 
     <section id="past-operations">
 
@@ -1410,11 +1387,9 @@
             Past operations
           </div>
 
-
           <h2>
             Transparency matters.
           </h2>
-
 
           <p>
             Verified projects will be published with appropriate details while
@@ -1432,7 +1407,6 @@
               Project location
             </h3>
 
-
             <p>
               Location and date will be published only when safe to do so.
             </p>
@@ -1445,7 +1419,6 @@
             <h3>
               Humanitarian impact
             </h3>
-
 
             <p>
               We report the type of aid delivered and the number of people
@@ -1461,7 +1434,6 @@
               Community feedback
             </h3>
 
-
             <p>
               We listen to communities and use their feedback to improve our
               programmes.
@@ -1476,7 +1448,9 @@
     </section>
 
 
-    <!-- GALLERY -->
+    <!-- =========================
+         GALLERY
+    ========================= -->
 
     <section id="gallery">
 
@@ -1488,11 +1462,9 @@
             Gallery
           </div>
 
-
           <h2>
             Humanitarian action in the field.
           </h2>
-
 
           <p>
             Replace these sample images with photographs owned by DRONES4AID and
@@ -1511,7 +1483,6 @@
               alt="Volunteers preparing humanitarian supplies"
             />
 
-
             <figcaption>
               Preparing relief packages.
             </figcaption>
@@ -1525,7 +1496,6 @@
               src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=900&q=80"
               alt="People working together at a humanitarian activity"
             />
-
 
             <figcaption>
               Community and volunteer cooperation.
@@ -1541,7 +1511,6 @@
               alt="Humanitarian team meeting outdoors"
             />
 
-
             <figcaption>
               Working with local partners.
             </figcaption>
@@ -1555,7 +1524,9 @@
     </section>
 
 
-    <!-- VOLUNTEERS -->
+    <!-- =========================
+         VOLUNTEERS
+    ========================= -->
 
     <section id="volunteers">
 
@@ -1567,11 +1538,9 @@
             Volunteer reviews
           </div>
 
-
           <h2>
             People who help make the work possible.
           </h2>
-
 
           <p>
             The following examples are placeholders. Publish real reviews only
@@ -1590,7 +1559,6 @@
               communities and respecting their priorities.
             </p>
 
-
             <cite>
               — Volunteer, community-support programme
             </cite>
@@ -1604,7 +1572,6 @@
               I appreciated the organisation’s emphasis on safety, teamwork, and
               accountability.
             </p>
-
 
             <cite>
               — Logistics volunteer
@@ -1620,7 +1587,6 @@
               supplies responsibly.
             </p>
 
-
             <cite>
               — Student volunteer
             </cite>
@@ -1634,7 +1600,9 @@
     </section>
 
 
-    <!-- VETERANS -->
+    <!-- =========================
+         VETERANS
+    ========================= -->
 
     <section id="veterans">
 
@@ -1646,11 +1614,9 @@
             Our veterans
           </div>
 
-
           <h2>
             Experience in service of humanitarian goals.
           </h2>
-
 
           <p>
             Veteran volunteers and advisers may contribute experience in
@@ -1668,7 +1634,6 @@
             <h3>
               Areas of expertise
             </h3>
-
 
             <ul>
 
@@ -1699,7 +1664,6 @@
               Humanitarian role
             </h3>
 
-
             <p>
               Our veterans serve as advisers, trainers, and volunteers. Their
               role within DRONES4AID is humanitarian and non-combatant.
@@ -1714,7 +1678,9 @@
     </section>
 
 
-    <!-- FAQ -->
+    <!-- =========================
+         FAQ
+    ========================= -->
 
     <section id="faq">
 
@@ -1726,7 +1692,6 @@
             FAQs
           </div>
 
-
           <h2>
             Questions and answers.
           </h2>
@@ -1737,109 +1702,88 @@
         <div class="faq">
 
           <details>
-
             <summary>
               Is DRONES4AID a government organisation?
             </summary>
 
-
             <p>
               No. DRONES4AID is a non-profit, non-governmental organisation.
             </p>
-
           </details>
 
 
           <details>
-
             <summary>
               Are your drones armed?
             </summary>
-
 
             <p>
               No. Our drones are intended for civilian humanitarian purposes
               only. We do not transport weapons or support military targeting.
             </p>
-
           </details>
 
 
           <details>
-
             <summary>
               Why use drones?
             </summary>
-
 
             <p>
               Drones may help assess inaccessible areas or deliver small,
               urgent supplies when conventional options are unavailable. They
               are used only when lawful, necessary, and sufficiently safe.
             </p>
-
           </details>
 
 
           <details>
-
             <summary>
               Do you operate in active conflict zones?
             </summary>
-
 
             <p>
               Operations depend on security assessments, legal permissions,
               local consent, humanitarian coordination, and available capacity.
             </p>
-
           </details>
 
 
           <details>
-
             <summary>
               How do you protect privacy?
             </summary>
-
 
             <p>
               We aim to collect only necessary information, avoid unnecessary
               recording, secure operational data, and limit access to authorised
               personnel.
             </p>
-
           </details>
 
 
           <details>
-
             <summary>
               Can I volunteer?
             </summary>
-
 
             <p>
               Yes. Volunteers may assist with fundraising, translation,
               logistics, communications, research, packaging, and outreach.
             </p>
-
           </details>
 
 
           <details>
-
             <summary>
               How can a community request assistance?
             </summary>
-
 
             <p>
               Communities and local organisations can use the contact form.
               Requests are reviewed according to urgency, safety, feasibility,
               local partnership, and available resources.
             </p>
-
           </details>
 
         </div>
@@ -1849,7 +1793,9 @@
     </section>
 
 
-    <!-- CONTACT -->
+    <!-- =========================
+         CONTACT
+    ========================= -->
 
     <section id="contact">
 
@@ -1861,11 +1807,9 @@
             Get involved
           </div>
 
-
           <h2>
             Support humanitarian action.
           </h2>
-
 
           <p>
             Volunteer, partner with us, or send a general enquiry. Do not submit
@@ -1884,7 +1828,6 @@
             <h3>
               Ways to help
             </h3>
-
 
             <ul>
 
@@ -1918,7 +1861,6 @@
               Contact details
             </h3>
 
-
             <p>
               Email:
               <a href="mailto:contact@drones4aid.org">
@@ -1926,14 +1868,12 @@
               </a>
             </p>
 
-
             <p>
               Partnerships:
               <a href="mailto:partnerships@drones4aid.org">
                 partnerships@drones4aid.org
               </a>
             </p>
-
 
             <p>
               Volunteers:
@@ -1955,7 +1895,6 @@
                   Name
                 </label>
 
-
                 <input
                   id="name"
                   name="name"
@@ -1972,7 +1911,6 @@
                   Email address
                 </label>
 
-
                 <input
                   id="email"
                   name="email"
@@ -1988,7 +1926,6 @@
                 <label for="reason">
                   Reason for contacting us
                 </label>
-
 
                 <select
                   id="reason"
@@ -2027,7 +1964,6 @@
                   Message
                 </label>
 
-
                 <textarea
                   id="message"
                   name="message"
@@ -2065,7 +2001,9 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer>
 
@@ -2131,10 +2069,10 @@
             </li>
 
 
-            <!-- OPERATIONS OPENS SEPARATE PAGE -->
+            <!-- SEPARATE OPERATIONS PAGE -->
 
             <li>
-              <a href="Operations.html">
+              <a href="./Operations.html">
                 Operations
               </a>
             </li>
@@ -2207,7 +2145,9 @@
   </footer>
 
 
-  <!-- MENU + FORM SCRIPT -->
+  <!-- =========================
+       MENU + FORM SCRIPT
+  ========================= -->
 
   <script>
 
@@ -2267,7 +2207,9 @@
   </script>
 
 
-  <!-- TAWK CHAT -->
+  <!-- =========================
+       TAWK CHAT
+  ========================= -->
 
   <script type="text/javascript">
 
