@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>DRONES4AID | Operations</title>
 
@@ -12,7 +12,7 @@
   --navy:#102a43;
   --blue:#1976a8;
   --light:#f4f8fb;
-  --card:#fff;
+  --card:#ffffff;
   --text:#1f2937;
   --muted:#5b6575;
   --border:#dbe3ea;
@@ -53,9 +53,9 @@ a{
 }
 
 
-/* =========================
+/* ==============================
    HEADER
-========================= */
+============================== */
 
 header{
   position:sticky;
@@ -67,11 +67,11 @@ header{
 }
 
 .nav{
-  min-height:76px;
+  min-height:72px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:25px;
+  gap:20px;
 }
 
 .logo{
@@ -81,7 +81,6 @@ header{
   font-weight:800;
   color:var(--navy);
   letter-spacing:.3px;
-  white-space:nowrap;
 }
 
 .logo-mark{
@@ -90,35 +89,35 @@ header{
   border-radius:50%;
   display:grid;
   place-items:center;
-  background:linear-gradient(135deg,var(--orange),#d97706);
+  background:linear-gradient(
+    135deg,
+    var(--orange),
+    #d97706
+  );
   color:#102a43;
   font-weight:900;
   box-shadow:0 8px 18px rgba(16,42,67,.18);
 }
 
 
-/* NAVIGATION */
+/* ==============================
+   NAVIGATION
+============================== */
 
 nav ul{
   list-style:none;
   display:flex;
-  align-items:center;
   gap:12px;
+  align-items:center;
   flex-wrap:wrap;
   font-weight:700;
   color:var(--navy);
 }
 
-nav li{
-  display:flex;
-  align-items:center;
-}
-
 nav a{
   display:inline-block;
-  padding:9px 12px;
+  padding:9px 13px;
   border-radius:7px;
-  transition:.2s ease;
 }
 
 nav a:hover{
@@ -127,14 +126,15 @@ nav a:hover{
 }
 
 
-/* HOME BUTTON */
+/* ==============================
+   HOME BUTTON
+============================== */
 
 .home-button{
   background:var(--orange);
   color:var(--navy) !important;
   border:2px solid var(--orange);
   font-weight:900;
-  padding:9px 17px !important;
 }
 
 .home-button:hover{
@@ -144,15 +144,57 @@ nav a:hover{
 }
 
 
-/* =========================
+/* ==============================
+   BACK TO HOME AREA
+============================== */
+
+.back-home-area{
+  background:var(--light);
+  border-bottom:1px solid var(--border);
+  padding:18px 0;
+}
+
+.back-home-button{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  background:var(--orange);
+  color:var(--navy);
+
+  padding:12px 20px;
+
+  border-radius:8px;
+
+  font-weight:900;
+  font-size:1rem;
+
+  border:2px solid var(--orange);
+
+  box-shadow:0 5px 14px rgba(16,42,67,.12);
+
+  transition:.2s ease;
+}
+
+.back-home-button:hover{
+  background:#ffad52;
+  border-color:#ffad52;
+  transform:translateY(-1px);
+}
+
+
+/* ==============================
    HERO
-========================= */
+============================== */
 
 .hero{
   position:relative;
+
   min-height:68vh;
+
   display:grid;
   grid-template-columns:1.1fr .9fr;
+
   color:#fff;
 
   background:
@@ -178,34 +220,45 @@ nav a:hover{
   display:inline-flex;
   gap:10px;
   align-items:center;
+
   background:rgba(255,255,255,.14);
+
   border:1px solid rgba(255,255,255,.18);
+
   padding:8px 14px;
+
   border-radius:999px;
+
   margin-bottom:18px;
+
   font-weight:700;
 }
 
 .hero h1{
   font-size:clamp(2.3rem,5vw,4.3rem);
   line-height:1.05;
+
   max-width:900px;
+
   margin-bottom:14px;
 }
 
 .hero p{
   max-width:860px;
+
   font-size:1.06rem;
+
   color:#eef5fb;
 }
 
 
-/* =========================
+/* ==============================
    WORLD MAP
-========================= */
+============================== */
 
 .hero-visual{
   position:relative;
+
   min-height:68vh;
 
   background:
@@ -221,9 +274,9 @@ nav a:hover{
 }
 
 
-/* =========================
+/* ==============================
    SECTIONS
-========================= */
+============================== */
 
 .section{
   padding:78px 0;
@@ -235,23 +288,28 @@ nav a:hover{
 
 .section h2{
   font-size:clamp(1.8rem,3vw,2.6rem);
+
   color:var(--navy);
+
   margin-bottom:14px;
 }
 
 .lead{
   color:var(--muted);
+
   max-width:920px;
+
   margin-bottom:28px;
 }
 
 
-/* =========================
+/* ==============================
    GRID
-========================= */
+============================== */
 
 .grid{
   display:grid;
+
   gap:22px;
 }
 
@@ -260,15 +318,19 @@ nav a:hover{
 }
 
 
-/* =========================
+/* ==============================
    CARDS
-========================= */
+============================== */
 
 .card{
   background:var(--card);
+
   border:1px solid var(--border);
+
   border-radius:var(--radius);
+
   box-shadow:var(--shadow);
+
   overflow:hidden;
 }
 
@@ -278,7 +340,9 @@ nav a:hover{
 
 .card h3{
   color:var(--navy);
+
   margin-bottom:10px;
+
   font-size:1.25rem;
 }
 
@@ -288,12 +352,13 @@ nav a:hover{
 }
 
 
-/* =========================
+/* ==============================
    LISTS
-========================= */
+============================== */
 
 .list{
   padding-left:20px;
+
   margin-top:10px;
 }
 
@@ -302,18 +367,21 @@ nav a:hover{
 }
 
 
-/* =========================
+/* ==============================
    URGENCY SCALE
-========================= */
+============================== */
 
 .scale-wrap{
   display:grid;
+
   gap:14px;
+
   margin-top:16px;
 }
 
 .scale-bar{
   height:18px;
+
   border-radius:999px;
 
   background:
@@ -332,35 +400,53 @@ nav a:hover{
 
 .scale-labels{
   display:flex;
+
   justify-content:space-between;
+
   color:var(--muted);
+
   font-weight:700;
 }
 
 .scale-markers{
   position:relative;
+
   height:32px;
 }
 
 .marker{
   position:absolute;
+
   top:2px;
+
   transform:translateX(-50%);
+
   display:flex;
+
   flex-direction:column;
+
   align-items:center;
+
   gap:6px;
+
   font-size:.82rem;
+
   font-weight:700;
+
   color:var(--muted);
+
   white-space:nowrap;
 }
 
 .pin{
   width:14px;
+
   height:14px;
+
   border-radius:50%;
+
   border:2px solid #fff;
+
   box-shadow:0 4px 10px rgba(0,0,0,.12);
 }
 
@@ -377,9 +463,9 @@ nav a:hover{
 }
 
 
-/* =========================
+/* ==============================
    OPERATIONS
-========================= */
+============================== */
 
 .op{
   margin-top:18px;
@@ -391,43 +477,60 @@ nav a:hover{
 
 .op .op-head h3{
   margin-bottom:6px;
+
   font-size:1.35rem;
 }
 
 .op .scale{
   color:var(--muted);
+
   font-weight:700;
+
   margin-bottom:10px;
 }
 
 .op img{
   width:100%;
+
   height:250px;
+
   object-fit:cover;
+
   border-bottom:1px solid var(--border);
 }
 
 
-/* =========================
+/* ==============================
    STATUS
-========================= */
+============================== */
 
 .status{
   display:inline-flex;
+
   align-items:center;
+
   gap:10px;
+
   padding:10px 14px;
+
   border-radius:999px;
+
   font-weight:800;
+
   margin-bottom:14px;
+
   border:1px solid var(--border);
+
   background:#fff;
 }
 
 .dot{
   width:11px;
+
   height:11px;
+
   border-radius:50%;
+
   display:inline-block;
 }
 
@@ -441,32 +544,41 @@ nav a:hover{
 
 .dot.white{
   background:var(--white);
+
   border:1px solid #cbd5e1;
 }
 
 
-/* =========================
+/* ==============================
    NOTE
-========================= */
+============================== */
 
 .note{
   margin-top:22px;
+
   padding:20px 22px;
+
   border-left:5px solid var(--blue);
+
   background:#eff7fb;
+
   border-radius:14px;
+
   color:var(--navy);
+
   font-weight:600;
 }
 
 
-/* =========================
+/* ==============================
    FOOTER
-========================= */
+============================== */
 
 footer{
   background:var(--navy);
+
   color:#fff;
+
   padding:34px 0;
 }
 
@@ -475,9 +587,9 @@ footer p{
 }
 
 
-/* =========================
+/* ==============================
    MOBILE
-========================= */
+============================== */
 
 @media(max-width:900px){
 
@@ -495,6 +607,7 @@ footer p{
 
   .nav{
     flex-direction:column;
+
     padding:14px 0;
   }
 
@@ -511,21 +624,20 @@ footer p{
 <body>
 
 
-<!-- =====================================================
+<!-- ==================================================
      HEADER
-===================================================== -->
+================================================== -->
 
 <header>
 
   <div class="container nav">
 
 
-    <!-- CLICKING LOGO RETURNS TO INDEX -->
+    <!-- LOGO ALSO RETURNS HOME -->
 
     <a
       class="logo"
       href="index.html"
-      title="Return to Home"
     >
 
       <span class="logo-mark">
@@ -542,7 +654,7 @@ footer p{
       <ul>
 
 
-        <!-- THIS IS THE IMPORTANT HOME LINK -->
+        <!-- HOME LINK -->
 
         <li>
 
@@ -555,8 +667,6 @@ footer p{
 
         </li>
 
-
-        <!-- CURRENT PAGE -->
 
         <li>
 
@@ -595,9 +705,30 @@ footer p{
 
 
 
-<!-- =====================================================
+<!-- ==================================================
+     LARGE BACK TO HOME BUTTON
+================================================== -->
+
+<div class="back-home-area">
+
+  <div class="container">
+
+    <a
+      class="back-home-button"
+      href="index.html"
+    >
+      ← Back to Home
+    </a>
+
+  </div>
+
+</div>
+
+
+
+<!-- ==================================================
      HERO
-===================================================== -->
+================================================== -->
 
 <section class="hero">
 
@@ -637,9 +768,9 @@ footer p{
 
 
 
-<!-- =====================================================
+<!-- ==================================================
      OPERATIONS
-===================================================== -->
+================================================== -->
 
 <section
   id="operation"
@@ -663,8 +794,6 @@ footer p{
 
     <div class="grid two">
 
-
-      <!-- URGENCY SCALE -->
 
       <article class="card">
 
@@ -758,8 +887,6 @@ footer p{
 
 
 
-      <!-- CLASSIFICATION -->
-
       <article class="card">
 
         <div class="card-body">
@@ -835,9 +962,9 @@ footer p{
 
 
 
-<!-- =====================================================
+<!-- ==================================================
      ONGOING OPERATIONS
-===================================================== -->
+================================================== -->
 
 <section
   id="ongoing"
@@ -862,10 +989,9 @@ footer p{
     <div class="grid">
 
 
-      <!-- ISRAEL PALESTINE -->
+      <!-- ISRAEL / PALESTINE -->
 
       <article class="card op">
-
 
         <img
           src="https://npr.brightspotcdn.com/dims3/default/strip/false/crop/6720x4480+0+0/resize/6720x4480!/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fb8%2F08%2F293bdfc64a6e9247b968de5b894a%2Fgettyimages-2185216531.jpg"
@@ -874,7 +1000,6 @@ footer p{
 
 
         <div class="op-head">
-
 
           <div class="status">
 
@@ -894,12 +1019,10 @@ footer p{
             Stress level: 8.5
           </div>
 
-
         </div>
 
 
         <div class="card-body">
-
 
           <h3>
             The Situation
@@ -941,17 +1064,15 @@ footer p{
             essentials while maintaining safety, privacy and accountability.
           </p>
 
-
         </div>
 
       </article>
 
 
 
-      <!-- RUSSIA UKRAINE -->
+      <!-- RUSSIA / UKRAINE -->
 
       <article class="card op">
-
 
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUqACWJnUXvInkp4NCGbY4YIMFeSp0btYC1hFsHvT1yOTH3ogF5EehYhta&s=10"
@@ -960,7 +1081,6 @@ footer p{
 
 
         <div class="op-head">
-
 
           <div class="status">
 
@@ -980,12 +1100,10 @@ footer p{
             Stress level: 8.2
           </div>
 
-
         </div>
 
 
         <div class="card-body">
-
 
           <h3>
             The Situation
@@ -1025,7 +1143,6 @@ footer p{
             weapons, military targeting or combat activity involved.
           </p>
 
-
         </div>
 
       </article>
@@ -1036,7 +1153,6 @@ footer p{
 
       <article class="card op">
 
-
         <img
           src="https://featured.undp.org/sahel/assets/4.jpeg"
           alt="Sahel region conflict operation"
@@ -1044,7 +1160,6 @@ footer p{
 
 
         <div class="op-head">
-
 
           <div class="status">
 
@@ -1064,12 +1179,10 @@ footer p{
             Stress level: 7.5
           </div>
 
-
         </div>
 
 
         <div class="card-body">
-
 
           <h3>
             The Situation
@@ -1112,7 +1225,6 @@ footer p{
             kept at the centre of the programme.
           </p>
 
-
         </div>
 
       </article>
@@ -1123,7 +1235,6 @@ footer p{
 
       <article class="card op">
 
-
         <img
           src="https://i.guim.co.uk/img/media/dd8c5f5b7fc514c61fc3cb21f00cc95c9b869b3a/0_0_3000_1800/master/3000.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=ee482e7c81e1400348c20e0769e6d61e"
           alt="Sudan operation"
@@ -1131,7 +1242,6 @@ footer p{
 
 
         <div class="op-head">
-
 
           <div class="status">
 
@@ -1151,12 +1261,10 @@ footer p{
             Stress scale: 6.3
           </div>
 
-
         </div>
 
 
         <div class="card-body">
-
 
           <h3>
             The Situation
@@ -1198,17 +1306,15 @@ footer p{
             of civilians prioritised.
           </p>
 
-
         </div>
 
       </article>
 
 
 
-      <!-- BALOCH -->
+      <!-- BALOCHISTAN -->
 
       <article class="card op">
-
 
         <img
           src="https://www.aljazeera.com/wp-content/uploads/2026/05/afp_6a143f2188bf-1779711777.jpg?resize=730%2C410&quality=80"
@@ -1217,7 +1323,6 @@ footer p{
 
 
         <div class="op-head">
-
 
           <div class="status">
 
@@ -1237,12 +1342,10 @@ footer p{
             Stress scale: 3.2
           </div>
 
-
         </div>
 
 
         <div class="card-body">
-
 
           <h3>
             The Situation
@@ -1284,7 +1387,6 @@ footer p{
             of affected communities treated as priorities.
           </p>
 
-
         </div>
 
       </article>
@@ -1300,16 +1402,15 @@ footer p{
 
     </div>
 
-
   </div>
 
 </section>
 
 
 
-<!-- =====================================================
+<!-- ==================================================
      SUCCESSFUL OPERATIONS
-===================================================== -->
+================================================== -->
 
 <section
   id="successful"
@@ -1363,6 +1464,7 @@ footer p{
       </article>
 
 
+
       <article class="card">
 
         <div class="card-body">
@@ -1390,6 +1492,7 @@ footer p{
         </div>
 
       </article>
+
 
 
       <article class="card">
@@ -1421,6 +1524,7 @@ footer p{
       </article>
 
 
+
       <article class="card">
 
         <div class="card-body">
@@ -1448,6 +1552,7 @@ footer p{
         </div>
 
       </article>
+
 
 
       <article class="card">
@@ -1496,9 +1601,9 @@ footer p{
 
 
 
-<!-- =====================================================
+<!-- ==================================================
      FOOTER
-===================================================== -->
+================================================== -->
 
 <footer>
 
