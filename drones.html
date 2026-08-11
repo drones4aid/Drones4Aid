@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DRONES4AID | Our Drones</title>
 
-  <!-- 3D MODEL VIEWER -->
   <script
     type="module"
     src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
@@ -120,6 +119,7 @@
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       color: #fff;
+
       background:
         linear-gradient(
           135deg,
@@ -127,6 +127,7 @@
           rgba(31, 111, 139, 0.88) 55%,
           rgba(242, 140, 40, 0.42) 100%
         );
+
       overflow: hidden;
     }
 
@@ -166,6 +167,7 @@
 
     .hero-visual {
       min-height: 68vh;
+
       background:
         linear-gradient(
           180deg,
@@ -174,6 +176,7 @@
         ),
         url("https://i.ytimg.com/vi/DL9epo9vWew/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBv8PBrGbX53hWTsf-2CpptCS69cg")
         center center / cover no-repeat;
+
       background-color: #0f2235;
     }
 
@@ -262,22 +265,12 @@
       border-bottom: 1px solid var(--border);
     }
 
-    /* MONITORING / 3D */
-
-    .monitor-grid {
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: stretch;
-    }
+    /* 3D VIEWER */
 
     .viewer-wrap {
       padding: 18px;
-      background: #000;
+      background: #000000;
     }
-
-    /*
-      3D MODEL VIEWER
-      The model is loaded from the GitHub v1.0 release.
-    */
 
     model-viewer {
       width: 100%;
@@ -286,14 +279,22 @@
       background: #000000;
 
       border-radius: 16px;
-      border: 1px solid #222;
+      border: 1px solid #222222;
 
       --poster-color: #000000;
 
       display: block;
     }
 
-    /* 3D MODEL INFORMATION */
+    .model-loaded {
+      margin-top: 18px;
+      background: #f4f8fb;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 13px 15px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
     .model-info {
       padding: 24px;
@@ -314,17 +315,7 @@
       color: var(--navy);
     }
 
-    .model-loaded {
-      margin-top: 18px;
-      background: #f4f8fb;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 13px 15px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    /* COUNTERS */
+    /* COUNTER */
 
     .counter-wrap {
       margin-top: 22px;
@@ -371,7 +362,7 @@
       line-height: 1;
     }
 
-    /* CITY TABLE */
+    /* TABLE */
 
     .city-table {
       width: 100%;
@@ -417,7 +408,6 @@
       background: var(--navy);
       color: #fff;
       padding: 34px 0;
-      margin-top: 0;
     }
 
     footer p {
@@ -436,8 +426,7 @@
         min-height: 320px;
       }
 
-      .two,
-      .monitor-grid {
+      .two {
         grid-template-columns: 1fr;
       }
 
@@ -476,6 +465,7 @@
 <body>
 
   <!-- HEADER -->
+  <!-- ONLY HOME AND DRONES ARE LINKED ON THIS PAGE -->
 
   <header>
     <div class="container nav">
@@ -485,30 +475,12 @@
         DRONES4AID
       </a>
 
-      <nav>
+      <nav aria-label="Drones navigation">
         <ul>
 
           <li>
             <a href="./index.html">
               Home
-            </a>
-          </li>
-
-          <li>
-            <a href="./about.html">
-              About
-            </a>
-          </li>
-
-          <li>
-            <a href="./mission.html">
-              Mission
-            </a>
-          </li>
-
-          <li>
-            <a href="./operations.html">
-              Operations
             </a>
           </li>
 
@@ -573,11 +545,8 @@
         and operational work.
       </p>
 
-
       <div class="grid catalog">
 
-
-        <!-- DJI MINI 4 PRO -->
 
         <article class="card drone-card">
 
@@ -603,8 +572,6 @@
         </article>
 
 
-        <!-- DJI MINI 5 PRO -->
-
         <article class="card drone-card">
 
           <img
@@ -629,8 +596,6 @@
         </article>
 
 
-        <!-- DJI NEO -->
-
         <article class="card drone-card">
 
           <img
@@ -653,8 +618,6 @@
 
         </article>
 
-
-        <!-- DJI MAVIC 4 PRO -->
 
         <article class="card drone-card">
 
@@ -679,8 +642,6 @@
 
         </article>
 
-
-        <!-- IZI BEPHOS -->
 
         <article class="card drone-card">
 
@@ -722,9 +683,7 @@
         Drone Manufacturing
       </h2>
 
-
       <div class="grid two">
-
 
         <article class="card">
 
@@ -765,7 +724,6 @@
 
         </article>
 
-
         <article class="card section-visual">
 
           <img
@@ -797,9 +755,7 @@
         Drone Deployment
       </h2>
 
-
       <div class="grid two">
-
 
         <article class="card">
 
@@ -843,7 +799,6 @@
 
         </article>
 
-
         <article class="card section-visual">
 
           <img
@@ -854,9 +809,6 @@
         </article>
 
       </div>
-
-
-      <!-- DEPLOYMENT COUNTER -->
 
       <div class="counter-wrap">
 
@@ -912,9 +864,7 @@
         Drone Monitoring
       </h2>
 
-
-      <div class="grid monitor-grid">
-
+      <div class="grid two">
 
         <article class="card">
 
@@ -968,7 +918,6 @@
 
           </article>
 
-
           <article class="card section-visual">
 
             <img
@@ -987,7 +936,7 @@
   </section>
 
 
-  <!-- 3D DRONE -->
+  <!-- 3D DRONE PROTOTYPE -->
 
   <section id="custom" class="section alt">
 
@@ -1006,39 +955,36 @@
       <div class="grid two">
 
 
-        <!-- 3D VIEWER -->
+        <!-- BLACK 3D VIEWER -->
 
         <article class="card viewer-wrap">
 
           <model-viewer
             id="droneModel"
-
             src="https://github.com/drones4aid/Drones4Aid/releases/download/v1.0/drone_gltf.glb"
-
             camera-controls
             auto-rotate
-
             shadow-intensity="1"
             exposure="1"
-
             interaction-prompt="auto"
-
             alt="3D drone prototype">
-
           </model-viewer>
 
 
           <div class="model-loaded">
+
             <strong>
               3D drone loaded
             </strong>
+
             — drag to rotate and scroll/pinch to zoom.
+
           </div>
 
         </article>
 
 
-        <!-- INFORMATION -->
+        <!-- 3D INFORMATION -->
 
         <article class="card">
 
@@ -1094,11 +1040,9 @@
   </footer>
 
 
-  <!-- JAVASCRIPT -->
+  <!-- DEPLOYMENT TABLE SCRIPT -->
 
   <script>
-
-    /* DEPLOYMENT TABLE */
 
     const cityRows =
       document.getElementById("cityRows");
@@ -1140,9 +1084,7 @@
       if (index >= 10) {
 
         index = 0;
-
         cityRows.innerHTML = "";
-
         start = Date.now();
 
       }
@@ -1197,6 +1139,7 @@
 
       deployedCount.textContent =
         count;
+
     }
 
 
@@ -1208,7 +1151,7 @@
     );
 
 
-    /* 3D MODEL LOADING STATUS */
+    /* 3D MODEL STATUS */
 
     const droneModel =
       document.getElementById("droneModel");
@@ -1228,11 +1171,10 @@
 
     droneModel.addEventListener(
       "error",
-      (event) => {
+      () => {
 
         console.error(
-          "The 3D drone model could not be loaded.",
-          event
+          "DRONES4AID 3D prototype failed to load."
         );
 
       }
