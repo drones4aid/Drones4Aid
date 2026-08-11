@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ - DRONES4AID</title>
+
+  <style>
+    :root{
+      --navy:#102a43;--blue:#1f6f8b;--light:#f4f8fb;--card:#fff;
+      --text:#1f2937;--muted:#5b6575;--border:#dbe3ea;
+      --shadow:0 12px 30px rgba(16,42,67,.10);--radius:20px;
+      --cream:#fffaf2;--accent:#f28c28;--red:#e74c3c;
+      --yellow:#f4c542;--green:#2ecc71
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--cream);
+      color:var(--text);
+      line-height:1.6
+    }
+
+    a{text-decoration:none;color:inherit}
+    button{font-family:inherit}
+
+    .container{
+      width:min(1180px,92%);
+      margin:0 auto
+    }
+
+    .section{padding:80px 0}
+    .section.alt{background:var(--light)}
+    h1,h2,h3{color:var(--navy)}
+
+    .lead{
+      color:var(--muted);
+      max-width:980px;
+      margin-top:10px
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(255,255,255,.93);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border)
+    }
+
+    .nav{
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      color:var(--navy);
+      flex:0 0 auto
+    }
+
+    .logo-mark{
+      width:42px;
+      height:42px;
+      background:linear-gradient(135deg,#d97706,#f59e0b);
+      clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);
+      display:grid;
+      place-items:center;
+      color:#102a43;
+      font-size:.86rem;
+      font-weight:900;
+      box-shadow:0 8px 18px rgba(16,42,67,.18)
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      font-weight:700;
+      color:var(--navy)
+    }
+
+    nav a{
+      padding:8px 12px;
+      border-radius:999px;
+      transition:.2s ease
+    }
+
+    nav a:hover{
+      background:#eaf4fb;
+      color:var(--blue)
+    }
+
+    .hero{
+      min-height:72vh;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      overflow:hidden;
+      background:linear-gradient(
+        135deg,
+        rgba(16,42,67,.96),
+        rgba(31,111,139,.86),
+        rgba(242,140,40,.35)
+      );
+      color:#fff
+    }
+
+    .hero-copy{
+      display:flex;
+      align-items:center
+    }
+
+    .hero .container{
+      padding:86px 0 72px
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.18);
+      padding:8px 14px;
+      border-radius:999px;
+      margin-bottom:18px;
+      font-weight:700
+    }
+
+    .hero h1{
+      font-size:clamp(2.2rem,5vw,4.5rem);
+      line-height:1.05;
+      margin-bottom:14px;
+      color:#fff
+    }
+
+    .hero p{
+      max-width:860px;
+      color:#eef5fb;
+      font-size:1.05rem
+    }
+
+    .hero-visual{
+      background:
+        linear-gradient(
+          180deg,
+          rgba(16,42,67,.08),
+          rgba(16,42,67,.52)
+        ),
+        url('https://cdn.sanity.io/images/bl383u0v/production/12616f898342e36732d7f5326184bef07d4d45d3-800x533.gif')
+        center/cover no-repeat;
+      min-height:72vh
+    }
+
+    .topic-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:22px
+    }
+
+    .topic-links a{
+      background:#fff;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      padding:10px 16px;
+      border-radius:999px;
+      font-weight:700;
+      color:var(--navy)
+    }
+
+    .topic-links a:hover{
+      background:var(--navy);
+      color:#fff
+    }
+
+    .section-title{
+      font-size:clamp(1.9rem,3vw,2.8rem);
+      margin-bottom:12px
+    }
+
+    .faq-nav{
+      display:grid;
+      gap:18px;
+      margin-top:24px
+    }
+
+    .faq-section{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden
+    }
+
+    .faq-list{
+      padding:18px 22px 22px;
+      display:grid;
+      gap:14px
+    }
+
+    .faq-item{
+      border:1px solid var(--border);
+      border-radius:16px;
+      overflow:hidden;
+      background:#fff
+    }
+
+    .faq-q{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:18px;
+      border:none;
+      background:#fff;
+      text-align:left;
+      cursor:pointer;
+      font-size:1.08rem;
+      font-weight:800;
+      color:var(--navy)
+    }
+
+    .faq-q span{flex:1}
+
+    .arrow{
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:#eef3f8;
+      color:var(--navy);
+      flex:0 0 auto;
+      transition:transform .2s ease,background .2s ease
+    }
+
+    .faq-item.open .arrow{
+      transform:rotate(180deg);
+      background:#dfeaf5
+    }
+
+    .faq-a{
+      display:none;
+      padding:0 18px 18px;
+      color:var(--muted)
+    }
+
+    .faq-item.open .faq-a{
+      display:block
+    }
+
+    .sticky-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      margin-top:24px
+    }
+
+    .sticky-card{
+      position:relative;
+      background:linear-gradient(180deg,#fff9dc,#fff3a9);
+      border:1px dashed #d3c267;
+      border-radius:18px;
+      box-shadow:0 10px 24px rgba(0,0,0,.08);
+      padding:18px;
+      min-height:220px;
+      transform:rotate(-1.5deg)
+    }
+
+    .sticky-card:nth-child(even){
+      transform:rotate(1.2deg);
+      background:linear-gradient(180deg,#fff,#f7fbff)
+    }
+
+    .sticky-tag{
+      display:inline-block;
+      background:var(--navy);
+      color:#fff;
+      border-radius:999px;
+      padding:6px 12px;
+      font-size:.9rem;
+      margin-bottom:10px;
+      font-weight:700
+    }
+
+    .reveal-btn{
+      margin-top:18px;
+      border:none;
+      background:var(--blue);
+      color:#fff;
+      padding:10px 16px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:700
+    }
+
+    .reveal-btn:hover{
+      background:#16556c
+    }
+
+    .reality{
+      display:none;
+      margin-top:14px;
+      background:#fff;
+      border-radius:14px;
+      padding:14px;
+      border:1px solid var(--border);
+      color:var(--text)
+    }
+
+    .sticky-card.show-reality .reality{
+      display:block
+    }
+
+    .sticky-card.show-reality .myth-text{
+      display:none
+    }
+
+    .sticky-card .back-btn{
+      display:none;
+      margin-top:10px;
+      border:none;
+      background:#f0f0f0;
+      color:var(--navy);
+      padding:9px 14px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:700
+    }
+
+    .sticky-card.show-reality .back-btn{
+      display:inline-block
+    }
+
+    .simulator{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:24px;
+      margin-top:24px
+    }
+
+    .sim-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      margin-top:16px
+    }
+
+    .field{
+      background:#fafcff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:16px
+    }
+
+    .field h4{
+      color:var(--navy);
+      margin-bottom:10px
+    }
+
+    .options{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px
+    }
+
+    .option{
+      border:1px solid var(--border);
+      background:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:700;
+      color:var(--navy)
+    }
+
+    .option.active{
+      border-color:var(--blue);
+      background:#eaf6fb
+    }
+
+    .dot{
+      display:inline-block;
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      margin-right:8px;
+      vertical-align:middle
+    }
+
+    .dot.red{background:var(--red)}
+    .dot.yellow{background:var(--yellow)}
+    .dot.white{
+      background:#fff;
+      border:1px solid #ccc
+    }
+
+    .result-card{
+      margin-top:18px;
+      padding:18px;
+      border-radius:16px;
+      background:#f8fbff;
+      border:1px solid var(--border)
+    }
+
+    .result-lines{
+      display:grid;
+      gap:6px;
+      margin-top:10px;
+      color:var(--muted)
+    }
+
+    .progress-wrap{
+      margin-top:18px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:999px;
+      overflow:hidden;
+      height:28px;
+      position:relative
+    }
+
+    .progress-bar{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,#e74c3c,#f4c542,#2ecc71);
+      transition:width .4s ease
+    }
+
+    .progress-label{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      color:#102a43;
+      mix-blend-mode:multiply
+    }
+
+    .quiz-start{
+      margin-top:16px;
+      padding:16px;
+      border:1px solid var(--border);
+      background:#fff;
+      border-radius:16px;
+      box-shadow:var(--shadow)
+    }
+
+    .quiz-start button{
+      border:none;
+      background:var(--navy);
+      color:#fff;
+      padding:12px 18px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:700
+    }
+
+    .trivia-wrap{
+      display:none;
+      gap:18px;
+      margin-top:24px
+    }
+
+    .quiz-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      padding:0 0 14px
+    }
+
+    .quiz-q{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      padding:20px 18px;
+      border:none;
+      background:#fff;
+      cursor:pointer;
+      text-align:left;
+      font-weight:800;
+      color:var(--navy);
+      font-size:1.12rem;
+      line-height:1.45
+    }
+
+    .quiz-q span{flex:1}
+
+    .quiz-a{
+      display:none;
+      padding:0 18px 10px;
+      color:var(--muted)
+    }
+
+    .quiz-card.open .quiz-a{
+      display:block
+    }
+
+    .quiz-options{
+      display:grid;
+      gap:10px;
+      padding:0 18px 4px;
+      margin-top:4px
+    }
+
+    .quiz-option{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:12px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:#fafcff;
+      cursor:pointer;
+      font-size:1.02rem
+    }
+
+    .quiz-option input{
+      margin-top:3px
+    }
+
+    .quiz-score{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      padding:20px;
+      margin-top:24px
+    }
+
+    .score-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:16px
+    }
+
+    .score-btn{
+      border:none;
+      background:var(--navy);
+      color:#fff;
+      padding:10px 16px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:700
+    }
+
+    .score-btn.secondary{
+      background:#5b6575
+    }
+
+    .final-msg{
+      margin-top:14px;
+      font-weight:700;
+      color:var(--navy)
+    }
+
+    footer{
+      background:var(--navy);
+      color:#fff;
+      padding:34px 0;
+      margin-top:40px
+    }
+
+    footer p{
+      color:#d8e3ee
+    }
+
+    @media(max-width:900px){
+      .hero{
+        grid-template-columns:1fr
+      }
+
+      .hero-visual{
+        min-height:320px
+      }
+
+      .sticky-grid,
+      .sim-grid{
+        grid-template-columns:1fr
+      }
+
+      .nav{
+        flex-wrap:wrap
+      }
+
+      nav ul{
+        justify-content:flex-start
+      }
+
+      .quiz-q{
+        font-size:1.03rem
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <div class="logo">
+      <span class="logo-mark">✦</span>
+      <span>DRONES4AID</span>
+    </div>
+
+    <nav>
+      <ul>
+        <!-- HOME BUTTON BACK TO ORIGINAL INDEX -->
+        <li><a href="index.html">Home</a></li>
+
+        <li><a href="#about">About Drones4Aid</a></li>
+        <li><a href="#operations">Our Operations</a></li>
+        <li><a href="#mission">Our Mission</a></li>
+        <li><a href="#drones">Our Drones</a></li>
+        <li><a href="#volunteer">How to Volunteer</a></li>
+        <li><a href="#myth">Reality vs Myth</a></li>
+        <li><a href="#simulator">Drone Suitability Simulator</a></li>
+        <li><a href="#trivia">Trivia</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <div class="container">
+      <div class="eyebrow">FAQ</div>
+
+      <h1>Frequently Asked Questions</h1>
+
+      <p>
+        Find quick answers about DRONES4AID, our operations, our mission,
+        our drones, and how to volunteer. Use the sections below to jump
+        straight to the topic you want.
+      </p>
+    </div>
+  </div>
+
+  <div class="hero-visual"></div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <h2 class="section-title">
+      What do you want to know about?
+    </h2>
+
+    <div class="topic-links">
+      <a href="#about">About Drones4Aid</a>
+      <a href="#operations">Our Operations</a>
+      <a href="#mission">Our Mission</a>
+      <a href="#drones">Our Drones</a>
+      <a href="#volunteer">How to Volunteer</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="about" class="section alt">
+  <div class="container">
+
+    <h2 class="section-title">About Drones4Aid</h2>
+
+    <div class="faq-nav">
+      <div class="faq-section">
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>1. What is DRONES4AID?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              DRONES4AID is a strictly non-profit, non-governmental humanitarian
+              organisation focused on supporting communities affected by war,
+              armed conflict, displacement, and humanitarian emergencies.
+              We combine humanitarian aid, peaceful action, community
+              partnerships, and responsible technology to help people facing
+              difficult circumstances.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>2. What does DRONES4AID actually stand for?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              DRONES4AID stands for our belief that technology should be used
+              to help people, not harm them. Our work centres around
+              humanitarian support, civilian safety, dignity, peaceful action,
+              and using technology responsibly where it can genuinely improve
+              access to aid.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>3. Who does DRONES4AID help?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              DRONES4AID focuses on communities affected by conflict,
+              displacement, and humanitarian crises. This can include civilians
+              who need food, water, medical essentials, hygiene supplies,
+              emergency packages, or other forms of humanitarian assistance.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>4. What are the main principles behind DRONES4AID?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Our work is guided by humanity, neutrality, impartiality,
+              independence, and the principle of doing no harm. We also
+              emphasise respect for privacy, local communities, transparency,
+              and accountability. These principles are intended to ensure that
+              humanitarian needs—not political or military interests—remain at
+              the centre of our work.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>5. What is DRONES4AID trying to achieve in the long term?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Our goal is to help make humanitarian assistance faster, safer,
+              fairer, and more accessible, particularly when damaged
+              infrastructure or difficult conditions make conventional delivery
+              challenging. Alongside providing practical assistance,
+              DRONES4AID aims to encourage cooperation, peaceful approaches
+              to disputes, and stronger partnerships with communities and
+              humanitarian organisations.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="operations" class="section">
+  <div class="container">
+
+    <h2 class="section-title">Our Operations</h2>
+
+    <div class="faq-nav">
+      <div class="faq-section">
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>1. What was DRONES4AID’s role in its Gaza operation?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Our Gaza operation focused on supporting civilians affected by
+              humanitarian disruption by helping provide essential supplies
+              where conventional access was difficult. The operation prioritised
+              civilian needs, safe delivery, and coordination with humanitarian
+              partners.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>2. Why did DRONES4AID carry out operations in Ukraine?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              The Ukraine operation focused on communities affected by conflict
+              and disrupted infrastructure. Our humanitarian approach centred
+              on supporting access to essential supplies and assessing areas
+              where conventional transportation could be difficult or unsafe.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>3. Why is the Sahel Region an important area for humanitarian drone operations?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              The Sahel faces a combination of humanitarian challenges,
+              including displacement, limited infrastructure, food insecurity,
+              and difficult access to some communities. Drones can potentially
+              help overcome certain geographical barriers by supporting
+              small-scale deliveries and aerial assessments where their use
+              is appropriate and authorised.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>4. What challenges does DRONES4AID face when operating in the Balochistan region?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Operations in the Balochistan region can involve difficult terrain,
+              long distances, limited infrastructure, security concerns, and
+              restricted access to some communities. Any humanitarian operation
+              therefore requires careful assessment, local coordination,
+              appropriate permissions, and a strong focus on civilian safety.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>5. What do the Gaza, Ukraine, Sahel, and Balochistan operations have in common?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Although the circumstances are different, all four operations are
+              based on the same humanitarian principle: aid should reach people
+              according to need, not political affiliation or military interest.
+              Each operation requires its own assessment of accessibility,
+              safety, weather, infrastructure, local cooperation, and available
+              resources before drones are considered appropriate.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="mission" class="section alt">
+  <div class="container">
+
+    <h2 class="section-title">Our Mission</h2>
+
+    <div class="faq-nav">
+      <div class="faq-section">
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>1. Why does DRONES4AID focus on humanitarian aid in conflict-affected communities?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              DRONES4AID aims to support civilians who face disrupted
+              infrastructure, displacement, shortages, and limited access
+              to essential supplies. Our mission is to help reduce humanitarian
+              suffering while respecting civilian dignity and prioritising
+              peaceful action.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>2. Why does DRONES4AID emphasise peace alongside humanitarian aid?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Humanitarian assistance should not simply respond to immediate
+              suffering; it should also avoid contributing to further conflict.
+              DRONES4AID therefore promotes peaceful dialogue, cooperation,
+              and conflict resolution while keeping humanitarian needs at the
+              centre of its work.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>3. What humanitarian principles guide DRONES4AID’s mission?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Our mission is guided by humanity, neutrality, impartiality,
+              independence, and the principle of doing no harm. These principles
+              help ensure that assistance is based on humanitarian need rather
+              than political, military, religious, or other affiliations.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>4. How does DRONES4AID balance technology with its “do no harm” principle?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Technology is a means rather than the objective of our mission.
+              Drones are considered only when they provide a genuine
+              humanitarian benefit and can be used safely, lawfully, and
+              responsibly. Civilian safety, privacy, local consent, and
+              humanitarian coordination take priority over technological
+              capability.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>5. What does DRONES4AID ultimately want to achieve?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Our long-term goal is to help communities affected by crisis
+              access essential assistance more safely and efficiently while
+              encouraging cooperation and peaceful solutions. We want
+              responsible technology to strengthen humanitarian work—not
+              replace people, local organisations, or community decision-making.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="drones" class="section">
+  <div class="container">
+
+    <h2 class="section-title">Our Drones</h2>
+
+    <div class="faq-nav">
+      <div class="faq-section">
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>1. What drone models does DRONES4AID use for humanitarian deliveries?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              DRONES4AID uses different drone configurations depending on the
+              mission. Multirotor delivery drones are suited to short-range
+              operations because they can take off and land vertically and
+              hover accurately, while fixed-wing or hybrid VTOL drones can be
+              considered for longer-range mapping and assessment missions.
+              The final model depends on payload, distance, terrain, weather,
+              and local aviation regulations.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>2. How are DRONES4AID’s humanitarian drones manufactured?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              The manufacturing process involves several stages, including
+              frame construction, motor and propulsion installation,
+              flight-controller integration, navigation-system installation,
+              payload integration, software configuration, and quality testing.
+              Each aircraft is inspected and tested before being considered
+              for an authorised humanitarian deployment.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>3. How does DRONES4AID decide which drone to deploy for a mission?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              The team evaluates factors such as payload requirements,
+              flight distance, terrain, weather, infrastructure, aviation
+              restrictions, mission urgency, and safety risks. A smaller
+              multirotor may be appropriate for a short delivery, while a
+              longer-range aircraft may be more suitable for aerial mapping
+              or assessment. If the risks outweigh the humanitarian benefit,
+              a drone is not deployed.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>4. What makes a humanitarian delivery drone different from an ordinary commercial drone?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              A humanitarian drone is configured around a specific civilian
+              purpose rather than recreational photography. It may include
+              payload compartments, additional navigation systems, redundant
+              safety features, specialised cameras, communication equipment,
+              or environmental sensors. Its operation also requires appropriate
+              planning, permissions, trained operators, and humanitarian
+              safeguards.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>5. How are DRONES4AID drones tested before deployment?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Before an authorised deployment, the aircraft can undergo
+              structural inspections, battery and propulsion checks,
+              communication checks, navigation verification, payload checks,
+              software verification, and controlled flight testing. Teams
+              also review weather, airspace, emergency procedures, and
+              operational risks before approving a mission.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>6. What happens if a drone becomes unsuitable during a mission?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Safety takes priority over completing a delivery. If conditions
+              become unsafe or the aircraft develops a problem, the operation
+              follows its predefined contingency procedures. This can include
+              ending the flight, returning to an approved location, or
+              transferring the humanitarian task to another authorised method
+              of delivery.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="volunteer" class="section alt">
+  <div class="container">
+
+    <h2 class="section-title">How to Volunteer</h2>
+
+    <div class="faq-nav">
+      <div class="faq-section">
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>1. What can I actually do as a DRONES4AID volunteer?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Volunteers can contribute in several areas, including humanitarian
+              research, logistics, fundraising, translation, communications,
+              community outreach, packaging, event organisation, and
+              administrative work. Technical roles can also be available for
+              appropriately trained volunteers.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>2. Do I need to know how to operate drones to volunteer?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              No. Most volunteer roles do not require drone-flying experience.
+              DRONES4AID also needs people with skills in research, writing,
+              design, logistics, fundraising, communications, data management,
+              and community engagement. Drone-related roles require appropriate
+              training and authorisation.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>3. Can students volunteer with DRONES4AID?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Yes, students can contribute through age-appropriate activities
+              such as fundraising, awareness campaigns, research, translation,
+              educational events, digital communications, and preparing
+              humanitarian packages. Any role involving sensitive information,
+              field operations, or specialised equipment requires appropriate
+              supervision and permissions.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>4. Can volunteers participate in humanitarian field operations?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Potentially, but field participation is not automatically
+              available to every volunteer. It depends on age, training,
+              experience, security conditions, local permissions,
+              organisational needs, and the specific role. Volunteers are
+              never expected to enter unsafe environments simply to support
+              an operation.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q">
+              <span>5. How does DRONES4AID make sure volunteers are prepared?</span>
+              <div class="arrow">⌄</div>
+            </button>
+            <div class="faq-a">
+              Volunteers should receive appropriate role-specific guidance,
+              safeguarding information, safety procedures, and organisational
+              training before undertaking their responsibilities. Volunteers
+              working with humanitarian information or communities must also
+              understand confidentiality, privacy, and respectful engagement.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="myth" class="section">
+  <div class="container">
+
+    <h2 class="section-title">Reality vs Myth</h2>
+
+    <div class="sticky-grid">
+
+      <div class="sticky-card">
+        <div class="sticky-tag">MYTH</div>
+
+        <div class="myth-text">
+          “All drones are controlled manually by a pilot every second of the flight.”
+        </div>
+
+        <div class="reality">
+          Many modern drones can use automated systems such as GPS-assisted
+          navigation, programmed routes, obstacle sensing, and automated
+          return-to-home functions. However, trained operators remain
+          responsible for authorised flights and must be able to respond
+          to changing conditions.
+        </div>
+
+        <button class="reveal-btn">Reveal Reality</button>
+        <button class="back-btn">Show Myth Again</button>
+      </div>
+
+      <div class="sticky-card">
+        <div class="sticky-tag">REALITY</div>
+
+        <div class="myth-text">
+          “Drones can be useful when roads or other conventional routes are inaccessible.”
+        </div>
+
+        <div class="reality">
+          Drones can sometimes transport small, lightweight humanitarian
+          packages or collect aerial information when ground access is
+          severely disrupted. Their usefulness depends on factors such as
+          weather, range, payload, safety, and legal permissions.
+        </div>
+
+        <button class="reveal-btn">Reveal Reality</button>
+        <button class="back-btn">Show Myth Again</button>
+      </div>
+
+      <div class="sticky-card">
+        <div class="sticky-tag">MYTH</div>
+
+        <div class="myth-text">
+          “A drone can safely operate in any weather as long as its battery is charged.”
+        </div>
+
+        <div class="reality">
+          Weather can significantly affect drone operations. Strong winds,
+          heavy rain, poor visibility, extreme temperatures, and other
+          environmental conditions can make a flight unsafe or unsuitable.
+          Weather assessment is therefore an important part of mission planning.
+        </div>
+
+        <button class="reveal-btn">Reveal Reality</button>
+        <button class="back-btn">Show Myth Again</button>
+      </div>
+
+      <div class="sticky-card">
+        <div class="sticky-tag">REALITY</div>
+
+        <div class="myth-text">
+          “Humanitarian drones are automatically allowed to fly anywhere during an emergency.”
+        </div>
+
+        <div class="reality">
+          An emergency does not automatically remove aviation restrictions.
+          Humanitarian drone operations may still require airspace coordination,
+          permissions, trained operators, safety procedures, and coordination
+          with relevant authorities and partners.
+        </div>
+
+        <button class="reveal-btn">Reveal Reality</button>
+        <button class="back-btn">Show Myth Again</button>
+      </div>
+
+      <div class="sticky-card">
+        <div class="sticky-tag">MYTH</div>
+
+        <div class="myth-text">
+          “Using a drone does not automatically make a humanitarian operation better.”
+        </div>
+
+        <div class="reality">
+          A drone is only useful when it provides a genuine advantage over
+          other options. Teams must consider humanitarian need, safety,
+          accessibility, weather, payload, privacy, cost, regulations,
+          and alternative delivery methods before deciding whether drone
+          use is appropriate.
+        </div>
+
+        <button class="reveal-btn">Reveal Reality</button>
+        <button class="back-btn">Show Myth Again</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="simulator" class="section alt">
+  <div class="container">
+
+    <h2 class="section-title">Drone Suitability Simulator</h2>
+
+    <p class="lead">
+      Choose the conditions below to test whether a drone mission looks suitable.
+      The simulator compares urgency, access, weather, and supply type to estimate
+      how helpful a drone would be in that situation.
+    </p>
+
+    <p class="lead">
+      The result shows a suitability percentage, a short reason, and a simple
+      progress bar. You can change the conditions anytime and run the simulation
+      again.
+    </p>
+
+    <div class="simulator">
+
+      <h3 style="margin-bottom:8px">
+        Design Your Own Conditions
+      </h3>
+
+      <div class="sim-grid">
+
+        <div class="field">
+          <h4>1. Stress Scale</h4>
+
+          <div class="options" data-group="stress">
+            <div class="option" data-value="Severe">
+              <span class="dot red"></span>Severe
+            </div>
+
+            <div class="option" data-value="Medium">
+              <span class="dot yellow"></span>Medium
+            </div>
+
+            <div class="option" data-value="Mild">
+              <span class="dot white"></span>Mild
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <h4>2. Humanitarian Need</h4>
+
+          <div class="options" data-group="need">
+            <div class="option" data-value="Urgent">Urgent</div>
+            <div class="option" data-value="Moderate">Moderate</div>
+            <div class="option" data-value="Low">Low</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <h4>3. Accessibility</h4>
+
+          <div class="options" data-group="access">
+            <div class="option" data-value="Completely Accessible">
+              Completely Accessible
+            </div>
+
+            <div class="option" data-value="Partially Accessible">
+              Partially Accessible
+            </div>
+
+            <div class="option" data-value="Not at all Accessible">
+              Not at all Accessible
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <h4>4. Environmental Conditions</h4>
+
+          <div class="options" data-group="env">
+            <div class="option" data-value="Natural Disaster">
+              Natural Disaster
+            </div>
+
+            <div class="option" data-value="Challenging">
+              Challenging
+            </div>
+
+            <div class="option" data-value="Safe">
+              Safe
+            </div>
+          </div>
+        </div>
+
+        <div class="field" style="grid-column:1/-1">
+          <h4>5. Supplies Needed</h4>
+
+          <div class="options" data-group="supplies">
+            <div class="option" data-value="Food">Food</div>
+
+            <div class="option" data-value="Medical Aid">
+              Medical Aid
+            </div>
+
+            <div class="option" data-value="Clothing/Shelter">
+              Clothing/Shelter
+            </div>
+
+            <div class="option" data-value="All">
+              All
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="score-actions">
+        <button class="score-btn" id="simulateBtn">
+          Simulate
+        </button>
+
+        <button class="score-btn secondary" id="resetSimBtn">
+          Reset
+        </button>
+      </div>
+
+      <div class="result-card">
+
+        <strong>Simulation Result</strong>
+
+        <div class="result-lines" id="simLines">
+          <div>Pick your conditions and press Simulate.</div>
+        </div>
+
+        <div class="progress-wrap">
+          <div class="progress-bar" id="simBar"></div>
+          <div class="progress-label" id="simPercent">0%</div>
+        </div>
+
+        <div class="final-msg" id="simMessage"></div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="trivia" class="section">
+  <div class="container">
+
+    <h2 class="section-title">Trivia</h2>
+
+    <p class="lead">
+      Start the quiz when you are ready. Pick one answer for each question,
+      then submit to see your score.
+    </p>
+
+    <div class="quiz-start" id="quizStartBox">
+
+      <strong>Ready for the quiz?</strong>
+
+      <div style="margin-top:8px;color:var(--muted)">
+        Click the button below to begin.
+      </div>
+
+      <button id="startQuizBtn" style="margin-top:12px;">
+        Start Quiz
+      </button>
+
+    </div>
+
+    <div class="trivia-wrap" id="quizWrap">
+
+      <div class="quiz-card" data-answer="B">
+
+        <button class="quiz-q">
+          <span>
+            1. About Us — Which three priorities are specifically highlighted
+            in DRONES4AID’s “About Us” section?
+          </span>
+          <div class="arrow">⌄</div>
+        </button>
+
+        <div class="quiz-options">
+
+          <label class="quiz-option">
+            <input type="radio" name="q1" value="A">
+            Technology, military coordination, and surveillance
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q1" value="B">
+            People first, essential aid, and peaceful action
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q1" value="C">
+            Speed, profit, and technological innovation
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q1" value="D">
+            Research, defence, and infrastructure
+          </label>
+
+        </div>
+      </div>
+
+      <div class="quiz-card" data-answer="TRUE">
+
+        <button class="quiz-q">
+          <span>
+            2. Mission — True or False: DRONES4AID’s mission principles
+            specifically include humanity, neutrality, impartiality,
+            independence, and “do no harm.”
+          </span>
+          <div class="arrow">⌄</div>
+        </button>
+
+        <div class="quiz-options">
+
+          <label class="quiz-option">
+            <input type="radio" name="q2" value="TRUE">
+            True
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q2" value="FALSE">
+            False
+          </label>
+
+        </div>
+      </div>
+
+      <div class="quiz-card" data-answer="A">
+
+        <button class="quiz-q">
+          <span>
+            3. Drones — Which type of drone is described as being used
+            for humanitarian deliveries?
+          </span>
+          <div class="arrow">⌄</div>
+        </button>
+
+        <div class="quiz-options">
+
+          <label class="quiz-option">
+            <input type="radio" name="q3" value="A">
+            Multirotor delivery drones
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q3" value="B">
+            Fighter drones
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q3" value="C">
+            Agricultural drones
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q3" value="D">
+            Racing drones
+          </label>
+
+        </div>
+      </div>
+
+      <div class="quiz-card" data-answer="E">
+
+        <button class="quiz-q">
+          <span>
+            4. Operations — Which of the following was NOT listed among
+            the specific operations featured on the DRONES4AID website?
+          </span>
+          <div class="arrow">⌄</div>
+        </button>
+
+        <div class="quiz-options">
+
+          <label class="quiz-option">
+            <input type="radio" name="q4" value="A">
+            Gaza Strip
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q4" value="B">
+            Ukraine
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q4" value="C">
+            Sahel Region
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q4" value="D">
+            Baloch Region
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q4" value="E">
+            Afghanistan
+          </label>
+
+        </div>
+      </div>
+
+      <div class="quiz-card" data-answer="Humanitarian aid">
+
+        <button class="quiz-q">
+          <span>
+            5. Any Section — I can be food, medical supplies, or emergency
+            essentials. I am given to people who need help. I am at the centre
+            of what DRONES4AID is trying to provide. What am I?
+          </span>
+          <div class="arrow">⌄</div>
+        </button>
+
+        <div class="quiz-options">
+
+          <label class="quiz-option">
+            <input type="radio" name="q5" value="Humanitarian aid">
+            Humanitarian aid
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q5" value="Drone parts">
+            Drone parts
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q5" value="Fuel">
+            Fuel
+          </label>
+
+          <label class="quiz-option">
+            <input type="radio" name="q5" value="Mapping data">
+            Mapping data
+          </label>
+
+        </div>
+      </div>
+
+      <div class="score-actions">
+
+        <button class="score-btn" id="submitQuizBtn">
+          Submit Quiz
+        </button>
+
+        <button class="score-btn secondary" id="restartQuizBtn">
+          Restart Quiz
+        </button>
+
+        <button class="score-btn secondary" id="openAllBtn">
+          Open All Questions
+        </button>
+
+      </div>
+
+      <div class="quiz-score">
+
+        <strong>Your Score:</strong>
+        <span id="scoreText">0/5</span>
+
+        <div class="final-msg" id="scoreMsg"></div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+
+    <h2 class="section-title">
+      Hope we’ve answered all your questions
+    </h2>
+
+    <p class="lead">
+      We designed this page to make the important details easier to explore
+      in one place. You can jump between topics, test your understanding,
+      and review the ideas again whenever you need.
+    </p>
+
+    <p class="lead">
+      Thank you for reading through the FAQ, the myth check, the simulator,
+      and the trivia section.
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 DRONES4AID — FAQ and learning page.</p>
+  </div>
+</footer>
+
+<script>
+
+/* =========================
+   FAQ ACCORDIONS
+========================= */
+
+document.querySelectorAll('.faq-q').forEach(btn => {
+
+  btn.addEventListener('click', () => {
+
+    btn
+      .closest('.faq-item')
+      .classList
+      .toggle('open');
+
+  });
+
+});
+
+
+/* =========================
+   MYTH / REALITY CARDS
+========================= */
+
+document.querySelectorAll('.reveal-btn,.back-btn').forEach(btn => {
+
+  btn.addEventListener('click', () => {
+
+    btn
+      .closest('.sticky-card')
+      .classList
+      .toggle('show-reality');
+
+  });
+
+});
+
+
+/* =========================
+   SIMULATOR
+========================= */
+
+const simState = {
+  stress:null,
+  need:null,
+  access:null,
+  env:null,
+  supplies:null
+};
+
+
+document.querySelectorAll('.options .option').forEach(opt => {
+
+  opt.addEventListener('click', () => {
+
+    const group = opt.parentElement.dataset.group;
+
+    document
+      .querySelectorAll(
+        `.options[data-group="${group}"] .option`
+      )
+      .forEach(o => o.classList.remove('active'));
+
+    opt.classList.add('active');
+
+    simState[group] = opt.dataset.value;
+
+  });
+
+});
+
+
+function scoreSim(){
+
+  let score = 0;
+
+  const s = simState.stress || 'Mild';
+  const n = simState.need || 'Low';
+  const a = simState.access || 'Completely Accessible';
+  const e = simState.env || 'Safe';
+  const p = simState.supplies || 'Food';
+
+
+  if(s === 'Severe')
+    score += 25;
+  else if(s === 'Medium')
+    score += 15;
+  else
+    score += 5;
+
+
+  if(n === 'Urgent')
+    score += 25;
+  else if(n === 'Moderate')
+    score += 15;
+  else
+    score += 5;
+
+
+  if(a === 'Not at all Accessible')
+    score += 25;
+  else if(a === 'Partially Accessible')
+    score += 18;
+  else
+    score += 5;
+
+
+  if(e === 'Natural Disaster')
+    score += 15;
+  else if(e === 'Challenging')
+    score += 10;
+  else
+    score += 3;
+
+
+  if(p === 'Medical Aid')
+    score += 15;
+  else if(p === 'All')
+    score += 18;
+  else if(p === 'Clothing/Shelter')
+    score += 10;
+  else
+    score += 8;
+
+
+  score = Math.min(100,score);
+
+
+  const lines = [
+    `Stress Scale: ${s}`,
+    `Humanitarian Need: ${n}`,
+    `Accessibility: ${a}`,
+    `Environmental Conditions: ${e}`,
+    `Supplies Needed: ${p}`
+  ];
+
+
+  document.getElementById('simLines').innerHTML =
+    lines.map(x => `<div>${x}</div>`).join('');
+
+
+  let message = '';
+
+
+  if(score < 25){
+
+    message =
+      'Not suitable — the mission is too low priority or too easy to handle by standard methods.';
+
+  }else if(score < 50){
+
+    message =
+      'Fairly suitable — a drone could help, but the mission still needs careful review.';
+
+  }else if(score < 75){
+
+    message =
+      'Suitability is heavily favourable — the drone has a strong operational advantage here.';
+
+  }else{
+
+    message =
+      'Urgent and critical — this is an excellent use case where drone support may be highly valuable.';
+
+  }
+
+
+  document.getElementById('simBar').style.width =
+    score + '%';
+
+  document.getElementById('simPercent').textContent =
+    score + '%';
+
+  document.getElementById('simMessage').textContent =
+    message;
+
+}
+
+
+document
+  .getElementById('simulateBtn')
+  .addEventListener('click',scoreSim);
+
+
+document
+  .getElementById('resetSimBtn')
+  .addEventListener('click',() => {
+
+    Object.keys(simState).forEach(k => {
+      simState[k] = null;
+    });
+
+
+    document
+      .querySelectorAll('.option')
+      .forEach(o => o.classList.remove('active'));
+
+
+    document.getElementById('simLines').innerHTML =
+      '<div>Pick your conditions and press Simulate.</div>';
+
+    document.getElementById('simBar').style.width = '0%';
+
+    document.getElementById('simPercent').textContent = '0%';
+
+    document.getElementById('simMessage').textContent = '';
+
+  });
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function resetQuiz(){
+
+  document
+    .querySelectorAll('input[type="radio"]')
+    .forEach(i => {
+      i.checked = false;
+    });
+
+
+  document
+    .querySelectorAll('.quiz-card')
+    .forEach(c => {
+      c.classList.remove('open');
+    });
+
+
+  document.getElementById('scoreText').textContent =
+    '0/5';
+
+  document.getElementById('scoreMsg').textContent =
+    '';
+
+}
+
+
+/* START QUIZ */
+
+document
+  .getElementById('startQuizBtn')
+  .addEventListener('click',() => {
+
+    document.getElementById('quizStartBox').style.display =
+      'none';
+
+    document.getElementById('quizWrap').style.display =
+      'grid';
+
+    resetQuiz();
+
+    window.location.hash = '#trivia';
+
+  });
+
+
+/* QUIZ QUESTION ACCORDIONS */
+
+document.querySelectorAll('.quiz-q').forEach(btn => {
+
+  btn.addEventListener('click',() => {
+
+    btn
+      .parentElement
+      .classList
+      .toggle('open');
+
+  });
+
+});
+
+
+/* OPEN ALL */
+
+document
+  .getElementById('openAllBtn')
+  .addEventListener('click',() => {
+
+    document
+      .querySelectorAll('.quiz-card')
+      .forEach(c => {
+        c.classList.add('open');
+      });
+
+  });
+
+
+/* SUBMIT QUIZ */
+
+document
+  .getElementById('submitQuizBtn')
+  .addEventListener('click',() => {
+
+    const cards =
+      [...document.querySelectorAll('.quiz-card')];
+
+    let score = 0;
+
+
+    cards.forEach(card => {
+
+      const answer =
+        card.dataset.answer;
+
+      const checked =
+        card.querySelector(
+          'input[type="radio"]:checked'
+        );
+
+
+      if(checked && checked.value === answer){
+        score++;
+      }
+
+    });
+
+
+    document.getElementById('scoreText').textContent =
+      score + '/5';
+
+
+    let msg = '';
+
+
+    if(score === 1){
+
+      msg =
+        'Oops, better luck next time, pay attention in class as well! 😠';
+
+    }else if(score === 2){
+
+      msg =
+        'So you dont like drones huh? Well, its fine.';
+
+    }else if(score === 3){
+
+      msg =
+        'Good, but not me 😎';
+
+    }else if(score === 4){
+
+      msg =
+        "WOW, someone's been paying attention 😉";
+
+    }else if(score === 5){
+
+      msg =
+        'WOAH, YOU REALLY LOVE DRONES? WELL FEEL FREE TO VOLUNTEER FOR US! GOOD JOB 🎉';
+
+    }else{
+
+      msg =
+        'Give the quiz a try first.';
+
+    }
+
+
+    document.getElementById('scoreMsg').textContent =
+      msg;
+
+
+    cards.forEach(c => {
+      c.classList.add('open');
+    });
+
+  });
+
+
+/* RESTART QUIZ */
+
+document
+  .getElementById('restartQuizBtn')
+  .addEventListener('click',() => {
+
+    document.getElementById('quizStartBox').style.display =
+      'block';
+
+    document.getElementById('quizWrap').style.display =
+      'none';
+
+    resetQuiz();
+
+  });
+
+</script>
+
+</body>
+</html>
