@@ -349,7 +349,7 @@
       font-size: 0.9rem;
     }
 
-    /* GALLERY */
+    /* GALLERY PREVIEW */
 
     .gallery {
       grid-template-columns: repeat(3, 1fr);
@@ -607,9 +607,15 @@
             </a>
           </li>
 
-          <!-- GALLERY NOW OPENS gallery.html -->
+          <!-- =================================================
+               GALLERY — OPENS A SEPARATE PAGE
+               ================================================= -->
+
           <li>
-            <a href="./gallery.html">
+            <a
+              href="gallery.html"
+              onclick="openGallery(event)"
+            >
               Gallery
             </a>
           </li>
@@ -1875,9 +1881,12 @@
               </a>
             </li>
 
-            <!-- CHANGED: Gallery now opens gallery.html -->
+            <!-- GALLERY OPENS SEPARATE PAGE -->
             <li>
-              <a href="./gallery.html">
+              <a
+                href="gallery.html"
+                onclick="openGallery(event)"
+              >
                 Gallery
               </a>
             </li>
@@ -1945,9 +1954,26 @@
   </footer>
 
 
-  <!-- MENU + FORM SCRIPT -->
+  <!-- MENU + FORM + PAGE NAVIGATION SCRIPT -->
 
   <script>
+
+    /* ============================================
+       GALLERY PAGE NAVIGATION
+       ============================================ */
+
+    function openGallery(event) {
+
+      event.preventDefault();
+
+      window.location.assign("gallery.html");
+
+    }
+
+
+    /* ============================================
+       MOBILE MENU
+       ============================================ */
 
     const menuButton =
       document.querySelector(".menu-button");
@@ -1986,6 +2012,10 @@
 
       });
 
+
+    /* ============================================
+       CONTACT FORM
+       ============================================ */
 
     document
       .querySelector("#contact-form")
