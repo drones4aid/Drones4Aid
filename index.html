@@ -146,6 +146,26 @@
       font-size: 1rem;
     }
 
+    /* GET INVOLVED NAV BUTTON */
+
+    .nav-get-involved {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--dark) !important;
+      padding: 10px 16px;
+      border-radius: 5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .nav-get-involved:hover,
+    .nav-get-involved:focus {
+      background: #ffad52;
+      color: var(--dark) !important;
+      transform: translateY(-1px);
+    }
+
     /* HERO */
 
     .hero {
@@ -349,7 +369,7 @@
       font-size: 0.9rem;
     }
 
-    /* GALLERY PREVIEW */
+    /* GALLERY */
 
     .gallery {
       grid-template-columns: repeat(3, 1fr);
@@ -419,37 +439,9 @@
       margin-top: 12px;
     }
 
-    /* FORM */
+    /* CONTACT */
 
-    form {
-      display: grid;
-      gap: 15px;
-    }
-
-    label {
-      display: block;
-      color: var(--navy);
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-
-    input,
-    textarea,
-    select {
-      width: 100%;
-      border: 1px solid #9fb3c8;
-      border-radius: 5px;
-      padding: 12px;
-      font: inherit;
-      background: var(--white);
-    }
-
-    textarea {
-      min-height: 135px;
-      resize: vertical;
-    }
-
-    .form-message {
+    .contact-link {
       color: var(--blue);
       font-weight: 700;
     }
@@ -500,6 +492,7 @@
     /* MOBILE */
 
     @media (max-width: 800px) {
+
       .menu-button {
         display: block;
       }
@@ -575,6 +568,7 @@
       </button>
 
       <nav aria-label="Main navigation">
+
         <ul id="site-menu">
 
           <li>
@@ -608,10 +602,7 @@
           </li>
 
           <li>
-            <a
-              href="./gallery.html"
-              onclick="openGallery(event)"
-            >
+            <a href="./gallery.html">
               Gallery
             </a>
           </li>
@@ -622,15 +613,24 @@
             </a>
           </li>
 
-          <!-- GET INVOLVED NOW OPENS THE SEPARATE PAGE -->
+          <!--
+            IMPORTANT:
+            THIS IS A DIRECT LINK TO THE SEPARATE PAGE.
+            IT DOES NOT USE #contact.
+          -->
 
           <li>
-            <a class="button" href="./get_involved.html">
+            <a
+              class="nav-get-involved"
+              href="./get_involved.html"
+              onclick="goToGetInvolved(event)"
+            >
               Get Involved
             </a>
           </li>
 
         </ul>
+
       </nav>
 
     </div>
@@ -662,13 +662,20 @@
           peaceful action.
         </p>
 
-        <a class="button" href="./mission.html">
+        <a
+          class="button"
+          href="./mission.html"
+        >
           Learn About Our Mission
         </a>
 
-        <!-- HERO VOLUNTEER BUTTON ALSO GOES TO GET INVOLVED PAGE -->
+        <!-- DIRECT GET INVOLVED PAGE -->
 
-        <a class="button secondary" href="./get_involved.html">
+        <a
+          class="button secondary"
+          href="./get_involved.html"
+          onclick="goToGetInvolved(event)"
+        >
           Volunteer With Us
         </a>
 
@@ -848,7 +855,10 @@
 
         <div style="margin-top: 25px;">
 
-          <a class="button" href="./mission.html">
+          <a
+            class="button"
+            href="./mission.html"
+          >
             View Full Mission Page
           </a>
 
@@ -859,7 +869,7 @@
     </section>
 
 
-    <!-- OPERATIONS PREVIEW -->
+    <!-- OPERATIONS -->
 
     <section id="operations">
 
@@ -997,7 +1007,10 @@
 
         <div style="margin-top: 30px;">
 
-          <a class="button" href="./operations.html">
+          <a
+            class="button"
+            href="./operations.html"
+          >
             View Full Operations Page
           </a>
 
@@ -1138,7 +1151,7 @@
     </section>
 
 
-    <!-- DRONES INFORMATION PREVIEW -->
+    <!-- DRONES -->
 
     <section id="drones-preview">
 
@@ -1225,7 +1238,10 @@
 
         <div style="margin-top: 30px;">
 
-          <a class="button" href="./drones.html">
+          <a
+            class="button"
+            href="./drones.html"
+          >
             Explore Our Drones
           </a>
 
@@ -1318,7 +1334,7 @@
     </section>
 
 
-    <!-- GALLERY PREVIEW -->
+    <!-- GALLERY -->
 
     <section id="gallery">
 
@@ -1643,16 +1659,15 @@
         <div class="section-intro">
 
           <div class="eyebrow">
-            Contact
+            Get involved
           </div>
 
           <h2>
-            Get in touch.
+            Support humanitarian action.
           </h2>
 
           <p>
-            For volunteering, partnerships, donations, or general enquiries,
-            visit our dedicated Get Involved page.
+            Volunteer, partner with us, or send a general enquiry.
           </p>
 
         </div>
@@ -1668,11 +1683,25 @@
 
             <ul>
 
-              <li>Volunteer your time and skills.</li>
-              <li>Support verified humanitarian programmes.</li>
-              <li>Partner as a local organisation.</li>
-              <li>Help with translation and communications.</li>
-              <li>Organise a school or community fundraiser.</li>
+              <li>
+                Volunteer your time and skills.
+              </li>
+
+              <li>
+                Support verified humanitarian programmes.
+              </li>
+
+              <li>
+                Partner as a local organisation.
+              </li>
+
+              <li>
+                Help with translation and communications.
+              </li>
+
+              <li>
+                Organise a school or community fundraiser.
+              </li>
 
             </ul>
 
@@ -1684,21 +1713,30 @@
 
             <p>
               Email:
-              <a href="mailto:contact@drones4aid.org">
+              <a
+                class="contact-link"
+                href="mailto:contact@drones4aid.org"
+              >
                 contact@drones4aid.org
               </a>
             </p>
 
             <p>
               Partnerships:
-              <a href="mailto:partnerships@drones4aid.org">
+              <a
+                class="contact-link"
+                href="mailto:partnerships@drones4aid.org"
+              >
                 partnerships@drones4aid.org
               </a>
             </p>
 
             <p>
               Volunteers:
-              <a href="mailto:volunteer@drones4aid.org">
+              <a
+                class="contact-link"
+                href="mailto:volunteer@drones4aid.org"
+              >
                 volunteer@drones4aid.org
               </a>
             </p>
@@ -1713,13 +1751,14 @@
             </h3>
 
             <p style="margin-bottom:20px;">
-              Find your volunteer role, submit a review, and see the current
-              volunteer records on the dedicated Get Involved page.
+              Find your volunteer role, complete the role quiz, submit a review,
+              and see the volunteer records.
             </p>
 
             <a
               class="button"
               href="./get_involved.html"
+              onclick="goToGetInvolved(event)"
             >
               Go to Get Involved
             </a>
@@ -1745,7 +1784,10 @@
 
         <div>
 
-          <a class="logo" href="./index.html">
+          <a
+            class="logo"
+            href="./index.html"
+          >
 
             <span
               class="logo-mark"
@@ -1805,10 +1847,7 @@
             </li>
 
             <li>
-              <a
-                href="./gallery.html"
-                onclick="openGallery(event)"
-              >
+              <a href="./gallery.html">
                 Gallery
               </a>
             </li>
@@ -1833,7 +1872,10 @@
           <ul>
 
             <li>
-              <a href="./get_involved.html">
+              <a
+                href="./get_involved.html"
+                onclick="goToGetInvolved(event)"
+              >
                 Get Involved
               </a>
             </li>
@@ -1876,26 +1918,38 @@
   </footer>
 
 
-  <!-- MENU + FORM + PAGE NAVIGATION SCRIPT -->
+  <!-- NAVIGATION SCRIPT -->
 
   <script>
 
-    /* ============================================
-       GALLERY PAGE NAVIGATION
-       ============================================ */
+    /*
+      ============================================
+      DIRECT GET INVOLVED PAGE NAVIGATION
+      ============================================
 
-    function openGallery(event) {
+      This deliberately does NOT use:
+      #contact
+      #get-involved
+      scrollIntoView()
+      or any other anchor navigation.
+
+      It directly loads the separate HTML file.
+    */
+
+    function goToGetInvolved(event) {
 
       event.preventDefault();
 
-      window.location.href = "./gallery.html";
+      window.location.assign("./get_involved.html");
 
     }
 
 
-    /* ============================================
-       MOBILE MENU
-       ============================================ */
+    /*
+      ============================================
+      MOBILE MENU
+      ============================================
+    */
 
     const menuButton =
       document.querySelector(".menu-button");
@@ -1911,11 +1965,15 @@
 
       menuButton.setAttribute(
         "aria-expanded",
-        isOpen
+        String(isOpen)
       );
 
     });
 
+
+    /*
+      Close mobile menu after clicking a link.
+    */
 
     document
       .querySelectorAll("#site-menu a")
