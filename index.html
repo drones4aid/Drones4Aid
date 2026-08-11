@@ -616,16 +616,16 @@
             </a>
           </li>
 
-          <!-- FAQ IS A SEPARATE PAGE -->
-
           <li>
             <a href="./faq.html">
               FAQs
             </a>
           </li>
 
+          <!-- GET INVOLVED NOW OPENS THE SEPARATE PAGE -->
+
           <li>
-            <a class="button" href="#contact">
+            <a class="button" href="./get_involved.html">
               Get Involved
             </a>
           </li>
@@ -666,7 +666,9 @@
           Learn About Our Mission
         </a>
 
-        <a class="button secondary" href="#contact">
+        <!-- HERO VOLUNTEER BUTTON ALSO GOES TO GET INVOLVED PAGE -->
+
+        <a class="button secondary" href="./get_involved.html">
           Volunteer With Us
         </a>
 
@@ -1540,7 +1542,7 @@
     </section>
 
 
-    <!-- FAQ PREVIEW ON INDEX -->
+    <!-- FAQ PREVIEW -->
 
     <section id="faq">
 
@@ -1641,17 +1643,16 @@
         <div class="section-intro">
 
           <div class="eyebrow">
-            Get involved
+            Contact
           </div>
 
           <h2>
-            Support humanitarian action.
+            Get in touch.
           </h2>
 
           <p>
-            Volunteer, partner with us, or send a general enquiry. Do not submit
-            sensitive personal information or real-time operational details
-            through this demonstration form.
+            For volunteering, partnerships, donations, or general enquiries,
+            visit our dedicated Get Involved page.
           </p>
 
         </div>
@@ -1707,97 +1708,21 @@
 
           <div class="card">
 
-            <form id="contact-form">
+            <h3>
+              Ready to get involved?
+            </h3>
 
-              <div>
+            <p style="margin-bottom:20px;">
+              Find your volunteer role, submit a review, and see the current
+              volunteer records on the dedicated Get Involved page.
+            </p>
 
-                <label for="name">
-                  Name
-                </label>
-
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                />
-
-              </div>
-
-
-              <div>
-
-                <label for="email">
-                  Email address
-                </label>
-
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                />
-
-              </div>
-
-
-              <div>
-
-                <label for="reason">
-                  Reason for contacting us
-                </label>
-
-                <select
-                  id="reason"
-                  name="reason"
-                  required
-                >
-
-                  <option value="">
-                    Select one
-                  </option>
-
-                  <option>Volunteering</option>
-                  <option>Partnership</option>
-                  <option>Donation</option>
-                  <option>General enquiry</option>
-
-                </select>
-
-              </div>
-
-
-              <div>
-
-                <label for="message">
-                  Message
-                </label>
-
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="Please do not include sensitive or urgent operational information."
-                  required
-                ></textarea>
-
-              </div>
-
-
-              <button
-                class="button"
-                type="submit"
-              >
-                Send Enquiry
-              </button>
-
-
-              <p
-                class="form-message"
-                id="form-message"
-                role="status"
-              ></p>
-
-            </form>
+            <a
+              class="button"
+              href="./get_involved.html"
+            >
+              Go to Get Involved
+            </a>
 
           </div>
 
@@ -1888,8 +1813,6 @@
               </a>
             </li>
 
-            <!-- FAQ = SEPARATE PAGE -->
-
             <li>
               <a href="./faq.html">
                 FAQs
@@ -1910,8 +1833,8 @@
           <ul>
 
             <li>
-              <a href="#contact">
-                Contact
+              <a href="./get_involved.html">
+                Get Involved
               </a>
             </li>
 
@@ -2008,26 +1931,6 @@
           );
 
         });
-
-      });
-
-
-    /* ============================================
-       CONTACT FORM
-       ============================================ */
-
-    document
-      .querySelector("#contact-form")
-      .addEventListener("submit", (event) => {
-
-        event.preventDefault();
-
-        document.querySelector(
-          "#form-message"
-        ).textContent =
-          "Thank you. This demonstration form is ready to connect to an email or form service.";
-
-        event.target.reset();
 
       });
 
