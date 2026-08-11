@@ -609,14 +609,15 @@
 
           <li>
             <a
-              href="gallery.html"
+              href="./gallery.html"
               onclick="openGallery(event)"
             >
               Gallery
             </a>
           </li>
 
-          <!-- CHANGED: FAQ NOW OPENS faq.html -->
+          <!-- FAQ IS A SEPARATE PAGE -->
+
           <li>
             <a href="./faq.html">
               FAQs
@@ -1539,7 +1540,7 @@
     </section>
 
 
-    <!-- FAQ -->
+    <!-- FAQ PREVIEW ON INDEX -->
 
     <section id="faq">
 
@@ -1880,14 +1881,15 @@
 
             <li>
               <a
-                href="gallery.html"
+                href="./gallery.html"
                 onclick="openGallery(event)"
               >
                 Gallery
               </a>
             </li>
 
-            <!-- CHANGED: FOOTER FAQ NOW OPENS faq.html -->
+            <!-- FAQ = SEPARATE PAGE -->
+
             <li>
               <a href="./faq.html">
                 FAQs
@@ -1963,7 +1965,7 @@
 
       event.preventDefault();
 
-      window.location.assign("gallery.html");
+      window.location.href = "./gallery.html";
 
     }
 
