@@ -181,7 +181,7 @@
 
     .nav-simulation:hover,
     .nav-simulation:focus {
-      background: #1b4668;
+      background: var(--blue);
       color: var(--white) !important;
       transform: translateY(-1px);
     }
@@ -571,12 +571,23 @@
   <!-- HEADER -->
 
   <header>
+
     <div class="container nav-wrapper">
 
+      <!-- LOGO -->
+
       <a class="logo" href="./index.html">
-        <span class="logo-mark" aria-hidden="true">✦</span>
+
+        <span class="logo-mark" aria-hidden="true">
+          ✦
+        </span>
+
         DRONES4AID
+
       </a>
+
+
+      <!-- MOBILE MENU -->
 
       <button
         class="menu-button"
@@ -587,9 +598,14 @@
         Menu
       </button>
 
+
+      <!-- NAVIGATION -->
+
       <nav aria-label="Main navigation">
 
         <ul id="site-menu">
+
+          <!-- HOME -->
 
           <li>
             <a href="./index.html">
@@ -597,11 +613,17 @@
             </a>
           </li>
 
+
+          <!-- ABOUT -->
+
           <li>
             <a href="./about.html">
               About
             </a>
           </li>
+
+
+          <!-- MISSION -->
 
           <li>
             <a href="./mission.html">
@@ -609,11 +631,17 @@
             </a>
           </li>
 
+
+          <!-- OPERATIONS -->
+
           <li>
             <a href="./operations.html">
               Operations
             </a>
           </li>
+
+
+          <!-- DRONES -->
 
           <li>
             <a href="./drones.html">
@@ -621,9 +649,12 @@
             </a>
           </li>
 
-          <!-- =========================================
-               STATISTICS — SEPARATE PAGE
-               ========================================= -->
+
+          <!-- ==================================================
+               STATISTICS
+               DIRECT LINK TO statistics.html
+               DOES NOT SCROLL DOWN
+          =================================================== -->
 
           <li>
             <a href="./statistics.html">
@@ -631,7 +662,8 @@
             </a>
           </li>
 
-          <!-- Gallery comes AFTER Statistics -->
+
+          <!-- GALLERY -->
 
           <li>
             <a href="./gallery.html">
@@ -639,11 +671,15 @@
             </a>
           </li>
 
+
+          <!-- FAQS -->
+
           <li>
             <a href="./faq.html">
               FAQs
             </a>
           </li>
+
 
           <!-- GET INVOLVED -->
 
@@ -657,10 +693,11 @@
             </a>
           </li>
 
-          <!-- =========================================
+
+          <!-- ==================================================
                SIMULATION
-               JUST A BUTTON FOR NOW
-               ========================================= -->
+               BUTTON ONLY FOR NOW
+          =================================================== -->
 
           <li>
             <a
@@ -677,6 +714,7 @@
       </nav>
 
     </div>
+
   </header>
 
 
@@ -711,6 +749,9 @@
         >
           Learn About Our Mission
         </a>
+
+
+        <!-- DIRECT GET INVOLVED PAGE -->
 
         <a
           class="button secondary"
@@ -1622,6 +1663,7 @@
 
           <details>
             <summary>Is DRONES4AID a government organisation?</summary>
+
             <p>
               No. DRONES4AID is a non-profit, non-governmental organisation.
             </p>
@@ -1630,6 +1672,7 @@
 
           <details>
             <summary>Are your drones armed?</summary>
+
             <p>
               No. Our drones are intended for civilian humanitarian purposes
               only. We do not transport weapons or support military targeting.
@@ -1639,6 +1682,7 @@
 
           <details>
             <summary>Why use drones?</summary>
+
             <p>
               Drones may help assess inaccessible areas or deliver small,
               urgent supplies when conventional options are unavailable. They
@@ -1649,6 +1693,7 @@
 
           <details>
             <summary>Do you operate in active conflict zones?</summary>
+
             <p>
               Operations depend on security assessments, legal permissions,
               local consent, humanitarian coordination, and available capacity.
@@ -1658,6 +1703,7 @@
 
           <details>
             <summary>How do you protect privacy?</summary>
+
             <p>
               We aim to collect only necessary information, avoid unnecessary
               recording, secure operational data, and limit access to authorised
@@ -1668,6 +1714,7 @@
 
           <details>
             <summary>Can I volunteer?</summary>
+
             <p>
               Yes. Volunteers may assist with fundraising, translation,
               logistics, communications, research, packaging, and outreach.
@@ -1677,6 +1724,7 @@
 
           <details>
             <summary>How can a community request assistance?</summary>
+
             <p>
               Communities and local organisations can use the contact form.
               Requests are reviewed according to urgency, safety, feasibility,
@@ -1887,7 +1935,7 @@
               </a>
             </li>
 
-            <!-- STATISTICS — SEPARATE PAGE -->
+            <!-- STATISTICS FOOTER LINK -->
 
             <li>
               <a href="./statistics.html">
@@ -1926,17 +1974,6 @@
                 onclick="goToGetInvolved(event)"
               >
                 Get Involved
-              </a>
-            </li>
-
-            <!-- SIMULATION — JUST A BUTTON -->
-
-            <li>
-              <a
-                href="#"
-                onclick="return false;"
-              >
-                Simulation
               </a>
             </li>
 
@@ -1987,13 +2024,8 @@
       DIRECT GET INVOLVED PAGE NAVIGATION
       ============================================
 
-      This deliberately does NOT use:
-      #contact
-      #get-involved
-      scrollIntoView()
-      or any other anchor navigation.
-
-      It directly loads the separate HTML file.
+      This directly opens get_involved.html.
+      It does NOT scroll to #contact.
     */
 
     function goToGetInvolved(event) {
