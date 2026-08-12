@@ -166,6 +166,26 @@
       transform: translateY(-1px);
     }
 
+    /* SIMULATION NAV BUTTON */
+
+    .nav-simulation {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 10px 16px;
+      border-radius: 5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .nav-simulation:hover,
+    .nav-simulation:focus {
+      background: #1b4668;
+      color: var(--white) !important;
+      transform: translateY(-1px);
+    }
+
     /* HERO */
 
     .hero {
@@ -601,6 +621,18 @@
             </a>
           </li>
 
+          <!-- =========================================
+               STATISTICS — SEPARATE PAGE
+               ========================================= -->
+
+          <li>
+            <a href="./statistics.html">
+              Statistics
+            </a>
+          </li>
+
+          <!-- Gallery comes AFTER Statistics -->
+
           <li>
             <a href="./gallery.html">
               Gallery
@@ -613,11 +645,7 @@
             </a>
           </li>
 
-          <!--
-            IMPORTANT:
-            THIS IS A DIRECT LINK TO THE SEPARATE PAGE.
-            IT DOES NOT USE #contact.
-          -->
+          <!-- GET INVOLVED -->
 
           <li>
             <a
@@ -626,6 +654,21 @@
               onclick="goToGetInvolved(event)"
             >
               Get Involved
+            </a>
+          </li>
+
+          <!-- =========================================
+               SIMULATION
+               JUST A BUTTON FOR NOW
+               ========================================= -->
+
+          <li>
+            <a
+              class="nav-simulation"
+              href="#"
+              onclick="return false;"
+            >
+              Simulation
             </a>
           </li>
 
@@ -668,8 +711,6 @@
         >
           Learn About Our Mission
         </a>
-
-        <!-- DIRECT GET INVOLVED PAGE -->
 
         <a
           class="button secondary"
@@ -1846,6 +1887,14 @@
               </a>
             </li>
 
+            <!-- STATISTICS — SEPARATE PAGE -->
+
+            <li>
+              <a href="./statistics.html">
+                Statistics
+              </a>
+            </li>
+
             <li>
               <a href="./gallery.html">
                 Gallery
@@ -1877,6 +1926,17 @@
                 onclick="goToGetInvolved(event)"
               >
                 Get Involved
+              </a>
+            </li>
+
+            <!-- SIMULATION — JUST A BUTTON -->
+
+            <li>
+              <a
+                href="#"
+                onclick="return false;"
+              >
+                Simulation
               </a>
             </li>
 
