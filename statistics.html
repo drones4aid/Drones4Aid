@@ -8,579 +8,557 @@
 
 <style>
 :root{
-  --navy:#102a43;
-  --blue:#1f6f8b;
-  --text:#1f2937;
-  --muted:#5b6575;
-  --border:#dbe3ea;
-  --shadow:0 12px 30px rgba(16,42,67,.10);
-  --accent:#f28c28;
-  --red:#d93025;
-  --green:#2ecc71;
-  --purple:#7b5cff;
+--navy:#102a43;
+--blue:#1f6f8b;
+--text:#1f2937;
+--muted:#5b6575;
+--border:#dbe3ea;
+--shadow:0 12px 30px rgba(16,42,67,.1);
+--accent:#f28c28;
+--red:#d93025;
+--green:#2ecc71;
+--purple:#7b5cff;
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:linear-gradient(180deg,#fffaf2,#f8fbff);
-  color:var(--text);
-  line-height:1.6;
+font-family:Arial,Helvetica,sans-serif;
+background:linear-gradient(180deg,#fffaf2,#f8fbff);
+color:var(--text);
+line-height:1.6
 }
 
 .container{
-  width:min(1180px,92%);
-  margin:auto;
+width:min(1180px,92%);
+margin:auto
 }
 
-section{
-  padding:78px 0;
-}
+section{padding:78px 0}
 
 .title{
-  font-size:clamp(2rem,3.8vw,3.3rem);
-  color:var(--navy);
-  margin-bottom:10px;
+font-size:clamp(2rem,3.8vw,3.3rem);
+color:var(--navy);
+margin-bottom:10px
 }
 
 .lead{
-  color:var(--muted);
-  max-width:980px;
-  margin-bottom:8px;
+color:var(--muted);
+max-width:980px;
+margin-bottom:8px
 }
 
 .card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:22px;
-  box-shadow:var(--shadow);
-  padding:22px;
+background:#fff;
+border:1px solid var(--border);
+border-radius:22px;
+box-shadow:var(--shadow);
+padding:22px
 }
 
 
 /* =========================
-   HEADER
+HEADER
 ========================= */
 
 header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(255,255,255,.97);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+z-index:1000;
+background:rgba(255,255,255,.97);
+backdrop-filter:blur(10px);
+border-bottom:1px solid var(--border)
 }
 
 .nav{
-  min-height:74px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+min-height:82px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px
 }
 
 
 /* =========================
-   OLD OG LOGO
+ACTUAL DRONES4AID LOGO
 ========================= */
 
 .logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:var(--navy);
-  font-weight:900;
-  flex-shrink:0;
+display:flex;
+align-items:center;
+text-decoration:none;
+flex-shrink:0
 }
 
-.logo-icon{
-  width:44px;
-  height:44px;
-  display:block;
-  flex-shrink:0;
-}
-
-.logo-text{
-  font-size:1rem;
-  letter-spacing:.02em;
-  white-space:nowrap;
+.logo img{
+display:block;
+width:82px;
+height:82px;
+object-fit:contain
 }
 
 
 /* =========================
-   NAVIGATION
+NAVIGATION
 ========================= */
 
 .topnav{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:9px;
-  flex-wrap:wrap;
+display:flex;
+align-items:center;
+justify-content:flex-end;
+gap:9px;
+flex-wrap:wrap
 }
 
 .topnav a{
-  padding:9px 13px;
-  border-radius:999px;
-  border:1px solid #e3ebf2;
-  background:#f7fbff;
-  color:var(--navy);
-  font-weight:800;
-  text-decoration:none;
-  font-size:.9rem;
+padding:9px 13px;
+border-radius:999px;
+border:1px solid #e3ebf2;
+background:#f7fbff;
+color:var(--navy);
+font-weight:800;
+text-decoration:none;
+font-size:.9rem
 }
 
 .topnav a:hover{
-  background:#eaf4fb;
-  color:var(--blue);
+background:#eaf4fb;
+color:var(--blue)
 }
 
 
 /* =========================
-   HERO
+HERO
 ========================= */
 
 .hero{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  min-height:72vh;
-  overflow:hidden;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(16,42,67,.95),
-      rgba(31,111,139,.84)
-    );
-  color:#fff;
+display:grid;
+grid-template-columns:1fr 1fr;
+min-height:72vh;
+overflow:hidden;
+background:linear-gradient(
+135deg,
+rgba(16,42,67,.95),
+rgba(31,111,139,.84)
+);
+color:#fff
 }
 
 .hero-copy{
-  display:flex;
-  align-items:center;
+display:flex;
+align-items:center
 }
 
 .hero .container{
-  padding:86px 0 72px;
+padding:86px 0 72px
 }
 
 .eyebrow{
-  display:inline-block;
-  background:rgba(255,255,255,.14);
-  border:1px solid rgba(255,255,255,.2);
-  padding:8px 14px;
-  border-radius:999px;
-  margin-bottom:18px;
-  font-weight:700;
+display:inline-block;
+background:rgba(255,255,255,.14);
+border:1px solid rgba(255,255,255,.2);
+padding:8px 14px;
+border-radius:999px;
+margin-bottom:18px;
+font-weight:700
 }
 
 .hero h1{
-  font-size:clamp(2.4rem,5vw,4.4rem);
-  line-height:1.05;
-  margin-bottom:14px;
-  color:#fff;
+font-size:clamp(2.4rem,5vw,4.4rem);
+line-height:1.05;
+margin-bottom:14px;
+color:#fff
 }
 
 .hero p{
-  max-width:860px;
-  color:#edf4fb;
-  margin-bottom:12px;
+max-width:860px;
+color:#edf4fb;
+margin-bottom:12px
 }
 
 .hero-img{
-  min-height:72vh;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(16,42,67,.06),
-      rgba(16,42,67,.55)
-    ),
-    url('https://i.pinimg.com/originals/c9/91/72/c99172c17b83d3c620b997858351b2a5.gif')
-    center/cover no-repeat;
+min-height:72vh;
+background:
+linear-gradient(
+180deg,
+rgba(16,42,67,.06),
+rgba(16,42,67,.55)
+),
+url('https://i.pinimg.com/originals/c9/91/72/c99172c17b83d3c620b997858351b2a5.gif')
+center/cover no-repeat
 }
 
 
 /* =========================
-   HEADINGS
+SECTION HEADINGS
 ========================= */
 
 .section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  gap:18px;
-  flex-wrap:wrap;
-  margin-bottom:22px;
+display:flex;
+justify-content:space-between;
+align-items:flex-end;
+gap:18px;
+flex-wrap:wrap;
+margin-bottom:22px
 }
 
 
 /* =========================
-   TIMELINE
+TIMELINE
 ========================= */
 
 .timeline-wrap{
-  position:relative;
-  padding-left:22px;
-  display:grid;
-  gap:18px;
+position:relative;
+padding-left:22px;
+display:grid;
+gap:18px
 }
 
 .timeline-wrap:before{
-  content:"";
-  position:absolute;
-  left:11px;
-  top:8px;
-  bottom:8px;
-  width:3px;
-  background:linear-gradient(
-    180deg,
-    var(--blue),
-    var(--purple),
-    var(--accent)
-  );
-  border-radius:999px;
+content:"";
+position:absolute;
+left:11px;
+top:8px;
+bottom:8px;
+width:3px;
+background:linear-gradient(
+180deg,
+var(--blue),
+var(--purple),
+var(--accent)
+);
+border-radius:999px
 }
 
 .timeline-item{
-  position:relative;
-  margin-left:10px;
-  border:1px solid var(--border);
-  border-radius:18px;
-  background:#fff;
-  overflow:hidden;
+position:relative;
+margin-left:10px;
+border:1px solid var(--border);
+border-radius:18px;
+background:#fff;
+overflow:hidden
 }
 
 .timeline-dot{
-  position:absolute;
-  left:-34px;
-  top:22px;
-  width:22px;
-  height:22px;
-  border-radius:50%;
-  background:var(--blue);
-  border:4px solid #fff;
-  box-shadow:0 0 0 3px rgba(31,111,139,.12);
-  cursor:pointer;
+position:absolute;
+left:-34px;
+top:22px;
+width:22px;
+height:22px;
+border-radius:50%;
+background:var(--blue);
+border:4px solid #fff;
+box-shadow:0 0 0 3px rgba(31,111,139,.12);
+cursor:pointer
 }
 
 .timeline-item.open .timeline-dot{
-  background:var(--accent);
+background:var(--accent);
+box-shadow:0 0 0 3px rgba(242,140,40,.18)
 }
 
 .timeline-top{
-  padding:18px;
-  display:flex;
-  justify-content:space-between;
-  gap:14px;
-  align-items:center;
-  cursor:pointer;
-  background:linear-gradient(180deg,#fff,#fbfdff);
+padding:18px;
+display:flex;
+justify-content:space-between;
+gap:14px;
+align-items:center;
+cursor:pointer;
+background:linear-gradient(180deg,#fff,#fbfdff)
 }
 
 .timeline-year{
-  font-size:1.4rem;
-  font-weight:900;
-  color:var(--navy);
+font-size:1.4rem;
+font-weight:900;
+color:var(--navy)
 }
 
 .timeline-label{
-  color:var(--muted);
-  font-weight:700;
-  text-align:right;
+color:var(--muted);
+font-weight:700;
+text-align:right
 }
 
 .timeline-body{
-  display:none;
-  padding:0 18px 18px;
-  color:var(--muted);
+display:none;
+padding:0 18px 18px;
+color:var(--muted)
 }
 
 .timeline-item.open .timeline-body{
-  display:block;
+display:block
 }
 
 .timeline-body p{
-  margin-top:8px;
+margin-top:8px
 }
 
 
 /* =========================
-   GOALS
+GOALS
 ========================= */
 
 .goal-grid{
-  display:grid;
-  grid-template-columns:320px 1fr;
-  gap:18px;
-  align-items:start;
+display:grid;
+grid-template-columns:320px 1fr;
+gap:18px;
+align-items:start
 }
 
 .goal-list{
-  display:grid;
-  gap:12px;
+display:grid;
+gap:12px
 }
 
 .goal-btn{
-  border:1px solid var(--border);
-  background:#fff;
-  color:var(--navy);
-  padding:14px 16px;
-  border-radius:14px;
-  cursor:pointer;
-  text-align:left;
-  font-weight:800;
+border:1px solid var(--border);
+background:#fff;
+color:var(--navy);
+padding:14px 16px;
+border-radius:14px;
+cursor:pointer;
+text-align:left;
+font-weight:800
 }
 
 .goal-btn.active{
-  background:linear-gradient(135deg,#eef8ff,#fff7ea);
-  border-color:#cfe2f2;
-  box-shadow:0 10px 22px rgba(16,42,67,.08);
+background:linear-gradient(135deg,#eef8ff,#fff7ea);
+border-color:#cfe2f2;
+box-shadow:0 10px 22px rgba(16,42,67,.08)
 }
 
 .goal-panel{
-  background:linear-gradient(180deg,#fff,#fbfdff);
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:22px;
-  box-shadow:var(--shadow);
+background:linear-gradient(180deg,#fff,#fbfdff);
+border:1px solid var(--border);
+border-radius:22px;
+padding:22px;
+box-shadow:var(--shadow)
 }
 
 .goal-name{
-  font-size:1.35rem;
-  font-weight:900;
-  color:var(--navy);
+font-size:1.35rem;
+font-weight:900;
+color:var(--navy)
 }
 
 .goal-desc{
-  color:var(--muted);
-  margin-top:8px;
+color:var(--muted);
+margin-top:8px
 }
 
 .progress-shell{
-  margin-top:18px;
-  background:#eef3f8;
-  border:1px solid var(--border);
-  border-radius:999px;
-  height:34px;
-  overflow:hidden;
-  position:relative;
+margin-top:18px;
+background:#eef3f8;
+border:1px solid var(--border);
+border-radius:999px;
+height:34px;
+overflow:hidden;
+position:relative
 }
 
 .progress-bar{
-  height:100%;
-  width:0;
-  border-radius:999px;
-  transition:width .5s ease;
-  background:linear-gradient(
-    90deg,
-    var(--red),
-    #f59e0b,
-    var(--green)
-  );
+height:100%;
+width:0;
+border-radius:999px;
+transition:width .5s ease;
+background:linear-gradient(
+90deg,
+var(--red),
+#f59e0b,
+var(--green)
+)
 }
 
 .progress-text{
-  position:absolute;
-  inset:0;
-  display:grid;
-  place-items:center;
-  font-weight:900;
-  color:var(--navy);
+position:absolute;
+inset:0;
+display:grid;
+place-items:center;
+font-weight:900;
+color:var(--navy)
 }
 
 .progress-meta{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:10px;
-  color:var(--muted);
+display:flex;
+justify-content:space-between;
+gap:12px;
+flex-wrap:wrap;
+margin-top:10px;
+color:var(--muted)
 }
 
 
 /* =========================
-   MAPS
+MAPS
 ========================= */
 
 .map-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-  margin-top:22px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+margin-top:22px
 }
 
 .map-box{
-  border:1px solid var(--border);
-  border-radius:22px;
-  overflow:hidden;
-  background:#fff;
-  box-shadow:var(--shadow);
+border:1px solid var(--border);
+border-radius:22px;
+overflow:hidden;
+background:#fff;
+box-shadow:var(--shadow)
 }
 
 .map-head{
-  padding:16px 18px;
-  border-bottom:1px solid var(--border);
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:12px;
+padding:16px 18px;
+border-bottom:1px solid var(--border);
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:12px
 }
 
-.map-head strong{
-  color:var(--navy);
-}
+.map-head strong{color:var(--navy)}
 
 .map-note{
-  color:var(--muted);
-  font-size:.95rem;
+color:var(--muted);
+font-size:.95rem
 }
 
-.map-div{
-  height:520px;
-}
+.map-div{height:520px}
 
 
 /* =========================
-   CHART
+CHART
 ========================= */
 
-.chart-wrap{
-  margin-top:22px;
-}
+.chart-wrap{margin-top:22px}
 
 
 /* =========================
-   COUNTERS
+COUNTERS
 ========================= */
 
 .stats-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-  margin-top:22px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+margin-top:22px
 }
 
 .big-counter{
-  padding:26px;
-  border-radius:24px;
-  background:linear-gradient(
-    135deg,
-    #102a43,
-    #1f6f8b 55%,
-    #f28c28
-  );
-  color:#fff;
-  box-shadow:0 18px 36px rgba(16,42,67,.18);
+padding:26px;
+border-radius:24px;
+background:linear-gradient(
+135deg,
+#102a43,
+#1f6f8b 55%,
+#f28c28
+);
+color:#fff;
+box-shadow:0 18px 36px rgba(16,42,67,.18)
 }
 
-.counter-label{
-  font-weight:800;
-}
+.counter-label{font-weight:800}
 
 .counter-num{
-  font-size:clamp(2.6rem,7vw,5rem);
-  line-height:1;
-  font-weight:900;
-  margin-top:10px;
+font-size:clamp(2.6rem,7vw,5rem);
+line-height:1;
+font-weight:900;
+margin-top:10px
 }
 
 .counter-note{
-  margin-top:10px;
-  color:#eef5fb;
+margin-top:10px;
+color:#eef5fb
 }
 
 .mini-counter{
-  display:grid;
-  gap:12px;
+display:grid;
+gap:12px
 }
 
 .mini-card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:20px;
-  box-shadow:var(--shadow);
+background:#fff;
+border:1px solid var(--border);
+border-radius:22px;
+padding:20px;
+box-shadow:var(--shadow)
 }
 
 .mini-value{
-  font-size:2rem;
-  font-weight:900;
-  color:var(--blue);
-  margin-top:8px;
+font-size:2rem;
+font-weight:900;
+color:var(--blue);
+margin-top:8px
 }
 
 .mini-list{
-  margin-top:10px;
-  color:var(--muted);
+margin-top:10px;
+color:var(--muted)
 }
 
 .footer-note{
-  margin-top:18px;
-  color:var(--navy);
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.05em;
+margin-top:18px;
+color:var(--navy);
+font-weight:800;
+text-transform:uppercase;
+letter-spacing:.05em
 }
 
 
 /* =========================
-   MOBILE
+MOBILE
 ========================= */
 
 @media(max-width:980px){
 
-  .hero{
-    grid-template-columns:1fr;
-  }
+.hero{
+grid-template-columns:1fr
+}
 
-  .hero-img{
-    min-height:320px;
-  }
+.hero-img{
+min-height:320px
+}
 
-  .goal-grid,
-  .map-grid,
-  .stats-grid{
-    grid-template-columns:1fr;
-  }
+.goal-grid,
+.map-grid,
+.stats-grid{
+grid-template-columns:1fr
+}
 
-  .map-div{
-    height:420px;
-  }
+.map-div{
+height:420px
+}
 
-  .topnav{
-    justify-content:flex-start;
-  }
+.topnav{
+justify-content:flex-start
+}
+
 }
 
 @media(max-width:650px){
 
-  .nav{
-    align-items:flex-start;
-    flex-direction:column;
-    padding:10px 0;
-  }
+.nav{
+align-items:flex-start;
+flex-direction:column;
+padding:8px 0
+}
 
-  .topnav{
-    gap:6px;
-  }
+.logo img{
+width:72px;
+height:72px
+}
 
-  .topnav a{
-    font-size:.82rem;
-    padding:7px 10px;
-  }
+.topnav{
+gap:6px
+}
 
-  .logo-text{
-    font-size:.95rem;
-  }
+.topnav a{
+font-size:.82rem;
+padding:7px 10px
+}
+
 }
 
 </style>
@@ -590,19 +568,16 @@ header{
 <body>
 
 
-<!-- ==================================================
-     HEADER
-================================================== -->
+<!-- =========================
+HEADER
+========================= -->
 
 <header>
 
 <div class="container nav">
 
 
-<!-- ==================================================
-     OLD OG LOGO
-     INLINE SVG — NO IMAGE FILE REQUIRED
-================================================== -->
+<!-- EXACT LOGO IMAGE -->
 
 <a
 class="logo"
@@ -610,45 +585,18 @@ href="index.html"
 aria-label="DRONES4AID Home"
 >
 
-<svg
-class="logo-icon"
-viewBox="0 0 100 100"
-xmlns="http://www.w3.org/2000/svg"
-aria-hidden="true"
+<img
+src="logo.png"
+alt="DRONES4AID Logo"
 >
-
-<!-- Orange diamond -->
-
-<polygon
-points="50,4 96,50 50,96 4,50"
-fill="#f28c28"
-/>
-
-<!-- Navy OG star -->
-
-<path
-d="M50 17
-L56 40
-L83 50
-L56 60
-L50 84
-L44 60
-L17 50
-L44 40 Z"
-fill="#102a43"
-/>
-
-</svg>
-
-
-<span class="logo-text">
-DRONES4AID
-</span>
 
 </a>
 
 
-<nav class="topnav">
+<nav
+class="topnav"
+aria-label="Section navigation"
+>
 
 <a href="index.html">
 Home
@@ -681,9 +629,9 @@ Live Counters
 </header>
 
 
-<!-- ==================================================
-     HERO
-================================================== -->
+<!-- =========================
+HERO
+========================= -->
 
 <section class="hero">
 
@@ -724,9 +672,9 @@ maps, performance, and live counters.
 </section>
 
 
-<!-- ==================================================
-     TIMELINE
-================================================== -->
+<!-- =========================
+TIMELINE
+========================= -->
 
 <section class="container" id="timeline">
 
@@ -1044,9 +992,9 @@ We are also working toward our longer-term 2028 and 2030 goals.
 </section>
 
 
-<!-- ==================================================
-     GOALS
-================================================== -->
+<!-- =========================
+GOALS
+========================= -->
 
 <section class="container" id="goals">
 
@@ -1071,15 +1019,24 @@ Switch between goals to see the progress.
 
 <div class="goal-list">
 
-<button class="goal-btn active" data-goal="g1">
+<button
+class="goal-btn active"
+data-goal="g1"
+>
 2030 Goal
 </button>
 
-<button class="goal-btn" data-goal="g2">
+<button
+class="goal-btn"
+data-goal="g2"
+>
 2028 Goal
 </button>
 
-<button class="goal-btn" data-goal="g3">
+<button
+class="goal-btn"
+data-goal="g3"
+>
 Biggest Goal
 </button>
 
@@ -1088,15 +1045,27 @@ Biggest Goal
 
 <div class="goal-panel">
 
-<div class="goal-name" id="goalName"></div>
+<div
+class="goal-name"
+id="goalName"
+></div>
 
-<div class="goal-desc" id="goalDesc"></div>
+<div
+class="goal-desc"
+id="goalDesc"
+></div>
 
 <div class="progress-shell">
 
-<div class="progress-bar" id="goalBar"></div>
+<div
+class="progress-bar"
+id="goalBar"
+></div>
 
-<div class="progress-text" id="goalPct"></div>
+<div
+class="progress-text"
+id="goalPct"
+></div>
 
 </div>
 
@@ -1117,9 +1086,9 @@ Target progress updated live
 </section>
 
 
-<!-- ==================================================
-     GLOBAL REACH
-================================================== -->
+<!-- =========================
+GLOBAL REACH
+========================= -->
 
 <section class="container" id="maps">
 
@@ -1191,11 +1160,14 @@ class="map-div"
 </section>
 
 
-<!-- ==================================================
-     DRONE PERFORMANCE
-================================================== -->
+<!-- =========================
+DRONE PERFORMANCE
+========================= -->
 
-<section class="container" id="drone-performance">
+<section
+class="container"
+id="drone-performance"
+>
 
 <div class="section-head">
 
@@ -1226,11 +1198,14 @@ style="height:520px"
 </section>
 
 
-<!-- ==================================================
-     LIVE COUNTERS
-================================================== -->
+<!-- =========================
+LIVE COUNTERS
+========================= -->
 
-<section class="container" id="counters">
+<section
+class="container"
+id="counters"
+>
 
 <div class="section-head">
 
@@ -1321,42 +1296,42 @@ official statistics of Drones4Aid
 <script>
 
 /* =========================
-   TIMELINE
+TIMELINE
 ========================= */
 
 document
 .querySelectorAll(".timeline-item")
 .forEach(function(item){
 
-  function toggle(){
+function toggle(){
 
-    var open=item.classList.contains("open");
+var open=item.classList.contains("open");
 
-    document
-    .querySelectorAll(".timeline-item")
-    .forEach(function(x){
-      x.classList.remove("open");
-    });
+document
+.querySelectorAll(".timeline-item")
+.forEach(function(x){
+x.classList.remove("open");
+});
 
-    if(!open){
-      item.classList.add("open");
-    }
+if(!open){
+item.classList.add("open");
+}
 
-  }
+}
 
-  item
-  .querySelector(".timeline-top")
-  .addEventListener("click",toggle);
+item
+.querySelector(".timeline-top")
+.addEventListener("click",toggle);
 
-  item
-  .querySelector(".timeline-dot")
-  .addEventListener("click",toggle);
+item
+.querySelector(".timeline-dot")
+.addEventListener("click",toggle);
 
 });
 
 
 /* =========================
-   GOALS
+GOALS
 ========================= */
 
 var goals={
@@ -1432,7 +1407,7 @@ setGoal("g1");
 
 
 /* =========================
-   MAPS
+MAPS
 ========================= */
 
 if(typeof Plotly!=="undefined"){
@@ -1642,7 +1617,7 @@ responsive:true
 
 
 /* =========================
-   PERFORMANCE CHART
+PERFORMANCE CHART
 ========================= */
 
 Plotly.newPlot(
@@ -1734,7 +1709,7 @@ responsive:true
 
 
 /* =========================
-   LIVE COUNTERS
+LIVE COUNTERS
 ========================= */
 
 var storeKey="drones4aid_stats_live";
