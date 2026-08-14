@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Humanitarian Drone Courier Simulation | DRONES4AID</title>
+
+  <style>
+    :root{
+      --bg:#06101c;
+      --panel:#0f1b2d;
+      --panel2:#13253b;
+      --card:#12243a;
+      --text:#eaf3ff;
+      --muted:#a8bdd8;
+      --accent:#4cc9f0;
+      --accent2:#7cdb9a;
+      --accent3:#ffb703;
+      --danger:#ff5d5d;
+      --line:rgba(255,255,255,.10);
+      --shadow:0 18px 45px rgba(0,0,0,.28);
+      --radius:22px;
+    }
+
+    *{
+      box-sizing:border-box
+    }
+
+    html{
+      scroll-behavior:smooth
+    }
+
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(76,201,240,.12), transparent 30%),
+        linear-gradient(180deg, #06101c 0%, #081426 40%, #050b14 100%);
+      color:var(--text);
+      min-height:100vh;
+    }
+
+    .container{
+      width:min(1180px,92%);
+      margin:0 auto;
+      padding:28px 0 42px;
+    }
+
+    /* TOP NAVIGATION */
+
+    .topnav{
+      position:fixed;
+      top:16px;
+      right:16px;
+      z-index:9999;
+
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+
+      max-width:min(92vw,820px);
+    }
+
+    .topnav a{
+      text-decoration:none;
+      color:#eef9ff;
+      background:rgba(10,18,30,.88);
+      border:1px solid rgba(76,201,240,.22);
+      box-shadow:0 10px 24px rgba(0,0,0,.22);
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:.92rem;
+      backdrop-filter:blur(8px);
+      transition:.2s ease;
+    }
+
+    .topnav a:hover{
+      background:rgba(76,201,240,.16);
+      transform:translateY(-1px);
+    }
+
+    /* OG DRONES4AID LOGO — ALWAYS TOP LEFT */
+
+    .site-logo{
+      position:fixed;
+      top:16px;
+      left:16px;
+      z-index:10000;
+
+      display:flex;
+      align-items:center;
+      gap:10px;
+
+      color:#fff;
+      text-decoration:none;
+      font-weight:800;
+      font-size:1.05rem;
+      letter-spacing:.3px;
+
+      padding:5px 10px 5px 5px;
+      border-radius:14px;
+
+      background:rgba(10,18,30,.88);
+      border:1px solid rgba(76,201,240,.22);
+      box-shadow:0 10px 24px rgba(0,0,0,.22);
+      backdrop-filter:blur(8px);
+    }
+
+    .site-logo:hover{
+      background:rgba(76,201,240,.16);
+    }
+
+    .logo-mark{
+      width:40px;
+      height:40px;
+      background:#f28c28;
+      color:#102a43;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:1.25rem;
+      flex-shrink:0;
+    }
+
+    /* HOME BUTTON */
+
+    .home-button{
+      background:#f28c28 !important;
+      color:#17202a !important;
+      border-color:#f28c28 !important;
+    }
+
+    .home-button:hover{
+      background:#ffad52 !important;
+      color:#17202a !important;
+    }
+
+    /* HERO */
+
+    .hero{
+      margin-top:62px;
+      border:1px solid var(--line);
+      border-radius:30px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(8,18,32,.86),
+          rgba(10,18,32,.96)
+        );
+    }
+
+    .hero-image{
+      height:340px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(4,12,22,.10),
+          rgba(4,12,22,.58)
+        ),
+        url("https://cdn.dribbble.com/userupload/22316565/file/original-f2619222a56afdf80fd59ee80246c692.gif")
+        center center / cover no-repeat;
+    }
+
+    .hero-copy{
+      padding:30px 28px 34px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+
+      padding:8px 14px;
+      border-radius:999px;
+
+      background:rgba(76,201,240,.12);
+      border:1px solid rgba(76,201,240,.28);
+
+      color:#c9f3ff;
+      font-weight:800;
+      letter-spacing:.3px;
+
+      margin-bottom:16px;
+      font-size:.92rem;
+    }
+
+    h1{
+      margin:0 0 12px;
+
+      font-size:clamp(
+        2rem,
+        4.6vw,
+        3.9rem
+      );
+
+      line-height:1.04;
+    }
+
+    .subtitle{
+      max-width:880px;
+      color:var(--muted);
+      font-size:1.04rem;
+      line-height:1.7;
+    }
+
+    /* SECTION */
+
+    .section{
+      margin-top:26px;
+
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(16,29,45,.95),
+          rgba(11,20,33,.98)
+        );
+
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .section-header{
+      padding:22px 24px 0;
+    }
+
+    .section h2{
+      margin:0;
+
+      font-size:clamp(
+        1.35rem,
+        2.6vw,
+        2rem
+      );
+
+      color:#f4fbff;
+    }
+
+    .section p.lead{
+      margin:8px 0 0;
+      color:var(--muted);
+      line-height:1.65;
+    }
+
+    /* CARDS */
+
+    .card-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+      padding:24px;
+    }
+
+    .mission-card{
+      background:
+        linear-gradient(
+          135deg,
+          rgba(76,201,240,.18),
+          rgba(124,219,154,.16)
+        ),
+        linear-gradient(
+          180deg,
+          #152942,
+          #112033
+        );
+
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:24px;
+      padding:24px;
+
+      box-shadow:
+        0 12px 28px rgba(0,0,0,.22);
+    }
+
+    .mission-badge{
+      display:inline-block;
+
+      padding:8px 12px;
+      border-radius:999px;
+
+      background:rgba(255,255,255,.08);
+      color:#eaf7ff;
+
+      font-weight:800;
+      font-size:.88rem;
+      letter-spacing:.2px;
+
+      margin-bottom:14px;
+    }
+
+    .mission-title{
+      margin:0 0 10px;
+      font-size:1.35rem;
+      color:#fff;
+    }
+
+    .objective-list{
+      margin:14px 0 0;
+      padding-left:20px;
+      color:#eff7ff;
+    }
+
+    .objective-list li{
+      margin:10px 0;
+      line-height:1.55;
+    }
+
+    /* TABLE */
+
+    .table-wrap{
+      overflow:auto;
+
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.10);
+
+      background:rgba(9,17,29,.72);
+
+      box-shadow:
+        0 10px 24px rgba(0,0,0,.18);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:540px;
+    }
+
+    thead th{
+      text-align:left;
+
+      padding:16px 18px;
+
+      font-size:.95rem;
+      letter-spacing:.4px;
+      text-transform:uppercase;
+
+      color:#f5fbff;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(76,201,240,.35),
+          rgba(124,219,154,.28),
+          rgba(255,183,3,.25)
+        );
+
+      border-bottom:
+        1px solid rgba(255,255,255,.12);
+    }
+
+    tbody td{
+      padding:16px 18px;
+
+      border-bottom:
+        1px solid rgba(255,255,255,.08);
+
+      color:#dfeeff;
+      font-size:1rem;
+    }
+
+    tbody tr:nth-child(odd){
+      background:rgba(255,255,255,.03)
+    }
+
+    tbody tr:hover{
+      background:rgba(76,201,240,.08)
+    }
+
+    /* SUPPLY TAGS */
+
+    .supply-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+
+      padding:8px 12px;
+      border-radius:999px;
+
+      font-weight:800;
+      color:#04111f;
+      white-space:nowrap;
+    }
+
+    .battery{
+      background:
+        linear-gradient(
+          135deg,
+          #7cdb9a,
+          #b4f7c9
+        )
+    }
+
+    .radio{
+      background:
+        linear-gradient(
+          135deg,
+          #4cc9f0,
+          #b3efff
+        )
+    }
+
+    .medkit{
+      background:
+        linear-gradient(
+          135deg,
+          #ffb703,
+          #ffd97a
+        )
+    }
+
+    .toolkit{
+      background:
+        linear-gradient(
+          135deg,
+          #ff7b7b,
+          #ffc1c1
+        )
+    }
+
+    /* HOW TO PLAY */
+
+    .playline{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      align-items:center;
+
+      padding:20px 24px 24px;
+    }
+
+    .play-pill{
+      padding:12px 16px;
+
+      border-radius:999px;
+
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.10);
+
+      color:#fff;
+      font-weight:800;
+    }
+
+    .arrow{
+      color:var(--accent);
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+
+    /* SIMULATION */
+
+    .box-section{
+      padding:0 24px 24px;
+    }
+
+    .box-title{
+      margin:0 0 14px;
+      font-size:1.2rem;
+      color:#f7fbff;
+    }
+
+    .file-box{
+      border-radius:22px;
+
+      border:
+        1px solid rgba(76,201,240,.22);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(10,17,29,.92),
+          rgba(8,14,25,.98)
+        );
+
+      box-shadow:
+        0 14px 34px rgba(0,0,0,.24);
+
+      overflow:hidden;
+    }
+
+    .file-box-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+
+      padding:14px 16px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(76,201,240,.18),
+          rgba(124,219,154,.12)
+        );
+
+      border-bottom:
+        1px solid rgba(255,255,255,.08);
+    }
+
+    .file-box-head strong{
+      color:#eef9ff;
+      font-size:1rem;
+    }
+
+    .file-box-head span{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .file-preview{
+      width:100%;
+      height:560px;
+
+      border:0;
+      display:block;
+
+      background:#fff;
+    }
+
+    /* DISCLAIMER */
+
+    .disclaimer{
+      margin-top:18px;
+
+      color:#ff5252;
+      font-weight:800;
+      font-size:1rem;
+
+      text-align:center;
+
+      padding:14px 8px 4px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width:720px){
+
+      .topnav{
+        top:10px;
+        right:10px;
+        max-width:92vw;
+      }
+
+      .site-logo{
+        top:10px;
+        left:10px;
+        font-size:.9rem;
+      }
+
+      .topnav a{
+        padding:9px 12px;
+        font-size:.86rem;
+      }
+
+      .logo-mark{
+        width:36px;
+        height:36px;
+        font-size:1.1rem;
+      }
+
+      .hero-image{
+        height:220px;
+      }
+
+      .hero-copy{
+        padding:22px 18px 26px;
+      }
+
+      .section-header,
+      .card-grid,
+      .box-section{
+        padding-left:16px;
+        padding-right:16px;
+      }
+
+      .file-preview{
+        height:520px;
+      }
+
+      table{
+        min-width:620px;
+      }
+
+      .hero{
+        margin-top:92px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- OG DRONES4AID LOGO — ALWAYS TOP LEFT -->
+
+  <a
+    class="site-logo"
+    href="./index.html"
+    aria-label="DRONES4AID Home"
+  >
+    <span
+      class="logo-mark"
+      aria-hidden="true"
+    >
+      ✦
+    </span>
+
+    DRONES4AID
+  </a>
+
+
+  <!-- TOP NAVIGATION -->
+
+  <nav
+    class="topnav"
+    aria-label="Page navigation"
+  >
+
+    <!-- HOME -->
+
+    <a
+      class="home-button"
+      href="./index.html"
+    >
+      Home
+    </a>
+
+
+    <!-- OBJECTIVE -->
+
+    <a href="#objective">
+      Objective
+    </a>
+
+
+    <!-- TABLE -->
+
+    <a href="#table">
+      Table
+    </a>
+
+
+    <!-- HOW TO PLAY -->
+
+    <a href="#play">
+      How to Play
+    </a>
+
+
+    <!-- SIMULATION -->
+
+    <a href="#simulation">
+      Simulation
+    </a>
+
+  </nav>
+
+
+  <div class="container">
+
+    <!-- HERO -->
+
+    <section
+      class="hero"
+      id="home"
+    >
+
+      <div
+        class="hero-image"
+        aria-label="Humanitarian drone simulation header image"
+      ></div>
+
+
+      <div class="hero-copy">
+
+        <div class="eyebrow">
+          Simulation Experience
+        </div>
+
+
+        <h1>
+          Humanitarian Drone Courier Simulation
+        </h1>
+
+
+        <p class="subtitle">
+
+          Navigate a drone through a mission environment, locate the correct
+          supply, and deliver it to the right recipient.
+          Plan carefully, because fuel is limited and every decision affects
+          the mission outcome.
+
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- MAIN SIMULATION INFORMATION -->
+
+    <section
+      class="section"
+      id="objective"
+    >
+
+      <div class="section-header">
+
+        <h2>
+          Mission Objective
+        </h2>
+
+      </div>
+
+
+      <div class="card-grid">
+
+        <!-- OBJECTIVE -->
+
+        <div class="mission-card">
+
+          <div class="mission-badge">
+            Mission Objective
+          </div>
+
+
+          <h3 class="mission-title">
+            Your Objective is :
+          </h3>
+
+
+          <ul class="objective-list">
+
+            <li>
+              Fly through the environment.
+            </li>
+
+            <li>
+              Locate available supplies.
+            </li>
+
+            <li>
+              Pick up the correct supply.
+            </li>
+
+            <li>
+              Find the person who needs it.
+            </li>
+
+            <li>
+              Deliver it.
+            </li>
+
+            <li>
+              Manage your fuel carefully.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- SUPPLY TABLE -->
+
+        <div
+          class="mission-card"
+          id="table"
+        >
+
+          <div class="mission-badge">
+            Table
+          </div>
+
+
+          <div class="table-wrap">
+
+            <table>
+
+              <thead>
+
+                <tr>
+
+                  <th>
+                    Supply
+                  </th>
+
+                  <th>
+                    Recipient
+                  </th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody>
+
+                <tr>
+
+                  <td>
+
+                    <span
+                      class="supply-tag battery"
+                    >
+                      Battery
+                    </span>
+
+                  </td>
+
+                  <td>
+                    Old Veteran
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+
+                    <span
+                      class="supply-tag radio"
+                    >
+                      Radio Parts
+                    </span>
+
+                  </td>
+
+                  <td>
+                    Field Tech
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+
+                    <span
+                      class="supply-tag medkit"
+                    >
+                      Med-Kit
+                    </span>
+
+                  </td>
+
+                  <td>
+                    Pilot
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+
+                    <span
+                      class="supply-tag toolkit"
+                    >
+                      Tool Kit
+                    </span>
+
+                  </td>
+
+                  <td>
+                    Trader
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+
+        <!-- HOW TO PLAY -->
+
+        <div
+          class="mission-card"
+          id="play"
+        >
+
+          <div class="mission-badge">
+            How To Play
+          </div>
+
+
+          <h3 class="mission-title">
+            How to Play?
+          </h3>
+
+
+          <div class="playline">
+
+            <div class="play-pill">
+
+              <span class="arrow">
+                Locate
+              </span>
+
+              → Collect → Navigate → Deliver
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- GAME -->
+
+      <div
+        class="box-section"
+        id="simulation"
+      >
+
+        <h3 class="box-title">
+          Drone Courier Simulation
+        </h3>
+
+
+        <div class="file-box">
+
+          <div class="file-box-head">
+
+            <strong>
+              Drone Courier Simulation
+            </strong>
+
+            <span></span>
+
+          </div>
+
+
+          <iframe
+            id="simFrame"
+            class="file-preview"
+            title="Drone Courier Simulation"
+          ></iframe>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- DISCLAIMER -->
+
+    <div class="disclaimer">
+
+      This game is a fictional and simplified representation of humanitarian
+      drone logistics. It does not represent an actual conflict, real flight
+      system, real-world delivery route, or operational procedure.
+
+    </div>
+
+  </div>
+
+
+  <!-- GAME LOADING SCRIPT -->
+
+  <script>
+
+    /*
+      Keep the existing game file unchanged.
+
+      IMPORTANT:
+      war_torn_drone_courier-1.html must be in the
+      SAME folder as simulation.html.
+    */
+
+    fetch("./war_torn_drone_courier-1.html")
+
+      .then(r => {
+
+        if (!r.ok) {
+
+          throw new Error(
+            "Simulation file could not be loaded."
+          );
+
+        }
+
+        return r.text();
+
+      })
+
+
+      .then(html => {
+
+        document
+          .getElementById("simFrame")
+          .srcdoc = html;
+
+      })
+
+
+      .catch(() => {
+
+        document
+          .getElementById("simFrame")
+          .srcdoc = `
+
+            <html>
+
+              <body
+                style="
+                  margin:0;
+                  font-family:Arial,sans-serif;
+                  display:grid;
+                  place-items:center;
+                  height:100vh;
+                  background:#0f172a;
+                  color:#fff;
+                  text-align:center;
+                  padding:24px
+                "
+              >
+
+                <div>
+
+                  <h2
+                    style="margin:0 0 12px"
+                  >
+                    Simulation failed to load
+                  </h2>
+
+
+                  <p
+                    style="margin:0;opacity:.85"
+                  >
+
+                    Make sure
+                    <b>
+                      war_torn_drone_courier-1.html
+                    </b>
+
+                    is in the same folder as this page
+                    and is being served through a web server.
+
+                  </p>
+
+                </div>
+
+              </body>
+
+            </html>
+
+          `;
+
+      });
+
+  </script>
+
+</body>
+</html>
