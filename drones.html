@@ -273,69 +273,65 @@
     ========================= */
 
     .facts-section{
-      background:var(--white);
+      background:#fffaf2;
     }
 
     .facts-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:20px;
-      margin-top:28px;
+      gap:18px;
+      margin-top:26px;
     }
 
     .fact-card{
-      background:linear-gradient(
-        135deg,
-        #ffffff 0%,
-        #f3f9fc 100%
-      );
+      background:#fff;
       border:1px solid var(--border);
-      border-radius:var(--radius);
+      border-radius:16px;
       padding:22px;
       box-shadow:var(--shadow);
-      transition:transform .2s ease, box-shadow .2s ease;
+      transition:.2s ease;
     }
 
     .fact-card:hover{
       transform:translateY(-3px);
-      box-shadow:0 16px 34px rgba(16,42,67,.13);
+      border-color:#b7d4e2;
     }
 
     .fact-icon{
-      width:48px;
-      height:48px;
+      width:44px;
+      height:44px;
+      border-radius:50%;
       display:grid;
       place-items:center;
-      border-radius:50%;
-      background:var(--light);
-      color:var(--blue);
-      font-size:1.35rem;
-      margin-bottom:14px;
-      border:1px solid var(--border);
+      background:#e9f5fb;
+      color:var(--navy);
+      font-size:1.25rem;
+      font-weight:900;
+      margin-bottom:13px;
     }
 
     .fact-card h3{
       color:var(--navy);
-      margin-bottom:8px;
-      font-size:1.1rem;
+      font-size:1.08rem;
+      margin-bottom:7px;
     }
 
     .fact-card p{
       color:var(--muted);
-      font-size:.96rem;
+      font-size:.95rem;
     }
 
     .fact-highlight{
-      margin-top:28px;
+      margin-top:24px;
       padding:20px 22px;
-      border-left:5px solid var(--orange);
+      background:#eef7fb;
+      border-left:5px solid var(--blue);
       border-radius:8px;
-      background:#fff4df;
-      color:#5a431d;
+      color:var(--navy);
     }
 
     .fact-highlight strong{
-      color:var(--navy);
+      color:var(--blue);
     }
 
     /* =========================
@@ -1425,24 +1421,15 @@
 
     <div class="container">
 
-      <div class="eyebrow" style="background:#eef7fb;color:#102a43;border-color:#dbe3ea;">
-        Drone Facts
-      </div>
-
       <h2>
         Facts About Our Drones
       </h2>
 
       <p class="lead">
-        Drone capabilities vary depending on the model, payload, weather,
-        battery condition, and operating environment. Here are some of the
-        key facts that matter when planning humanitarian drone operations.
+        A quick overview of the capabilities, limitations, and considerations that matter when using drones for humanitarian work.
       </p>
 
-
       <div class="facts-grid">
-
-        <!-- FACT 1 -->
 
         <article class="fact-card">
 
@@ -1451,63 +1438,49 @@
           </div>
 
           <h3>
-            Approx. 25 km operational range
+            Operating Distance
           </h3>
 
           <p>
-            Our deployment planning uses an approximate maximum operating
-            distance of around 25 km for the relevant drone systems. Actual
-            range can vary depending on the drone model, battery condition,
-            weather, payload, signal conditions, and flight conditions.
+            Our deployment planning uses an approximate maximum operating distance of <strong>25 km</strong> before the drone needs to return, recharge, or be supported by another deployment point.
           </p>
 
         </article>
 
-
-        <!-- FACT 2 -->
 
         <article class="fact-card">
 
           <div class="fact-icon">
-            📦
+            ⚖
           </div>
 
           <h3>
-            Payload capacity varies
+            Payload Capacity
           </h3>
 
           <p>
-            Depending on the drone model and configuration, the payload
-            capacity considered for our systems ranges from approximately
-            300 grams to 1,063 grams. Payload limits must always be respected
-            to maintain safe and stable flight.
+            Payload capacity depends on the drone model. The drones in our model range can support payloads ranging from approximately <strong>300 grams to 1,063 grams</strong>.
           </p>
 
         </article>
 
-
-        <!-- FACT 3 -->
 
         <article class="fact-card">
 
           <div class="fact-icon">
-            ⏱️
+            ⏱
           </div>
 
           <h3>
-            Flight time depends on the model
+            Battery Life
           </h3>
 
           <p>
-            Battery life is not identical across every drone. Flight time
-            changes according to the model, payload, wind, temperature,
-            flight speed, battery condition, and other operating conditions.
+            Flight time varies significantly by model, battery condition, weather, payload, wind, and flight behaviour. Carrying heavier payloads generally reduces practical flight endurance.
           </p>
 
         </article>
 
-
-        <!-- FACT 4 -->
 
         <article class="fact-card">
 
@@ -1516,40 +1489,32 @@
           </div>
 
           <h3>
-            Navigation systems
+            Navigation
           </h3>
 
           <p>
-            Modern humanitarian drones can use satellite navigation,
-            onboard sensors, positioning systems, and automated flight
-            assistance to help operators maintain awareness of the aircraft.
+            Modern drones can use satellite positioning, onboard sensors, cameras, and automated flight systems to support stable navigation and controlled movement.
           </p>
 
         </article>
 
-
-        <!-- FACT 5 -->
 
         <article class="fact-card">
 
           <div class="fact-icon">
-        🔎
+            👁
           </div>
 
           <h3>
-            Obstacle awareness
+            Obstacle Awareness
           </h3>
 
           <p>
-            Some drone models include obstacle-sensing technology that can
-            help identify objects around the aircraft. The exact sensors and
-            capabilities depend on the model being used.
+            Some drone models use obstacle-sensing systems to detect objects around the aircraft. These systems can improve safety but do not eliminate the need for responsible operation.
           </p>
 
         </article>
 
-
-        <!-- FACT 6 -->
 
         <article class="fact-card">
 
@@ -1558,126 +1523,100 @@
           </div>
 
           <h3>
-            Live monitoring
+            Remote Monitoring
           </h3>
 
           <p>
-            Drone monitoring systems can provide information such as
-            battery status, position, altitude, speed, and communication
-            status, helping teams keep track of a mission.
+            Drone monitoring systems can provide information such as battery status, position, altitude, speed, signal strength, and mission status.
           </p>
 
         </article>
 
-
-        <!-- FACT 7 -->
 
         <article class="fact-card">
 
           <div class="fact-icon">
-            🌧️
+            🌦
           </div>
 
           <h3>
-            Weather affects performance
+            Weather Matters
           </h3>
 
           <p>
-            Rain, strong wind, extreme temperatures, and poor visibility can
-            affect battery performance, stability, communication, and overall
-            flight safety.
+            Rain, strong wind, extreme temperatures, dust, and poor visibility can affect drone performance and may make a mission unsuitable.
           </p>
 
         </article>
 
-
-        <!-- FACT 8 -->
 
         <article class="fact-card">
 
           <div class="fact-icon">
-            🎥
+            📦
           </div>
 
           <h3>
-            Cameras can support assessment
+            Humanitarian Payloads
           </h3>
 
           <p>
-            Camera-equipped drones can help teams inspect infrastructure,
-            assess access routes, observe environmental conditions, and
-            document humanitarian work where appropriate and authorised.
+            Suitable payloads may include lightweight medical supplies, emergency essentials, food items, hygiene materials, and other approved humanitarian packages.
           </p>
 
         </article>
 
-
-        <!-- FACT 9 -->
 
         <article class="fact-card">
 
           <div class="fact-icon">
-            🩺
+            ☀
           </div>
 
           <h3>
-            Small humanitarian payloads
+            Solar-Powered Development
           </h3>
 
           <p>
-            Lightweight drones can be useful for transporting small,
-            time-sensitive humanitarian items such as first-aid supplies,
-            emergency essentials, communication equipment, or other approved
-            packages.
+            DRONES4AID is exploring solar-powered drone technology, with planned deployment of solar-powered systems beginning from <strong>2028</strong>.
           </p>
 
         </article>
 
-
-        <!-- FACT 10 -->
 
         <article class="fact-card">
 
           <div class="fact-icon">
-            🔧
+      30
           </div>
 
           <h3>
-            Pre-flight checks matter
+            Charging Network
           </h3>
 
           <p>
-            Before deployment, teams should check the aircraft, battery,
-            sensors, communications, payload attachment, navigation system,
-            and other relevant equipment.
+            Our deployment concept uses charging stations at planned intervals to help maintain continuity when drones need to recharge between missions.
           </p>
 
         </article>
 
-
-        <!-- FACT 11 -->
 
         <article class="fact-card">
 
           <div class="fact-icon">
-            ☀️
+            🛠
           </div>
 
           <h3>
-            Solar-powered drones are being explored
+            Pre-Flight Checks
           </h3>
 
           <p>
-            DRONES4AID is exploring the development of solar-powered drone
-            systems. Planned deployment of solar-powered drones is targeted
-            from 2028, subject to development, testing, safety, and
-            regulatory requirements.
+            Before deployment, important checks can include battery condition, propellers, sensors, communications, navigation systems, payload security, and overall aircraft condition.
           </p>
 
         </article>
 
-
-        <!-- FACT 12 -->
 
         <article class="fact-card">
 
@@ -1686,13 +1625,11 @@
           </div>
 
           <h3>
-            Environmental responsibility
+            Environmental Responsibility
           </h3>
 
           <p>
-            Humanitarian drone operations should aim to minimise unnecessary
-            disturbance to wildlife, communities, and the surrounding
-            environment.
+            Drone operations should minimise unnecessary disturbance to wildlife, communities, and the surrounding environment while following relevant rules and permissions.
           </p>
 
         </article>
@@ -1702,15 +1639,8 @@
 
       <div class="fact-highlight">
 
-        <strong>
-          Important:
-        </strong>
-
-        Drone specifications are model-dependent. Range, payload,
-        battery life, speed, sensors, and weather resistance can all change
-        between aircraft and operating conditions. Actual deployment decisions
-        should therefore be based on the specifications and limitations of the
-        specific drone being used.
+        <strong>Important:</strong>
+        Drone performance is not identical across every model. Actual range, flight time, payload capacity, and operating conditions depend on the specific aircraft, battery, weather, terrain, regulations, and mission requirements.
 
       </div>
 
