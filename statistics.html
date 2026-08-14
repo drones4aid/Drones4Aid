@@ -1,634 +1,600 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Statistics - DRONES4AID</title>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-  <style>
-    :root{
-      --navy:#102a43;
-      --blue:#1f6f8b;
-      --text:#1f2937;
-      --muted:#5b6575;
-      --border:#dbe3ea;
-      --shadow:0 12px 30px rgba(16,42,67,.10);
-      --radius:22px;
-      --accent:#f28c28;
-      --red:#d93025;
-      --gold:#f4c542;
-      --green:#2ecc71;
-      --purple:#7b5cff;
-    }
-
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:Arial,Helvetica,sans-serif;
-      background:linear-gradient(180deg,#fffaf2,#f8fbff);
-      color:var(--text);
-      line-height:1.6;
-    }
-
-    .container{
-      width:min(1180px,92%);
-      margin:0 auto;
-    }
-
-    section{
-      padding:78px 0;
-    }
-
-    .title{
-      font-size:clamp(2rem,3.8vw,3.3rem);
-      color:var(--navy);
-      margin-bottom:10px;
-    }
-
-    .lead{
-      color:var(--muted);
-      max-width:980px;
-      margin-bottom:8px;
-    }
-
-    .card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:22px;
-    }
-
-    /* =========================
-       HEADER / NAVIGATION
-    ========================= */
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:rgba(255,255,255,.96);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--border);
-    }
-
-    .nav{
-      min-height:74px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-    }
-
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      color:var(--navy);
-      font-weight:800;
-      flex:0 0 auto;
-      text-decoration:none;
-    }
-
-    .diamond{
-      width:42px;
-      height:42px;
-      clip-path:polygon(
-        50% 0%,
-        100% 50%,
-        50% 100%,
-        0% 50%
-      );
-      background:linear-gradient(135deg,#d97706,#f59e0b);
-      display:grid;
-      place-items:center;
-      color:#102a43;
-      font-size:.86rem;
-      box-shadow:0 8px 18px rgba(16,42,67,.18);
-    }
-
-    .star{
-      font-size:1.45rem;
-      line-height:1;
-      color:#102a43;
-      transform:translateY(-1px);
-    }
-
-    .topnav{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    .topnav a{
-      padding:9px 13px;
-      border-radius:999px;
-      border:1px solid #e3ebf2;
-      background:#f7fbff;
-      color:var(--navy);
-      font-weight:800;
-      text-decoration:none;
-      font-size:.92rem;
-      text-transform:capitalize;
-    }
-
-    .topnav a:hover{
-      background:#eaf4fb;
-      color:var(--blue);
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      min-height:72vh;
-      overflow:hidden;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(16,42,67,.95),
-          rgba(31,111,139,.84)
-        );
-      color:#fff;
-    }
-
-    .hero-copy{
-      display:flex;
-      align-items:center;
-    }
-
-    .hero .container{
-      padding:86px 0 72px;
-    }
-
-    .eyebrow{
-      display:inline-block;
-      background:rgba(255,255,255,.14);
-      border:1px solid rgba(255,255,255,.2);
-      padding:8px 14px;
-      border-radius:999px;
-      margin-bottom:18px;
-      font-weight:700;
-    }
-
-    .hero h1{
-      font-size:clamp(2.4rem,5vw,4.4rem);
-      line-height:1.05;
-      margin-bottom:14px;
-      color:#fff;
-    }
-
-    .hero p{
-      max-width:860px;
-      color:#edf4fb;
-    }
-
-    .hero-img{
-      background:
-        linear-gradient(
-          180deg,
-          rgba(16,42,67,.06),
-          rgba(16,42,67,.55)
-        ),
-        url('https://i.pinimg.com/originals/c9/91/72/c99172c17b83d3c620b997858351b2a5.gif')
-        center/cover no-repeat;
-      min-height:72vh;
-    }
-
-    /* =========================
-       SECTION HEADINGS
-    ========================= */
-
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-end;
-      gap:18px;
-      flex-wrap:wrap;
-      margin-bottom:22px;
-    }
-
-    /* =========================
-       TIMELINE
-    ========================= */
-
-    .timeline-wrap{
-      position:relative;
-      padding-left:22px;
-      display:grid;
-      gap:18px;
-    }
-
-    .timeline-wrap::before{
-      content:'';
-      position:absolute;
-      left:11px;
-      top:8px;
-      bottom:8px;
-      width:3px;
-      background:
-        linear-gradient(
-          180deg,
-          var(--blue),
-          var(--purple),
-          var(--accent)
-        );
-      border-radius:999px;
-    }
-
-    .timeline-item{
-      position:relative;
-      margin-left:10px;
-      border:1px solid var(--border);
-      border-radius:18px;
-      background:#fff;
-      overflow:hidden;
-    }
-
-    .timeline-dot{
-      position:absolute;
-      left:-34px;
-      top:22px;
-      width:22px;
-      height:22px;
-      border-radius:50%;
-      background:var(--blue);
-      border:4px solid #fff;
-      box-shadow:
-        0 0 0 3px rgba(31,111,139,.12);
-      cursor:pointer;
-    }
-
-    .timeline-item.open .timeline-dot{
-      background:var(--accent);
-      box-shadow:
-        0 0 0 3px rgba(242,140,40,.18);
-    }
-
-    .timeline-top{
-      padding:18px 18px 14px;
-      display:flex;
-      justify-content:space-between;
-      gap:14px;
-      align-items:center;
-      cursor:pointer;
-      background:
-        linear-gradient(
-          180deg,
-          #fff,
-          #fbfdff
-        );
-    }
-
-    .timeline-year{
-      font-size:1.4rem;
-      font-weight:900;
-      color:var(--navy);
-    }
-
-    .timeline-label{
-      color:var(--muted);
-      font-weight:700;
-      text-align:right;
-    }
-
-    .timeline-body{
-      display:none;
-      padding:0 18px 18px;
-      color:var(--muted);
-    }
-
-    .timeline-item.open .timeline-body{
-      display:block;
-    }
-
-    .timeline-body p{
-      margin-top:8px;
-    }
-
-    /* =========================
-       GOALS
-    ========================= */
-
-    .goal-grid{
-      display:grid;
-      grid-template-columns:320px 1fr;
-      gap:18px;
-      align-items:start;
-    }
-
-    .goal-list{
-      display:grid;
-      gap:12px;
-    }
-
-    .goal-btn{
-      border:1px solid var(--border);
-      background:#fff;
-      color:var(--navy);
-      padding:14px 16px;
-      border-radius:14px;
-      cursor:pointer;
-      text-align:left;
-      font-weight:800;
-      transition:.2s ease;
-    }
-
-    .goal-btn.active{
-      background:
-        linear-gradient(
-          135deg,
-          #eef8ff,
-          #fff7ea
-        );
-      border-color:#cfe2f2;
-      box-shadow:
-        0 10px 22px rgba(16,42,67,.08);
-    }
-
-    .goal-panel{
-      background:
-        linear-gradient(
-          180deg,
-          #fff,
-          #fbfdff
-        );
-      border:1px solid var(--border);
-      border-radius:22px;
-      padding:22px;
-      box-shadow:var(--shadow);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .goal-name{
-      font-size:1.35rem;
-      font-weight:900;
-      color:var(--navy);
-    }
-
-    .goal-desc{
-      color:var(--muted);
-      margin-top:8px;
-      max-width:760px;
-    }
-
-    .progress-shell{
-      margin-top:18px;
-      background:#eef3f8;
-      border:1px solid var(--border);
-      border-radius:999px;
-      height:34px;
-      overflow:hidden;
-      position:relative;
-      box-shadow:
-        inset 0 2px 8px rgba(0,0,0,.04);
-    }
-
-    .progress-bar{
-      height:100%;
-      width:0;
-      border-radius:999px;
-      transition:width .5s ease;
-      background:
-        linear-gradient(
-          90deg,
-          var(--red),
-          #f59e0b,
-          var(--green)
-        );
-      position:relative;
-      overflow:hidden;
-    }
-
-    .progress-bar::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(
-          120deg,
-          transparent 20%,
-          rgba(255,255,255,.28) 40%,
-          transparent 60%
-        );
-      animation:shine 2.2s linear infinite;
-    }
-
-    @keyframes shine{
-      from{
-        transform:translateX(-70%);
-      }
-      to{
-        transform:translateX(120%);
-      }
-    }
-
-    .progress-text{
-      position:absolute;
-      inset:0;
-      display:grid;
-      place-items:center;
-      font-weight:900;
-      color:var(--navy);
-      mix-blend-mode:multiply;
-    }
-
-    .progress-meta{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:10px;
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
-    /* =========================
-       MAPS
-    ========================= */
-
-    .map-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-      margin-top:22px;
-    }
-
-    .map-box{
-      border:1px solid var(--border);
-      border-radius:22px;
-      overflow:hidden;
-      background:#fff;
-      box-shadow:var(--shadow);
-    }
-
-    .map-head{
-      padding:16px 18px;
-      border-bottom:1px solid var(--border);
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-
-    .map-head strong{
-      color:var(--navy);
-    }
-
-    .map-div{
-      height:520px;
-    }
-
-    .map-note{
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
-    /* =========================
-       CHART
-    ========================= */
-
-    .chart-wrap{
-      margin-top:22px;
-    }
-
-    /* =========================
-       COUNTERS
-    ========================= */
-
-    .stats-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-      margin-top:22px;
-    }
-
-    .big-counter{
-      padding:26px;
-      border-radius:24px;
-      background:
-        linear-gradient(
-          135deg,
-          #102a43,
-          #1f6f8b 55%,
-          #f28c28
-        );
-      color:#fff;
-      box-shadow:
-        0 18px 36px rgba(16,42,67,.18);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .big-counter::after{
-      content:'';
-      position:absolute;
-      right:-40px;
-      bottom:-40px;
-      width:200px;
-      height:200px;
-      border-radius:50%;
-      background:rgba(255,255,255,.10);
-    }
-
-    .counter-label{
-      font-weight:800;
-      letter-spacing:.02em;
-    }
-
-    .counter-num{
-      font-size:clamp(2.6rem,7vw,5rem);
-      line-height:1;
-      font-weight:900;
-      margin-top:10px;
-    }
-
-    .counter-note{
-      margin-top:10px;
-      color:#eef5fb;
-      max-width:780px;
-    }
-
-    .mini-counter{
-      display:grid;
-      gap:12px;
-    }
-
-    .mini-card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:22px;
-      padding:20px;
-      box-shadow:var(--shadow);
-    }
-
-    .mini-value{
-      font-size:2rem;
-      font-weight:900;
-      color:var(--blue);
-      margin-top:8px;
-    }
-
-    .mini-list{
-      margin-top:10px;
-      color:var(--muted);
-    }
-
-    .footer-note{
-      margin-top:18px;
-      color:var(--navy);
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.05em;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media(max-width:980px){
-
-      .hero{
-        grid-template-columns:1fr;
-      }
-
-      .hero-img{
-        min-height:320px;
-      }
-
-      .goal-grid,
-      .map-grid,
-      .stats-grid{
-        grid-template-columns:1fr;
-      }
-
-      .map-div{
-        height:420px;
-      }
-
-      .topnav{
-        justify-content:flex-start;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Statistics - DRONES4AID</title>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<style>
+
+:root{
+  --navy:#102a43;
+  --blue:#1f6f8b;
+  --text:#1f2937;
+  --muted:#5b6575;
+  --border:#dbe3ea;
+  --shadow:0 12px 30px rgba(16,42,67,.10);
+  --radius:22px;
+  --accent:#f28c28;
+  --red:#d93025;
+  --gold:#f4c542;
+  --green:#2ecc71;
+  --purple:#7b5cff;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#fffaf2,#f8fbff);
+  color:var(--text);
+  line-height:1.6;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:0 auto;
+}
+
+section{
+  padding:78px 0;
+}
+
+.title{
+  font-size:clamp(2rem,3.8vw,3.3rem);
+  color:var(--navy);
+  margin-bottom:10px;
+}
+
+.lead{
+  color:var(--muted);
+  max-width:980px;
+  margin-bottom:8px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:22px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav{
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--navy);
+  font-weight:800;
+  text-decoration:none;
+  flex:0 0 auto;
+}
+
+.logo img{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  display:block;
+}
+
+.logo-text{
+  font-size:1rem;
+  white-space:nowrap;
+}
+
+.topnav{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.topnav a{
+  padding:9px 13px;
+  border-radius:999px;
+  border:1px solid #e3ebf2;
+  background:#f7fbff;
+  color:var(--navy);
+  font-weight:800;
+  text-decoration:none;
+  font-size:.92rem;
+}
+
+.topnav a:hover{
+  background:#eaf4fb;
+  color:var(--blue);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:72vh;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(16,42,67,.95),
+      rgba(31,111,139,.84)
+    );
+  color:#fff;
+}
+
+.hero-copy{
+  display:flex;
+  align-items:center;
+}
+
+.hero .container{
+  padding:86px 0 72px;
+}
+
+.eyebrow{
+  display:inline-block;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.2);
+  padding:8px 14px;
+  border-radius:999px;
+  margin-bottom:18px;
+  font-weight:700;
+}
+
+.hero h1{
+  font-size:clamp(2.4rem,5vw,4.4rem);
+  line-height:1.05;
+  margin-bottom:14px;
+  color:#fff;
+}
+
+.hero p{
+  max-width:860px;
+  color:#edf4fb;
+  margin-bottom:12px;
+}
+
+.hero-img{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(16,42,67,.06),
+      rgba(16,42,67,.55)
+    ),
+    url('https://i.pinimg.com/originals/c9/91/72/c99172c17b83d3c620b997858351b2a5.gif')
+    center/cover no-repeat;
+  min-height:72vh;
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-bottom:22px;
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline-wrap{
+  position:relative;
+  padding-left:22px;
+  display:grid;
+  gap:18px;
+}
+
+.timeline-wrap::before{
+  content:'';
+  position:absolute;
+  left:11px;
+  top:8px;
+  bottom:8px;
+  width:3px;
+  background:
+    linear-gradient(
+      180deg,
+      var(--blue),
+      var(--purple),
+      var(--accent)
+    );
+  border-radius:999px;
+}
+
+.timeline-item{
+  position:relative;
+  margin-left:10px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#fff;
+  overflow:hidden;
+}
+
+.timeline-dot{
+  position:absolute;
+  left:-34px;
+  top:22px;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:var(--blue);
+  border:4px solid #fff;
+  box-shadow:0 0 0 3px rgba(31,111,139,.12);
+  cursor:pointer;
+}
+
+.timeline-item.open .timeline-dot{
+  background:var(--accent);
+  box-shadow:0 0 0 3px rgba(242,140,40,.18);
+}
+
+.timeline-top{
+  padding:18px;
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:center;
+  cursor:pointer;
+  background:linear-gradient(180deg,#fff,#fbfdff);
+}
+
+.timeline-year{
+  font-size:1.4rem;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.timeline-label{
+  color:var(--muted);
+  font-weight:700;
+  text-align:right;
+}
+
+.timeline-body{
+  display:none;
+  padding:0 18px 18px;
+  color:var(--muted);
+}
+
+.timeline-item.open .timeline-body{
+  display:block;
+}
+
+.timeline-body p{
+  margin-top:8px;
+}
+
+
+/* =========================
+   GOALS
+========================= */
+
+.goal-grid{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:18px;
+  align-items:start;
+}
+
+.goal-list{
+  display:grid;
+  gap:12px;
+}
+
+.goal-btn{
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--navy);
+  padding:14px 16px;
+  border-radius:14px;
+  cursor:pointer;
+  text-align:left;
+  font-weight:800;
+  transition:.2s ease;
+}
+
+.goal-btn:hover{
+  transform:translateY(-2px);
+}
+
+.goal-btn.active{
+  background:linear-gradient(135deg,#eef8ff,#fff7ea);
+  border-color:#cfe2f2;
+  box-shadow:0 10px 22px rgba(16,42,67,.08);
+}
+
+.goal-panel{
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:22px;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
+}
+
+.goal-name{
+  font-size:1.35rem;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.goal-desc{
+  color:var(--muted);
+  margin-top:8px;
+  max-width:760px;
+}
+
+.progress-shell{
+  margin-top:18px;
+  background:#eef3f8;
+  border:1px solid var(--border);
+  border-radius:999px;
+  height:34px;
+  overflow:hidden;
+  position:relative;
+}
+
+.progress-bar{
+  height:100%;
+  width:0;
+  border-radius:999px;
+  transition:width .5s ease;
+  background:linear-gradient(90deg,var(--red),#f59e0b,var(--green));
+  position:relative;
+}
+
+.progress-text{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  color:var(--navy);
+}
+
+.progress-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:10px;
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+
+/* =========================
+   MAPS
+========================= */
+
+.map-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:22px;
+}
+
+.map-box{
+  border:1px solid var(--border);
+  border-radius:22px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:var(--shadow);
+}
+
+.map-head{
+  padding:16px 18px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.map-head strong{
+  color:var(--navy);
+}
+
+.map-div{
+  height:520px;
+}
+
+.map-note{
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+
+/* =========================
+   CHART
+========================= */
+
+.chart-wrap{
+  margin-top:22px;
+}
+
+
+/* =========================
+   COUNTERS
+========================= */
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:22px;
+}
+
+.big-counter{
+  padding:26px;
+  border-radius:24px;
+  background:
+    linear-gradient(
+      135deg,
+      #102a43,
+      #1f6f8b 55%,
+      #f28c28
+    );
+  color:#fff;
+  box-shadow:0 18px 36px rgba(16,42,67,.18);
+}
+
+.counter-label{
+  font-weight:800;
+  letter-spacing:.02em;
+}
+
+.counter-num{
+  font-size:clamp(2.6rem,7vw,5rem);
+  line-height:1;
+  font-weight:900;
+  margin-top:10px;
+}
+
+.counter-note{
+  margin-top:10px;
+  color:#eef5fb;
+  max-width:780px;
+}
+
+.mini-counter{
+  display:grid;
+  gap:12px;
+}
+
+.mini-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:20px;
+  box-shadow:var(--shadow);
+}
+
+.mini-value{
+  font-size:2rem;
+  font-weight:900;
+  color:var(--blue);
+  margin-top:8px;
+}
+
+.mini-list{
+  margin-top:10px;
+  color:var(--muted);
+}
+
+.footer-note{
+  margin-top:18px;
+  color:var(--navy);
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:980px){
+
+  .hero{
+    grid-template-columns:1fr;
+  }
+
+  .hero-img{
+    min-height:320px;
+  }
+
+  .goal-grid,
+  .map-grid,
+  .stats-grid{
+    grid-template-columns:1fr;
+  }
+
+  .map-div{
+    height:420px;
+  }
+
+  .topnav{
+    justify-content:flex-start;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .nav{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:10px 0;
+  }
+
+  .topnav{
+    gap:6px;
+  }
+
+  .topnav a{
+    font-size:.82rem;
+    padding:7px 10px;
+  }
+
+  .logo img{
+    width:50px;
+    height:50px;
+  }
+
+}
+
+</style>
 </head>
 
+
 <body>
+
 
 <!-- =========================
      HEADER
@@ -636,49 +602,58 @@
 
 <header>
 
-  <div class="container nav">
+<div class="container nav">
 
-    <a
-      class="logo"
-      href="index.html"
-      aria-label="DRONES4AID Home"
-    >
+<a
+  class="logo"
+  href="index.html"
+  aria-label="DRONES4AID Home"
+>
 
-      <span
-        class="diamond"
-        aria-hidden="true"
-      >
-        <span class="star">✦</span>
-      </span>
+<img
+  src="logo.jpeg"
+  alt="DRONES4AID Logo"
+>
 
-      <span>DRONES4AID</span>
+<span class="logo-text">
+  DRONES4AID
+</span>
 
-    </a>
+</a>
 
-    <nav
-      class="topnav"
-      aria-label="Section navigation"
-    >
 
-      <a href="index.html">Home</a>
+<nav
+  class="topnav"
+  aria-label="Section navigation"
+>
 
-      <a href="#timeline">Timeline</a>
+<a href="index.html">
+  Home
+</a>
 
-      <a href="#goals">Our Goal</a>
+<a href="#timeline">
+  Timeline
+</a>
 
-      <a href="#maps">Global Reach</a>
+<a href="#goals">
+  Our Goal
+</a>
 
-      <a href="#drone-performance">
-        Drone Performance
-      </a>
+<a href="#maps">
+  Global Reach
+</a>
 
-      <a href="#counters">
-        Live Counters
-      </a>
+<a href="#drone-performance">
+  Drone Performance
+</a>
 
-    </nav>
+<a href="#counters">
+  Live Counters
+</a>
 
-  </div>
+</nav>
+
+</div>
 
 </header>
 
@@ -692,39 +667,39 @@
   id="home"
 >
 
-  <div class="hero-copy">
+<div class="hero-copy">
 
-    <div class="container">
+<div class="container">
 
-      <div class="eyebrow">
-        Statistics
-      </div>
+<div class="eyebrow">
+  Statistics
+</div>
 
-      <h1>
-        Statistics
-      </h1>
+<h1>
+  Statistics
+</h1>
 
-      <p>
-        These statistics are about our company and the way our
-        humanitarian work grows across regions, goals, operations,
-        and volunteer support.
-      </p>
+<p>
+  These statistics are about our company and the way our
+  humanitarian work grows across regions, goals, operations,
+  and volunteer support.
+</p>
 
-      <p>
-        They show where we work, what we are building, and how far
-        our aid systems have progressed over time.
-      </p>
+<p>
+  They show where we work, what we are building, and how far
+  our aid systems have progressed over time.
+</p>
 
-      <p>
-        Use the sections below to explore the timeline, goals,
-        maps, performance, and live counters.
-      </p>
+<p>
+  Use the sections below to explore the timeline, goals,
+  maps, performance, and live counters.
+</p>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
-  <div class="hero-img"></div>
+<div class="hero-img"></div>
 
 </section>
 
@@ -738,350 +713,351 @@
   id="timeline"
 >
 
-  <div class="section-head">
+<div class="section-head">
 
-    <div>
+<div>
 
-      <h2 class="title">
-        Timeline
-      </h2>
+<h2 class="title">
+  Timeline
+</h2>
 
-      <p class="lead">
-        Click any dot to expand the event and see a short
-        explanation of what happened in that period.
-      </p>
+<p class="lead">
+  Click any year to expand the event and see a short
+  explanation of what happened in that period.
+</p>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 
-  <div class="timeline-wrap">
+<div class="timeline-wrap">
 
 
-    <!-- 2016 -->
+<!-- 2016 -->
 
-    <div class="timeline-item open">
+<div class="timeline-item open">
 
-      <div class="timeline-dot"></div>
+<div class="timeline-dot"></div>
 
-      <div class="timeline-top">
+<div class="timeline-top">
 
-        <div class="timeline-year">
-          2016
-        </div>
+<div class="timeline-year">
+  2016
+</div>
 
-        <div class="timeline-label">
-          Foundation phase
-        </div>
+<div class="timeline-label">
+  Foundation phase
+</div>
 
-      </div>
+</div>
 
-      <div class="timeline-body">
+<div class="timeline-body">
 
-        <p>
-          We began building the concept of a humanitarian drone
-          network and mapped the first mission models.
-        </p>
+<p>
+  We began building the concept of a humanitarian drone
+  network and mapped the first mission models.
+</p>
 
-        <p>
-          The focus was on research, safety, and defining how
-          technology could support civilians.
-        </p>
+<p>
+  The focus was on research, safety, and defining how
+  technology could support civilians.
+</p>
 
-        <p>
-          We also developed our early planning structure and
-          tested operational ideas for future deployment.
-        </p>
+<p>
+  We also developed our early planning structure and
+  tested operational ideas for future deployment.
+</p>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
 
-    <!-- 2018 -->
+<!-- 2018 -->
 
-    <div class="timeline-item">
+<div class="timeline-item">
 
-      <div class="timeline-dot"></div>
+<div class="timeline-dot"></div>
 
-      <div class="timeline-top">
+<div class="timeline-top">
 
-        <div class="timeline-year">
-          2018
-        </div>
+<div class="timeline-year">
+  2018
+</div>
 
-        <div class="timeline-label">
-          Regional planning
-        </div>
+<div class="timeline-label">
+  Regional planning
+</div>
 
-      </div>
+</div>
 
-      <div class="timeline-body">
+<div class="timeline-body">
 
-        <p>
-          We expanded our humanitarian planning into
-          conflict-affected regions and refined logistics workflows.
-        </p>
+<p>
+  We expanded our humanitarian planning into
+  conflict-affected regions and refined logistics workflows.
+</p>
 
-        <p>
-          Teams began preparing for work in highly stressed
-          environments with limited ground access.
-        </p>
+<p>
+  Teams began preparing for work in highly stressed
+  environments with limited ground access.
+</p>
 
-        <p>
-          Our protocols were improved to keep aid delivery safe,
-          fast, and transparent.
-        </p>
+<p>
+  Our protocols were improved to keep aid delivery safe,
+  fast, and transparent.
+</p>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
 
-    <!-- 2020 -->
+<!-- 2020 -->
 
-    <div class="timeline-item">
+<div class="timeline-item">
 
-      <div class="timeline-dot"></div>
+<div class="timeline-dot"></div>
 
-      <div class="timeline-top">
+<div class="timeline-top">
 
-        <div class="timeline-year">
-          2020
-        </div>
+<div class="timeline-year">
+  2020
+</div>
 
-        <div class="timeline-label">
-          Sahel operations
-        </div>
+<div class="timeline-label">
+  Sahel operations
+</div>
 
-      </div>
+</div>
 
-      <div class="timeline-body">
+<div class="timeline-body">
 
-        <p>
-          We supported planning for the Sahel region, where
-          access and infrastructure challenges were especially severe.
-        </p>
+<p>
+  We supported planning for the Sahel region, where
+  access and infrastructure challenges were especially severe.
+</p>
 
-        <p>
-          This helped us improve route planning, terrain analysis,
-          and field coordination.
-        </p>
+<p>
+  This helped us improve route planning, terrain analysis,
+  and field coordination.
+</p>
 
-        <p>
-          It also strengthened our role in high-need humanitarian
-          environments.
-        </p>
+<p>
+  It also strengthened our role in high-need humanitarian
+  environments.
+</p>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
 
-    <!-- 2022 -->
+<!-- 2022 -->
 
-    <div class="timeline-item">
+<div class="timeline-item">
 
-      <div class="timeline-dot"></div>
+<div class="timeline-dot"></div>
 
-      <div class="timeline-top">
+<div class="timeline-top">
 
-        <div class="timeline-year">
-          2022
-        </div>
+<div class="timeline-year">
+  2022
+</div>
 
-        <div class="timeline-label">
-          Ukraine and Russia border focus
-        </div>
+<div class="timeline-label">
+  Ukraine and Russia border focus
+</div>
 
-      </div>
+</div>
 
-      <div class="timeline-body">
+<div class="timeline-body">
 
-        <p>
-          We expanded attention to Ukraine, Russia-adjacent border
-          conditions, and disrupted infrastructure zones.
-        </p>
+<p>
+  We expanded attention to Ukraine, Russia-adjacent border
+  conditions, and disrupted infrastructure zones.
+</p>
 
-        <p>
-          The work centered on rapid assessment, urgent aid
-          coordination, and safer movement of essential resources.
-        </p>
+<p>
+  The work centered on rapid assessment, urgent aid
+  coordination, and safer movement of essential resources.
+</p>
 
-        <p>
-          We also refined our response systems for unpredictable
-          emergency conditions.
-        </p>
+<p>
+  We also refined our response systems for unpredictable
+  emergency conditions.
+</p>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
 
-    <!-- 2023 -->
+<!-- 2023 -->
 
-    <div class="timeline-item">
+<div class="timeline-item">
 
-      <div class="timeline-dot"></div>
+<div class="timeline-dot"></div>
 
-      <div class="timeline-top">
+<div class="timeline-top">
 
-        <div class="timeline-year">
-          2023
-        </div>
+<div class="timeline-year">
+  2023
+</div>
 
-        <div class="timeline-label">
-          Palestine and Israel emergency support
-        </div>
+<div class="timeline-label">
+  Palestine and Israel emergency support
+</div>
 
-      </div>
+</div>
 
-      <div class="timeline-body">
+<div class="timeline-body">
 
-        <p>
-          We strengthened our humanitarian planning for Palestine
-          and Israel during periods of severe stress and disruption.
-        </p>
+<p>
+  We strengthened our humanitarian planning for Palestine
+  and Israel during periods of severe stress and disruption.
+</p>
 
-        <p>
-          Our focus was on civilian need, access limits, and quick
-          operational coordination.
-        </p>
+<p>
+  Our focus was on civilian need, access limits, and quick
+  operational coordination.
+</p>
 
-        <p>
-          This phase helped us improve prioritisation and ethical
-          deployment logic.
-        </p>
+<p>
+  This phase helped us improve prioritisation and ethical
+  deployment logic.
+</p>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
 
-    <!-- 2024 -->
+<!-- 2024 -->
 
-    <div class="timeline-item">
+<div class="timeline-item">
 
-      <div class="timeline-dot"></div>
+<div class="timeline-dot"></div>
 
-      <div class="timeline-top">
+<div class="timeline-top">
 
-        <div class="timeline-year">
-          2024
-        </div>
+<div class="timeline-year">
+  2024
+</div>
 
-        <div class="timeline-label">
-          Balochistan and broader expansion
-        </div>
+<div class="timeline-label">
+  Balochistan and broader expansion
+</div>
 
-      </div>
+</div>
 
-      <div class="timeline-body">
+<div class="timeline-body">
 
-        <p>
-          We expanded planning for Balochistan and other
-          difficult-access areas with strong emphasis on terrain
-          and safety.
-        </p>
+<p>
+  We expanded planning for Balochistan and other
+  difficult-access areas with strong emphasis on terrain
+  and safety.
+</p>
 
-        <p>
-          We also improved coordination for food, medical items,
-          and essential packages.
-        </p>
+<p>
+  We also improved coordination for food, medical items,
+  and essential packages.
+</p>
 
-        <p>
-          By this stage our operations were broader, more structured,
-          and more adaptable.
-        </p>
+<p>
+  By this stage our operations were broader, more structured,
+  and more adaptable.
+</p>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
 
-    <!-- 2025 -->
+<!-- 2025 -->
 
-    <div class="timeline-item">
+<div class="timeline-item">
 
-      <div class="timeline-dot"></div>
+<div class="timeline-dot"></div>
 
-      <div class="timeline-top">
+<div class="timeline-top">
 
-        <div class="timeline-year">
-          2025
-        </div>
+<div class="timeline-year">
+  2025
+</div>
 
-        <div class="timeline-label">
-          Expansion and technology development
-        </div>
+<div class="timeline-label">
+  Expansion and technology development
+</div>
 
-      </div>
+</div>
 
-      <div class="timeline-body">
+<div class="timeline-body">
 
-        <p>
-          We continued expanding our humanitarian drone network
-          and improving the systems used for aid delivery.
-        </p>
+<p>
+  We continued expanding our humanitarian drone network
+  and improving the systems used for aid delivery.
+</p>
 
-        <p>
-          The focus moved toward improving operational efficiency,
-          drone performance, and coordination across our existing
-          regions.
-        </p>
+<p>
+  The focus moved toward improving operational efficiency,
+  drone performance, and coordination across our existing
+  regions.
+</p>
 
-        <p>
-          We also strengthened our long-term plans for sustainable
-          and reliable humanitarian drone deployment.
-        </p>
+<p>
+  We also strengthened our long-term plans for sustainable
+  and reliable humanitarian drone deployment.
+</p>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
 
-    <!-- 2026 -->
+<!-- 2026 -->
 
-    <div class="timeline-item">
+<div class="timeline-item">
 
-      <div class="timeline-dot"></div>
+<div class="timeline-dot"></div>
 
-      <div class="timeline-top">
+<div class="timeline-top">
 
-        <div class="timeline-year">
-          2026
-        </div>
+<div class="timeline-year">
+  2026
+</div>
 
-        <div class="timeline-label">
-          Current phase
-        </div>
+<div class="timeline-label">
+  Current phase
+</div>
 
-      </div>
+</div>
 
-      <div class="timeline-body">
+<div class="timeline-body">
 
-        <p>
-          In 2026, DRONES4AID continues developing its humanitarian
-          drone systems and expanding its global operational vision.
-        </p>
+<p>
+  In 2026, DRONES4AID continues developing its humanitarian
+  drone systems and expanding its global operational vision.
+</p>
 
-        <p>
-          Our current focus is on improving delivery capability,
-          volunteer coordination, drone performance, and access to
-          communities affected by crises.
-        </p>
+<p>
+  Our current focus is on improving delivery capability,
+  volunteer coordination, drone performance, and access to
+  communities affected by crises.
+</p>
 
-        <p>
-          We are also working toward our longer-term 2028 and 2030
-          goals while continuing to build a more sustainable aid network.
-        </p>
+<p>
+  We are also working toward our longer-term 2028 and 2030
+  goals while continuing to build a more sustainable aid network.
+</p>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </div>
+
+</div>
 
 </section>
 
@@ -1093,104 +1069,104 @@
 <section
   class="container"
   id="goals"
-  style="margin-top:18px"
 >
 
-  <div class="section-head">
+<div class="section-head">
 
-    <div>
+<div>
 
-      <h2 class="title">
-        Our Goal
-      </h2>
+<h2 class="title">
+  Our Goal
+</h2>
 
-      <p class="lead">
-        Switch between goals to see the fun progress bar for each target.
-      </p>
+<p class="lead">
+  Switch between goals to see the progress bar for each target.
+</p>
 
-    </div>
+</div>
 
-  </div>
-
-
-  <div class="goal-grid">
-
-    <div class="goal-list">
-
-      <button
-        class="goal-btn active"
-        data-goal="g1"
-      >
-        2030 Goal
-      </button>
-
-      <button
-        class="goal-btn"
-        data-goal="g2"
-      >
-        2028 Goal
-      </button>
-
-      <button
-        class="goal-btn"
-        data-goal="g3"
-      >
-        Biggest Goal
-      </button>
-
-    </div>
+</div>
 
 
-    <div class="goal-panel">
-
-      <div
-        class="goal-name"
-        id="goalName"
-      >
-        2030 goal: replenish 25% of global disputes
-      </div>
-
-      <div
-        class="goal-desc"
-        id="goalDesc"
-      >
-        This target represents one of our long-term humanitarian
-        ambitions, balancing prevention, aid, and crisis reduction.
-      </div>
+<div class="goal-grid">
 
 
-      <div class="progress-shell">
+<div class="goal-list">
 
-        <div
-          class="progress-bar"
-          id="goalBar"
-        ></div>
+<button
+  class="goal-btn active"
+  data-goal="g1"
+>
+  2030 Goal
+</button>
 
-        <div
-          class="progress-text"
-          id="goalPct"
-        >
-          74%
-        </div>
+<button
+  class="goal-btn"
+  data-goal="g2"
+>
+  2028 Goal
+</button>
 
-      </div>
+<button
+  class="goal-btn"
+  data-goal="g3"
+>
+  Biggest Goal
+</button>
+
+</div>
 
 
-      <div class="progress-meta">
+<div class="goal-panel">
 
-        <span id="goalLeft">
-          74% complete
-        </span>
+<div
+  class="goal-name"
+  id="goalName"
+>
+  2030 goal: replenish 25% of global disputes
+</div>
 
-        <span id="goalRight">
-          Target progress updated live
-        </span>
+<div
+  class="goal-desc"
+  id="goalDesc"
+>
+  This target represents one of our long-term humanitarian
+  ambitions, balancing prevention, aid, and crisis reduction.
+</div>
 
-      </div>
 
-    </div>
+<div class="progress-shell">
 
-  </div>
+<div
+  class="progress-bar"
+  id="goalBar"
+></div>
+
+<div
+  class="progress-text"
+  id="goalPct"
+>
+  74%
+</div>
+
+</div>
+
+
+<div class="progress-meta">
+
+<span id="goalLeft">
+  74% complete
+</span>
+
+<span id="goalRight">
+  Target progress updated live
+</span>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
@@ -1202,73 +1178,74 @@
 <section
   class="container"
   id="maps"
-  style="margin-top:18px"
 >
 
-  <div class="section-head">
+<div class="section-head">
 
-    <div>
+<div>
 
-      <h2 class="title">
-        Global Reach
-      </h2>
+<h2 class="title">
+  Global Reach
+</h2>
 
-      <p class="lead">
-        The first map shows our operating stress levels,
-        and the second map shows our deployment cities.
-      </p>
+<p class="lead">
+  The first map shows our operating stress levels,
+  and the second map shows our deployment cities.
+</p>
 
-    </div>
+</div>
 
-  </div>
-
-
-  <div class="map-grid">
-
-    <div class="map-box">
-
-      <div class="map-head">
-
-        <strong>
-          Where we work
-        </strong>
-
-        <span class="map-note">
-          Stress-coded operating areas
-        </span>
-
-      </div>
-
-      <div
-        id="stressMap"
-        class="map-div"
-      ></div>
-
-    </div>
+</div>
 
 
-    <div class="map-box">
+<div class="map-grid">
 
-      <div class="map-head">
 
-        <strong>
-          Deployment areas
-        </strong>
+<div class="map-box">
 
-        <span class="map-note">
-          Global city network
-        </span>
+<div class="map-head">
 
-      </div>
+<strong>
+  Where we work
+</strong>
 
-      <div
-        id="deployMap"
-        class="map-div"
-      ></div>
+<span class="map-note">
+  Stress-coded operating areas
+</span>
 
-    </div>
+</div>
 
-  </div>
+<div
+  id="stressMap"
+  class="map-div"
+></div>
+
+</div>
+
+
+<div class="map-box">
+
+<div class="map-head">
+
+<strong>
+  Deployment areas
+</strong>
+
+<span class="map-note">
+  Global city network
+</span>
+
+</div>
+
+<div
+  id="deployMap"
+  class="map-div"
+></div>
+
+</div>
+
+
+</div>
 
 </section>
 
@@ -1280,35 +1257,34 @@
 <section
   class="container"
   id="drone-performance"
-  style="margin-top:18px"
 >
 
-  <div class="section-head">
+<div class="section-head">
 
-    <div>
+<div>
 
-      <h2 class="title">
-        Drone Performance
-      </h2>
+<h2 class="title">
+  Drone Performance
+</h2>
 
-      <p class="lead">
-        A simple performance bar graph showing a stylized
-        overview of major humanitarian drone metrics.
-      </p>
+<p class="lead">
+  A simple performance bar graph showing a stylized
+  overview of major humanitarian drone metrics.
+</p>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 
-  <div class="card chart-wrap">
+<div class="card chart-wrap">
 
-    <div
-      id="performanceChart"
-      style="height:520px;"
-    ></div>
+<div
+  id="performanceChart"
+  style="height:520px;"
+></div>
 
-  </div>
+</div>
 
 </section>
 
@@ -1320,93 +1296,93 @@
 <section
   class="container"
   id="counters"
-  style="margin-top:18px"
 >
 
-  <div class="section-head">
+<div class="section-head">
 
-    <div>
+<div>
 
-      <h2 class="title">
-        Live Counters
-      </h2>
+<h2 class="title">
+  Live Counters
+</h2>
 
-      <p class="lead">
-        These counters keep increasing over time and do not reset on refresh.
-      </p>
+<p class="lead">
+  These counters keep increasing over time and do not reset on refresh.
+</p>
 
-    </div>
+</div>
 
-  </div>
-
-
-  <div class="stats-grid">
-
-    <div class="mini-counter">
-
-      <div class="mini-card">
-
-        <div class="counter-label">
-          Total volunteers all over the world
-        </div>
-
-        <div
-          class="mini-value"
-          id="volCounter"
-        >
-          0
-        </div>
-
-      </div>
+</div>
 
 
-      <div class="mini-card">
-
-        <div class="counter-label">
-          Cities with most volunteers
-        </div>
-
-        <div
-          class="mini-list"
-          id="topCitiesList"
-        >
-          Loading volunteer cities...
-        </div>
-
-      </div>
-
-    </div>
+<div class="stats-grid">
 
 
-    <div class="big-counter">
+<div class="mini-counter">
 
-      <div class="counter-label">
-        Packages delivered
-      </div>
+<div class="mini-card">
 
-      <div
-        class="counter-num"
-        id="pkgCounter"
-      >
-        0
-      </div>
+<div class="counter-label">
+  Total volunteers all over the world
+</div>
 
-      <div class="counter-note">
+<div
+  class="mini-value"
+  id="volCounter"
+>
+  0
+</div>
 
-        This is the official counter for aid packages,
-        and food essentials we have delivered across
-        our operating areas.
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 
-  <div class="footer-note">
-    official statistics of Drones4Aid
-  </div>
+<div class="mini-card">
+
+<div class="counter-label">
+  Cities with most volunteers
+</div>
+
+<div
+  class="mini-list"
+  id="topCitiesList"
+>
+  Loading volunteer cities...
+</div>
+
+</div>
+
+</div>
+
+
+<div class="big-counter">
+
+<div class="counter-label">
+  Packages delivered
+</div>
+
+<div
+  class="counter-num"
+  id="pkgCounter"
+>
+  0
+</div>
+
+<div class="counter-note">
+
+This is the official counter for aid packages
+and food essentials we have delivered across
+our operating areas.
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="footer-note">
+  official statistics of Drones4Aid
+</div>
 
 </section>
 
@@ -1417,691 +1393,695 @@
 
 <script>
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',function(){
 
 
-  /* =========================
-     TIMELINE
-  ========================= */
+/* =========================
+   TIMELINE
+========================= */
 
-  document
+document
+.querySelectorAll('.timeline-item')
+.forEach(function(item){
+
+  function toggle(){
+
+    var isOpen =
+      item.classList.contains('open');
+
+    document
     .querySelectorAll('.timeline-item')
-    .forEach(item => {
-
-      const toggle = () => {
-
-        const isOpen =
-          item.classList.contains('open');
-
-        document
-          .querySelectorAll('.timeline-item')
-          .forEach(i =>
-            i.classList.remove('open')
-          );
-
-        if(!isOpen){
-          item.classList.add('open');
-        }
-
-      };
-
-      item
-        .querySelector('.timeline-dot')
-        .addEventListener('click', toggle);
-
-      item
-        .querySelector('.timeline-top')
-        .addEventListener('click', toggle);
-
+    .forEach(function(i){
+      i.classList.remove('open');
     });
 
-
-  /* =========================
-     GOALS
-  ========================= */
-
-  const goals = {
-
-    g1:{
-      name:
-        '2030 goal: replenish 25% of global disputes',
-
-      desc:
-        'This target represents one of our long-term humanitarian ambitions, balancing prevention, aid, and crisis reduction.',
-
-      pct:74
-    },
-
-    g2:{
-      name:
-        '2028 goal: fully solar powered drones',
-
-      desc:
-        'This goal focuses on cleaner energy, lighter logistics, and more sustainable humanitarian deployment.',
-
-      pct:81
-    },
-
-    g3:{
-      name:
-        'Biggest goal: eradicate global disputes and provide aid to everybody',
-
-      desc:
-        'This is our largest mission target and the most important one because it represents universal safety and access to aid.',
-
-      pct:19
+    if(!isOpen){
+      item.classList.add('open');
     }
+
+  }
+
+  item
+  .querySelector('.timeline-dot')
+  .addEventListener('click',toggle);
+
+  item
+  .querySelector('.timeline-top')
+  .addEventListener('click',toggle);
+
+});
+
+
+/* =========================
+   GOALS
+========================= */
+
+var goals={
+
+  g1:{
+    name:'2030 goal: replenish 25% of global disputes',
+    desc:'This target represents one of our long-term humanitarian ambitions, balancing prevention, aid, and crisis reduction.',
+    pct:74
+  },
+
+  g2:{
+    name:'2028 goal: fully solar powered drones',
+    desc:'This goal focuses on cleaner energy, lighter logistics, and more sustainable humanitarian deployment.',
+    pct:81
+  },
+
+  g3:{
+    name:'Biggest goal: eradicate global disputes and provide aid to everybody',
+    desc:'This is our largest mission target and the most important one because it represents universal safety and access to aid.',
+    pct:19
+  }
+
+};
+
+
+function setGoal(key){
+
+  document
+  .querySelectorAll('.goal-btn')
+  .forEach(function(button){
+
+    button.classList.toggle(
+      'active',
+      button.dataset.goal===key
+    );
+
+  });
+
+
+  var goal=goals[key];
+
+  document
+  .getElementById('goalName')
+  .textContent=goal.name;
+
+  document
+  .getElementById('goalDesc')
+  .textContent=goal.desc;
+
+  document
+  .getElementById('goalPct')
+  .textContent=goal.pct+'%';
+
+  document
+  .getElementById('goalBar')
+  .style.width=goal.pct+'%';
+
+  document
+  .getElementById('goalLeft')
+  .textContent=goal.pct+'% complete';
+
+}
+
+
+document
+.querySelectorAll('.goal-btn')
+.forEach(function(button){
+
+  button.addEventListener(
+    'click',
+    function(){
+      setGoal(button.dataset.goal);
+    }
+  );
+
+});
+
+setGoal('g1');
+
+
+/* =========================
+   CHECK PLOTLY
+========================= */
+
+if(typeof Plotly==='undefined'){
+
+  document
+  .querySelectorAll('.map-div,#performanceChart')
+  .forEach(function(el){
+
+    el.innerHTML=
+      '<div style="padding:30px;color:#b42318;font-weight:700;">' +
+      'Charts could not load. Please make sure you are connected to the internet.' +
+      '</div>';
+
+  });
+
+}else{
+
+
+/* =========================
+   STRESS MAP
+========================= */
+
+Plotly.newPlot(
+
+'stressMap',
+
+[{
+
+  type:'scattergeo',
+
+  mode:'markers+text',
+
+  text:[
+    'Kyiv',
+    'Russia-Ukraine border',
+    'Gaza',
+    'Tel Aviv',
+    'Niger-Mali-Burkina border',
+    'Balochistan',
+    'Beirut',
+    'Tehran'
+  ],
+
+  lon:[
+    30.5234,
+    34.0,
+    34.47,
+    34.78,
+    2.0,
+    66.0,
+    35.5,
+    51.389
+  ],
+
+  lat:[
+    50.45,
+    49.0,
+    31.5,
+    32.1,
+    14.5,
+    28.0,
+    33.89,
+    35.689
+  ],
+
+  textposition:'top center',
+
+  marker:{
+
+    size:[
+      15,
+      16,
+      18,
+      12,
+      17,
+      15,
+      13,
+      12
+    ],
+
+    color:[
+      95,
+      92,
+      88,
+      62,
+      84,
+      80,
+      66,
+      70
+    ],
+
+    colorscale:[
+      [0,'#2ecc71'],
+      [0.35,'#f4c542'],
+      [0.7,'#f39c12'],
+      [1,'#e74c3c']
+    ],
+
+    cmin:50,
+    cmax:100,
+
+    line:{
+      color:'#fff',
+      width:1.5
+    },
+
+    colorbar:{
+      title:'Stress'
+    }
+
+  },
+
+  hovertemplate:
+    '%{text}<extra></extra>'
+
+}],
+
+{
+
+  geo:{
+
+    scope:'world',
+
+    projection:{
+      type:'natural earth'
+    },
+
+    showland:true,
+    landcolor:'#f2f5f8',
+
+    showocean:true,
+    oceancolor:'#eaf4fb',
+
+    showcountries:true,
+    countrycolor:'#cfd8e3'
+
+  },
+
+  margin:{
+    l:0,
+    r:0,
+    t:0,
+    b:0
+  }
+
+},
+
+{
+  displayModeBar:false,
+  responsive:true
+}
+
+);
+
+
+/* =========================
+   DEPLOYMENT MAP
+========================= */
+
+Plotly.newPlot(
+
+'deployMap',
+
+[{
+
+  type:'scattergeo',
+
+  mode:'markers+text',
+
+  text:[
+    'Delhi',
+    'Bangalore',
+    'Chennai',
+    'New York',
+    'Rio',
+    'Los Angeles',
+    'Toronto',
+    'Berlin',
+    'Paris',
+    'London',
+    'Madrid',
+    'Zurich',
+    'Nairobi',
+    'Rabat',
+    'Johannesburg',
+    'Sydney',
+    'Wellington'
+  ],
+
+  lon:[
+    77.2090,
+    77.5946,
+    80.2707,
+    -74.0060,
+    -43.1729,
+    -118.2437,
+    -79.3832,
+    13.4050,
+    2.3522,
+    -0.1276,
+    -3.7038,
+    8.5417,
+    36.8219,
+    -7.5898,
+    28.0473,
+    151.2093,
+    174.7762
+  ],
+
+  lat:[
+    28.6139,
+    12.9716,
+    13.0827,
+    40.7128,
+    -22.9068,
+    34.0522,
+    43.6532,
+    52.5200,
+    48.8566,
+    51.5074,
+    40.4168,
+    47.3769,
+    -1.2921,
+    33.9716,
+    -26.2041,
+    -33.8688,
+    -41.2866
+  ],
+
+  textposition:'top center',
+
+  marker:{
+
+    size:11,
+
+    color:'#1f6f8b',
+
+    line:{
+      color:'#fff',
+      width:1.4
+    }
+
+  },
+
+  hovertemplate:
+    '%{text}<extra></extra>'
+
+}],
+
+{
+
+  geo:{
+
+    scope:'world',
+
+    projection:{
+      type:'natural earth'
+    },
+
+    showland:true,
+    landcolor:'#f2f5f8',
+
+    showocean:true,
+    oceancolor:'#eef9ff',
+
+    showcountries:true,
+    countrycolor:'#cfd8e3'
+
+  },
+
+  margin:{
+    l:0,
+    r:0,
+    t:0,
+    b:0
+  }
+
+},
+
+{
+  displayModeBar:false,
+  responsive:true
+}
+
+);
+
+
+/* =========================
+   PERFORMANCE CHART
+========================= */
+
+Plotly.newPlot(
+
+'performanceChart',
+
+[{
+
+  type:'bar',
+
+  x:[
+    'Delivery speed',
+    'Payload safety',
+    'Battery endurance',
+    'Navigation accuracy',
+    'Mission success'
+  ],
+
+  y:[
+    86,
+    92,
+    78,
+    89,
+    84
+  ],
+
+  marker:{
+
+    color:[
+      '#1f6f8b',
+      '#20a4a8',
+      '#f4c542',
+      '#7b5cff',
+      '#f28c28'
+    ],
+
+    line:{
+      color:'#102a43',
+      width:1
+    }
+
+  },
+
+  text:[
+    '86%',
+    '92%',
+    '78%',
+    '89%',
+    '84%'
+  ],
+
+  textposition:'auto',
+
+  hovertemplate:
+    '%{x}: %{y}%<extra></extra>'
+
+}],
+
+{
+
+  title:{
+    text:'Drone performance overview',
+
+    font:{
+      color:'#102a43',
+      size:18
+    }
+  },
+
+  paper_bgcolor:'#fff',
+  plot_bgcolor:'#fff',
+
+  margin:{
+    l:50,
+    r:20,
+    t:50,
+    b:50
+  },
+
+  yaxis:{
+
+    range:[
+      0,
+      100
+    ],
+
+    title:'Performance %',
+
+    gridcolor:'#e8eef5'
+
+  },
+
+  xaxis:{
+    tickangle:-15
+  }
+
+},
+
+{
+  displayModeBar:false,
+  responsive:true
+}
+
+);
+
+}
+
+
+/* =========================
+   LIVE COUNTERS
+========================= */
+
+var storeKey='drones4aid_stats_live';
+
+var data;
+
+try{
+
+  data=JSON.parse(
+    localStorage.getItem(storeKey)||'{}'
+  );
+
+}catch(e){
+
+  data={};
+
+}
+
+
+function randInt(min,max){
+
+  return Math.floor(
+    Math.random()*(max-min+1)
+  )+min;
+
+}
+
+
+if(data.volunteers==null){
+  data.volunteers=0;
+}
+
+if(data.packages==null){
+  data.packages=0;
+}
+
+
+if(!data.cityCounts){
+
+  data.cityCounts={
+
+    Delhi:0,
+    Bangalore:0,
+    Chennai:0,
+    'New York':0,
+    Rio:0,
+    'Los Angeles':0,
+    Toronto:0,
+    Berlin:0,
+    Paris:0,
+    London:0,
+    Madrid:0,
+    Zurich:0,
+    Nairobi:0,
+    Rabat:0,
+    Johannesburg:0,
+    Sydney:0,
+    Wellington:0
 
   };
 
+}
 
-  function setGoal(key){
 
-    document
-      .querySelectorAll('.goal-btn')
-      .forEach(button => {
+function bumpCounters(){
 
-        button.classList.toggle(
-          'active',
-          button.dataset.goal === key
-        );
+  data.volunteers+=randInt(1,7);
 
-      });
+  data.packages+=randInt(1,10);
 
 
-    const goal = goals[key];
+  Object
+  .keys(data.cityCounts)
+  .forEach(function(city){
 
+    data.cityCounts[city]+=randInt(0,1);
 
-    document
-      .getElementById('goalName')
-      .textContent = goal.name;
+  });
 
 
-    document
-      .getElementById('goalDesc')
-      .textContent = goal.desc;
-
-
-    document
-      .getElementById('goalPct')
-      .textContent = goal.pct + '%';
-
-
-    document
-      .getElementById('goalBar')
-      .style.width = goal.pct + '%';
-
-
-    document
-      .getElementById('goalLeft')
-      .textContent = goal.pct + '% complete';
-
-  }
-
-
-  document
-    .querySelectorAll('.goal-btn')
-    .forEach(button => {
-
-      button.addEventListener(
-        'click',
-        () => setGoal(button.dataset.goal)
-      );
-
-    });
-
-
-  setGoal('g1');
-
-
-  /* =========================
-     STRESS MAP
-  ========================= */
-
-  Plotly.newPlot(
-
-    'stressMap',
-
-    [{
-
-      type:'scattergeo',
-
-      mode:'markers+text',
-
-      text:[
-        'Kyiv',
-        'Russia-Ukraine border',
-        'Gaza',
-        'Tel Aviv',
-        'Niger-Mali-Burkina border',
-        'Balochistan',
-        'Beirut',
-        'Tehran'
-      ],
-
-      lon:[
-        30.5234,
-        34.0,
-        34.47,
-        34.78,
-        2.0,
-        66.0,
-        35.5,
-        51.389
-      ],
-
-      lat:[
-        50.45,
-        49.0,
-        31.5,
-        32.1,
-        14.5,
-        28.0,
-        33.89,
-        35.689
-      ],
-
-      textposition:'top center',
-
-      marker:{
-
-        size:[
-          15,
-          16,
-          18,
-          12,
-          17,
-          15,
-          13,
-          12
-        ],
-
-        color:[
-          95,
-          92,
-          88,
-          62,
-          84,
-          80,
-          66,
-          70
-        ],
-
-        colorscale:[
-          [0,'#2ecc71'],
-          [0.35,'#f4c542'],
-          [0.7,'#f39c12'],
-          [1,'#e74c3c']
-        ],
-
-        cmin:50,
-
-        cmax:100,
-
-        line:{
-          color:'#fff',
-          width:1.5
-        },
-
-        colorbar:{
-          title:'Stress'
-        }
-
-      },
-
-      hovertemplate:
-        '%{text}<extra></extra>'
-
-    }],
-
-    {
-
-      geo:{
-
-        scope:'world',
-
-        projection:{
-          type:'natural earth'
-        },
-
-        showland:true,
-
-        landcolor:'#f2f5f8',
-
-        showocean:true,
-
-        oceancolor:'#eaf4fb',
-
-        showcountries:true,
-
-        countrycolor:'#cfd8e3'
-
-      },
-
-      margin:{
-        l:0,
-        r:0,
-        t:0,
-        b:0
-      }
-
-    },
-
-    {
-      displayModeBar:false,
-      responsive:true
-    }
-
-  );
-
-
-  /* =========================
-     DEPLOYMENT MAP
-  ========================= */
-
-  Plotly.newPlot(
-
-    'deployMap',
-
-    [{
-
-      type:'scattergeo',
-
-      mode:'markers+text',
-
-      text:[
-        'Delhi',
-        'Bangalore',
-        'Chennai',
-        'New York',
-        'Rio',
-        'Los Angeles',
-        'Toronto',
-        'Berlin',
-        'Paris',
-        'London',
-        'Madrid',
-        'Zurich',
-        'Nairobi',
-        'Rabat',
-        'Johannesburg',
-        'Sydney',
-        'Wellington'
-      ],
-
-      lon:[
-        77.2090,
-        77.5946,
-        80.2707,
-        -74.0060,
-        -43.1729,
-        -118.2437,
-        -79.3832,
-        13.4050,
-        2.3522,
-        -0.1276,
-        -3.7038,
-        8.5417,
-        36.8219,
-        -7.5898,
-        28.0473,
-        151.2093,
-        174.7762
-      ],
-
-      lat:[
-        28.6139,
-        12.9716,
-        13.0827,
-        40.7128,
-        -22.9068,
-        34.0522,
-        43.6532,
-        52.5200,
-        48.8566,
-        51.5074,
-        40.4168,
-        47.3769,
-        -1.2921,
-        33.9716,
-        -26.2041,
-        -33.8688,
-        -41.2866
-      ],
-
-      textposition:'top center',
-
-      marker:{
-
-        size:11,
-
-        color:'#1f6f8b',
-
-        line:{
-          color:'#fff',
-          width:1.4
-        }
-
-      },
-
-      hovertemplate:
-        '%{text}<extra></extra>'
-
-    }],
-
-    {
-
-      geo:{
-
-        scope:'world',
-
-        projection:{
-          type:'natural earth'
-        },
-
-        showland:true,
-
-        landcolor:'#f2f5f8',
-
-        showocean:true,
-
-        oceancolor:'#eef9ff',
-
-        showcountries:true,
-
-        countrycolor:'#cfd8e3'
-
-      },
-
-      margin:{
-        l:0,
-        r:0,
-        t:0,
-        b:0
-      }
-
-    },
-
-    {
-      displayModeBar:false,
-      responsive:true
-    }
-
-  );
-
-
-  /* =========================
-     PERFORMANCE CHART
-  ========================= */
-
-  Plotly.newPlot(
-
-    'performanceChart',
-
-    [{
-
-      type:'bar',
-
-      x:[
-        'Delivery speed',
-        'Payload safety',
-        'Battery endurance',
-        'Navigation accuracy',
-        'Mission success'
-      ],
-
-      y:[
-        86,
-        92,
-        78,
-        89,
-        84
-      ],
-
-      marker:{
-
-        color:[
-          '#1f6f8b',
-          '#20a4a8',
-          '#f4c542',
-          '#7b5cff',
-          '#f28c28'
-        ],
-
-        line:{
-          color:'#102a43',
-          width:1
-        }
-
-      },
-
-      text:[
-        '86%',
-        '92%',
-        '78%',
-        '89%',
-        '84%'
-      ],
-
-      textposition:'auto',
-
-      hovertemplate:
-        '%{x}: %{y}%<extra></extra>'
-
-    }],
-
-    {
-
-      title:{
-        text:'Drone performance overview',
-
-        font:{
-          color:'#102a43',
-          size:18
-        }
-      },
-
-      paper_bgcolor:'#fff',
-
-      plot_bgcolor:'#fff',
-
-      margin:{
-        l:50,
-        r:20,
-        t:50,
-        b:50
-      },
-
-      yaxis:{
-
-        range:[
-          0,
-          100
-        ],
-
-        title:'Performance %',
-
-        gridcolor:'#e8eef5'
-
-      },
-
-      xaxis:{
-        tickangle:-15
-      }
-
-    },
-
-    {
-      displayModeBar:false,
-      responsive:true
-    }
-
-  );
-
-
-  /* =========================
-     LIVE COUNTERS
-  ========================= */
-
-  const storeKey =
-    'drones4aid_stats_live';
-
-
-  const data =
-    JSON.parse(
-      localStorage.getItem(storeKey) || '{}'
-    );
-
-
-  function randInt(min,max){
-
-    return Math.floor(
-      Math.random() *
-      (max - min + 1)
-    ) + min;
-
-  }
-
-
-  if(data.volunteers == null){
-    data.volunteers = 0;
-  }
-
-
-  if(data.packages == null){
-    data.packages = 0;
-  }
-
-
-  if(!data.cityCounts){
-
-    data.cityCounts = {
-
-      Delhi:0,
-      Bangalore:0,
-      Chennai:0,
-      'New York':0,
-      Rio:0,
-      'Los Angeles':0,
-      Toronto:0,
-      Berlin:0,
-      Paris:0,
-      London:0,
-      Madrid:0,
-      Zurich:0,
-      Nairobi:0,
-      Rabat:0,
-      Johannesburg:0,
-      Sydney:0,
-      Wellington:0
-
-    };
-
-  }
-
-
-  function bumpCounters(){
-
-    data.volunteers +=
-      randInt(1,7);
-
-
-    data.packages +=
-      randInt(1,10);
-
-
+  var cityTotal=
     Object
-      .keys(data.cityCounts)
-      .forEach(city => {
-
-        data.cityCounts[city] +=
-          randInt(0,1);
-
-      });
+    .values(data.cityCounts)
+    .reduce(function(a,b){
+      return a+b;
+    },0);
 
 
-    const cityTotal =
-      Object
-        .values(data.cityCounts)
-        .reduce(
-          (a,b) => a + b,
-          0
-        );
+  if(cityTotal>data.volunteers){
+
+    data.volunteers=
+      cityTotal+randInt(1,3);
+
+  }
 
 
-    if(cityTotal > data.volunteers){
-
-      data.volunteers =
-        cityTotal + randInt(1,3);
-
-    }
-
+  try{
 
     localStorage.setItem(
       storeKey,
       JSON.stringify(data)
     );
 
-  }
+  }catch(e){}
+
+}
 
 
-  function renderCounters(){
+function renderCounters(){
 
-    document
-      .getElementById('volCounter')
-      .textContent =
-      data.volunteers.toLocaleString();
-
-
-    document
-      .getElementById('pkgCounter')
-      .textContent =
-      data.packages.toLocaleString();
+  document
+  .getElementById('volCounter')
+  .textContent=
+    data.volunteers.toLocaleString();
 
 
-    const topCities =
-
-      Object
-        .entries(data.cityCounts)
-        .sort(
-          (a,b) => b[1] - a[1]
-        )
-        .slice(0,5);
+  document
+  .getElementById('pkgCounter')
+  .textContent=
+    data.packages.toLocaleString();
 
 
-    document
-      .getElementById('topCitiesList')
-      .innerHTML =
+  var topCities=
+    Object
+    .entries(data.cityCounts)
+    .sort(function(a,b){
+      return b[1]-a[1];
+    })
+    .slice(0,5);
 
-      topCities
-        .map(
-          ([city,count],index) =>
-            `<div>
-              ${index + 1}.
-              ${city}
-              —
-              ${count}
-              volunteers
-            </div>`
-        )
-        .join('');
 
-  }
+  document
+  .getElementById('topCitiesList')
+  .innerHTML=
+    topCities
+    .map(function(entry,index){
 
+      var city=entry[0];
+      var count=entry[1];
+
+      return(
+        '<div>' +
+        (index+1) +
+        '. ' +
+        city +
+        ' — ' +
+        count +
+        ' volunteers' +
+        '</div>'
+      );
+
+    })
+    .join('');
+
+}
+
+
+renderCounters();
+
+
+setInterval(function(){
+
+  bumpCounters();
 
   renderCounters();
 
-
-  setInterval(
-    () => {
-
-      bumpCounters();
-
-      renderCounters();
-
-    },
-    6000
-  );
+},6000);
 
 
 });
