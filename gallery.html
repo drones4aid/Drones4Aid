@@ -319,6 +319,44 @@ nav a:hover{
 }
 
 
+/* MOVIE */
+
+.movie-section{
+  background:var(--light)
+}
+
+.movie-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:20px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  padding:20px
+}
+
+.movie-card video{
+  width:100%;
+  max-height:720px;
+  aspect-ratio:16/9;
+  object-fit:contain;
+  background:#0f172a;
+  border-radius:14px
+}
+
+.movie-caption{
+  padding:20px 4px 4px
+}
+
+.movie-caption h3{
+  color:var(--navy);
+  margin-bottom:6px
+}
+
+.movie-caption p{
+  color:var(--muted)
+}
+
+
 /* DRONE ANALYSIS */
 
 .analysis-wrap{
@@ -507,6 +545,12 @@ footer p{
 <li>
 <a href="#faculty">
   Faculty
+</a>
+</li>
+
+<li>
+<a href="#movie">
+  Our Movie
 </a>
 </li>
 
@@ -1243,6 +1287,62 @@ Your browser does not support the video tag.
 
 
 <!-- =========================
+     OUR MOVIE
+========================= -->
+
+<section
+  id="movie"
+  class="section movie-section"
+>
+
+<div class="container">
+
+<h2>
+  Watch Our Movie
+</h2>
+
+<p class="lead">
+  Watch our DRONES4AID movie and experience the story behind our
+  organisation, our technology, and our humanitarian mission.
+</p>
+
+<div class="movie-card">
+
+<video
+  controls
+  playsinline
+  preload="metadata"
+>
+
+<source
+  src="movie.mp4"
+  type="video/mp4"
+>
+
+Your browser does not support the video tag.
+
+</video>
+
+<div class="movie-caption">
+
+<h3>
+  DRONES4AID — Our Movie
+</h3>
+
+<p>
+  Our story, our people, and our mission.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
      DRONE ANALYSIS
 ========================= -->
 
@@ -1626,13 +1726,6 @@ bind(
    AUTOMATIC VIDEO THUMBNAILS
 ========================= */
 
-/*
-   The browser creates a thumbnail from an early frame
-   of each video.
-
-   You do NOT need separate thumbnail image files.
-*/
-
 document
   .querySelectorAll('.video-gallery video')
   .forEach((video) => {
@@ -1683,11 +1776,6 @@ document
 
       }catch(e){
 
-        /*
-          If the browser blocks canvas export,
-          the normal video preview remains.
-        */
-
       }
 
     };
@@ -1703,11 +1791,6 @@ document
     video.addEventListener(
       'loadedmetadata',
       () => {
-
-        /*
-          Seek slightly into the video so that
-          the thumbnail is less likely to be black.
-        */
 
         try{
 
