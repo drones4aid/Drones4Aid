@@ -8,616 +8,648 @@
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <style>
+
 :root{
---navy:#102a43;
---blue:#1f6f8b;
---text:#1f2937;
---muted:#5b6575;
---border:#dbe3ea;
---shadow:0 12px 30px rgba(16,42,67,.1);
---radius:22px;
---accent:#f28c28;
---red:#d93025;
---gold:#f4c542;
---green:#2ecc71;
---purple:#7b5cff
+  --navy:#102a43;
+  --blue:#1f6f8b;
+  --text:#1f2937;
+  --muted:#5b6575;
+  --border:#dbe3ea;
+  --shadow:0 12px 30px rgba(16,42,67,.10);
+  --radius:22px;
+  --accent:#f28c28;
+  --red:#d93025;
+  --gold:#f4c542;
+  --green:#2ecc71;
+  --purple:#7b5cff;
 }
 
 *{
-box-sizing:border-box;
-margin:0;
-padding:0
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 html{
-scroll-behavior:smooth
+  scroll-behavior:smooth;
 }
 
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:linear-gradient(180deg,#fffaf2,#f8fbff);
-color:var(--text);
-line-height:1.6
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#fffaf2,#f8fbff);
+  color:var(--text);
+  line-height:1.6;
 }
 
 .container{
-width:min(1180px,92%);
-margin:auto
+  width:min(1180px,92%);
+  margin:0 auto;
 }
 
 section{
-padding:78px 0
+  padding:78px 0;
 }
 
 .title{
-font-size:clamp(2rem,3.8vw,3.3rem);
-color:var(--navy);
-margin-bottom:10px
+  font-size:clamp(2rem,3.8vw,3.3rem);
+  color:var(--navy);
+  margin-bottom:10px;
 }
 
 .lead{
-color:var(--muted);
-max-width:980px;
-margin-bottom:8px
+  color:var(--muted);
+  max-width:980px;
+  margin-bottom:8px;
 }
 
 .card{
-background:#fff;
-border:1px solid var(--border);
-border-radius:var(--radius);
-box-shadow:var(--shadow);
-padding:22px
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:22px;
 }
 
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 header{
-position:sticky;
-top:0;
-z-index:1000;
-background:rgba(255,255,255,.96);
-backdrop-filter:blur(10px);
-border-bottom:1px solid var(--border)
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
 }
 
 .nav{
-min-height:74px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:16px
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:10px;
-color:var(--navy);
-font-weight:800;
-text-decoration:none
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--navy);
+  font-weight:800;
+  text-decoration:none;
+  flex:0 0 auto;
 }
 
-/*
-THE LOGO IS EMBEDDED DIRECTLY IN THIS HTML.
-No separate logo.jpeg file is required.
-*/
-
 .logo img{
-width:58px;
-height:58px;
-object-fit:contain;
-display:block
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  display:block;
 }
 
 .logo-text{
-font-size:1rem;
-white-space:nowrap
+  font-size:1rem;
+  white-space:nowrap;
 }
 
 .topnav{
-display:flex;
-align-items:center;
-gap:10px;
-flex-wrap:wrap;
-justify-content:flex-end
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
 }
 
 .topnav a{
-padding:9px 13px;
-border-radius:999px;
-border:1px solid #e3ebf2;
-background:#f7fbff;
-color:var(--navy);
-font-weight:800;
-text-decoration:none;
-font-size:.92rem
+  padding:9px 13px;
+  border-radius:999px;
+  border:1px solid #e3ebf2;
+  background:#f7fbff;
+  color:var(--navy);
+  font-weight:800;
+  text-decoration:none;
+  font-size:.92rem;
 }
 
 .topnav a:hover{
-background:#eaf4fb;
-color:var(--blue)
+  background:#eaf4fb;
+  color:var(--blue);
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
-display:grid;
-grid-template-columns:1fr 1fr;
-min-height:72vh;
-overflow:hidden;
-background:
-linear-gradient(
-135deg,
-rgba(16,42,67,.95),
-rgba(31,111,139,.84)
-);
-color:#fff
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:72vh;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(16,42,67,.95),
+      rgba(31,111,139,.84)
+    );
+  color:#fff;
 }
 
 .hero-copy{
-display:flex;
-align-items:center
+  display:flex;
+  align-items:center;
 }
 
 .hero .container{
-padding:86px 0 72px
+  padding:86px 0 72px;
 }
 
 .eyebrow{
-display:inline-block;
-background:rgba(255,255,255,.14);
-border:1px solid rgba(255,255,255,.2);
-padding:8px 14px;
-border-radius:999px;
-margin-bottom:18px;
-font-weight:700
+  display:inline-block;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.2);
+  padding:8px 14px;
+  border-radius:999px;
+  margin-bottom:18px;
+  font-weight:700;
 }
 
 .hero h1{
-font-size:clamp(2.4rem,5vw,4.4rem);
-line-height:1.05;
-margin-bottom:14px;
-color:#fff
+  font-size:clamp(2.4rem,5vw,4.4rem);
+  line-height:1.05;
+  margin-bottom:14px;
+  color:#fff;
 }
 
 .hero p{
-max-width:860px;
-color:#edf4fb;
-margin-bottom:12px
+  max-width:860px;
+  color:#edf4fb;
+  margin-bottom:12px;
 }
 
 .hero-img{
-background:
-linear-gradient(
-180deg,
-rgba(16,42,67,.06),
-rgba(16,42,67,.55)
-),
-url('https://i.pinimg.com/originals/c9/91/72/c99172c17b83d3c620b997858351b2a5.gif')
-center/cover no-repeat;
-min-height:72vh
+  background:
+    linear-gradient(
+      180deg,
+      rgba(16,42,67,.06),
+      rgba(16,42,67,.55)
+    ),
+    url('https://i.pinimg.com/originals/c9/91/72/c99172c17b83d3c620b997858351b2a5.gif')
+    center/cover no-repeat;
+  min-height:72vh;
 }
 
 
-/* SECTION HEADINGS */
+/* =========================
+   HEADINGS
+========================= */
 
 .section-head{
-display:flex;
-justify-content:space-between;
-align-items:flex-end;
-gap:18px;
-flex-wrap:wrap;
-margin-bottom:22px
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:18px;
+  flex-wrap:wrap;
+  margin-bottom:22px;
 }
 
 
-/* TIMELINE */
+/* =========================
+   TIMELINE
+========================= */
 
 .timeline-wrap{
-position:relative;
-padding-left:22px;
-display:grid;
-gap:18px
+  position:relative;
+  padding-left:22px;
+  display:grid;
+  gap:18px;
 }
 
 .timeline-wrap::before{
-content:'';
-position:absolute;
-left:11px;
-top:8px;
-bottom:8px;
-width:3px;
-background:
-linear-gradient(
-180deg,
-var(--blue),
-var(--purple),
-var(--accent)
-);
-border-radius:999px
+  content:'';
+  position:absolute;
+  left:11px;
+  top:8px;
+  bottom:8px;
+  width:3px;
+  background:
+    linear-gradient(
+      180deg,
+      var(--blue),
+      var(--purple),
+      var(--accent)
+    );
+  border-radius:999px;
 }
 
 .timeline-item{
-position:relative;
-margin-left:10px;
-border:1px solid var(--border);
-border-radius:18px;
-background:#fff;
-overflow:hidden
+  position:relative;
+  margin-left:10px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:#fff;
+  overflow:hidden;
 }
 
 .timeline-dot{
-position:absolute;
-left:-34px;
-top:22px;
-width:22px;
-height:22px;
-border-radius:50%;
-background:var(--blue);
-border:4px solid #fff;
-box-shadow:0 0 0 3px rgba(31,111,139,.12);
-cursor:pointer
+  position:absolute;
+  left:-34px;
+  top:22px;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:var(--blue);
+  border:4px solid #fff;
+  box-shadow:0 0 0 3px rgba(31,111,139,.12);
+  cursor:pointer;
 }
 
 .timeline-item.open .timeline-dot{
-background:var(--accent);
-box-shadow:0 0 0 3px rgba(242,140,40,.18)
+  background:var(--accent);
+  box-shadow:0 0 0 3px rgba(242,140,40,.18);
 }
 
 .timeline-top{
-padding:18px;
-display:flex;
-justify-content:space-between;
-gap:14px;
-align-items:center;
-cursor:pointer;
-background:linear-gradient(180deg,#fff,#fbfdff)
+  padding:18px;
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:center;
+  cursor:pointer;
+  background:linear-gradient(180deg,#fff,#fbfdff);
 }
 
 .timeline-year{
-font-size:1.4rem;
-font-weight:900;
-color:var(--navy)
+  font-size:1.4rem;
+  font-weight:900;
+  color:var(--navy);
 }
 
 .timeline-label{
-color:var(--muted);
-font-weight:700;
-text-align:right
+  color:var(--muted);
+  font-weight:700;
+  text-align:right;
 }
 
 .timeline-body{
-display:none;
-padding:0 18px 18px;
-color:var(--muted)
+  display:none;
+  padding:0 18px 18px;
+  color:var(--muted);
 }
 
 .timeline-item.open .timeline-body{
-display:block
+  display:block;
 }
 
 .timeline-body p{
-margin-top:8px
+  margin-top:8px;
 }
 
 
-/* GOALS */
+/* =========================
+   GOALS
+========================= */
 
 .goal-grid{
-display:grid;
-grid-template-columns:320px 1fr;
-gap:18px;
-align-items:start
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:18px;
+  align-items:start;
 }
 
 .goal-list{
-display:grid;
-gap:12px
+  display:grid;
+  gap:12px;
 }
 
 .goal-btn{
-border:1px solid var(--border);
-background:#fff;
-color:var(--navy);
-padding:14px 16px;
-border-radius:14px;
-cursor:pointer;
-text-align:left;
-font-weight:800;
-transition:.2s
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--navy);
+  padding:14px 16px;
+  border-radius:14px;
+  cursor:pointer;
+  text-align:left;
+  font-weight:800;
+  transition:.2s ease;
 }
 
 .goal-btn:hover{
-transform:translateY(-2px)
+  transform:translateY(-2px);
 }
 
 .goal-btn.active{
-background:linear-gradient(135deg,#eef8ff,#fff7ea);
-border-color:#cfe2f2;
-box-shadow:0 10px 22px rgba(16,42,67,.08)
+  background:linear-gradient(135deg,#eef8ff,#fff7ea);
+  border-color:#cfe2f2;
+  box-shadow:0 10px 22px rgba(16,42,67,.08);
 }
 
 .goal-panel{
-background:linear-gradient(180deg,#fff,#fbfdff);
-border:1px solid var(--border);
-border-radius:22px;
-padding:22px;
-box-shadow:var(--shadow)
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:22px;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow:hidden;
 }
 
 .goal-name{
-font-size:1.35rem;
-font-weight:900;
-color:var(--navy)
+  font-size:1.35rem;
+  font-weight:900;
+  color:var(--navy);
 }
 
 .goal-desc{
-color:var(--muted);
-margin-top:8px;
-max-width:760px
+  color:var(--muted);
+  margin-top:8px;
+  max-width:760px;
 }
 
 .progress-shell{
-margin-top:18px;
-background:#eef3f8;
-border:1px solid var(--border);
-border-radius:999px;
-height:34px;
-overflow:hidden;
-position:relative
+  margin-top:18px;
+  background:#eef3f8;
+  border:1px solid var(--border);
+  border-radius:999px;
+  height:34px;
+  overflow:hidden;
+  position:relative;
 }
 
 .progress-bar{
-height:100%;
-width:0;
-border-radius:999px;
-transition:width .5s ease;
-background:linear-gradient(
-90deg,
-var(--red),
-#f59e0b,
-var(--green)
-)
+  height:100%;
+  width:0;
+  border-radius:999px;
+  transition:width .5s ease;
+  background:linear-gradient(90deg,var(--red),#f59e0b,var(--green));
+  position:relative;
 }
 
 .progress-text{
-position:absolute;
-inset:0;
-display:grid;
-place-items:center;
-font-weight:900;
-color:var(--navy)
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  color:var(--navy);
 }
 
 .progress-meta{
-display:flex;
-justify-content:space-between;
-gap:12px;
-flex-wrap:wrap;
-margin-top:10px;
-color:var(--muted);
-font-size:.95rem
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:10px;
+  color:var(--muted);
+  font-size:.95rem;
 }
 
 
-/* MAPS */
+/* =========================
+   MAPS
+========================= */
 
 .map-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:18px;
-margin-top:22px
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:22px;
 }
 
 .map-box{
-border:1px solid var(--border);
-border-radius:22px;
-overflow:hidden;
-background:#fff;
-box-shadow:var(--shadow)
+  border:1px solid var(--border);
+  border-radius:22px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:var(--shadow);
 }
 
 .map-head{
-padding:16px 18px;
-border-bottom:1px solid var(--border);
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:12px
+  padding:16px 18px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:12px;
 }
 
 .map-head strong{
-color:var(--navy)
+  color:var(--navy);
 }
 
 .map-div{
-height:520px
+  height:520px;
 }
 
 .map-note{
-color:var(--muted);
-font-size:.95rem
+  color:var(--muted);
+  font-size:.95rem;
 }
 
 
-/* CHART */
+/* =========================
+   CHART
+========================= */
 
 .chart-wrap{
-margin-top:22px
+  margin-top:22px;
 }
 
 
-/* COUNTERS */
+/* =========================
+   COUNTERS
+========================= */
 
 .stats-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:18px;
-margin-top:22px
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:22px;
 }
 
 .big-counter{
-padding:26px;
-border-radius:24px;
-background:
-linear-gradient(
-135deg,
-#102a43,
-#1f6f8b 55%,
-#f28c28
-);
-color:#fff;
-box-shadow:0 18px 36px rgba(16,42,67,.18)
+  padding:26px;
+  border-radius:24px;
+  background:
+    linear-gradient(
+      135deg,
+      #102a43,
+      #1f6f8b 55%,
+      #f28c28
+    );
+  color:#fff;
+  box-shadow:0 18px 36px rgba(16,42,67,.18);
 }
 
 .counter-label{
-font-weight:800;
-letter-spacing:.02em
+  font-weight:800;
+  letter-spacing:.02em;
 }
 
 .counter-num{
-font-size:clamp(2.6rem,7vw,5rem);
-line-height:1;
-font-weight:900;
-margin-top:10px
+  font-size:clamp(2.6rem,7vw,5rem);
+  line-height:1;
+  font-weight:900;
+  margin-top:10px;
 }
 
 .counter-note{
-margin-top:10px;
-color:#eef5fb;
-max-width:780px
+  margin-top:10px;
+  color:#eef5fb;
+  max-width:780px;
 }
 
 .mini-counter{
-display:grid;
-gap:12px
+  display:grid;
+  gap:12px;
 }
 
 .mini-card{
-background:#fff;
-border:1px solid var(--border);
-border-radius:22px;
-padding:20px;
-box-shadow:var(--shadow)
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:20px;
+  box-shadow:var(--shadow);
 }
 
 .mini-value{
-font-size:2rem;
-font-weight:900;
-color:var(--blue);
-margin-top:8px
+  font-size:2rem;
+  font-weight:900;
+  color:var(--blue);
+  margin-top:8px;
 }
 
 .mini-list{
-margin-top:10px;
-color:var(--muted)
+  margin-top:10px;
+  color:var(--muted);
 }
 
 .footer-note{
-margin-top:18px;
-color:var(--navy);
-font-weight:800;
-text-transform:uppercase;
-letter-spacing:.05em
+  margin-top:18px;
+  color:var(--navy);
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.05em;
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:980px){
 
-.hero{
-grid-template-columns:1fr
-}
+  .hero{
+    grid-template-columns:1fr;
+  }
 
-.hero-img{
-min-height:320px
-}
+  .hero-img{
+    min-height:320px;
+  }
 
-.goal-grid,
-.map-grid,
-.stats-grid{
-grid-template-columns:1fr
-}
+  .goal-grid,
+  .map-grid,
+  .stats-grid{
+    grid-template-columns:1fr;
+  }
 
-.map-div{
-height:420px
-}
+  .map-div{
+    height:420px;
+  }
 
-.topnav{
-justify-content:flex-start
-}
+  .topnav{
+    justify-content:flex-start;
+  }
 
 }
 
 @media(max-width:650px){
 
-.nav{
-align-items:flex-start;
-flex-direction:column;
-padding:10px 0
-}
+  .nav{
+    align-items:flex-start;
+    flex-direction:column;
+    padding:10px 0;
+  }
 
-.topnav{
-gap:6px
-}
+  .topnav{
+    gap:6px;
+  }
 
-.topnav a{
-font-size:.82rem;
-padding:7px 10px
-}
+  .topnav a{
+    font-size:.82rem;
+    padding:7px 10px;
+  }
 
-.logo img{
-width:50px;
-height:50px
-}
+  .logo img{
+    width:50px;
+    height:50px;
+  }
 
 }
 
 </style>
 </head>
 
+
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
 <div class="container nav">
 
 <a
-class="logo"
-href="index.html"
-aria-label="DRONES4AID Home"
+  class="logo"
+  href="index.html"
+  aria-label="DRONES4AID Home"
 >
 
-<!-- EMBEDDED LOGO -->
 <img
-alt="DRONES4AID Logo"
-src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAsICAoIBwsKCQoNDAsNERwSEQ8PESIZGhQcKSQrKigkJyctMkA3LTA9MCcnOEw5PUNFSElIKzZPVU5GVEBHSEX/2wBDAQwNDREPESESEiFFLicuRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUVFRUX/wAARCACgAKADASIAAhEBAxEB/8QAHAABAAIDAQEBAAAAAAAAAAAAAAYHAQQFAwII/8QAORAAAQMDAwEGBAUCBgMBAAAAAQIDBAAFEQYSITETQVFhcYEHFCKRFTJCUqEkkhYjM1SxwReC0WL/xAAYAQEBAQEBAAAAAAAAAAAAAAAAAgEDBP/EAB8RAAICAwEBAQEBAAAAAAAAAAABAhESITEDURMUcf/aAAwDAQACEQMRAD8AtylKUApSlAKUpQClfCXW1uLbStJWjG5IPKc9MjurhXvW1ksDpZmSt0gdWWUlax646e9ak2ZdEgpXjFf+ZitPlpxrtEhXZuDCk57iPGvasNFKV4ynzGiuvhpx3s0lXZtjKlY7gPGgPalR6ya2sl+eDEOVskHoy8nYo+meD7V3lOtocQ2pxIW5nYknlWOuB31rTRl2fdKxWaw0UpSgFKUoBSlKAUpSgPN99qKwt+Q4ltpsblLWcACo1r7Urmm7D2kUgS5KuyaUR+TjJV7D+SKjnxVushci3WKNu/qFB1wJ/X9W1A++T9q3tVSbZcZ8RU6WiPAtqlpcknkrd4yhod6hjlWDtz49LUeNkOXUj40gxOiaZkx4qi5fJpU+866SRHKgAntFfuxzt5PPIFfemvhmxbJybhd5Pz8pKt6U7TsCv3HPKj61zGrPZ9aSlMWu93JEVjJEdMcpabHrgDJ8TlR681N9PaYiacZUiK9KdKhhSn3ioeyeg9hWt0ErO1SlK5lilKUBAtS/DNi5zlXC0SfkJSlb1JwdhV+4Y5SfSvPVzE+XpmPHlKLd8hFLzLrJIEgpBCuzV+7HO3g8cAipPqHTEPUbKUSnpTRSMJUw8Uj3T0PuKhLtos+ipaWLpe7kuK+MmOqOVNOD1AIyPEYUPKuidkNUSfQWpl6ksPaSiDLjK7J5Q438ZCvcfyDUlYfalMIfYcS404NyVoOQRUF0tJtlvny1QpbciBclIQ3JTwUO84Q6O5RzwrA3Y8eul8KrpIQ9cbFJ3f0xLjYV1R9W1afvg+5rHHrQUuIsulKVBYpSlAKUpQCojrnVDmnPwoNHBflAu+bScbh75FSxSkoQVLUEpSMkk4AFV18VLM/c12Z6ONyC6Y6lDonfgg+nBqoVeyZXWjc1hb4r+pIM5csMOMxlFx08CO0Ff6uf3clKR+45/TWhb/8ADGrLw1Fg2KTKYiNhsyHXFIaaQOn055JPOMZJyTWbq5YnLUibqF6QVXBwPMw46vrcaT9LSSBzjH1dQMrNTqzwItutrLMOEmE3tCiynqkkc5PefOqbpGVbNiJDjwY6WIjDbDKPyobSEgewr3pWK5lmaVjOOtZoBSlYBB6c0BmvCXDjz46mJbDb7KuqHEhQPsa9qzQFbXA6Y0neHos6xSYrEtstiQ04pbTqD1+nPBB8sg4Irf0fb4rGo505EsPuPRklDo5Ehoq/1c/u4CVD9wz+qpXeIEW4215mZCTNbCSoMnqogcYPcfOoLanLE3aVzdPPSAq3uF56FIV9bTShtdSAecY+rqRlAronaIqmdvQuqXNSC6B45UxJJb8mlZ2j2wal1Vz8LLM/bFXl6QNqA6I6SeitmSVenIqxEqStIUhQUlQyCDkEVM6vRsbrZ9UpSpKFKUoDmajC1aaugbGVmI7gf+pqA6X1C9dtBv2xxwmUh1qChZ6lDpCQfUJ3D2FWTLlxYwaRLdQ2JC+yRv4C1EH6ffBqvI+l06Tv4cLgNuelpfa8UpbadWQR5HGPGrjVESuzca0dJj39d8ltsTpZdPykPtuzbZQnhHJByQMcAYHWupIf1s6rEaFZ46Serj63CPsBXH0DJn6lvtw1FP3BlKfl4yD+VAJBIT6AJye8mrBQtKxlCgoeIOaSbT2ErWir9TXm/wBvusRiVLmKWxh1f4XG2trz+nJJyeO8Y56VKzpNu4pbflXq9OJWkK7IywhPPkkCuPq74eydQagRPiTEMNPJSiSFE5GOMpA4PHcfCtc6Q1jZUAWTUXbstjCGXzjA8AFbh/xVaaVMzafCXwNLWe3OpdYhJLqTkOOqU4oHxyomulIlx4iAuS+0yk9FOLCR/NV21qvWFkU4rUNsa+UZQpbj+zGcdAFJO3JOAPWoHrC6yrxfVPzCCoNNgIGdqMoCiE+5NYoNvbDmktH6Ajy48tBXGfaeSOqm1hQ/iubP0tZ7i4p1+EkOq5LjSlNqJ8cpIqkdH3WTZ76l+IfqLTuUHO1eEFQCh6gVPXdV6wvSm1aetrXyjyErbf2ZxnqCpR25ByD6UcGnphTTRIhpNu3Jcfi3q9NpQkq7ISwtPA8FA1FNNXnUFwustiLLmJW/l1H4pG3Nox+nIIwee4Y46VtDR+sb0gi96i7BlYwtlg5yPAhO0f8ANbOkfh7JsGoFz5kxD7TKVIjBJOTnjKgeBx3DxrdJO2N3w6keRrZpWJMKzyEjvbfW2T9wa5bmjpL+oEXyI2xBldr/AFcPtu0beQrhfIAwSM8EYJ54qerWltOVqCR4k4qvtfSZ+mr7b9RQNxZUn5eUgflWASQFeoKsHuIqYu3o1qls0dUagdtWg2LW24RKW47CWsdQ20Skn1I2j3NT7ToWNN2sODCxEayP/UVCH9Lp1bf1OBwC3MS1POeKkuNNLCR6nOfCrCiS40kOpiOocSwvsl7OQlQA+n2yKSqhG7NilKVBYpSlARrX1pcvGk5bTCSt9nD7aR1JTyQPPGahmnL+rUlut0G5rU47FlhhbmcKcadacQCT454z6VaM2W3BhvSngotMoK17E7iAOvHfUJk2ezPxZ2otNPJccCUvqaZUChS21pc6dUqO0jHnXSL1REluzfsd6jjVb+m7Yw21b7dFIwkdXNyc/bPuc115emLTMc7VUQNPde1jqUyvPqgiojY4zOlnb5qe4qzHmSAI205K21r3BXvuH9pqxAQRkHIPfWS09GrfSrJeoJdu1S8mNOkNwmMxy4/LQ+2kA8qKFEKJB4xnPnRr4ruoZcTIVHWsg7Ftx1pOe7KSrB/uFaOqdOsI+KENp5rMS5vIcUkHGcnCxn1GferOg6cs9uA+TtkVoj9QaGfueapuKSJVtlQy9R3O+WSY5f3JSoheZShDDSUJ/UTgkY7h41rSm58hxD8W1RJcZxCexfLG4qQBtG7Ks7hjB8xV4z7dEukRUWfHbfYV1QsZHr5VUGpbfY7o6qZCUY+7DMSOwntVvJQSFOFJP0IwMJ5HTNbGSZjTRzYrU5lxb8u1RIcZtCu2fDG0pQRtO3Cs7jnA8zW1E1Hc7HZIblgclJhpeeStEhpK0/pIyQMd58K2NMwLHbHkTJijI2gszI76eyWylZwlxKQfrQQcK5PXNW/At0S1xExYMduOwnohAwPXzpKSQSbK0e+Kzq2W0x1x0LwAtbkdaiT34SFYH9xrMTUEu46pZTInvuQ38Rw6xLQw2oE8KCASoHPGM586sCdpyz3EH5y2RXSf1FobvuOarHS2nWHPifNaaaxEtbzjiU5zjBwgZ9Tn2rE4tM12mWXE0xaYbnapiB17r2shSnl59Vk1yL5eo51Wzpu5sNu2+5RQBuHRzcrHscD0OKlpIAyTgDvqvL5GZ1S5Y9UW5WI8N8iSVHlDaF7ir22n+4VMdvZT1w5Wo7+rTtuuMG2LU27JmFhDmfqbaaabQSD4k8Z9ammgrS5Z9JxGX0lD7uX3EnqCo5APnjFceNZrNHiwdRaleQ27sU+lp5QCErcWpzp1UobgMeXSptDlNzobMpkKDTyAtG9O04PTjurZPVIyK3Z70rFZrmWKUpQGFJCklKgCCMEHvqnb5p68aFvirrYkOOW9St2EAqCU97bgH6fA/wDdXFXL1Bc5dntypkS3qnhvl1tDm1YT4jg5x4VUW0yZKysdQTfxDQPysbcWYrqJLIJyfl1bkgHzQs7D6A99WZabiy23b7ZIcxPMFt4oPeAAD/NQZ7W1k1E2ylDQt9wZUSz8ykFh3d+Ztah+lXQ5HBwe6tfVt1d/HrJqSElbfYLEWQ0r8zLgVktr9UqPr1FW1eiU62WNcbHCuk2BLkoUXoDnaMqSrGD5+I4FdKuQNRQ06jXZHiWpXZpca3dHQc5A8xjpXXrm7LMdarG+/DuRDjtqtnbTkFksPIBSlwDfvSpOeDzwQeoqz6+XFpbbUtfCUgk+gopY7DjZW1q0HNu/by7249FWtoMtglCnFDfvUpeOBk8ADoKsqsNrDjaVp/KoAj0NfVHLIJUK5tuscK1zZ8uMhQenudo8pSs5Pl4Dk10q5H+IoatRosjJLsrs1OO7ejQGMA+Zz0orAutwZdbuFrjuZniEt4IH6QQQP5qsrBO/D9A/Kyd3YSXlynhnB+XTtSQPNaxsHqT3Vu6Surib9fNRzEuOdusxY7SfzPOFWQhPolIz4Dk1sM62smnW3kraFwuLygXvlUgMNbf3ytoUf0p6DA5OT310SrRDd7OZY9PXfXV9Tdb6hxu3pVuwsFIUnubbB/T4n/urhACUgJAAHAA7q5dgucu8W5MyXb1QA5y02te5ZT4ngYz4V1aiTtlRVClKVJQpSlQWKUpQClKUApSlAKUpQClKUApSlAKUpQClKUApSlAKUpQClKUB//Z"
+  src="logo.jpeg"
+  alt="DRONES4AID Logo"
 >
 
 <span class="logo-text">
-DRONES4AID
+  DRONES4AID
 </span>
 
 </a>
 
 
 <nav
-class="topnav"
-aria-label="Section navigation"
+  class="topnav"
+  aria-label="Section navigation"
 >
 
-<a href="index.html">Home</a>
-<a href="#timeline">Timeline</a>
-<a href="#goals">Our Goal</a>
-<a href="#maps">Global Reach</a>
-<a href="#drone-performance">Drone Performance</a>
-<a href="#counters">Live Counters</a>
+<a href="index.html">
+  Home
+</a>
+
+<a href="#timeline">
+  Timeline
+</a>
+
+<a href="#goals">
+  Our Goal
+</a>
+
+<a href="#maps">
+  Global Reach
+</a>
+
+<a href="#drone-performance">
+  Drone Performance
+</a>
+
+<a href="#counters">
+  Live Counters
+</a>
 
 </nav>
 
@@ -626,11 +658,13 @@ aria-label="Section navigation"
 </header>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section
-class="hero"
-id="home"
+  class="hero"
+  id="home"
 >
 
 <div class="hero-copy">
@@ -638,27 +672,27 @@ id="home"
 <div class="container">
 
 <div class="eyebrow">
-Statistics
+  Statistics
 </div>
 
 <h1>
-Statistics
+  Statistics
 </h1>
 
 <p>
-These statistics are about our company and the way our
-humanitarian work grows across regions, goals, operations,
-and volunteer support.
+  These statistics are about our company and the way our
+  humanitarian work grows across regions, goals, operations,
+  and volunteer support.
 </p>
 
 <p>
-They show where we work, what we are building, and how far
-our aid systems have progressed over time.
+  They show where we work, what we are building, and how far
+  our aid systems have progressed over time.
 </p>
 
 <p>
-Use the sections below to explore the timeline, goals,
-maps, performance, and live counters.
+  Use the sections below to explore the timeline, goals,
+  maps, performance, and live counters.
 </p>
 
 </div>
@@ -670,11 +704,13 @@ maps, performance, and live counters.
 </section>
 
 
-<!-- TIMELINE -->
+<!-- =========================
+     TIMELINE
+========================= -->
 
 <section
-class="container"
-id="timeline"
+  class="container"
+  id="timeline"
 >
 
 <div class="section-head">
@@ -682,12 +718,12 @@ id="timeline"
 <div>
 
 <h2 class="title">
-Timeline
+  Timeline
 </h2>
 
 <p class="lead">
-Click any year to expand the event and see a short
-explanation of what happened in that period.
+  Click any year to expand the event and see a short
+  explanation of what happened in that period.
 </p>
 
 </div>
@@ -706,10 +742,12 @@ explanation of what happened in that period.
 
 <div class="timeline-top">
 
-<div class="timeline-year">2016</div>
+<div class="timeline-year">
+  2016
+</div>
 
 <div class="timeline-label">
-Foundation phase
+  Foundation phase
 </div>
 
 </div>
@@ -717,18 +755,18 @@ Foundation phase
 <div class="timeline-body">
 
 <p>
-We began building the concept of a humanitarian drone
-network and mapped the first mission models.
+  We began building the concept of a humanitarian drone
+  network and mapped the first mission models.
 </p>
 
 <p>
-The focus was on research, safety, and defining how
-technology could support civilians.
+  The focus was on research, safety, and defining how
+  technology could support civilians.
 </p>
 
 <p>
-We also developed our early planning structure and
-tested operational ideas for future deployment.
+  We also developed our early planning structure and
+  tested operational ideas for future deployment.
 </p>
 
 </div>
@@ -744,10 +782,12 @@ tested operational ideas for future deployment.
 
 <div class="timeline-top">
 
-<div class="timeline-year">2018</div>
+<div class="timeline-year">
+  2018
+</div>
 
 <div class="timeline-label">
-Regional planning
+  Regional planning
 </div>
 
 </div>
@@ -755,18 +795,18 @@ Regional planning
 <div class="timeline-body">
 
 <p>
-We expanded our humanitarian planning into
-conflict-affected regions and refined logistics workflows.
+  We expanded our humanitarian planning into
+  conflict-affected regions and refined logistics workflows.
 </p>
 
 <p>
-Teams began preparing for work in highly stressed
-environments with limited ground access.
+  Teams began preparing for work in highly stressed
+  environments with limited ground access.
 </p>
 
 <p>
-Our protocols were improved to keep aid delivery safe,
-fast, and transparent.
+  Our protocols were improved to keep aid delivery safe,
+  fast, and transparent.
 </p>
 
 </div>
@@ -782,10 +822,12 @@ fast, and transparent.
 
 <div class="timeline-top">
 
-<div class="timeline-year">2020</div>
+<div class="timeline-year">
+  2020
+</div>
 
 <div class="timeline-label">
-Sahel operations
+  Sahel operations
 </div>
 
 </div>
@@ -793,18 +835,18 @@ Sahel operations
 <div class="timeline-body">
 
 <p>
-We supported planning for the Sahel region, where
-access and infrastructure challenges were especially severe.
+  We supported planning for the Sahel region, where
+  access and infrastructure challenges were especially severe.
 </p>
 
 <p>
-This helped us improve route planning, terrain analysis,
-and field coordination.
+  This helped us improve route planning, terrain analysis,
+  and field coordination.
 </p>
 
 <p>
-It also strengthened our role in high-need humanitarian
-environments.
+  It also strengthened our role in high-need humanitarian
+  environments.
 </p>
 
 </div>
@@ -820,10 +862,12 @@ environments.
 
 <div class="timeline-top">
 
-<div class="timeline-year">2022</div>
+<div class="timeline-year">
+  2022
+</div>
 
 <div class="timeline-label">
-Ukraine and Russia border focus
+  Ukraine and Russia border focus
 </div>
 
 </div>
@@ -831,18 +875,18 @@ Ukraine and Russia border focus
 <div class="timeline-body">
 
 <p>
-We expanded attention to Ukraine, Russia-adjacent border
-conditions, and disrupted infrastructure zones.
+  We expanded attention to Ukraine, Russia-adjacent border
+  conditions, and disrupted infrastructure zones.
 </p>
 
 <p>
-The work centered on rapid assessment, urgent aid
-coordination, and safer movement of essential resources.
+  The work centered on rapid assessment, urgent aid
+  coordination, and safer movement of essential resources.
 </p>
 
 <p>
-We also refined our response systems for unpredictable
-emergency conditions.
+  We also refined our response systems for unpredictable
+  emergency conditions.
 </p>
 
 </div>
@@ -858,10 +902,12 @@ emergency conditions.
 
 <div class="timeline-top">
 
-<div class="timeline-year">2023</div>
+<div class="timeline-year">
+  2023
+</div>
 
 <div class="timeline-label">
-Palestine and Israel emergency support
+  Palestine and Israel emergency support
 </div>
 
 </div>
@@ -869,18 +915,18 @@ Palestine and Israel emergency support
 <div class="timeline-body">
 
 <p>
-We strengthened our humanitarian planning for Palestine
-and Israel during periods of severe stress and disruption.
+  We strengthened our humanitarian planning for Palestine
+  and Israel during periods of severe stress and disruption.
 </p>
 
 <p>
-Our focus was on civilian need, access limits, and quick
-operational coordination.
+  Our focus was on civilian need, access limits, and quick
+  operational coordination.
 </p>
 
 <p>
-This phase helped us improve prioritisation and ethical
-deployment logic.
+  This phase helped us improve prioritisation and ethical
+  deployment logic.
 </p>
 
 </div>
@@ -896,10 +942,12 @@ deployment logic.
 
 <div class="timeline-top">
 
-<div class="timeline-year">2024</div>
+<div class="timeline-year">
+  2024
+</div>
 
 <div class="timeline-label">
-Balochistan and broader expansion
+  Balochistan and broader expansion
 </div>
 
 </div>
@@ -907,19 +955,19 @@ Balochistan and broader expansion
 <div class="timeline-body">
 
 <p>
-We expanded planning for Balochistan and other
-difficult-access areas with strong emphasis on terrain
-and safety.
+  We expanded planning for Balochistan and other
+  difficult-access areas with strong emphasis on terrain
+  and safety.
 </p>
 
 <p>
-We also improved coordination for food, medical items,
-and essential packages.
+  We also improved coordination for food, medical items,
+  and essential packages.
 </p>
 
 <p>
-By this stage our operations were broader, more structured,
-and more adaptable.
+  By this stage our operations were broader, more structured,
+  and more adaptable.
 </p>
 
 </div>
@@ -935,10 +983,12 @@ and more adaptable.
 
 <div class="timeline-top">
 
-<div class="timeline-year">2025</div>
+<div class="timeline-year">
+  2025
+</div>
 
 <div class="timeline-label">
-Expansion and technology development
+  Expansion and technology development
 </div>
 
 </div>
@@ -946,19 +996,19 @@ Expansion and technology development
 <div class="timeline-body">
 
 <p>
-We continued expanding our humanitarian drone network
-and improving the systems used for aid delivery.
+  We continued expanding our humanitarian drone network
+  and improving the systems used for aid delivery.
 </p>
 
 <p>
-The focus moved toward improving operational efficiency,
-drone performance, and coordination across our existing
-regions.
+  The focus moved toward improving operational efficiency,
+  drone performance, and coordination across our existing
+  regions.
 </p>
 
 <p>
-We also strengthened our long-term plans for sustainable
-and reliable humanitarian drone deployment.
+  We also strengthened our long-term plans for sustainable
+  and reliable humanitarian drone deployment.
 </p>
 
 </div>
@@ -974,10 +1024,12 @@ and reliable humanitarian drone deployment.
 
 <div class="timeline-top">
 
-<div class="timeline-year">2026</div>
+<div class="timeline-year">
+  2026
+</div>
 
 <div class="timeline-label">
-Current phase
+  Current phase
 </div>
 
 </div>
@@ -985,19 +1037,19 @@ Current phase
 <div class="timeline-body">
 
 <p>
-In 2026, DRONES4AID continues developing its humanitarian
-drone systems and expanding its global operational vision.
+  In 2026, DRONES4AID continues developing its humanitarian
+  drone systems and expanding its global operational vision.
 </p>
 
 <p>
-Our current focus is on improving delivery capability,
-volunteer coordination, drone performance, and access to
-communities affected by crises.
+  Our current focus is on improving delivery capability,
+  volunteer coordination, drone performance, and access to
+  communities affected by crises.
 </p>
 
 <p>
-We are also working toward our longer-term 2028 and 2030
-goals while continuing to build a more sustainable aid network.
+  We are also working toward our longer-term 2028 and 2030
+  goals while continuing to build a more sustainable aid network.
 </p>
 
 </div>
@@ -1010,11 +1062,13 @@ goals while continuing to build a more sustainable aid network.
 </section>
 
 
-<!-- GOALS -->
+<!-- =========================
+     GOALS
+========================= -->
 
 <section
-class="container"
-id="goals"
+  class="container"
+  id="goals"
 >
 
 <div class="section-head">
@@ -1022,11 +1076,11 @@ id="goals"
 <div>
 
 <h2 class="title">
-Our Goal
+  Our Goal
 </h2>
 
 <p class="lead">
-Switch between goals to see the progress bar for each target.
+  Switch between goals to see the progress bar for each target.
 </p>
 
 </div>
@@ -1036,27 +1090,28 @@ Switch between goals to see the progress bar for each target.
 
 <div class="goal-grid">
 
+
 <div class="goal-list">
 
 <button
-class="goal-btn active"
-data-goal="g1"
+  class="goal-btn active"
+  data-goal="g1"
 >
-2030 Goal
+  2030 Goal
 </button>
 
 <button
-class="goal-btn"
-data-goal="g2"
+  class="goal-btn"
+  data-goal="g2"
 >
-2028 Goal
+  2028 Goal
 </button>
 
 <button
-class="goal-btn"
-data-goal="g3"
+  class="goal-btn"
+  data-goal="g3"
 >
-Biggest Goal
+  Biggest Goal
 </button>
 
 </div>
@@ -1065,33 +1120,33 @@ Biggest Goal
 <div class="goal-panel">
 
 <div
-class="goal-name"
-id="goalName"
+  class="goal-name"
+  id="goalName"
 >
-2030 goal: replenish 25% of global disputes
+  2030 goal: replenish 25% of global disputes
 </div>
 
 <div
-class="goal-desc"
-id="goalDesc"
+  class="goal-desc"
+  id="goalDesc"
 >
-This target represents one of our long-term humanitarian
-ambitions, balancing prevention, aid, and crisis reduction.
+  This target represents one of our long-term humanitarian
+  ambitions, balancing prevention, aid, and crisis reduction.
 </div>
 
 
 <div class="progress-shell">
 
 <div
-class="progress-bar"
-id="goalBar"
+  class="progress-bar"
+  id="goalBar"
 ></div>
 
 <div
-class="progress-text"
-id="goalPct"
+  class="progress-text"
+  id="goalPct"
 >
-74%
+  74%
 </div>
 
 </div>
@@ -1100,11 +1155,11 @@ id="goalPct"
 <div class="progress-meta">
 
 <span id="goalLeft">
-74% complete
+  74% complete
 </span>
 
-<span>
-Target progress updated live
+<span id="goalRight">
+  Target progress updated live
 </span>
 
 </div>
@@ -1116,11 +1171,13 @@ Target progress updated live
 </section>
 
 
-<!-- GLOBAL REACH -->
+<!-- =========================
+     GLOBAL REACH
+========================= -->
 
 <section
-class="container"
-id="maps"
+  class="container"
+  id="maps"
 >
 
 <div class="section-head">
@@ -1128,12 +1185,12 @@ id="maps"
 <div>
 
 <h2 class="title">
-Global Reach
+  Global Reach
 </h2>
 
 <p class="lead">
-The first map shows our operating stress levels,
-and the second map shows our deployment cities.
+  The first map shows our operating stress levels,
+  and the second map shows our deployment cities.
 </p>
 
 </div>
@@ -1149,18 +1206,18 @@ and the second map shows our deployment cities.
 <div class="map-head">
 
 <strong>
-Where we work
+  Where we work
 </strong>
 
 <span class="map-note">
-Stress-coded operating areas
+  Stress-coded operating areas
 </span>
 
 </div>
 
 <div
-id="stressMap"
-class="map-div"
+  id="stressMap"
+  class="map-div"
 ></div>
 
 </div>
@@ -1171,32 +1228,35 @@ class="map-div"
 <div class="map-head">
 
 <strong>
-Deployment areas
+  Deployment areas
 </strong>
 
 <span class="map-note">
-Global city network
+  Global city network
 </span>
 
 </div>
 
 <div
-id="deployMap"
-class="map-div"
+  id="deployMap"
+  class="map-div"
 ></div>
 
 </div>
+
 
 </div>
 
 </section>
 
 
-<!-- DRONE PERFORMANCE -->
+<!-- =========================
+     DRONE PERFORMANCE
+========================= -->
 
 <section
-class="container"
-id="drone-performance"
+  class="container"
+  id="drone-performance"
 >
 
 <div class="section-head">
@@ -1204,12 +1264,12 @@ id="drone-performance"
 <div>
 
 <h2 class="title">
-Drone Performance
+  Drone Performance
 </h2>
 
 <p class="lead">
-A simple performance bar graph showing a stylized
-overview of major humanitarian drone metrics.
+  A simple performance bar graph showing a stylized
+  overview of major humanitarian drone metrics.
 </p>
 
 </div>
@@ -1220,8 +1280,8 @@ overview of major humanitarian drone metrics.
 <div class="card chart-wrap">
 
 <div
-id="performanceChart"
-style="height:520px"
+  id="performanceChart"
+  style="height:520px;"
 ></div>
 
 </div>
@@ -1229,11 +1289,13 @@ style="height:520px"
 </section>
 
 
-<!-- LIVE COUNTERS -->
+<!-- =========================
+     LIVE COUNTERS
+========================= -->
 
 <section
-class="container"
-id="counters"
+  class="container"
+  id="counters"
 >
 
 <div class="section-head">
@@ -1241,11 +1303,11 @@ id="counters"
 <div>
 
 <h2 class="title">
-Live Counters
+  Live Counters
 </h2>
 
 <p class="lead">
-These counters keep increasing over time and do not reset on refresh.
+  These counters keep increasing over time and do not reset on refresh.
 </p>
 
 </div>
@@ -1261,14 +1323,14 @@ These counters keep increasing over time and do not reset on refresh.
 <div class="mini-card">
 
 <div class="counter-label">
-Total volunteers all over the world
+  Total volunteers all over the world
 </div>
 
 <div
-class="mini-value"
-id="volCounter"
+  class="mini-value"
+  id="volCounter"
 >
-0
+  0
 </div>
 
 </div>
@@ -1277,14 +1339,14 @@ id="volCounter"
 <div class="mini-card">
 
 <div class="counter-label">
-Cities with most volunteers
+  Cities with most volunteers
 </div>
 
 <div
-class="mini-list"
-id="topCitiesList"
+  class="mini-list"
+  id="topCitiesList"
 >
-Loading volunteer cities...
+  Loading volunteer cities...
 </div>
 
 </div>
@@ -1295,14 +1357,14 @@ Loading volunteer cities...
 <div class="big-counter">
 
 <div class="counter-label">
-Packages delivered
+  Packages delivered
 </div>
 
 <div
-class="counter-num"
-id="pkgCounter"
+  class="counter-num"
+  id="pkgCounter"
 >
-0
+  0
 </div>
 
 <div class="counter-note">
@@ -1319,109 +1381,119 @@ our operating areas.
 
 
 <div class="footer-note">
-official statistics of Drones4Aid
+  official statistics of Drones4Aid
 </div>
 
 </section>
 
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
 document.addEventListener('DOMContentLoaded',function(){
 
 
-/* TIMELINE */
+/* =========================
+   TIMELINE
+========================= */
 
 document
 .querySelectorAll('.timeline-item')
 .forEach(function(item){
 
-function toggle(){
+  function toggle(){
 
-var open=item.classList.contains('open');
+    var isOpen =
+      item.classList.contains('open');
 
-document
-.querySelectorAll('.timeline-item')
-.forEach(function(i){
-i.classList.remove('open');
+    document
+    .querySelectorAll('.timeline-item')
+    .forEach(function(i){
+      i.classList.remove('open');
+    });
+
+    if(!isOpen){
+      item.classList.add('open');
+    }
+
+  }
+
+  item
+  .querySelector('.timeline-dot')
+  .addEventListener('click',toggle);
+
+  item
+  .querySelector('.timeline-top')
+  .addEventListener('click',toggle);
+
 });
 
-if(!open){
-item.classList.add('open');
-}
 
-}
-
-item
-.querySelector('.timeline-dot')
-.addEventListener('click',toggle);
-
-item
-.querySelector('.timeline-top')
-.addEventListener('click',toggle);
-
-});
-
-
-/* GOALS */
+/* =========================
+   GOALS
+========================= */
 
 var goals={
 
-g1:{
-name:'2030 goal: replenish 25% of global disputes',
-desc:'This target represents one of our long-term humanitarian ambitions, balancing prevention, aid, and crisis reduction.',
-pct:74
-},
+  g1:{
+    name:'2030 goal: replenish 25% of global disputes',
+    desc:'This target represents one of our long-term humanitarian ambitions, balancing prevention, aid, and crisis reduction.',
+    pct:74
+  },
 
-g2:{
-name:'2028 goal: fully solar powered drones',
-desc:'This goal focuses on cleaner energy, lighter logistics, and more sustainable humanitarian deployment.',
-pct:81
-},
+  g2:{
+    name:'2028 goal: fully solar powered drones',
+    desc:'This goal focuses on cleaner energy, lighter logistics, and more sustainable humanitarian deployment.',
+    pct:81
+  },
 
-g3:{
-name:'Biggest goal: eradicate global disputes and provide aid to everybody',
-desc:'This is our largest mission target and the most important one because it represents universal safety and access to aid.',
-pct:19
-}
+  g3:{
+    name:'Biggest goal: eradicate global disputes and provide aid to everybody',
+    desc:'This is our largest mission target and the most important one because it represents universal safety and access to aid.',
+    pct:19
+  }
 
 };
 
 
 function setGoal(key){
 
-document
-.querySelectorAll('.goal-btn')
-.forEach(function(button){
+  document
+  .querySelectorAll('.goal-btn')
+  .forEach(function(button){
 
-button.classList.toggle(
-'active',
-button.dataset.goal===key
-);
+    button.classList.toggle(
+      'active',
+      button.dataset.goal===key
+    );
 
-});
+  });
 
-var goal=goals[key];
 
-document
-.getElementById('goalName')
-.textContent=goal.name;
+  var goal=goals[key];
 
-document
-.getElementById('goalDesc')
-.textContent=goal.desc;
+  document
+  .getElementById('goalName')
+  .textContent=goal.name;
 
-document
-.getElementById('goalPct')
-.textContent=goal.pct+'%';
+  document
+  .getElementById('goalDesc')
+  .textContent=goal.desc;
 
-document
-.getElementById('goalBar')
-.style.width=goal.pct+'%';
+  document
+  .getElementById('goalPct')
+  .textContent=goal.pct+'%';
 
-document
-.getElementById('goalLeft')
-.textContent=goal.pct+'% complete';
+  document
+  .getElementById('goalBar')
+  .style.width=goal.pct+'%';
+
+  document
+  .getElementById('goalLeft')
+  .textContent=goal.pct+'% complete';
 
 }
 
@@ -1430,481 +1502,572 @@ document
 .querySelectorAll('.goal-btn')
 .forEach(function(button){
 
-button.addEventListener(
-'click',
-function(){
-setGoal(button.dataset.goal);
-}
-);
+  button.addEventListener(
+    'click',
+    function(){
+      setGoal(button.dataset.goal);
+    }
+  );
 
 });
 
 setGoal('g1');
 
 
-/* PLOTLY */
+/* =========================
+   CHECK PLOTLY
+========================= */
 
-if(typeof Plotly!=='undefined'){
+if(typeof Plotly==='undefined'){
 
+  document
+  .querySelectorAll('.map-div,#performanceChart')
+  .forEach(function(el){
+
+    el.innerHTML=
+      '<div style="padding:30px;color:#b42318;font-weight:700;">' +
+      'Charts could not load. Please make sure you are connected to the internet.' +
+      '</div>';
+
+  });
+
+}else{
+
+
+/* =========================
+   STRESS MAP
+========================= */
 
 Plotly.newPlot(
+
 'stressMap',
+
 [{
-type:'scattergeo',
-mode:'markers+text',
 
-text:[
-'Kyiv',
-'Russia-Ukraine border',
-'Gaza',
-'Tel Aviv',
-'Niger-Mali-Burkina border',
-'Balochistan',
-'Beirut',
-'Tehran'
-],
+  type:'scattergeo',
 
-lon:[
-30.5234,
-34,
-34.47,
-34.78,
-2,
-66,
-35.5,
-51.389
-],
+  mode:'markers+text',
 
-lat:[
-50.45,
-49,
-31.5,
-32.1,
-14.5,
-28,
-33.89,
-35.689
-],
+  text:[
+    'Kyiv',
+    'Russia-Ukraine border',
+    'Gaza',
+    'Tel Aviv',
+    'Niger-Mali-Burkina border',
+    'Balochistan',
+    'Beirut',
+    'Tehran'
+  ],
 
-textposition:'top center',
+  lon:[
+    30.5234,
+    34.0,
+    34.47,
+    34.78,
+    2.0,
+    66.0,
+    35.5,
+    51.389
+  ],
 
-marker:{
-size:[15,16,18,12,17,15,13,12],
+  lat:[
+    50.45,
+    49.0,
+    31.5,
+    32.1,
+    14.5,
+    28.0,
+    33.89,
+    35.689
+  ],
 
-color:[
-95,92,88,62,84,80,66,70
-],
+  textposition:'top center',
 
-colorscale:[
-[0,'#2ecc71'],
-[.35,'#f4c542'],
-[.7,'#f39c12'],
-[1,'#e74c3c']
-],
+  marker:{
 
-cmin:50,
-cmax:100,
+    size:[
+      15,
+      16,
+      18,
+      12,
+      17,
+      15,
+      13,
+      12
+    ],
 
-line:{
-color:'#fff',
-width:1.5
-},
+    color:[
+      95,
+      92,
+      88,
+      62,
+      84,
+      80,
+      66,
+      70
+    ],
 
-colorbar:{
-title:'Stress'
-}
+    colorscale:[
+      [0,'#2ecc71'],
+      [0.35,'#f4c542'],
+      [0.7,'#f39c12'],
+      [1,'#e74c3c']
+    ],
 
-},
+    cmin:50,
+    cmax:100,
 
-hovertemplate:
-'%{text}<extra></extra>'
+    line:{
+      color:'#fff',
+      width:1.5
+    },
+
+    colorbar:{
+      title:'Stress'
+    }
+
+  },
+
+  hovertemplate:
+    '%{text}<extra></extra>'
 
 }],
 
 {
-geo:{
-scope:'world',
 
-projection:{
-type:'natural earth'
-},
+  geo:{
 
-showland:true,
-landcolor:'#f2f5f8',
+    scope:'world',
 
-showocean:true,
-oceancolor:'#eaf4fb',
+    projection:{
+      type:'natural earth'
+    },
 
-showcountries:true,
-countrycolor:'#cfd8e3'
-},
+    showland:true,
+    landcolor:'#f2f5f8',
 
-margin:{
-l:0,
-r:0,
-t:0,
-b:0
-}
+    showocean:true,
+    oceancolor:'#eaf4fb',
+
+    showcountries:true,
+    countrycolor:'#cfd8e3'
+
+  },
+
+  margin:{
+    l:0,
+    r:0,
+    t:0,
+    b:0
+  }
+
 },
 
 {
-displayModeBar:false,
-responsive:true
+  displayModeBar:false,
+  responsive:true
 }
+
 );
 
 
+/* =========================
+   DEPLOYMENT MAP
+========================= */
+
 Plotly.newPlot(
+
 'deployMap',
+
 [{
-type:'scattergeo',
-mode:'markers+text',
 
-text:[
-'Delhi',
-'Bangalore',
-'Chennai',
-'New York',
-'Rio',
-'Los Angeles',
-'Toronto',
-'Berlin',
-'Paris',
-'London',
-'Madrid',
-'Zurich',
-'Nairobi',
-'Rabat',
-'Johannesburg',
-'Sydney',
-'Wellington'
-],
+  type:'scattergeo',
 
-lon:[
-77.209,
-77.5946,
-80.2707,
--74.006,
--43.1729,
--118.2437,
--79.3832,
-13.405,
-2.3522,
--.1276,
--3.7038,
-8.5417,
-36.8219,
--7.5898,
-28.0473,
-151.2093,
-174.7762
-],
+  mode:'markers+text',
 
-lat:[
-28.6139,
-12.9716,
-13.0827,
-40.7128,
--22.9068,
-34.0522,
-43.6532,
-52.52,
-48.8566,
-51.5074,
-40.4168,
-47.3769,
--1.2921,
-33.9716,
--26.2041,
--33.8688,
--41.2866
-],
+  text:[
+    'Delhi',
+    'Bangalore',
+    'Chennai',
+    'New York',
+    'Rio',
+    'Los Angeles',
+    'Toronto',
+    'Berlin',
+    'Paris',
+    'London',
+    'Madrid',
+    'Zurich',
+    'Nairobi',
+    'Rabat',
+    'Johannesburg',
+    'Sydney',
+    'Wellington'
+  ],
 
-textposition:'top center',
+  lon:[
+    77.2090,
+    77.5946,
+    80.2707,
+    -74.0060,
+    -43.1729,
+    -118.2437,
+    -79.3832,
+    13.4050,
+    2.3522,
+    -0.1276,
+    -3.7038,
+    8.5417,
+    36.8219,
+    -7.5898,
+    28.0473,
+    151.2093,
+    174.7762
+  ],
 
-marker:{
-size:11,
-color:'#1f6f8b',
+  lat:[
+    28.6139,
+    12.9716,
+    13.0827,
+    40.7128,
+    -22.9068,
+    34.0522,
+    43.6532,
+    52.5200,
+    48.8566,
+    51.5074,
+    40.4168,
+    47.3769,
+    -1.2921,
+    33.9716,
+    -26.2041,
+    -33.8688,
+    -41.2866
+  ],
 
-line:{
-color:'#fff',
-width:1.4
-}
-},
+  textposition:'top center',
 
-hovertemplate:
-'%{text}<extra></extra>'
+  marker:{
+
+    size:11,
+
+    color:'#1f6f8b',
+
+    line:{
+      color:'#fff',
+      width:1.4
+    }
+
+  },
+
+  hovertemplate:
+    '%{text}<extra></extra>'
 
 }],
 
 {
-geo:{
-scope:'world',
 
-projection:{
-type:'natural earth'
-},
+  geo:{
 
-showland:true,
-landcolor:'#f2f5f8',
+    scope:'world',
 
-showocean:true,
-oceancolor:'#eef9ff',
+    projection:{
+      type:'natural earth'
+    },
 
-showcountries:true,
-countrycolor:'#cfd8e3'
-},
+    showland:true,
+    landcolor:'#f2f5f8',
 
-margin:{
-l:0,
-r:0,
-t:0,
-b:0
-}
+    showocean:true,
+    oceancolor:'#eef9ff',
+
+    showcountries:true,
+    countrycolor:'#cfd8e3'
+
+  },
+
+  margin:{
+    l:0,
+    r:0,
+    t:0,
+    b:0
+  }
+
 },
 
 {
-displayModeBar:false,
-responsive:true
+  displayModeBar:false,
+  responsive:true
 }
+
 );
 
+
+/* =========================
+   PERFORMANCE CHART
+========================= */
 
 Plotly.newPlot(
+
 'performanceChart',
+
 [{
-type:'bar',
 
-x:[
-'Delivery speed',
-'Payload safety',
-'Battery endurance',
-'Navigation accuracy',
-'Mission success'
-],
+  type:'bar',
 
-y:[
-86,
-92,
-78,
-89,
-84
-],
+  x:[
+    'Delivery speed',
+    'Payload safety',
+    'Battery endurance',
+    'Navigation accuracy',
+    'Mission success'
+  ],
 
-marker:{
-color:[
-'#1f6f8b',
-'#20a4a8',
-'#f4c542',
-'#7b5cff',
-'#f28c28'
-],
+  y:[
+    86,
+    92,
+    78,
+    89,
+    84
+  ],
 
-line:{
-color:'#102a43',
-width:1
-}
-},
+  marker:{
 
-text:[
-'86%',
-'92%',
-'78%',
-'89%',
-'84%'
-],
+    color:[
+      '#1f6f8b',
+      '#20a4a8',
+      '#f4c542',
+      '#7b5cff',
+      '#f28c28'
+    ],
 
-textposition:'auto',
+    line:{
+      color:'#102a43',
+      width:1
+    }
 
-hovertemplate:
-'%{x}: %{y}%<extra></extra>'
+  },
+
+  text:[
+    '86%',
+    '92%',
+    '78%',
+    '89%',
+    '84%'
+  ],
+
+  textposition:'auto',
+
+  hovertemplate:
+    '%{x}: %{y}%<extra></extra>'
 
 }],
 
 {
 
-title:{
-text:'Drone performance overview',
+  title:{
+    text:'Drone performance overview',
 
-font:{
-color:'#102a43',
-size:18
-}
-},
+    font:{
+      color:'#102a43',
+      size:18
+    }
+  },
 
-paper_bgcolor:'#fff',
-plot_bgcolor:'#fff',
+  paper_bgcolor:'#fff',
+  plot_bgcolor:'#fff',
 
-margin:{
-l:50,
-r:20,
-t:50,
-b:50
-},
+  margin:{
+    l:50,
+    r:20,
+    t:50,
+    b:50
+  },
 
-yaxis:{
-range:[0,100],
-title:'Performance %',
-gridcolor:'#e8eef5'
-},
+  yaxis:{
 
-xaxis:{
-tickangle:-15
-}
+    range:[
+      0,
+      100
+    ],
+
+    title:'Performance %',
+
+    gridcolor:'#e8eef5'
+
+  },
+
+  xaxis:{
+    tickangle:-15
+  }
 
 },
 
 {
-displayModeBar:false,
-responsive:true
+  displayModeBar:false,
+  responsive:true
 }
+
 );
 
 }
 
 
-/* LIVE COUNTERS */
+/* =========================
+   LIVE COUNTERS
+========================= */
 
 var storeKey='drones4aid_stats_live';
 
-var data={};
+var data;
 
 try{
-data=JSON.parse(
-localStorage.getItem(storeKey)||'{}'
-)||{};
+
+  data=JSON.parse(
+    localStorage.getItem(storeKey)||'{}'
+  );
+
 }catch(e){
-data={};
+
+  data={};
+
 }
 
 
 function randInt(min,max){
 
-return Math.floor(
-Math.random()*(max-min+1)
-)+min;
+  return Math.floor(
+    Math.random()*(max-min+1)
+  )+min;
 
 }
 
 
 if(data.volunteers==null){
-data.volunteers=0;
+  data.volunteers=0;
 }
 
 if(data.packages==null){
-data.packages=0;
+  data.packages=0;
 }
 
 
 if(!data.cityCounts){
 
-data.cityCounts={
-Delhi:0,
-Bangalore:0,
-Chennai:0,
-'New York':0,
-Rio:0,
-'Los Angeles':0,
-Toronto:0,
-Berlin:0,
-Paris:0,
-London:0,
-Madrid:0,
-Zurich:0,
-Nairobi:0,
-Rabat:0,
-Johannesburg:0,
-Sydney:0,
-Wellington:0
-};
+  data.cityCounts={
+
+    Delhi:0,
+    Bangalore:0,
+    Chennai:0,
+    'New York':0,
+    Rio:0,
+    'Los Angeles':0,
+    Toronto:0,
+    Berlin:0,
+    Paris:0,
+    London:0,
+    Madrid:0,
+    Zurich:0,
+    Nairobi:0,
+    Rabat:0,
+    Johannesburg:0,
+    Sydney:0,
+    Wellington:0
+
+  };
 
 }
 
 
 function bumpCounters(){
 
-data.volunteers+=randInt(1,7);
+  data.volunteers+=randInt(1,7);
 
-data.packages+=randInt(1,10);
-
-Object
-.keys(data.cityCounts)
-.forEach(function(city){
-
-data.cityCounts[city]+=randInt(0,1);
-
-});
+  data.packages+=randInt(1,10);
 
 
-var cityTotal=
-Object
-.values(data.cityCounts)
-.reduce(function(a,b){
-return a+b;
-},0);
+  Object
+  .keys(data.cityCounts)
+  .forEach(function(city){
+
+    data.cityCounts[city]+=randInt(0,1);
+
+  });
 
 
-if(cityTotal>data.volunteers){
+  var cityTotal=
+    Object
+    .values(data.cityCounts)
+    .reduce(function(a,b){
+      return a+b;
+    },0);
 
-data.volunteers=
-cityTotal+randInt(1,3);
 
-}
+  if(cityTotal>data.volunteers){
+
+    data.volunteers=
+      cityTotal+randInt(1,3);
+
+  }
 
 
-try{
+  try{
 
-localStorage.setItem(
-storeKey,
-JSON.stringify(data)
-);
+    localStorage.setItem(
+      storeKey,
+      JSON.stringify(data)
+    );
 
-}catch(e){}
+  }catch(e){}
 
 }
 
 
 function renderCounters(){
 
-document
-.getElementById('volCounter')
-.textContent=
-data.volunteers.toLocaleString();
+  document
+  .getElementById('volCounter')
+  .textContent=
+    data.volunteers.toLocaleString();
 
 
-document
-.getElementById('pkgCounter')
-.textContent=
-data.packages.toLocaleString();
+  document
+  .getElementById('pkgCounter')
+  .textContent=
+    data.packages.toLocaleString();
 
 
-var topCities=
-Object
-.entries(data.cityCounts)
-.sort(function(a,b){
-return b[1]-a[1];
-})
-.slice(0,5);
+  var topCities=
+    Object
+    .entries(data.cityCounts)
+    .sort(function(a,b){
+      return b[1]-a[1];
+    })
+    .slice(0,5);
 
 
-document
-.getElementById('topCitiesList')
-.innerHTML=
-topCities
-.map(function(entry,index){
+  document
+  .getElementById('topCitiesList')
+  .innerHTML=
+    topCities
+    .map(function(entry,index){
 
-return(
-'<div>'+
-(index+1)+
-'. '+
-entry[0]+
-' — '+
-entry[1]+
-' volunteers</div>'
-);
+      var city=entry[0];
+      var count=entry[1];
 
-})
-.join('');
+      return(
+        '<div>' +
+        (index+1) +
+        '. ' +
+        city +
+        ' — ' +
+        count +
+        ' volunteers' +
+        '</div>'
+      );
+
+    })
+    .join('');
 
 }
 
@@ -1914,10 +2077,12 @@ renderCounters();
 
 setInterval(function(){
 
-bumpCounters();
-renderCounters();
+  bumpCounters();
+
+  renderCounters();
 
 },6000);
+
 
 });
 
