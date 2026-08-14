@@ -299,10 +299,6 @@ nav a:hover{
   cursor:pointer
 }
 
-.video-card video::cue{
-  background:rgba(0,0,0,.7)
-}
-
 .video-card-body{
   padding:18px 20px 20px
 }
@@ -319,7 +315,7 @@ nav a:hover{
 }
 
 
-/* MOVIE */
+/* WATCH OUR MOVIE */
 
 .movie-section{
   background:var(--light)
@@ -1287,7 +1283,7 @@ Your browser does not support the video tag.
 
 
 <!-- =========================
-     OUR MOVIE
+     WATCH OUR MOVIE
 ========================= -->
 
 <section
@@ -1302,9 +1298,12 @@ Your browser does not support the video tag.
 </h2>
 
 <p class="lead">
+
   Watch our DRONES4AID movie and experience the story behind our
   organisation, our technology, and our humanitarian mission.
+
 </p>
+
 
 <div class="movie-card">
 
@@ -1322,6 +1321,7 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 
 </video>
+
 
 <div class="movie-caption">
 
@@ -1730,7 +1730,6 @@ document
   .querySelectorAll('.video-gallery video')
   .forEach((video) => {
 
-
     const makeThumbnail = () => {
 
       if(
@@ -1774,9 +1773,7 @@ document
             0.82
           );
 
-      }catch(e){
-
-      }
+      }catch(e){}
 
     };
 
@@ -1811,6 +1808,39 @@ document
     );
 
   });
+
+
+/* =========================
+   MOVIE ERROR CHECK
+========================= */
+
+const movieVideo =
+  document.querySelector(
+    '#movie video'
+  );
+
+
+if(movieVideo){
+
+  movieVideo.addEventListener(
+    'error',
+    function(){
+
+      const movieCard =
+        this.closest('.movie-card');
+
+      movieCard.insertAdjacentHTML(
+        'beforeend',
+
+        '<p style="margin-top:12px;color:#b42318;font-weight:700;">' +
+        'Movie could not be loaded. Make sure the video file is named exactly movie.mp4 and is in the same folder as gallery.html.' +
+        '</p>'
+      );
+
+    }
+  );
+
+}
 
 
 /* =========================
