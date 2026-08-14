@@ -43,7 +43,7 @@ body{
 
 .container{
   width:min(1180px,92%);
-  margin:0 auto;
+  margin:auto;
 }
 
 section{
@@ -95,24 +95,56 @@ header{
 .logo{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
   color:var(--navy);
   font-weight:800;
   text-decoration:none;
   flex:0 0 auto;
 }
 
-.logo img{
-  width:58px;
-  height:58px;
-  object-fit:contain;
-  display:block;
+
+/* ORIGINAL OG DIAMOND STAR LOGO */
+
+.diamond{
+  width:42px;
+  height:42px;
+
+  clip-path:polygon(
+    50% 0%,
+    100% 50%,
+    50% 100%,
+    0% 50%
+  );
+
+  background:linear-gradient(
+    135deg,
+    #d97706,
+    #f59e0b
+  );
+
+  display:grid;
+  place-items:center;
+
+  color:#102a43;
+
+  font-size:.86rem;
+
+  box-shadow:
+    0 8px 18px rgba(16,42,67,.18);
+}
+
+.star{
+  font-size:1.45rem;
+  line-height:1;
+  color:#102a43;
+  transform:translateY(-1px);
 }
 
 .logo-text{
   font-size:1rem;
   white-space:nowrap;
 }
+
 
 .topnav{
   display:flex;
@@ -148,12 +180,14 @@ header{
   grid-template-columns:1fr 1fr;
   min-height:72vh;
   overflow:hidden;
+
   background:
     linear-gradient(
       135deg,
       rgba(16,42,67,.95),
       rgba(31,111,139,.84)
     );
+
   color:#fff;
 }
 
@@ -168,11 +202,16 @@ header{
 
 .eyebrow{
   display:inline-block;
+
   background:rgba(255,255,255,.14);
-  border:1px solid rgba(255,255,255,.2);
+  border:1px solid rgba(255,255,255,.20);
+
   padding:8px 14px;
+
   border-radius:999px;
+
   margin-bottom:18px;
+
   font-weight:700;
 }
 
@@ -198,12 +237,13 @@ header{
     ),
     url('https://i.pinimg.com/originals/c9/91/72/c99172c17b83d3c620b997858351b2a5.gif')
     center/cover no-repeat;
+
   min-height:72vh;
 }
 
 
 /* =========================
-   HEADINGS
+   SECTION HEAD
 ========================= */
 
 .section-head{
@@ -229,11 +269,15 @@ header{
 
 .timeline-wrap::before{
   content:'';
+
   position:absolute;
+
   left:11px;
   top:8px;
   bottom:8px;
+
   width:3px;
+
   background:
     linear-gradient(
       180deg,
@@ -241,44 +285,71 @@ header{
       var(--purple),
       var(--accent)
     );
+
   border-radius:999px;
 }
 
 .timeline-item{
   position:relative;
+
   margin-left:10px;
+
   border:1px solid var(--border);
+
   border-radius:18px;
+
   background:#fff;
+
   overflow:hidden;
 }
 
 .timeline-dot{
   position:absolute;
+
   left:-34px;
   top:22px;
+
   width:22px;
   height:22px;
+
   border-radius:50%;
+
   background:var(--blue);
+
   border:4px solid #fff;
-  box-shadow:0 0 0 3px rgba(31,111,139,.12);
+
+  box-shadow:
+    0 0 0 3px rgba(31,111,139,.12);
+
   cursor:pointer;
 }
 
 .timeline-item.open .timeline-dot{
   background:var(--accent);
-  box-shadow:0 0 0 3px rgba(242,140,40,.18);
+
+  box-shadow:
+    0 0 0 3px rgba(242,140,40,.18);
 }
 
 .timeline-top{
   padding:18px;
+
   display:flex;
+
   justify-content:space-between;
+
   gap:14px;
+
   align-items:center;
+
   cursor:pointer;
-  background:linear-gradient(180deg,#fff,#fbfdff);
+
+  background:
+    linear-gradient(
+      180deg,
+      #fff,
+      #fbfdff
+    );
 }
 
 .timeline-year{
@@ -295,7 +366,9 @@ header{
 
 .timeline-body{
   display:none;
+
   padding:0 18px 18px;
+
   color:var(--muted);
 }
 
@@ -326,13 +399,21 @@ header{
 
 .goal-btn{
   border:1px solid var(--border);
+
   background:#fff;
+
   color:var(--navy);
+
   padding:14px 16px;
+
   border-radius:14px;
+
   cursor:pointer;
+
   text-align:left;
+
   font-weight:800;
+
   transition:.2s ease;
 }
 
@@ -341,19 +422,34 @@ header{
 }
 
 .goal-btn.active{
-  background:linear-gradient(135deg,#eef8ff,#fff7ea);
+  background:
+    linear-gradient(
+      135deg,
+      #eef8ff,
+      #fff7ea
+    );
+
   border-color:#cfe2f2;
-  box-shadow:0 10px 22px rgba(16,42,67,.08);
+
+  box-shadow:
+    0 10px 22px rgba(16,42,67,.08);
 }
 
 .goal-panel{
-  background:linear-gradient(180deg,#fff,#fbfdff);
+  background:
+    linear-gradient(
+      180deg,
+      #fff,
+      #fbfdff
+    );
+
   border:1px solid var(--border);
+
   border-radius:22px;
+
   padding:22px;
+
   box-shadow:var(--shadow);
-  position:relative;
-  overflow:hidden;
 }
 
 .goal-name{
@@ -370,39 +466,65 @@ header{
 
 .progress-shell{
   margin-top:18px;
+
   background:#eef3f8;
+
   border:1px solid var(--border);
+
   border-radius:999px;
+
   height:34px;
+
   overflow:hidden;
+
   position:relative;
 }
 
 .progress-bar{
   height:100%;
+
   width:0;
+
   border-radius:999px;
+
   transition:width .5s ease;
-  background:linear-gradient(90deg,var(--red),#f59e0b,var(--green));
-  position:relative;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--red),
+      #f59e0b,
+      var(--green)
+    );
 }
 
 .progress-text{
   position:absolute;
+
   inset:0;
+
   display:grid;
+
   place-items:center;
+
   font-weight:900;
+
   color:var(--navy);
 }
 
 .progress-meta{
   display:flex;
+
   justify-content:space-between;
+
   gap:12px;
+
   flex-wrap:wrap;
+
   margin-top:10px;
+
   color:var(--muted);
+
   font-size:.95rem;
 }
 
@@ -413,25 +535,37 @@ header{
 
 .map-grid{
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:18px;
+
   margin-top:22px;
 }
 
 .map-box{
   border:1px solid var(--border);
+
   border-radius:22px;
+
   overflow:hidden;
+
   background:#fff;
+
   box-shadow:var(--shadow);
 }
 
 .map-head{
   padding:16px 18px;
+
   border-bottom:1px solid var(--border);
+
   display:flex;
+
   justify-content:space-between;
+
   flex-wrap:wrap;
+
   gap:12px;
 }
 
@@ -464,14 +598,19 @@ header{
 
 .stats-grid{
   display:grid;
+
   grid-template-columns:1fr 1fr;
+
   gap:18px;
+
   margin-top:22px;
 }
 
 .big-counter{
   padding:26px;
+
   border-radius:24px;
+
   background:
     linear-gradient(
       135deg,
@@ -479,8 +618,11 @@ header{
       #1f6f8b 55%,
       #f28c28
     );
+
   color:#fff;
-  box-shadow:0 18px 36px rgba(16,42,67,.18);
+
+  box-shadow:
+    0 18px 36px rgba(16,42,67,.18);
 }
 
 .counter-label{
@@ -490,8 +632,11 @@ header{
 
 .counter-num{
   font-size:clamp(2.6rem,7vw,5rem);
+
   line-height:1;
+
   font-weight:900;
+
   margin-top:10px;
 }
 
@@ -508,16 +653,23 @@ header{
 
 .mini-card{
   background:#fff;
+
   border:1px solid var(--border);
+
   border-radius:22px;
+
   padding:20px;
+
   box-shadow:var(--shadow);
 }
 
 .mini-value{
   font-size:2rem;
+
   font-weight:900;
+
   color:var(--blue);
+
   margin-top:8px;
 }
 
@@ -528,9 +680,13 @@ header{
 
 .footer-note{
   margin-top:18px;
+
   color:var(--navy);
+
   font-weight:800;
+
   text-transform:uppercase;
+
   letter-spacing:.05em;
 }
 
@@ -582,11 +738,6 @@ header{
     padding:7px 10px;
   }
 
-  .logo img{
-    width:50px;
-    height:50px;
-  }
-
 }
 
 </style>
@@ -604,51 +755,60 @@ header{
 
 <div class="container nav">
 
+
+<!-- ORIGINAL OG LOGO -->
+
 <a
-  class="logo"
-  href="index.html"
-  aria-label="DRONES4AID Home"
+class="logo"
+href="index.html"
+aria-label="DRONES4AID Home"
 >
 
-<img
-  src="logo.jpeg"
-  alt="DRONES4AID Logo"
+<span
+class="diamond"
+aria-hidden="true"
 >
+
+<span class="star">
+✦
+</span>
+
+</span>
 
 <span class="logo-text">
-  DRONES4AID
+DRONES4AID
 </span>
 
 </a>
 
 
 <nav
-  class="topnav"
-  aria-label="Section navigation"
+class="topnav"
+aria-label="Section navigation"
 >
 
 <a href="index.html">
-  Home
+Home
 </a>
 
 <a href="#timeline">
-  Timeline
+Timeline
 </a>
 
 <a href="#goals">
-  Our Goal
+Our Goal
 </a>
 
 <a href="#maps">
-  Global Reach
+Global Reach
 </a>
 
 <a href="#drone-performance">
-  Drone Performance
+Drone Performance
 </a>
 
 <a href="#counters">
-  Live Counters
+Live Counters
 </a>
 
 </nav>
@@ -663,8 +823,8 @@ header{
 ========================= -->
 
 <section
-  class="hero"
-  id="home"
+class="hero"
+id="home"
 >
 
 <div class="hero-copy">
@@ -672,32 +832,33 @@ header{
 <div class="container">
 
 <div class="eyebrow">
-  Statistics
+Statistics
 </div>
 
 <h1>
-  Statistics
+Statistics
 </h1>
 
 <p>
-  These statistics are about our company and the way our
-  humanitarian work grows across regions, goals, operations,
-  and volunteer support.
+These statistics are about our company and the way our
+humanitarian work grows across regions, goals, operations,
+and volunteer support.
 </p>
 
 <p>
-  They show where we work, what we are building, and how far
-  our aid systems have progressed over time.
+They show where we work, what we are building, and how far
+our aid systems have progressed over time.
 </p>
 
 <p>
-  Use the sections below to explore the timeline, goals,
-  maps, performance, and live counters.
+Use the sections below to explore the timeline, goals,
+maps, performance, and live counters.
 </p>
 
 </div>
 
 </div>
+
 
 <div class="hero-img"></div>
 
@@ -709,8 +870,8 @@ header{
 ========================= -->
 
 <section
-  class="container"
-  id="timeline"
+class="container"
+id="timeline"
 >
 
 <div class="section-head">
@@ -718,12 +879,12 @@ header{
 <div>
 
 <h2 class="title">
-  Timeline
+Timeline
 </h2>
 
 <p class="lead">
-  Click any year to expand the event and see a short
-  explanation of what happened in that period.
+Click any year to expand the event and see a short
+explanation of what happened in that period.
 </p>
 
 </div>
@@ -743,11 +904,11 @@ header{
 <div class="timeline-top">
 
 <div class="timeline-year">
-  2016
+2016
 </div>
 
 <div class="timeline-label">
-  Foundation phase
+Foundation phase
 </div>
 
 </div>
@@ -755,18 +916,18 @@ header{
 <div class="timeline-body">
 
 <p>
-  We began building the concept of a humanitarian drone
-  network and mapped the first mission models.
+We began building the concept of a humanitarian drone
+network and mapped the first mission models.
 </p>
 
 <p>
-  The focus was on research, safety, and defining how
-  technology could support civilians.
+The focus was on research, safety, and defining how
+technology could support civilians.
 </p>
 
 <p>
-  We also developed our early planning structure and
-  tested operational ideas for future deployment.
+We also developed our early planning structure and
+tested operational ideas for future deployment.
 </p>
 
 </div>
@@ -783,11 +944,11 @@ header{
 <div class="timeline-top">
 
 <div class="timeline-year">
-  2018
+2018
 </div>
 
 <div class="timeline-label">
-  Regional planning
+Regional planning
 </div>
 
 </div>
@@ -795,18 +956,18 @@ header{
 <div class="timeline-body">
 
 <p>
-  We expanded our humanitarian planning into
-  conflict-affected regions and refined logistics workflows.
+We expanded our humanitarian planning into
+conflict-affected regions and refined logistics workflows.
 </p>
 
 <p>
-  Teams began preparing for work in highly stressed
-  environments with limited ground access.
+Teams began preparing for work in highly stressed
+environments with limited ground access.
 </p>
 
 <p>
-  Our protocols were improved to keep aid delivery safe,
-  fast, and transparent.
+Our protocols were improved to keep aid delivery safe,
+fast, and transparent.
 </p>
 
 </div>
@@ -823,11 +984,11 @@ header{
 <div class="timeline-top">
 
 <div class="timeline-year">
-  2020
+2020
 </div>
 
 <div class="timeline-label">
-  Sahel operations
+Sahel operations
 </div>
 
 </div>
@@ -835,18 +996,18 @@ header{
 <div class="timeline-body">
 
 <p>
-  We supported planning for the Sahel region, where
-  access and infrastructure challenges were especially severe.
+We supported planning for the Sahel region, where
+access and infrastructure challenges were especially severe.
 </p>
 
 <p>
-  This helped us improve route planning, terrain analysis,
-  and field coordination.
+This helped us improve route planning, terrain analysis,
+and field coordination.
 </p>
 
 <p>
-  It also strengthened our role in high-need humanitarian
-  environments.
+It also strengthened our role in high-need humanitarian
+environments.
 </p>
 
 </div>
@@ -863,11 +1024,11 @@ header{
 <div class="timeline-top">
 
 <div class="timeline-year">
-  2022
+2022
 </div>
 
 <div class="timeline-label">
-  Ukraine and Russia border focus
+Ukraine and Russia border focus
 </div>
 
 </div>
@@ -875,18 +1036,18 @@ header{
 <div class="timeline-body">
 
 <p>
-  We expanded attention to Ukraine, Russia-adjacent border
-  conditions, and disrupted infrastructure zones.
+We expanded attention to Ukraine, Russia-adjacent border
+conditions, and disrupted infrastructure zones.
 </p>
 
 <p>
-  The work centered on rapid assessment, urgent aid
-  coordination, and safer movement of essential resources.
+The work centered on rapid assessment, urgent aid
+coordination, and safer movement of essential resources.
 </p>
 
 <p>
-  We also refined our response systems for unpredictable
-  emergency conditions.
+We also refined our response systems for unpredictable
+emergency conditions.
 </p>
 
 </div>
@@ -903,11 +1064,11 @@ header{
 <div class="timeline-top">
 
 <div class="timeline-year">
-  2023
+2023
 </div>
 
 <div class="timeline-label">
-  Palestine and Israel emergency support
+Palestine and Israel emergency support
 </div>
 
 </div>
@@ -915,18 +1076,18 @@ header{
 <div class="timeline-body">
 
 <p>
-  We strengthened our humanitarian planning for Palestine
-  and Israel during periods of severe stress and disruption.
+We strengthened our humanitarian planning for Palestine
+and Israel during periods of severe stress and disruption.
 </p>
 
 <p>
-  Our focus was on civilian need, access limits, and quick
-  operational coordination.
+Our focus was on civilian need, access limits, and quick
+operational coordination.
 </p>
 
 <p>
-  This phase helped us improve prioritisation and ethical
-  deployment logic.
+This phase helped us improve prioritisation and ethical
+deployment logic.
 </p>
 
 </div>
@@ -943,11 +1104,11 @@ header{
 <div class="timeline-top">
 
 <div class="timeline-year">
-  2024
+2024
 </div>
 
 <div class="timeline-label">
-  Balochistan and broader expansion
+Balochistan and broader expansion
 </div>
 
 </div>
@@ -955,19 +1116,19 @@ header{
 <div class="timeline-body">
 
 <p>
-  We expanded planning for Balochistan and other
-  difficult-access areas with strong emphasis on terrain
-  and safety.
+We expanded planning for Balochistan and other
+difficult-access areas with strong emphasis on terrain
+and safety.
 </p>
 
 <p>
-  We also improved coordination for food, medical items,
-  and essential packages.
+We also improved coordination for food, medical items,
+and essential packages.
 </p>
 
 <p>
-  By this stage our operations were broader, more structured,
-  and more adaptable.
+By this stage our operations were broader, more structured,
+and more adaptable.
 </p>
 
 </div>
@@ -984,11 +1145,11 @@ header{
 <div class="timeline-top">
 
 <div class="timeline-year">
-  2025
+2025
 </div>
 
 <div class="timeline-label">
-  Expansion and technology development
+Expansion and technology development
 </div>
 
 </div>
@@ -996,19 +1157,19 @@ header{
 <div class="timeline-body">
 
 <p>
-  We continued expanding our humanitarian drone network
-  and improving the systems used for aid delivery.
+We continued expanding our humanitarian drone network
+and improving the systems used for aid delivery.
 </p>
 
 <p>
-  The focus moved toward improving operational efficiency,
-  drone performance, and coordination across our existing
-  regions.
+The focus moved toward improving operational efficiency,
+drone performance, and coordination across our existing
+regions.
 </p>
 
 <p>
-  We also strengthened our long-term plans for sustainable
-  and reliable humanitarian drone deployment.
+We also strengthened our long-term plans for sustainable
+and reliable humanitarian drone deployment.
 </p>
 
 </div>
@@ -1025,11 +1186,11 @@ header{
 <div class="timeline-top">
 
 <div class="timeline-year">
-  2026
+2026
 </div>
 
 <div class="timeline-label">
-  Current phase
+Current phase
 </div>
 
 </div>
@@ -1037,19 +1198,19 @@ header{
 <div class="timeline-body">
 
 <p>
-  In 2026, DRONES4AID continues developing its humanitarian
-  drone systems and expanding its global operational vision.
+In 2026, DRONES4AID continues developing its humanitarian
+drone systems and expanding its global operational vision.
 </p>
 
 <p>
-  Our current focus is on improving delivery capability,
-  volunteer coordination, drone performance, and access to
-  communities affected by crises.
+Our current focus is on improving delivery capability,
+volunteer coordination, drone performance, and access to
+communities affected by crises.
 </p>
 
 <p>
-  We are also working toward our longer-term 2028 and 2030
-  goals while continuing to build a more sustainable aid network.
+We are also working toward our longer-term 2028 and 2030
+goals while continuing to build a more sustainable aid network.
 </p>
 
 </div>
@@ -1067,8 +1228,8 @@ header{
 ========================= -->
 
 <section
-  class="container"
-  id="goals"
+class="container"
+id="goals"
 >
 
 <div class="section-head">
@@ -1076,11 +1237,11 @@ header{
 <div>
 
 <h2 class="title">
-  Our Goal
+Our Goal
 </h2>
 
 <p class="lead">
-  Switch between goals to see the progress bar for each target.
+Switch between goals to see the progress bar for each target.
 </p>
 
 </div>
@@ -1094,24 +1255,24 @@ header{
 <div class="goal-list">
 
 <button
-  class="goal-btn active"
-  data-goal="g1"
+class="goal-btn active"
+data-goal="g1"
 >
-  2030 Goal
+2030 Goal
 </button>
 
 <button
-  class="goal-btn"
-  data-goal="g2"
+class="goal-btn"
+data-goal="g2"
 >
-  2028 Goal
+2028 Goal
 </button>
 
 <button
-  class="goal-btn"
-  data-goal="g3"
+class="goal-btn"
+data-goal="g3"
 >
-  Biggest Goal
+Biggest Goal
 </button>
 
 </div>
@@ -1120,33 +1281,33 @@ header{
 <div class="goal-panel">
 
 <div
-  class="goal-name"
-  id="goalName"
+class="goal-name"
+id="goalName"
 >
-  2030 goal: replenish 25% of global disputes
+2030 goal: replenish 25% of global disputes
 </div>
 
 <div
-  class="goal-desc"
-  id="goalDesc"
+class="goal-desc"
+id="goalDesc"
 >
-  This target represents one of our long-term humanitarian
-  ambitions, balancing prevention, aid, and crisis reduction.
+This target represents one of our long-term humanitarian
+ambitions, balancing prevention, aid, and crisis reduction.
 </div>
 
 
 <div class="progress-shell">
 
 <div
-  class="progress-bar"
-  id="goalBar"
+class="progress-bar"
+id="goalBar"
 ></div>
 
 <div
-  class="progress-text"
-  id="goalPct"
+class="progress-text"
+id="goalPct"
 >
-  74%
+74%
 </div>
 
 </div>
@@ -1155,11 +1316,11 @@ header{
 <div class="progress-meta">
 
 <span id="goalLeft">
-  74% complete
+74% complete
 </span>
 
-<span id="goalRight">
-  Target progress updated live
+<span>
+Target progress updated live
 </span>
 
 </div>
@@ -1176,8 +1337,8 @@ header{
 ========================= -->
 
 <section
-  class="container"
-  id="maps"
+class="container"
+id="maps"
 >
 
 <div class="section-head">
@@ -1185,12 +1346,12 @@ header{
 <div>
 
 <h2 class="title">
-  Global Reach
+Global Reach
 </h2>
 
 <p class="lead">
-  The first map shows our operating stress levels,
-  and the second map shows our deployment cities.
+The first map shows our operating stress levels,
+and the second map shows our deployment cities.
 </p>
 
 </div>
@@ -1206,18 +1367,18 @@ header{
 <div class="map-head">
 
 <strong>
-  Where we work
+Where we work
 </strong>
 
 <span class="map-note">
-  Stress-coded operating areas
+Stress-coded operating areas
 </span>
 
 </div>
 
 <div
-  id="stressMap"
-  class="map-div"
+id="stressMap"
+class="map-div"
 ></div>
 
 </div>
@@ -1228,22 +1389,21 @@ header{
 <div class="map-head">
 
 <strong>
-  Deployment areas
+Deployment areas
 </strong>
 
 <span class="map-note">
-  Global city network
+Global city network
 </span>
 
 </div>
 
 <div
-  id="deployMap"
-  class="map-div"
+id="deployMap"
+class="map-div"
 ></div>
 
 </div>
-
 
 </div>
 
@@ -1255,8 +1415,8 @@ header{
 ========================= -->
 
 <section
-  class="container"
-  id="drone-performance"
+class="container"
+id="drone-performance"
 >
 
 <div class="section-head">
@@ -1264,12 +1424,12 @@ header{
 <div>
 
 <h2 class="title">
-  Drone Performance
+Drone Performance
 </h2>
 
 <p class="lead">
-  A simple performance bar graph showing a stylized
-  overview of major humanitarian drone metrics.
+A simple performance bar graph showing a stylized
+overview of major humanitarian drone metrics.
 </p>
 
 </div>
@@ -1280,8 +1440,8 @@ header{
 <div class="card chart-wrap">
 
 <div
-  id="performanceChart"
-  style="height:520px;"
+id="performanceChart"
+style="height:520px"
 ></div>
 
 </div>
@@ -1294,8 +1454,8 @@ header{
 ========================= -->
 
 <section
-  class="container"
-  id="counters"
+class="container"
+id="counters"
 >
 
 <div class="section-head">
@@ -1303,11 +1463,11 @@ header{
 <div>
 
 <h2 class="title">
-  Live Counters
+Live Counters
 </h2>
 
 <p class="lead">
-  These counters keep increasing over time and do not reset on refresh.
+These counters keep increasing over time and do not reset on refresh.
 </p>
 
 </div>
@@ -1323,14 +1483,14 @@ header{
 <div class="mini-card">
 
 <div class="counter-label">
-  Total volunteers all over the world
+Total volunteers all over the world
 </div>
 
 <div
-  class="mini-value"
-  id="volCounter"
+class="mini-value"
+id="volCounter"
 >
-  0
+0
 </div>
 
 </div>
@@ -1339,14 +1499,14 @@ header{
 <div class="mini-card">
 
 <div class="counter-label">
-  Cities with most volunteers
+Cities with most volunteers
 </div>
 
 <div
-  class="mini-list"
-  id="topCitiesList"
+class="mini-list"
+id="topCitiesList"
 >
-  Loading volunteer cities...
+Loading volunteer cities...
 </div>
 
 </div>
@@ -1357,14 +1517,14 @@ header{
 <div class="big-counter">
 
 <div class="counter-label">
-  Packages delivered
+Packages delivered
 </div>
 
 <div
-  class="counter-num"
-  id="pkgCounter"
+class="counter-num"
+id="pkgCounter"
 >
-  0
+0
 </div>
 
 <div class="counter-note">
@@ -1381,7 +1541,7 @@ our operating areas.
 
 
 <div class="footer-note">
-  official statistics of Drones4Aid
+official statistics of Drones4Aid
 </div>
 
 </section>
@@ -1393,7 +1553,9 @@ our operating areas.
 
 <script>
 
-document.addEventListener('DOMContentLoaded',function(){
+document.addEventListener(
+'DOMContentLoaded',
+function(){
 
 
 /* =========================
@@ -1404,30 +1566,40 @@ document
 .querySelectorAll('.timeline-item')
 .forEach(function(item){
 
-  function toggle(){
+function toggle(){
 
-    var isOpen =
-      item.classList.contains('open');
+var isOpen=
+item.classList.contains('open');
 
-    document
-    .querySelectorAll('.timeline-item')
-    .forEach(function(i){
-      i.classList.remove('open');
-    });
+document
+.querySelectorAll('.timeline-item')
+.forEach(function(i){
 
-    if(!isOpen){
-      item.classList.add('open');
-    }
+i.classList.remove('open');
 
-  }
+});
 
-  item
-  .querySelector('.timeline-dot')
-  .addEventListener('click',toggle);
+if(!isOpen){
 
-  item
-  .querySelector('.timeline-top')
-  .addEventListener('click',toggle);
+item.classList.add('open');
+
+}
+
+}
+
+item
+.querySelector('.timeline-dot')
+.addEventListener(
+'click',
+toggle
+);
+
+item
+.querySelector('.timeline-top')
+.addEventListener(
+'click',
+toggle
+);
 
 });
 
@@ -1438,62 +1610,84 @@ document
 
 var goals={
 
-  g1:{
-    name:'2030 goal: replenish 25% of global disputes',
-    desc:'This target represents one of our long-term humanitarian ambitions, balancing prevention, aid, and crisis reduction.',
-    pct:74
-  },
+g1:{
+name:
+'2030 goal: replenish 25% of global disputes',
 
-  g2:{
-    name:'2028 goal: fully solar powered drones',
-    desc:'This goal focuses on cleaner energy, lighter logistics, and more sustainable humanitarian deployment.',
-    pct:81
-  },
+desc:
+'This target represents one of our long-term humanitarian ambitions, balancing prevention, aid, and crisis reduction.',
 
-  g3:{
-    name:'Biggest goal: eradicate global disputes and provide aid to everybody',
-    desc:'This is our largest mission target and the most important one because it represents universal safety and access to aid.',
-    pct:19
-  }
+pct:74
+},
+
+g2:{
+name:
+'2028 goal: fully solar powered drones',
+
+desc:
+'This goal focuses on cleaner energy, lighter logistics, and more sustainable humanitarian deployment.',
+
+pct:81
+},
+
+g3:{
+name:
+'Biggest goal: eradicate global disputes and provide aid to everybody',
+
+desc:
+'This is our largest mission target and the most important one because it represents universal safety and access to aid.',
+
+pct:19
+}
 
 };
 
 
 function setGoal(key){
 
-  document
-  .querySelectorAll('.goal-btn')
-  .forEach(function(button){
+document
+.querySelectorAll('.goal-btn')
+.forEach(function(button){
 
-    button.classList.toggle(
-      'active',
-      button.dataset.goal===key
-    );
+button.classList.toggle(
+'active',
+button.dataset.goal===key
+);
 
-  });
+});
 
 
-  var goal=goals[key];
+var goal=goals[key];
 
-  document
-  .getElementById('goalName')
-  .textContent=goal.name;
 
-  document
-  .getElementById('goalDesc')
-  .textContent=goal.desc;
+document
+.getElementById('goalName')
+.textContent=
+goal.name;
 
-  document
-  .getElementById('goalPct')
-  .textContent=goal.pct+'%';
 
-  document
-  .getElementById('goalBar')
-  .style.width=goal.pct+'%';
+document
+.getElementById('goalDesc')
+.textContent=
+goal.desc;
 
-  document
-  .getElementById('goalLeft')
-  .textContent=goal.pct+'% complete';
+
+document
+.getElementById('goalPct')
+.textContent=
+goal.pct+'%';
+
+
+document
+.getElementById('goalBar')
+.style.width=
+goal.pct+'%';
+
+
+document
+.getElementById('goalLeft')
+.textContent=
+goal.pct+'% complete';
 
 }
 
@@ -1502,41 +1696,27 @@ document
 .querySelectorAll('.goal-btn')
 .forEach(function(button){
 
-  button.addEventListener(
-    'click',
-    function(){
-      setGoal(button.dataset.goal);
-    }
-  );
+button.addEventListener(
+'click',
+function(){
+
+setGoal(
+button.dataset.goal
+);
 
 });
+
+});
+
 
 setGoal('g1');
 
 
 /* =========================
-   CHECK PLOTLY
-========================= */
-
-if(typeof Plotly==='undefined'){
-
-  document
-  .querySelectorAll('.map-div,#performanceChart')
-  .forEach(function(el){
-
-    el.innerHTML=
-      '<div style="padding:30px;color:#b42318;font-weight:700;">' +
-      'Charts could not load. Please make sure you are connected to the internet.' +
-      '</div>';
-
-  });
-
-}else{
-
-
-/* =========================
    STRESS MAP
 ========================= */
+
+if(typeof Plotly!=='undefined'){
 
 Plotly.newPlot(
 
@@ -1544,128 +1724,138 @@ Plotly.newPlot(
 
 [{
 
-  type:'scattergeo',
+type:'scattergeo',
 
-  mode:'markers+text',
+mode:'markers+text',
 
-  text:[
-    'Kyiv',
-    'Russia-Ukraine border',
-    'Gaza',
-    'Tel Aviv',
-    'Niger-Mali-Burkina border',
-    'Balochistan',
-    'Beirut',
-    'Tehran'
-  ],
+text:[
+'Kyiv',
+'Russia-Ukraine border',
+'Gaza',
+'Tel Aviv',
+'Niger-Mali-Burkina border',
+'Balochistan',
+'Beirut',
+'Tehran'
+],
 
-  lon:[
-    30.5234,
-    34.0,
-    34.47,
-    34.78,
-    2.0,
-    66.0,
-    35.5,
-    51.389
-  ],
+lon:[
+30.5234,
+34,
+34.47,
+34.78,
+2,
+66,
+35.5,
+51.389
+],
 
-  lat:[
-    50.45,
-    49.0,
-    31.5,
-    32.1,
-    14.5,
-    28.0,
-    33.89,
-    35.689
-  ],
+lat:[
+50.45,
+49,
+31.5,
+32.1,
+14.5,
+28,
+33.89,
+35.689
+],
 
-  textposition:'top center',
+textposition:
+'top center',
 
-  marker:{
+marker:{
 
-    size:[
-      15,
-      16,
-      18,
-      12,
-      17,
-      15,
-      13,
-      12
-    ],
+size:[
+15,
+16,
+18,
+12,
+17,
+15,
+13,
+12
+],
 
-    color:[
-      95,
-      92,
-      88,
-      62,
-      84,
-      80,
-      66,
-      70
-    ],
+color:[
+95,
+92,
+88,
+62,
+84,
+80,
+66,
+70
+],
 
-    colorscale:[
-      [0,'#2ecc71'],
-      [0.35,'#f4c542'],
-      [0.7,'#f39c12'],
-      [1,'#e74c3c']
-    ],
+colorscale:[
 
-    cmin:50,
-    cmax:100,
+[0,'#2ecc71'],
 
-    line:{
-      color:'#fff',
-      width:1.5
-    },
+[0.35,'#f4c542'],
 
-    colorbar:{
-      title:'Stress'
-    }
+[0.7,'#f39c12'],
 
-  },
+[1,'#e74c3c']
 
-  hovertemplate:
-    '%{text}<extra></extra>'
+],
+
+cmin:50,
+
+cmax:100,
+
+line:{
+color:'#fff',
+width:1.5
+},
+
+colorbar:{
+title:'Stress'
+}
+
+},
+
+hovertemplate:
+'%{text}<extra></extra>'
 
 }],
 
 {
 
-  geo:{
+geo:{
 
-    scope:'world',
+scope:'world',
 
-    projection:{
-      type:'natural earth'
-    },
+projection:{
+type:'natural earth'
+},
 
-    showland:true,
-    landcolor:'#f2f5f8',
+showland:true,
 
-    showocean:true,
-    oceancolor:'#eaf4fb',
+landcolor:'#f2f5f8',
 
-    showcountries:true,
-    countrycolor:'#cfd8e3'
+showocean:true,
 
-  },
+oceancolor:'#eaf4fb',
 
-  margin:{
-    l:0,
-    r:0,
-    t:0,
-    b:0
-  }
+showcountries:true,
+
+countrycolor:'#cfd8e3'
+
+},
+
+margin:{
+l:0,
+r:0,
+t:0,
+b:0
+}
 
 },
 
 {
-  displayModeBar:false,
-  responsive:true
+displayModeBar:false,
+responsive:true
 }
 
 );
@@ -1681,123 +1871,127 @@ Plotly.newPlot(
 
 [{
 
-  type:'scattergeo',
+type:'scattergeo',
 
-  mode:'markers+text',
+mode:'markers+text',
 
-  text:[
-    'Delhi',
-    'Bangalore',
-    'Chennai',
-    'New York',
-    'Rio',
-    'Los Angeles',
-    'Toronto',
-    'Berlin',
-    'Paris',
-    'London',
-    'Madrid',
-    'Zurich',
-    'Nairobi',
-    'Rabat',
-    'Johannesburg',
-    'Sydney',
-    'Wellington'
-  ],
+text:[
+'Delhi',
+'Bangalore',
+'Chennai',
+'New York',
+'Rio',
+'Los Angeles',
+'Toronto',
+'Berlin',
+'Paris',
+'London',
+'Madrid',
+'Zurich',
+'Nairobi',
+'Rabat',
+'Johannesburg',
+'Sydney',
+'Wellington'
+],
 
-  lon:[
-    77.2090,
-    77.5946,
-    80.2707,
-    -74.0060,
-    -43.1729,
-    -118.2437,
-    -79.3832,
-    13.4050,
-    2.3522,
-    -0.1276,
-    -3.7038,
-    8.5417,
-    36.8219,
-    -7.5898,
-    28.0473,
-    151.2093,
-    174.7762
-  ],
+lon:[
+77.2090,
+77.5946,
+80.2707,
+-74.0060,
+-43.1729,
+-118.2437,
+-79.3832,
+13.4050,
+2.3522,
+-0.1276,
+-3.7038,
+8.5417,
+36.8219,
+-7.5898,
+28.0473,
+151.2093,
+174.7762
+],
 
-  lat:[
-    28.6139,
-    12.9716,
-    13.0827,
-    40.7128,
-    -22.9068,
-    34.0522,
-    43.6532,
-    52.5200,
-    48.8566,
-    51.5074,
-    40.4168,
-    47.3769,
-    -1.2921,
-    33.9716,
-    -26.2041,
-    -33.8688,
-    -41.2866
-  ],
+lat:[
+28.6139,
+12.9716,
+13.0827,
+40.7128,
+-22.9068,
+34.0522,
+43.6532,
+52.5200,
+48.8566,
+51.5074,
+40.4168,
+47.3769,
+-1.2921,
+33.9716,
+-26.2041,
+-33.8688,
+-41.2866
+],
 
-  textposition:'top center',
+textposition:
+'top center',
 
-  marker:{
+marker:{
 
-    size:11,
+size:11,
 
-    color:'#1f6f8b',
+color:'#1f6f8b',
 
-    line:{
-      color:'#fff',
-      width:1.4
-    }
+line:{
+color:'#fff',
+width:1.4
+}
 
-  },
+},
 
-  hovertemplate:
-    '%{text}<extra></extra>'
+hovertemplate:
+'%{text}<extra></extra>'
 
 }],
 
 {
 
-  geo:{
+geo:{
 
-    scope:'world',
+scope:'world',
 
-    projection:{
-      type:'natural earth'
-    },
+projection:{
+type:'natural earth'
+},
 
-    showland:true,
-    landcolor:'#f2f5f8',
+showland:true,
 
-    showocean:true,
-    oceancolor:'#eef9ff',
+landcolor:'#f2f5f8',
 
-    showcountries:true,
-    countrycolor:'#cfd8e3'
+showocean:true,
 
-  },
+oceancolor:'#eef9ff',
 
-  margin:{
-    l:0,
-    r:0,
-    t:0,
-    b:0
-  }
+showcountries:true,
+
+countrycolor:'#cfd8e3'
+
+},
+
+margin:{
+l:0,
+r:0,
+t:0,
+b:0
+}
 
 },
 
 {
-  displayModeBar:false,
-  responsive:true
+displayModeBar:false,
+responsive:true
 }
 
 );
@@ -1813,99 +2007,106 @@ Plotly.newPlot(
 
 [{
 
-  type:'bar',
+type:'bar',
 
-  x:[
-    'Delivery speed',
-    'Payload safety',
-    'Battery endurance',
-    'Navigation accuracy',
-    'Mission success'
-  ],
+x:[
+'Delivery speed',
+'Payload safety',
+'Battery endurance',
+'Navigation accuracy',
+'Mission success'
+],
 
-  y:[
-    86,
-    92,
-    78,
-    89,
-    84
-  ],
+y:[
+86,
+92,
+78,
+89,
+84
+],
 
-  marker:{
+marker:{
 
-    color:[
-      '#1f6f8b',
-      '#20a4a8',
-      '#f4c542',
-      '#7b5cff',
-      '#f28c28'
-    ],
+color:[
+'#1f6f8b',
+'#20a4a8',
+'#f4c542',
+'#7b5cff',
+'#f28c28'
+],
 
-    line:{
-      color:'#102a43',
-      width:1
-    }
+line:{
+color:'#102a43',
+width:1
+}
 
-  },
+},
 
-  text:[
-    '86%',
-    '92%',
-    '78%',
-    '89%',
-    '84%'
-  ],
+text:[
+'86%',
+'92%',
+'78%',
+'89%',
+'84%'
+],
 
-  textposition:'auto',
+textposition:
+'auto',
 
-  hovertemplate:
-    '%{x}: %{y}%<extra></extra>'
+hovertemplate:
+'%{x}: %{y}%<extra></extra>'
 
 }],
 
 {
 
-  title:{
-    text:'Drone performance overview',
+title:{
 
-    font:{
-      color:'#102a43',
-      size:18
-    }
-  },
+text:
+'Drone performance overview',
 
-  paper_bgcolor:'#fff',
-  plot_bgcolor:'#fff',
+font:{
+color:'#102a43',
+size:18
+}
 
-  margin:{
-    l:50,
-    r:20,
-    t:50,
-    b:50
-  },
+},
 
-  yaxis:{
+paper_bgcolor:'#fff',
 
-    range:[
-      0,
-      100
-    ],
+plot_bgcolor:'#fff',
 
-    title:'Performance %',
+margin:{
+l:50,
+r:20,
+t:50,
+b:50
+},
 
-    gridcolor:'#e8eef5'
+yaxis:{
 
-  },
+range:[
+0,
+100
+],
 
-  xaxis:{
-    tickangle:-15
-  }
+title:
+'Performance %',
+
+gridcolor:
+'#e8eef5'
+
+},
+
+xaxis:{
+tickangle:-15
+}
 
 },
 
 {
-  displayModeBar:false,
-  responsive:true
+displayModeBar:false,
+responsive:true
 }
 
 );
@@ -1917,157 +2118,192 @@ Plotly.newPlot(
    LIVE COUNTERS
 ========================= */
 
-var storeKey='drones4aid_stats_live';
+var storeKey=
+'drones4aid_stats_live';
 
-var data;
+
+var data={};
 
 try{
 
-  data=JSON.parse(
-    localStorage.getItem(storeKey)||'{}'
-  );
+data=
+JSON.parse(
+localStorage.getItem(storeKey)||'{}'
+)||{};
 
-}catch(e){
+}catch(error){
 
-  data={};
+data={};
 
 }
 
 
 function randInt(min,max){
 
-  return Math.floor(
-    Math.random()*(max-min+1)
-  )+min;
+return Math.floor(
+Math.random()*
+(max-min+1)
+)+min;
 
 }
 
 
 if(data.volunteers==null){
-  data.volunteers=0;
+
+data.volunteers=0;
+
 }
 
+
 if(data.packages==null){
-  data.packages=0;
+
+data.packages=0;
+
 }
 
 
 if(!data.cityCounts){
 
-  data.cityCounts={
+data.cityCounts={
 
-    Delhi:0,
-    Bangalore:0,
-    Chennai:0,
-    'New York':0,
-    Rio:0,
-    'Los Angeles':0,
-    Toronto:0,
-    Berlin:0,
-    Paris:0,
-    London:0,
-    Madrid:0,
-    Zurich:0,
-    Nairobi:0,
-    Rabat:0,
-    Johannesburg:0,
-    Sydney:0,
-    Wellington:0
+Delhi:0,
 
-  };
+Bangalore:0,
+
+Chennai:0,
+
+'New York':0,
+
+Rio:0,
+
+'Los Angeles':0,
+
+Toronto:0,
+
+Berlin:0,
+
+Paris:0,
+
+London:0,
+
+Madrid:0,
+
+Zurich:0,
+
+Nairobi:0,
+
+Rabat:0,
+
+Johannesburg:0,
+
+Sydney:0,
+
+Wellington:0
+
+};
 
 }
 
 
 function bumpCounters(){
 
-  data.volunteers+=randInt(1,7);
-
-  data.packages+=randInt(1,10);
-
-
-  Object
-  .keys(data.cityCounts)
-  .forEach(function(city){
-
-    data.cityCounts[city]+=randInt(0,1);
-
-  });
+data.volunteers+=
+randInt(1,7);
 
 
-  var cityTotal=
-    Object
-    .values(data.cityCounts)
-    .reduce(function(a,b){
-      return a+b;
-    },0);
+data.packages+=
+randInt(1,10);
 
 
-  if(cityTotal>data.volunteers){
+Object
+.keys(data.cityCounts)
+.forEach(function(city){
 
-    data.volunteers=
-      cityTotal+randInt(1,3);
+data.cityCounts[city]+=
+randInt(0,1);
 
-  }
+});
 
 
-  try{
+var cityTotal=
+Object
+.values(data.cityCounts)
+.reduce(
+function(a,b){
+return a+b;
+},
+0
+);
 
-    localStorage.setItem(
-      storeKey,
-      JSON.stringify(data)
-    );
 
-  }catch(e){}
+if(cityTotal>data.volunteers){
+
+data.volunteers=
+cityTotal+
+randInt(1,3);
+
+}
+
+
+try{
+
+localStorage.setItem(
+storeKey,
+JSON.stringify(data)
+);
+
+}catch(error){}
 
 }
 
 
 function renderCounters(){
 
-  document
-  .getElementById('volCounter')
-  .textContent=
-    data.volunteers.toLocaleString();
+document
+.getElementById('volCounter')
+.textContent=
+data.volunteers.toLocaleString();
 
 
-  document
-  .getElementById('pkgCounter')
-  .textContent=
-    data.packages.toLocaleString();
+document
+.getElementById('pkgCounter')
+.textContent=
+data.packages.toLocaleString();
 
 
-  var topCities=
-    Object
-    .entries(data.cityCounts)
-    .sort(function(a,b){
-      return b[1]-a[1];
-    })
-    .slice(0,5);
+var topCities=
+Object
+.entries(data.cityCounts)
+.sort(
+function(a,b){
+return b[1]-a[1];
+}
+)
+.slice(0,5);
 
 
-  document
-  .getElementById('topCitiesList')
-  .innerHTML=
-    topCities
-    .map(function(entry,index){
+document
+.getElementById('topCitiesList')
+.innerHTML=
 
-      var city=entry[0];
-      var count=entry[1];
+topCities
+.map(
+function(entry,index){
 
-      return(
-        '<div>' +
-        (index+1) +
-        '. ' +
-        city +
-        ' — ' +
-        count +
-        ' volunteers' +
-        '</div>'
-      );
+return(
+'<div>'+
+(index+1)+
+'. '+
+entry[0]+
+' — '+
+entry[1]+
+' volunteers'+
+'</div>'
+);
 
-    })
-    .join('');
+}
+)
+.join('');
 
 }
 
@@ -2075,14 +2311,19 @@ function renderCounters(){
 renderCounters();
 
 
-setInterval(function(){
+setInterval(
 
-  bumpCounters();
+function(){
 
-  renderCounters();
+bumpCounters();
 
-},6000);
+renderCounters();
 
+},
+
+6000
+
+);
 
 });
 
