@@ -269,6 +269,76 @@
     }
 
     /* =========================
+       FACTS ABOUT OUR DRONES
+    ========================= */
+
+    .facts-section{
+      background:var(--white);
+    }
+
+    .facts-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      margin-top:28px;
+    }
+
+    .fact-card{
+      background:linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f3f9fc 100%
+      );
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .fact-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 16px 34px rgba(16,42,67,.13);
+    }
+
+    .fact-icon{
+      width:48px;
+      height:48px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:var(--light);
+      color:var(--blue);
+      font-size:1.35rem;
+      margin-bottom:14px;
+      border:1px solid var(--border);
+    }
+
+    .fact-card h3{
+      color:var(--navy);
+      margin-bottom:8px;
+      font-size:1.1rem;
+    }
+
+    .fact-card p{
+      color:var(--muted);
+      font-size:.96rem;
+    }
+
+    .fact-highlight{
+      margin-top:28px;
+      padding:20px 22px;
+      border-left:5px solid var(--orange);
+      border-radius:8px;
+      background:#fff4df;
+      color:#5a431d;
+    }
+
+    .fact-highlight strong{
+      color:var(--navy);
+    }
+
+    /* =========================
        DRONE CARDS
     ========================= */
 
@@ -1204,7 +1274,8 @@
       .two,
       .monitor-grid,
       .catalog,
-      .mission-shell{
+      .mission-shell,
+      .facts-grid{
         grid-template-columns:1fr;
       }
 
@@ -1281,9 +1352,12 @@
 
       <nav aria-label="Main navigation" class="topnav">
 
-        <!-- HOME BUTTON -->
         <a class="home-button" href="./index.html">
           Home
+        </a>
+
+        <a href="#facts">
+          Facts
         </a>
 
         <a href="#models">
@@ -1338,6 +1412,308 @@
     <div
       class="hero-visual"
       aria-label="Drone image">
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FACTS ABOUT OUR DRONES
+  ========================= -->
+
+  <section id="facts" class="section facts-section">
+
+    <div class="container">
+
+      <div class="eyebrow" style="background:#eef7fb;color:#102a43;border-color:#dbe3ea;">
+        Drone Facts
+      </div>
+
+      <h2>
+        Facts About Our Drones
+      </h2>
+
+      <p class="lead">
+        Drone capabilities vary depending on the model, payload, weather,
+        battery condition, and operating environment. Here are some of the
+        key facts that matter when planning humanitarian drone operations.
+      </p>
+
+
+      <div class="facts-grid">
+
+        <!-- FACT 1 -->
+
+        <article class="fact-card">
+
+          <div class="fact-icon">
+            🔋
+          </div>
+
+          <h3>
+            Approx. 25 km operational range
+          </h3>
+
+          <p>
+            Our deployment planning uses an approximate maximum operating
+            distance of around 25 km for the relevant drone systems. Actual
+            range can vary depending on the drone model, battery condition,
+            weather, payload, signal conditions, and flight conditions.
+          </p>
+
+        </article>
+
+
+        <!-- FACT 2 -->
+
+        <article class="fact-card">
+
+          <div class="fact-icon">
+            📦
+          </div>
+
+          <h3>
+            Payload capacity varies
+          </h3>
+
+          <p>
+            Depending on the drone model and configuration, the payload
+            capacity considered for our systems ranges from approximately
+            300 grams to 1,063 grams. Payload limits must always be respected
+            to maintain safe and stable flight.
+          </p>
+
+        </article>
+
+
+        <!-- FACT 3 -->
+
+        <article class="fact-card">
+
+          <div class="fact-icon">
+            ⏱️
+          </div>
+
+          <h3>
+            Flight time depends on the model
+          </h3>
+
+          <p>
+            Battery life is not identical across every drone. Flight time
+            changes according to the model, payload, wind, temperature,
+            flight speed, battery condition, and other operating conditions.
+          </p>
+
+        </article>
+
+
+        <!-- FACT 4 -->
+
+        <article class="fact-card">
+
+          <div class="fact-icon">
+            🧭
+          </div>
+
+          <h3>
+            Navigation systems
+          </h3>
+
+          <p>
+            Modern humanitarian drones can use satellite navigation,
+            onboard sensors, positioning systems, and automated flight
+            assistance to help operators maintain awareness of the aircraft.
+          </p>
+
+        </article>
+
+
+        <!-- FACT 5 -->
+
+        <article class="fact-card">
+
+          <div class="fact-icon">
+        🔎
+          </div>
+
+          <h3>
+            Obstacle awareness
+          </h3>
+
+          <p>
+            Some drone models include obstacle-sensing technology that can
+            help identify objects around the aircraft. The exact sensors and
+            capabilities depend on the model being used.
+          </p>
+
+        </article>
+
+
+        <!-- FACT 6 -->
+
+        <article class="fact-card">
+
+          <div class="fact-icon">
+            📡
+          </div>
+
+          <h3>
+            Live monitoring
+          </h3>
+
+          <p>
+            Drone monitoring systems can provide information such as
+            battery status, position, altitude, speed, and communication
+            status, helping teams keep track of a mission.
+          </p>
+
+        </article>
+
+
+        <!-- FACT 7 -->
+
+        <article class="fact-card">
+
+          <div class="fact-icon">
+            🌧️
+          </div>
+
+          <h3>
+            Weather affects performance
+          </h3>
+
+          <p>
+            Rain, strong wind, extreme temperatures, and poor visibility can
+            affect battery performance, stability, communication, and overall
+            flight safety.
+          </p>
+
+        </article>
+
+
+        <!-- FACT 8 -->
+
+        <article class="fact-card">
+
+          <div class="fact-icon">
+            🎥
+          </div>
+
+          <h3>
+            Cameras can support assessment
+          </h3>
+
+          <p>
+            Camera-equipped drones can help teams inspect infrastructure,
+            assess access routes, observe environmental conditions, and
+            document humanitarian work where appropriate and authorised.
+          </p>
+
+        </article>
+
+
+        <!-- FACT 9 -->
+
+        <article class="fact-card">
+
+          <div class="fact-icon">
+            🩺
+          </div>
+
+          <h3>
+            Small humanitarian payloads
+          </h3>
+
+          <p>
+            Lightweight drones can be useful for transporting small,
+            time-sensitive humanitarian items such as first-aid supplies,
+            emergency essentials, communication equipment, or other approved
+            packages.
+          </p>
+
+        </article>
+
+
+        <!-- FACT 10 -->
+
+        <article class="fact-card">
+
+          <div class="fact-icon">
+            🔧
+          </div>
+
+          <h3>
+            Pre-flight checks matter
+          </h3>
+
+          <p>
+            Before deployment, teams should check the aircraft, battery,
+            sensors, communications, payload attachment, navigation system,
+            and other relevant equipment.
+          </p>
+
+        </article>
+
+
+        <!-- FACT 11 -->
+
+        <article class="fact-card">
+
+          <div class="fact-icon">
+            ☀️
+          </div>
+
+          <h3>
+            Solar-powered drones are being explored
+          </h3>
+
+          <p>
+            DRONES4AID is exploring the development of solar-powered drone
+            systems. Planned deployment of solar-powered drones is targeted
+            from 2028, subject to development, testing, safety, and
+            regulatory requirements.
+          </p>
+
+        </article>
+
+
+        <!-- FACT 12 -->
+
+        <article class="fact-card">
+
+          <div class="fact-icon">
+            🌱
+          </div>
+
+          <h3>
+            Environmental responsibility
+          </h3>
+
+          <p>
+            Humanitarian drone operations should aim to minimise unnecessary
+            disturbance to wildlife, communities, and the surrounding
+            environment.
+          </p>
+
+        </article>
+
+      </div>
+
+
+      <div class="fact-highlight">
+
+        <strong>
+          Important:
+        </strong>
+
+        Drone specifications are model-dependent. Range, payload,
+        battery life, speed, sensors, and weather resistance can all change
+        between aircraft and operating conditions. Actual deployment decisions
+        should therefore be based on the specifications and limitations of the
+        specific drone being used.
+
+      </div>
+
     </div>
 
   </section>
@@ -1737,8 +2113,6 @@
 
       <div class="mission-shell">
 
-        <!-- Scenario selector -->
-
         <div class="mission-panel card">
 
           <div class="card-body">
@@ -1830,8 +2204,6 @@
         </div>
 
 
-        <!-- Mission stage -->
-
         <div class="deploy-stage card">
 
           <div class="card-body stage-inner">
@@ -1843,7 +2215,6 @@
             </div>
 
 
-            <!-- THIS IS THE ONLY DEPLOY BUTTON -->
             <button
               class="deploy-big"
               id="deployMissionBtn"
@@ -1893,8 +2264,6 @@
               </div>
 
 
-              <!-- Animated drone -->
-
               <div
                 class="mission-drone"
                 id="missionDrone">
@@ -1914,8 +2283,6 @@
               </div>
 
 
-              <!-- Package -->
-
               <div
                 class="mission-package"
                 id="missionPackage">
@@ -1933,15 +2300,11 @@
               </div>
 
 
-              <!-- Celebration -->
-
               <div
                 class="celebration"
                 id="celebration">
               </div>
 
-
-              <!-- Mission result -->
 
               <div
                 class="mission-banner"
@@ -1990,8 +2353,6 @@
 
   <!-- =========================
        JAVASCRIPT
-       NO OLD 3D DRONE CODE
-       NO FLOATING DEPLOY BUTTON
   ========================= -->
 
   <script>
@@ -2118,9 +2479,6 @@
         );
 
       }catch(error){
-
-        // Local storage may be unavailable.
-        // The page will still work.
 
       }
 
@@ -2287,12 +2645,6 @@
     renderTopCities();
     saveState();
 
-
-    /*
-      Adds a new deployment every 5 seconds.
-      Remove this line if you don't want
-      automatic deployments.
-    */
 
     setInterval(
       addRow,
@@ -3102,12 +3454,6 @@
           `rotate(${tilt}deg)`;
 
 
-        /*
-          Drop package once the drone
-          has crossed roughly 45%
-          of the mission.
-        */
-
         if(
           progress > .45 &&
           !packageDropped
@@ -3234,11 +3580,6 @@
       }
 
 
-      /*
-        Hide package until the drone
-        reaches its drop point.
-      */
-
       missionPackage.style.left =
         "-9999px";
 
@@ -3251,10 +3592,6 @@
         () => dronePath(0)
       );
 
-
-      /*
-        Safety timeout.
-      */
 
       setTimeout(
         () => {
@@ -3274,11 +3611,6 @@
 
     }
 
-
-    /*
-      ONLY the mission button
-      triggers the deployment game.
-    */
 
     deployMissionBtn.addEventListener(
       "click",
