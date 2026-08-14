@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Warzone Courier: Endless Run</title>
+
+<style>
+html,body{
+  margin:0;
+  height:100%;
+  overflow:hidden;
+  background:#11110d;
+  color:#eee;
+  font-family:monospace
+}
+
+canvas{
+  display:block;
+  width:100vw;
+  height:100vh;
+  background:#11110d
+}
+
+#help{
+  position:fixed;
+  left:14px;
+  bottom:10px;
+  color:#9d9a86;
+  font-size:12px;
+  pointer-events:none
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="game"></canvas>
+
+<div id="help">
+  WASD / ARROWS: fly &nbsp; SPACE / E: deliver &nbsp; R: restart
+</div>
+
+<script>
+
+const c=document.getElementById("game"),
+      ctx=c.getContext("2d");
+
+let W,H,dpr;
+
+function resize(){
+  dpr=devicePixelRatio||1;
+  W=innerWidth;
+  H=innerHeight;
+
+  c.width=W*dpr;
+  c.height=H*dpr;
+
+  ctx.setTransform(
+    dpr,
+    0,
+    0,
+    dpr,
+    0,
+    0
+  );
+}
+
+addEventListener("resize",resize);
+resize();
+
+
+const keys={};
+
+addEventListener("keydown",e=>{
+
+  keys[e.key.toLowerCase()]=true;
+
+  if(
+    [
+      " ",
+      "arrowup",
+      "arrowdown",
+      "arrowleft",
+      "arrowright"
+    ].includes(e.key.toLowerCase())
+  ){
+    e.preventDefault();
+  }
+
+  if(
+    gameOver &&
+    e.key.toLowerCase()==="r"
+  ){
+    reset();
+  }
+
+});
+
+addEventListener(
+  "keyup",
+  e=>keys[e.key.toLowerCase()]=false
+);
+
+
+const types={
+
+  battery:{
+    name:"Battery",
+    color:"#8cae75"
+  },
+
+  medkit:{
+    name:"Medkit",
+    color:"#a84d4d"
+  },
+
+  data:{
+    name:"Radio Parts",
+    color:"#777b8c"
+  },
+
+  toolkit:{
+    name:"Tool Kit",
+    color:"#b17b45"
+  }
+
+};
+
+
+const npcTypes=[
+
+  {
+    name:"OLD VETERAN",
+    need:"battery",
+    color:"#777d62"
+  },
+
+  {
+    name:"FIELD TECH",
+    need:"data",
+    color:"#737b83"
+  },
+
+  {
+    name:"PILOT",
+    need:"medkit",
+    color:"#8c5a55"
+  },
+
+  {
+    name:"TRADER",
+    need:"toolkit",
+    color:"#9b7752"
+  }
+
+];
+
+
+let player,
+    objects,
+    particles,
+    score,
+    streak,
+    fuel,
+    camX,
+    lastX,
+    gameOver,
+    deliveryFlash,
+    deliverLock,
+    spawnTimer;
+
+
+function reset(){
+
+  player={
+    x:180,
+    y:H*.43,
+    vx:0,
+    vy:0,
+    angle:0,
+    cargo:null
+  };
+
+  objects=[];
+  particles=[];
+
+  score=0;
+  streak=0;
+  fuel=100;
+
+  camX=0;
+  lastX=0;
+
+  gameOver=false;
+  deliveryFlash=0;
+  deliverLock=false;
+  spawnTimer=0;
+
+  for(
+    let x=0;
+    x<2800;
+    x+=280
+  ){
+    spawnChunk(x);
+  }
+
+}
+
+
+function rnd(a,b){
+  return a+Math.random()*(b-a)
+}
+
+
+function spawnChunk(x){
+
+  const groundY=
+    H*.78+rnd(-25,25);
+
+  objects.push({
+    kind:"platform",
+    x,
+    y:groundY,
+    w:rnd(190,320),
+    h:rnd(22,35)
+  });
+
+
+  if(Math.random()<.85)
+
+    objects.push({
+      kind:"cargo",
+      type:
+        Object.keys(types)
+          [
+            Math.floor(
+              Math.random()*4
+            )
+          ],
+
+      x:x+rnd(55,245),
+      y:
+        groundY-
+        rnd(90,220)
+    });
+
+
+  if(Math.random()<.72)
+
+    objects.push({
+      kind:"npc",
+      type:
+        npcTypes[
+          Math.floor(
+            Math.random()*npcTypes.length
+          )
+        ],
+
+      x:x+rnd(50,250),
+      y:groundY
+    });
+
+
+  if(Math.random()<.48)
+
+    objects.push({
+      kind:"wreck",
+      x:x+rnd(20,290),
+      y:groundY-12,
+      w:rnd(45,100),
+      h:rnd(20,45)
+    });
+
+
+  if(Math.random()<.35)
+
+    objects.push({
+      kind:"crate",
+      x:x+rnd(20,290),
+      y:groundY-22,
+      w:28,
+      h:22
+    });
+
+}
+
+
+function ensureWorld(){
+
+  const far=
+    camX+W+1000;
+
+  while(lastX<far){
+
+    lastX+=300;
+    spawnChunk(lastX);
+
+  }
+
+  objects=
+    objects.filter(
+      o=>o.x>camX-850
+    );
+
+}
+
+
+function emit(
+  x,
+  y,
+  color,
+  n=8
+){
+
+  for(let i=0;i<n;i++)
+
+    particles.push({
+      x,
+      y,
+      vx:rnd(-2.5,2.5),
+      vy:rnd(-2.5,1),
+      life:rnd(20,55),
+      color
+    });
+
+}
+
+
+function update(){
+
+  if(gameOver)return;
+
+
+  let ax=0,
+      ay=0;
+
+
+  if(keys.w||keys.arrowup)
+    ay-=1;
+
+  if(keys.s||keys.arrowdown)
+    ay+=1;
+
+  if(keys.a||keys.arrowleft)
+    ax-=1;
+
+  if(keys.d||keys.arrowright)
+    ax+=1;
+
+
+  player.vx+=ax*.35;
+  player.vy+=ay*.38;
+
+  player.vx*=.91;
+  player.vy*=.91;
+
+  player.vx=
+    Math.max(
+      -4,
+      Math.min(7,player.vx)
+    );
+
+  player.vy=
+    Math.max(
+      -6,
+      Math.min(6,player.vy)
+    );
+
+
+  player.x+=player.vx+2.0;
+  player.y+=player.vy;
+
+
+  player.y=
+    Math.max(
+      50,
+      Math.min(H*.72,player.y)
+    );
+
+
+  player.angle+=(
+    Math.max(
+      -.38,
+      Math.min(
+        .38,
+        player.vy*.065
+      )
+    )-
+    player.angle
+  )*.12;
+
+
+  camX=
+    player.x-180;
+
+
+  fuel-=
+    .012+
+    Math.abs(player.vy)*.0012;
+
+
+  if(fuel<=0){
+
+    fuel=0;
+    gameOver=true;
+
+  }
+
+
+  ensureWorld();
+
+
+  if(!player.cargo){
+
+    for(
+      let i=0;
+      i<objects.length;
+      i++
+    ){
+
+      const o=objects[i];
+
+      if(
+        o.kind==="cargo" &&
+        Math.hypot(
+          o.x-player.x,
+          o.y-player.y
+        )<30
+      ){
+
+        player.cargo=o.type;
+
+        emit(
+          o.x,
+          o.y,
+          types[o.type].color,
+          15
+        );
+
+        objects.splice(i,1);
+
+        break;
+      }
+
+    }
+
+  }
+
+
+  let nearby=null;
+
+
+  for(const o of objects)
+
+    if(
+      o.kind==="npc" &&
+      Math.abs(o.x-player.x)<90 &&
+      Math.abs(o.y-player.y)<150
+    ){
+      nearby=o;
+      break;
+    }
+
+
+  const action=
+    keys[" "]||keys.e;
+
+
+  if(
+    action &&
+    !deliverLock &&
+    nearby &&
+    player.cargo===nearby.type.need
+  ){
+
+    score+=100;
+    streak++;
+
+    deliveryFlash=80;
+
+
+    emit(
+      nearby.x,
+      nearby.y-50,
+      types[player.cargo].color,
+      28
+    );
+
+
+    player.cargo=null;
+
+
+    objects=
+      objects.filter(
+        o=>o!==nearby
+      );
+
+
+    fuel=
+      Math.min(
+        100,
+        fuel+8
+      );
+
+
+    deliverLock=true;
+
+  }
+
+
+  if(!action)
+    deliverLock=false;
+
+
+  deliveryFlash=
+    Math.max(
+      0,
+      deliveryFlash-1
+    );
+
+
+  for(const p of particles){
+
+    p.x+=p.vx;
+    p.y+=p.vy;
+    p.vy+=.045;
+    p.life--;
+
+  }
+
+
+  particles=
+    particles.filter(
+      p=>p.life>0
+    );
+
+}
+
+
+function drawBackground(){
+
+  ctx.fillStyle="#15150f";
+  ctx.fillRect(
+    0,
+    0,
+    W,
+    H
+  );
+
+
+  // dusty sky
+
+  const g=
+    ctx.createLinearGradient(
+      0,
+      0,
+      0,
+      H
+    );
+
+  g.addColorStop(
+    0,
+    "#24251d"
+  );
+
+  g.addColorStop(
+    .55,
+    "#4b4637"
+  );
+
+  g.addColorStop(
+    1,
+    "#171713"
+  );
+
+  ctx.fillStyle=g;
+
+  ctx.fillRect(
+    0,
+    0,
+    W,
+    H
+  );
+
+
+  // distant smoke clouds
+
+  for(
+    let i=0;
+    i<16;
+    i++
+  ){
+
+    const x=
+      (
+        (
+          i*210-
+          camX*.10
+        )%
+        (W+300)
+      )-150;
+
+
+    const y=
+      100+
+      (i*71)%170;
+
+
+    ctx.fillStyle=
+      "rgba(40,39,32,.35)";
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+      x,
+      y,
+      55+(i%4)*18,
+      0,
+      Math.PI*2
+    );
+
+    ctx.fill();
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+      x+50,
+      y+10,
+      45,
+      0,
+      Math.PI*2
+    );
+
+    ctx.fill();
+
+  }
+
+
+  // ruined skyline
+
+  for(
+    let i=0;
+    i<15;
+    i++
+  ){
+
+    const x=
+      (
+        (
+          i*180-
+          camX*.18
+        )%
+        (W+220)
+      )-100;
+
+
+    const h=
+      100+
+      (i*47)%190;
+
+
+    ctx.fillStyle=
+      i%3===0
+      ? "#292923"
+      : "#34342c";
+
+
+    ctx.fillRect(
+      x,
+      H*.68-h,
+      100,
+      h
+    );
+
+
+    ctx.fillStyle="#161713";
+
+
+    for(
+      let yy=
+        H*.68-h+25;
+      yy<H*.68;
+      yy+=35
+    ){
+
+      for(
+        let xx=x+12;
+        xx<x+90;
+        xx+=30
+      ){
+
+        if(
+          (xx+yy+i)%3!==0
+        ){
+
+          ctx.fillRect(
+            xx,
+            yy,
+            13,
+            17
+          );
+
+        }
+
+      }
+
+    }
+
+
+    // broken roof
+
+    ctx.fillStyle="#20201b";
+
+    ctx.fillRect(
+      x-10,
+      H*.68-h,
+      45,
+      9
+    );
+
+  }
+
+
+  // ground
+
+  ctx.fillStyle="#191914";
+
+  ctx.fillRect(
+    0,
+    H*.7,
+    W,
+    H*.3
+  );
+
+
+  for(
+    let i=0;
+    i<25;
+    i++
+  ){
+
+    const x=
+      (
+        (
+          i*93-
+          camX*.45
+        )%
+        W+
+        W
+      )%W;
+
+
+    const y=
+      H*.72+
+      (i*37)%130;
+
+
+    ctx.fillStyle=
+      i%2
+      ? "#292820"
+      : "#38362b";
+
+
+    ctx.fillRect(
+      x,
+      y,
+      18+(i%4)*8,
+      4
+    );
+
+  }
+
+
+  // road / trenches
+
+  ctx.strokeStyle="#403d31";
+  ctx.lineWidth=3;
+
+
+  for(
+    let x=-((camX*.5)%140);
+    x<W;
+    x+=140
+  ){
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      x,
+      H*.72
+    );
+
+    ctx.lineTo(
+      x+50,
+      H
+    );
+
+    ctx.stroke();
+
+  }
+
+}
+
+
+function drawPlatform(o){
+
+  const x=
+    o.x-camX;
+
+
+  if(
+    x>W ||
+    x+o.w<0
+  )return;
+
+
+  ctx.fillStyle="#3b392e";
+
+  ctx.fillRect(
+    x,
+    o.y,
+    o.w,
+    o.h
+  );
+
+
+  ctx.fillStyle="#696354";
+
+  ctx.fillRect(
+    x,
+    o.y,
+    o.w,
+    4
+  );
+
+
+  ctx.fillStyle="#24231d";
+
+
+  for(
+    let xx=x+12;
+    xx<x+o.w;
+    xx+=42
+  ){
+
+    ctx.fillRect(
+      xx,
+      o.y+11,
+      25,
+      5
+    );
+
+  }
+
+}
+
+
+function drawWreck(o){
+
+  const x=
+    o.x-camX,
+    y=o.y;
+
+
+  ctx.save();
+
+  ctx.translate(
+    x,
+    y
+  );
+
+  ctx.rotate(-.08);
+
+
+  ctx.fillStyle="#34352f";
+
+  ctx.fillRect(
+    -o.w/2,
+    -o.h/2,
+    o.w,
+    o.h
+  );
+
+
+  ctx.fillStyle="#181916";
+
+  ctx.fillRect(
+    -o.w/2+8,
+    -o.h/2+5,
+    o.w*.35,
+    o.h*.35
+  );
+
+
+  ctx.strokeStyle="#6b5b42";
+  ctx.lineWidth=5;
+
+
+  ctx.beginPath();
+
+  ctx.moveTo(
+    -o.w/2,
+    -o.h/2
+  );
+
+  ctx.lineTo(
+    o.w/2,
+    o.h/2
+  );
+
+  ctx.stroke();
+
+
+  ctx.fillStyle="#4d4a3c";
+
+  ctx.fillRect(
+    -o.w*.6,
+    -4,
+    15,
+    8
+  );
+
+
+  ctx.restore();
+
+}
+
+
+function drawCrate(o){
+
+  const x=
+    o.x-camX;
+
+
+  ctx.fillStyle="#765738";
+
+  ctx.fillRect(
+    x-o.w/2,
+    o.y-o.h,
+    o.w,
+    o.h
+  );
+
+
+  ctx.strokeStyle="#b18a5c";
+
+  ctx.strokeRect(
+    x-o.w/2,
+    o.y-o.h,
+    o.w,
+    o.h
+  );
+
+
+  ctx.strokeStyle="#493520";
+
+  ctx.beginPath();
+
+  ctx.moveTo(
+    x-o.w/2,
+    o.y-o.h
+  );
+
+  ctx.lineTo(
+    x+o.w/2,
+    o.y
+  );
+
+  ctx.stroke();
+
+}
+
+
+function drawCargo(o){
+
+  const x=
+    o.x-camX,
+    y=o.y,
+    t=types[o.type];
+
+
+  ctx.save();
+
+  ctx.translate(
+    x,
+    y
+  );
+
+
+  ctx.fillStyle=t.color;
+  ctx.strokeStyle="#171814";
+  ctx.lineWidth=3;
+
+
+  if(o.type==="battery"){
+
+    ctx.fillRect(
+      -12,
+      -14,
+      24,
+      28
+    );
+
+    ctx.strokeRect(
+      -12,
+      -14,
+      24,
+      28
+    );
+
+
+    ctx.fillStyle="#30382d";
+
+    ctx.fillRect(
+      -5,
+      -19,
+      10,
+      5
+    );
+
+
+    ctx.fillStyle="#d1d7b8";
+
+    ctx.fillRect(
+      -6,
+      -5,
+      12,
+      4
+    );
+
+    ctx.fillRect(
+      -6,
+      4,
+      12,
+      4
+    );
+
+  }
+
+  else if(o.type==="medkit"){
+
+    ctx.fillRect(
+      -15,
+      -11,
+      30,
+      22
+    );
+
+    ctx.strokeRect(
+      -15,
+      -11,
+      30,
+      22
+    );
+
+
+    ctx.fillStyle="#ddd9c7";
+
+    ctx.fillRect(
+      -4,
+      -9,
+      8,
+      18
+    );
+
+    ctx.fillRect(
+      -9,
+      -4,
+      18,
+      8
+    );
+
+  }
+
+  else if(o.type==="data"){
+
+    ctx.fillRect(
+      -14,
+      -10,
+      28,
+      20
+    );
+
+    ctx.strokeRect(
+      -14,
+      -10,
+      28,
+      20
+    );
+
+
+    ctx.fillStyle="#262a2a";
+
+    ctx.fillRect(
+      -8,
+      -6,
+      16,
+      12
+    );
+
+
+    ctx.fillStyle="#b5b8aa";
+
+    ctx.fillRect(
+      -6,
+      -2,
+      12,
+      3
+    );
+
+  }
+
+  else{
+
+    ctx.fillRect(
+      -14,
+      -10,
+      28,
+      20
+    );
+
+    ctx.strokeRect(
+      -14,
+      -10,
+      28,
+      20
+    );
+
+
+    ctx.fillStyle="#d0a06a";
+
+    ctx.fillRect(
+      -3,
+      -14,
+      6,
+      5
+    );
+
+
+    ctx.fillStyle="#483723";
+
+    ctx.fillRect(
+      -9,
+      -5,
+      18,
+      9
+    );
+
+  }
+
+
+  ctx.restore();
+
+}
+
+
+function drawNPC(o){
+
+  const x=
+    o.x-camX,
+    y=o.y;
+
+
+  ctx.save();
+
+  ctx.translate(
+    x,
+    y
+  );
+
+
+  ctx.fillStyle=o.type.color;
+
+  ctx.fillRect(
+    -13,
+    -43,
+    26,
+    36
+  );
+
+
+  ctx.fillStyle="#b9b5a4";
+
+  ctx.fillRect(
+    -10,
+    -57,
+    20,
+    16
+  );
+
+
+  ctx.fillStyle="#292a25";
+
+  ctx.fillRect(
+    -6,
+    -52,
+    4,
+    4
+  );
+
+  ctx.fillRect(
+    3,
+    -52,
+    4,
+    4
+  );
+
+
+  ctx.fillStyle="#44483a";
+
+  ctx.fillRect(
+    -20,
+    -7,
+    40,
+    7
+  );
+
+
+  ctx.restore();
+
+}
+
+
+function drawPlayer(){
+
+  const x=
+    player.x-camX,
+    y=player.y;
+
+
+  ctx.save();
+
+  ctx.translate(
+    x,
+    y
+  );
+
+  ctx.rotate(
+    player.angle
+  );
+
+
+  // smoke trail
+
+  ctx.fillStyle=
+    "rgba(70,70,60,.35)";
+
+  ctx.fillRect(
+    -30,
+    -3,
+    16,
+    6
+  );
+
+  ctx.fillRect(
+    -45,
+    -2,
+    9,
+    4
+  );
+
+
+  // battered military drone
+
+  ctx.fillStyle="#6f7466";
+  ctx.strokeStyle="#171916";
+  ctx.lineWidth=3;
+
+
+  ctx.beginPath();
+
+  ctx.moveTo(
+    22,
+    0
+  );
+
+  ctx.lineTo(
+    7,
+    -11
+  );
+
+  ctx.lineTo(
+    -18,
+    -8
+  );
+
+  ctx.lineTo(
+    -13,
+    0
+  );
+
+  ctx.lineTo(
+    -18,
+    8
+  );
+
+  ctx.lineTo(
+    7,
+    11
+  );
+
+  ctx.closePath();
+
+  ctx.fill();
+  ctx.stroke();
+
+
+  ctx.fillStyle="#30352f";
+
+  ctx.fillRect(
+    -5,
+    -6,
+    16,
+    12
+  );
+
+
+  ctx.fillStyle="#b6b79e";
+
+  ctx.fillRect(
+    1,
+    -4,
+    8,
+    7
+  );
+
+
+  ctx.fillStyle="#9a4c3e";
+
+  ctx.fillRect(
+    -19,
+    -6,
+    5,
+    12
+  );
+
+
+  // rotors
+
+  ctx.strokeStyle="#9a9a87";
+  ctx.lineWidth=2;
+
+
+  ctx.beginPath();
+
+  ctx.moveTo(
+    -12,
+    -10
+  );
+
+  ctx.lineTo(
+    -28,
+    -18
+  );
+
+
+  ctx.moveTo(
+    7,
+    -11
+  );
+
+  ctx.lineTo(
+    24,
+    -18
+  );
+
+  ctx.stroke();
+
+
+  ctx.beginPath();
+
+  ctx.moveTo(
+    -34,
+    -20
+  );
+
+  ctx.lineTo(
+    -21,
+    -20
+  );
+
+
+  ctx.moveTo(
+    18,
+    -20
+  );
+
+  ctx.lineTo(
+    31,
+    -20
+  );
+
+  ctx.stroke();
+
+
+  if(player.cargo){
+
+    const t=
+      types[player.cargo];
+
+
+    ctx.strokeStyle=t.color;
+    ctx.lineWidth=2;
+
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      0,
+      10
+    );
+
+    ctx.lineTo(
+      0,
+      25
+    );
+
+    ctx.stroke();
+
+
+    ctx.fillStyle=t.color;
+
+    ctx.fillRect(
+      -8,
+      25,
+      16,
+      13
+    );
+
+  }
+
+
+  ctx.restore();
+
+}
+
+
+function drawHUD(){
+
+  ctx.fillStyle="#e0ddca";
+  ctx.font="bold 18px monospace";
+
+  ctx.fillText(
+    "SCORE "+score,
+    18,
+    28
+  );
+
+
+  ctx.fillStyle="#aaa794";
+  ctx.font="14px monospace";
+
+  ctx.fillText(
+    "STREAK x"+streak,
+    18,
+    49
+  );
+
+
+  ctx.fillText(
+    "FUEL",
+    W-175,
+    27
+  );
+
+
+  ctx.strokeStyle="#716e5d";
+
+  ctx.strokeRect(
+    W-120,
+    16,
+    100,
+    12
+  );
+
+
+  ctx.fillStyle=
+    fuel<25
+    ? "#a84d4d"
+    : "#879a67";
+
+
+  ctx.fillRect(
+    W-118,
+    18,
+    96*fuel/100,
+    8
+  );
+
+
+  if(player.cargo){
+
+    ctx.fillStyle=
+      types[player.cargo].color;
+
+
+    ctx.fillText(
+      "CARGO: "+
+      types[player.cargo]
+        .name
+        .toUpperCase(),
+      18,
+      72
+    );
+
+  }
+
+
+  let nearby=null;
+
+
+  for(const o of objects)
+
+    if(
+      o.kind==="npc" &&
+      Math.abs(o.x-player.x)<90 &&
+      Math.abs(o.y-player.y)<150
+    ){
+      nearby=o;
+      break;
+    }
+
+
+  if(nearby){
+
+    ctx.fillStyle=
+      "rgba(20,20,16,.94)";
+
+
+    ctx.fillRect(
+      W/2-205,
+      H-108,
+      410,
+      72
+    );
+
+
+    ctx.strokeStyle=
+      nearby.type.color;
+
+
+    ctx.strokeRect(
+      W/2-205,
+      H-108,
+      410,
+      72
+    );
+
+
+    ctx.textAlign="center";
+
+
+    ctx.fillStyle="#eee9d8";
+    ctx.font="bold 16px monospace";
+
+
+    ctx.fillText(
+      nearby.type.name,
+      W/2,
+      H-82
+    );
+
+
+    const can=
+      player.cargo===
+      nearby.type.need;
+
+
+    ctx.fillStyle=
+      can
+      ? "#b9c996"
+      : "#9c9a89";
+
+
+    ctx.font="13px monospace";
+
+
+    ctx.fillText(
+      "Needs: "+
+      types[
+        nearby.type.need
+      ].name+
+      (
+        can
+        ?
+        "  —  PRESS SPACE / E"
+        :
+        "  —  FIND THE RIGHT SUPPLY"
+      ),
+      W/2,
+      H-57
+    );
+
+
+    ctx.textAlign="left";
+
+  }
+
+
+  if(deliveryFlash){
+
+    ctx.textAlign="center";
+
+    ctx.fillStyle="#c6d29d";
+    ctx.font="bold 28px monospace";
+
+
+    ctx.fillText(
+      "SUPPLY DELIVERED  +100",
+      W/2,
+      95
+    );
+
+
+    ctx.textAlign="left";
+
+  }
+
+
+  if(gameOver){
+
+    ctx.fillStyle=
+      "rgba(10,10,8,.86)";
+
+
+    ctx.fillRect(
+      0,
+      0,
+      W,
+      H
+    );
+
+
+    ctx.textAlign="center";
+
+
+    ctx.fillStyle="#b35d50";
+    ctx.font="bold 42px monospace";
+
+
+    ctx.fillText(
+      "FUEL DEPLETED",
+      W/2,
+      H/2-55
+    );
+
+
+    ctx.fillStyle="#e0ddca";
+    ctx.font="20px monospace";
+
+
+    ctx.fillText(
+      "FINAL SCORE: "+score,
+      W/2,
+      H/2-15
+    );
+
+
+    ctx.fillStyle="#272a22";
+
+    ctx.fillRect(
+      W/2-90,
+      H/2+20,
+      180,
+      48
+    );
+
+
+    ctx.strokeStyle="#9da97b";
+
+    ctx.strokeRect(
+      W/2-90,
+      H/2+20,
+      180,
+      48
+    );
+
+
+    ctx.fillStyle="#c6d29d";
+    ctx.font="bold 18px monospace";
+
+
+    ctx.fillText(
+      "RESTART (R)",
+      W/2,
+      H/2+51
+    );
+
+
+    ctx.textAlign="left";
+
+  }
+
+}
+
+
+function draw(){
+
+  drawBackground();
+
+
+  for(const o of objects){
+
+    if(
+      o.kind==="platform"
+    )
+      drawPlatform(o);
+
+    else if(
+      o.kind==="cargo"
+    )
+      drawCargo(o);
+
+    else if(
+      o.kind==="npc"
+    )
+      drawNPC(o);
+
+    else if(
+      o.kind==="wreck"
+    )
+      drawWreck(o);
+
+    else if(
+      o.kind==="crate"
+    )
+      drawCrate(o);
+
+  }
+
+
+  for(const p of particles){
+
+    ctx.globalAlpha=
+      Math.max(
+        0,
+        p.life/55
+      );
+
+
+    ctx.fillStyle=p.color;
+
+
+    ctx.fillRect(
+      p.x-camX,
+      p.y,
+      3,
+      3
+    );
+
+  }
+
+
+  ctx.globalAlpha=1;
+
+
+  drawPlayer();
+  drawHUD();
+
+}
+
+
+function loop(){
+
+  update();
+  draw();
+
+  requestAnimationFrame(loop);
+
+}
+
+
+reset();
+loop();
+
+</script>
+
+</body>
+</html>
