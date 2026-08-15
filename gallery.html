@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Gallery | DRONES4AID</title>
 
 <style>
+
 :root{
   --navy:#102a43;
   --blue:#1f6f8b;
@@ -35,7 +37,8 @@ body{
   line-height:1.6
 }
 
-img,video{
+img,
+video{
   max-width:100%;
   display:block
 }
@@ -49,6 +52,10 @@ a{
   width:min(1180px,92%);
   margin:auto
 }
+
+/* =========================
+   HEADER
+========================= */
 
 header{
   position:sticky;
@@ -111,17 +118,24 @@ nav a:hover{
   background:var(--blue)
 }
 
+/* =========================
+   HERO
+========================= */
+
 .hero{
   min-height:72vh;
   display:grid;
   grid-template-columns:1.1fr .9fr;
   overflow:hidden;
-  background:linear-gradient(
-    135deg,
-    rgba(16,42,67,.96),
-    rgba(31,111,139,.88),
-    rgba(242,140,40,.42)
-  );
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(16,42,67,.96),
+      rgba(31,111,139,.88),
+      rgba(242,140,40,.42)
+    );
+
   color:#fff
 }
 
@@ -158,15 +172,21 @@ nav a:hover{
 
 .hero-visual{
   min-height:72vh;
+
   background:
     linear-gradient(
       180deg,
       rgba(16,42,67,.12),
       rgba(16,42,67,.58)
     ),
+
     url('https://boomset.com/wp-content/uploads/2025/09/drones-transforming-photography-filmmaking.jpg')
     center/cover no-repeat
 }
+
+/* =========================
+   SECTIONS
+========================= */
 
 .section{
   padding:78px 0
@@ -187,6 +207,10 @@ nav a:hover{
   max-width:920px;
   margin-bottom:16px
 }
+
+/* =========================
+   GALLERY IMAGES
+========================= */
 
 .gallery-strip,
 .factory-pics,
@@ -209,6 +233,10 @@ nav a:hover{
   box-shadow:var(--shadow)
 }
 
+/* =========================
+   CARDS
+========================= */
+
 .card{
   background:#fff;
   border:1px solid var(--border);
@@ -217,7 +245,9 @@ nav a:hover{
   overflow:hidden
 }
 
-/* DRONE SLIDER */
+/* =========================
+   DRONE SLIDER
+========================= */
 
 .slider-track{
   display:grid;
@@ -275,7 +305,9 @@ nav a:hover{
   right:-12px
 }
 
-/* WATCH OUR MOVIE */
+/* =========================
+   MOVIE
+========================= */
 
 .movie-section{
   background:var(--light)
@@ -312,7 +344,9 @@ nav a:hover{
   color:var(--muted)
 }
 
-/* DRONE ANALYSIS */
+/* =========================
+   DRONE ANALYSIS
+========================= */
 
 .analysis-wrap{
   display:grid;
@@ -367,7 +401,9 @@ nav a:hover{
   color:var(--muted)
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 footer{
   background:var(--navy);
@@ -379,7 +415,9 @@ footer p{
   color:#d8e3ee
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:900px){
 
@@ -424,10 +462,13 @@ footer p{
   }
 
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =========================
      NAVIGATION
@@ -491,7 +532,7 @@ footer p{
 
 <li>
 <a href="#movie">
-  Our Movie
+  Movie
 </a>
 </li>
 
@@ -690,6 +731,7 @@ footer p{
 
 </p>
 
+
 <div
   class="card"
   style="padding:18px;position:relative"
@@ -711,51 +753,64 @@ footer p{
   &#10095;
 </button>
 
+
 <div
   class="slider-track"
   id="droneTrack"
 >
 
 <div class="slide">
+
 <img
   src="https://www.zuken.com/us/wp-content/uploads/sites/12/2023/03/drone-flying-camera-remote-control.png"
   alt="Drone 1"
 >
+
 </div>
 
 <div class="slide">
+
 <img
   src="https://rstmp.org/wp-content/uploads/2014/12/drones2.wfcn_.jpg"
   alt="Drone 2"
 >
+
 </div>
 
 <div class="slide">
+
 <img
   src="https://cdn.thewirecutter.com/wp-content/media/2025/02/BEST-DRONES-PHOTOS-VIDEOS-2048px-9946.jpg?width=2048&quality=60&crop=2048:1365&auto=webp"
   alt="Drone 3"
 >
+
 </div>
 
 <div class="slide">
+
 <img
   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqkqlAjfu2rOjGkt78DocuD82HWPiRo4Yy19sENrKizgDwkos2d0LapaE&s=10"
   alt="Drone 4"
 >
+
 </div>
 
 <div class="slide">
+
 <img
   src="https://im.rediff.com/money/2019/feb/22drone1.jpg?w=450&h=450"
   alt="Drone 5"
 >
+
 </div>
 
 <div class="slide">
+
 <img
   src="https://www.nepad.org/sites/default/files/styles/521_800/public/2023-03/800%20x%20500%20Effective%20Delivery%20Of%20Vaccines%20In%20Africa%20Using%20Drone%20Technology%20.png?itok=m1L3o3Mz"
   alt="Drone 6"
 >
+
 </div>
 
 </div>
@@ -789,6 +844,7 @@ footer p{
 
 </p>
 
+
 <div class="factory-pics">
 
 <img
@@ -803,13 +859,14 @@ footer p{
 
 </div>
 
-<p
-  style="margin-top:12px;font-weight:700;color:var(--navy)"
->
+
+<p style="margin-top:12px;font-weight:700;color:var(--navy)">
   Farukhnagar, Guragaon
 </p>
 
+
 <div style="height:22px"></div>
+
 
 <div class="gallery-strip">
 
@@ -824,6 +881,7 @@ footer p{
 >
 
 </div>
+
 
 <div
   class="gallery-strip"
@@ -870,6 +928,7 @@ footer p{
 
 </p>
 
+
 <div class="camera-pics">
 
 <img
@@ -883,6 +942,7 @@ footer p{
 >
 
 </div>
+
 
 <div
   class="camera-pics"
@@ -910,7 +970,9 @@ footer p{
      SUSTAINABILITY
 ========================= -->
 
-<section class="section alt">
+<section
+  class="section alt"
+>
 
 <div class="container">
 
@@ -937,9 +999,9 @@ footer p{
 </section>
 
 
-<!-- =========================
-     WATCH OUR MOVIE
-========================= -->
+<!-- =====================================================
+     MOVIE SECTION
+===================================================== -->
 
 <section
   id="movie"
@@ -949,15 +1011,16 @@ footer p{
 <div class="container">
 
 <h2>
-  Watch Our Movie
+  Watch Movie
 </h2>
 
 <p class="lead">
 
-  Watch our DRONES4AID movie and experience the story behind our
-  organisation, our technology, and our humanitarian mission.
+  Watch the DRONES4AID movie and experience the story behind
+  the organisation, its technology, and its humanitarian mission.
 
 </p>
+
 
 <div class="movie-card">
 
@@ -976,14 +1039,15 @@ Your browser does not support the video tag.
 
 </video>
 
+
 <div class="movie-caption">
 
 <h3>
-  DRONES4AID — Our Movie
+  DRONES4AID — Movie
 </h3>
 
 <p>
-  Our story, our people, and our mission.
+  The story, the people, and the mission.
 </p>
 
 </div>
@@ -995,9 +1059,9 @@ Your browser does not support the video tag.
 </section>
 
 
-<!-- =========================
-     DRONE ANALYSIS
-========================= -->
+<!-- =====================================================
+     ANALYSE DRONE SECTION
+===================================================== -->
 
 <section
   id="analysis"
@@ -1007,20 +1071,23 @@ Your browser does not support the video tag.
 <div class="container">
 
 <h2>
-  Analyse our drone
+  Analyse Drone
 </h2>
 
 <p class="lead">
 
-  Tap the dots on the drone image to reveal the name of each component
-  and why it matters.
+  Tap the dots on the drone image to reveal the name of each
+  component and why it matters.
 
 </p>
+
 
 <div class="analysis-wrap">
 
 
-<!-- ANALYSIS IMAGE 1 -->
+<!-- =========================
+     ANALYSIS IMAGE 1
+========================= -->
 
 <div
   class="analysis-stage"
@@ -1032,11 +1099,13 @@ Your browser does not support the video tag.
   alt="Drone analysis 1"
 >
 
+
 <div
   class="hotspot"
   style="left:39%;top:22%"
   data-title="Propellers"
 ></div>
+
 
 <div
   class="hotspot"
@@ -1044,11 +1113,13 @@ Your browser does not support the video tag.
   data-title="Motor"
 ></div>
 
+
 <div
   class="hotspot"
   style="left:61%;top:31%"
   data-title="Camera"
 ></div>
+
 
 <div
   class="hotspot"
@@ -1056,11 +1127,13 @@ Your browser does not support the video tag.
   data-title="Battery"
 ></div>
 
+
 <div
   class="hotspot"
   style="left:30%;top:48%"
   data-title="Body Frame"
 ></div>
+
 
 <div
   class="hotspot"
@@ -1068,11 +1141,13 @@ Your browser does not support the video tag.
   data-title="Gimbal"
 ></div>
 
+
 <div
   class="hotspot"
   style="left:35%;top:66%"
   data-title="Landing Gear"
 ></div>
+
 
 <div
   class="hotspot"
@@ -1080,11 +1155,13 @@ Your browser does not support the video tag.
   data-title="LED Indicator"
 ></div>
 
+
 <div
   class="hotspot"
   style="left:48%;top:72%"
   data-title="Sensors"
 ></div>
+
 
 <div
   class="tip"
@@ -1094,7 +1171,9 @@ Your browser does not support the video tag.
 </div>
 
 
-<!-- ANALYSIS IMAGE 2 -->
+<!-- =========================
+     ANALYSIS IMAGE 2
+========================= -->
 
 <div
   class="analysis-stage"
@@ -1106,12 +1185,14 @@ Your browser does not support the video tag.
   alt="Drone components diagram"
 >
 
+
 <div
   class="hotspot"
   style="left:12%;top:16%"
   data-title="Flight Controller"
   data-text="The flight controller processes commands and sensor data to stabilize the drone."
 ></div>
+
 
 <div
   class="hotspot"
@@ -1120,12 +1201,14 @@ Your browser does not support the video tag.
   data-text="GPS helps the drone determine position and navigate."
 ></div>
 
+
 <div
   class="hotspot"
   style="left:48%;top:17%"
   data-title="Propellers"
   data-text="Propellers create lift and movement."
 ></div>
+
 
 <div
   class="hotspot"
@@ -1134,12 +1217,14 @@ Your browser does not support the video tag.
   data-text="Motors spin the propellers and provide flight power."
 ></div>
 
+
 <div
   class="hotspot"
   style="left:82%;top:17%"
   data-title="Battery"
   data-text="The battery supplies power to the aircraft."
 ></div>
+
 
 <div
   class="hotspot"
@@ -1148,12 +1233,14 @@ Your browser does not support the video tag.
   data-text="The camera captures aerial images and video."
 ></div>
 
+
 <div
   class="hotspot"
   style="left:38%;top:40%"
   data-title="Gimbal"
   data-text="The gimbal stabilizes the camera."
 ></div>
+
 
 <div
   class="hotspot"
@@ -1162,12 +1249,14 @@ Your browser does not support the video tag.
   data-text="The frame holds and protects the drone components."
 ></div>
 
+
 <div
   class="hotspot"
   style="left:78%;top:39%"
   data-title="ESC"
   data-text="Electronic Speed Controllers manage motor power."
 ></div>
+
 
 <div
   class="hotspot"
@@ -1176,12 +1265,14 @@ Your browser does not support the video tag.
   data-text="Landing gear supports the drone during takeoff and landing."
 ></div>
 
+
 <div
   class="hotspot"
   style="left:42%;top:62%"
   data-title="Remote Receiver"
   data-text="The receiver listens for controller or ground-station signals."
 ></div>
+
 
 <div
   class="hotspot"
@@ -1190,12 +1281,14 @@ Your browser does not support the video tag.
   data-text="Sensors detect nearby objects and help avoid collisions."
 ></div>
 
+
 <div
   class="hotspot"
   style="left:86%;top:63%"
   data-title="Antenna"
   data-text="Antennas transmit and receive communication signals."
 ></div>
+
 
 <div
   class="tip"
@@ -1241,6 +1334,7 @@ Your browser does not support the video tag.
 const track =
   document.getElementById('droneTrack');
 
+
 function moveDrone(dir){
 
   track.scrollBy({
@@ -1267,6 +1361,7 @@ function bind(
   const tip =
     document.getElementById(tipId);
 
+
   stage
     .querySelectorAll('.hotspot')
     .forEach(dot => {
@@ -1281,6 +1376,7 @@ function bind(
           const b =
             dot.getBoundingClientRect();
 
+
           tip.style.left =
             Math.max(
               0,
@@ -1289,6 +1385,7 @@ function bind(
                 r.width-260
               )
             ) + 'px';
+
 
           tip.style.top =
             Math.max(
@@ -1299,6 +1396,7 @@ function bind(
               )
             ) + 'px';
 
+
           tip.innerHTML =
             detailed
             ?
@@ -1307,13 +1405,17 @@ function bind(
             '</strong><small>' +
             dot.dataset.text +
             '</small>'
+
             :
+
             '<strong>' +
             dot.dataset.title +
             '</strong>';
 
+
           tip.style.display =
             'block';
+
 
           e.stopPropagation();
 
@@ -1323,6 +1425,7 @@ function bind(
 
     });
 
+
   stage.addEventListener(
     'click',
     () =>
@@ -1331,10 +1434,12 @@ function bind(
 
 }
 
+
 bind(
   'stage1',
   'tip1'
 );
+
 
 bind(
   'stage2',
@@ -1352,6 +1457,7 @@ const movieVideo =
     '#movie video'
   );
 
+
 if(movieVideo){
 
   movieVideo.addEventListener(
@@ -1360,6 +1466,7 @@ if(movieVideo){
 
       const movieCard =
         this.closest('.movie-card');
+
 
       if(
         !movieCard.querySelector('.movie-error')
