@@ -217,6 +217,8 @@ nav a:hover{
   overflow:hidden
 }
 
+/* DRONE SLIDER */
+
 .slider-track{
   display:grid;
   grid-auto-flow:column;
@@ -273,48 +275,6 @@ nav a:hover{
   right:-12px
 }
 
-
-/*  VIDEOS */
-
-.video-gallery{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:22px;
-  margin-top:28px
-}
-
-.video-card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:var(--shadow)
-}
-
-.video-card video{
-  width:100%;
-  aspect-ratio:16/9;
-  object-fit:cover;
-  background:#0f172a;
-  cursor:pointer
-}
-
-.video-card-body{
-  padding:18px 20px 20px
-}
-
-.video-card h3{
-  color:var(--navy);
-  font-size:1.15rem;
-  margin-bottom:5px
-}
-
-.video-card p{
-  color:var(--muted);
-  font-size:.95rem
-}
-
-
 /* WATCH OUR MOVIE */
 
 .movie-section{
@@ -351,7 +311,6 @@ nav a:hover{
 .movie-caption p{
   color:var(--muted)
 }
-
 
 /* DRONE ANALYSIS */
 
@@ -408,7 +367,6 @@ nav a:hover{
   color:var(--muted)
 }
 
-
 /* FOOTER */
 
 footer{
@@ -420,7 +378,6 @@ footer{
 footer p{
   color:#d8e3ee
 }
-
 
 /* RESPONSIVE */
 
@@ -443,10 +400,6 @@ footer p{
   .factory-pics,
   .camera-pics,
   .sustain-pics{
-    grid-template-columns:1fr
-  }
-
-  .video-gallery{
     grid-template-columns:1fr
   }
 
@@ -474,9 +427,7 @@ footer p{
 </style>
 </head>
 
-
 <body>
-
 
 <!-- =========================
      NAVIGATION
@@ -535,12 +486,6 @@ footer p{
 <li>
 <a href="#camera">
   Camera View
-</a>
-</li>
-
-<li>
-<a href="#">
-  
 </a>
 </li>
 
@@ -642,9 +587,7 @@ footer p{
 </p>
 
 
-<h3
-  style="margin:30px 0 14px;color:var(--navy)"
->
+<h3 style="margin:30px 0 14px;color:var(--navy)">
   Our Operation in the Gaza strip
 </h3>
 
@@ -663,9 +606,7 @@ footer p{
 </div>
 
 
-<h3
-  style="margin:30px 0 14px;color:var(--navy)"
->
+<h3 style="margin:30px 0 14px;color:var(--navy)">
   Our Operation in Ukraine
 </h3>
 
@@ -684,9 +625,7 @@ footer p{
 </div>
 
 
-<h3
-  style="margin:30px 0 14px;color:var(--navy)"
->
+<h3 style="margin:30px 0 14px;color:var(--navy)">
   Our Operation In the Sahel Region
 </h3>
 
@@ -705,9 +644,7 @@ footer p{
 </div>
 
 
-<h3
-  style="margin:30px 0 14px;color:var(--navy)"
->
+<h3 style="margin:30px 0 14px;color:var(--navy)">
   Our Operation In The Baloch Region
 </h3>
 
@@ -753,7 +690,6 @@ footer p{
 
 </p>
 
-
 <div
   class="card"
   style="padding:18px;position:relative"
@@ -775,64 +711,51 @@ footer p{
   &#10095;
 </button>
 
-
 <div
   class="slider-track"
   id="droneTrack"
 >
 
 <div class="slide">
-
 <img
   src="https://www.zuken.com/us/wp-content/uploads/sites/12/2023/03/drone-flying-camera-remote-control.png"
   alt="Drone 1"
 >
-
 </div>
 
 <div class="slide">
-
 <img
   src="https://rstmp.org/wp-content/uploads/2014/12/drones2.wfcn_.jpg"
   alt="Drone 2"
 >
-
 </div>
 
 <div class="slide">
-
 <img
   src="https://cdn.thewirecutter.com/wp-content/media/2025/02/BEST-DRONES-PHOTOS-VIDEOS-2048px-9946.jpg?width=2048&quality=60&crop=2048:1365&auto=webp"
   alt="Drone 3"
 >
-
 </div>
 
 <div class="slide">
-
 <img
   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqkqlAjfu2rOjGkt78DocuD82HWPiRo4Yy19sENrKizgDwkos2d0LapaE&s=10"
   alt="Drone 4"
 >
-
 </div>
 
 <div class="slide">
-
 <img
   src="https://im.rediff.com/money/2019/feb/22drone1.jpg?w=450&h=450"
   alt="Drone 5"
 >
-
 </div>
 
 <div class="slide">
-
 <img
   src="https://www.nepad.org/sites/default/files/styles/521_800/public/2023-03/800%20x%20500%20Effective%20Delivery%20Of%20Vaccines%20In%20Africa%20Using%20Drone%20Technology%20.png?itok=m1L3o3Mz"
   alt="Drone 6"
 >
-
 </div>
 
 </div>
@@ -866,7 +789,6 @@ footer p{
 
 </p>
 
-
 <div class="factory-pics">
 
 <img
@@ -881,16 +803,13 @@ footer p{
 
 </div>
 
-
 <p
   style="margin-top:12px;font-weight:700;color:var(--navy)"
 >
   Farukhnagar, Guragaon
 </p>
 
-
 <div style="height:22px"></div>
-
 
 <div class="gallery-strip">
 
@@ -905,7 +824,6 @@ footer p{
 >
 
 </div>
-
 
 <div
   class="gallery-strip"
@@ -952,7 +870,6 @@ footer p{
 
 </p>
 
-
 <div class="camera-pics">
 
 <img
@@ -966,7 +883,6 @@ footer p{
 >
 
 </div>
-
 
 <div
   class="camera-pics"
@@ -1022,35 +938,6 @@ footer p{
 
 
 <!-- =========================
-      + SIX VIDEOS
-========================= -->
-
-<section
-  id=""
-  class="section"
->
-
-<div class="container">
-
-<h2>
-  Our 
-</h2>
-
-<p class="lead">
-
-  Meet the people behind the ideas, planning, and drone development
-  work. Watch the six videos below to explore our team and work.
-
-</p>
-
-
-<div class="video-gallery">
-
-
-
-
-
-<!-- =========================
      WATCH OUR MOVIE
 ========================= -->
 
@@ -1072,7 +959,6 @@ footer p{
 
 </p>
 
-
 <div class="movie-card">
 
 <video
@@ -1089,7 +975,6 @@ footer p{
 Your browser does not support the video tag.
 
 </video>
-
 
 <div class="movie-caption">
 
@@ -1132,7 +1017,6 @@ Your browser does not support the video tag.
 
 </p>
 
-
 <div class="analysis-wrap">
 
 
@@ -1148,13 +1032,11 @@ Your browser does not support the video tag.
   alt="Drone analysis 1"
 >
 
-
 <div
   class="hotspot"
   style="left:39%;top:22%"
   data-title="Propellers"
 ></div>
-
 
 <div
   class="hotspot"
@@ -1162,13 +1044,11 @@ Your browser does not support the video tag.
   data-title="Motor"
 ></div>
 
-
 <div
   class="hotspot"
   style="left:61%;top:31%"
   data-title="Camera"
 ></div>
-
 
 <div
   class="hotspot"
@@ -1176,13 +1056,11 @@ Your browser does not support the video tag.
   data-title="Battery"
 ></div>
 
-
 <div
   class="hotspot"
   style="left:30%;top:48%"
   data-title="Body Frame"
 ></div>
-
 
 <div
   class="hotspot"
@@ -1190,13 +1068,11 @@ Your browser does not support the video tag.
   data-title="Gimbal"
 ></div>
 
-
 <div
   class="hotspot"
   style="left:35%;top:66%"
   data-title="Landing Gear"
 ></div>
-
 
 <div
   class="hotspot"
@@ -1204,13 +1080,11 @@ Your browser does not support the video tag.
   data-title="LED Indicator"
 ></div>
 
-
 <div
   class="hotspot"
   style="left:48%;top:72%"
   data-title="Sensors"
 ></div>
-
 
 <div
   class="tip"
@@ -1232,14 +1106,12 @@ Your browser does not support the video tag.
   alt="Drone components diagram"
 >
 
-
 <div
   class="hotspot"
   style="left:12%;top:16%"
   data-title="Flight Controller"
   data-text="The flight controller processes commands and sensor data to stabilize the drone."
 ></div>
-
 
 <div
   class="hotspot"
@@ -1248,14 +1120,12 @@ Your browser does not support the video tag.
   data-text="GPS helps the drone determine position and navigate."
 ></div>
 
-
 <div
   class="hotspot"
   style="left:48%;top:17%"
   data-title="Propellers"
   data-text="Propellers create lift and movement."
 ></div>
-
 
 <div
   class="hotspot"
@@ -1264,14 +1134,12 @@ Your browser does not support the video tag.
   data-text="Motors spin the propellers and provide flight power."
 ></div>
 
-
 <div
   class="hotspot"
   style="left:82%;top:17%"
   data-title="Battery"
   data-text="The battery supplies power to the aircraft."
 ></div>
-
 
 <div
   class="hotspot"
@@ -1280,14 +1148,12 @@ Your browser does not support the video tag.
   data-text="The camera captures aerial images and video."
 ></div>
 
-
 <div
   class="hotspot"
   style="left:38%;top:40%"
   data-title="Gimbal"
   data-text="The gimbal stabilizes the camera."
 ></div>
-
 
 <div
   class="hotspot"
@@ -1296,14 +1162,12 @@ Your browser does not support the video tag.
   data-text="The frame holds and protects the drone components."
 ></div>
 
-
 <div
   class="hotspot"
   style="left:78%;top:39%"
   data-title="ESC"
   data-text="Electronic Speed Controllers manage motor power."
 ></div>
-
 
 <div
   class="hotspot"
@@ -1312,14 +1176,12 @@ Your browser does not support the video tag.
   data-text="Landing gear supports the drone during takeoff and landing."
 ></div>
 
-
 <div
   class="hotspot"
   style="left:42%;top:62%"
   data-title="Remote Receiver"
   data-text="The receiver listens for controller or ground-station signals."
 ></div>
-
 
 <div
   class="hotspot"
@@ -1328,14 +1190,12 @@ Your browser does not support the video tag.
   data-text="Sensors detect nearby objects and help avoid collisions."
 ></div>
 
-
 <div
   class="hotspot"
   style="left:86%;top:63%"
   data-title="Antenna"
   data-text="Antennas transmit and receive communication signals."
 ></div>
-
 
 <div
   class="tip"
@@ -1374,14 +1234,12 @@ Your browser does not support the video tag.
 
 <script>
 
-
 /* =========================
    DRONE SLIDER
 ========================= */
 
 const track =
   document.getElementById('droneTrack');
-
 
 function moveDrone(dir){
 
@@ -1409,7 +1267,6 @@ function bind(
   const tip =
     document.getElementById(tipId);
 
-
   stage
     .querySelectorAll('.hotspot')
     .forEach(dot => {
@@ -1424,20 +1281,23 @@ function bind(
           const b =
             dot.getBoundingClientRect();
 
-
           tip.style.left =
-            Math.min(
-              b.left-r.left+20,
-              r.width-260
+            Math.max(
+              0,
+              Math.min(
+                b.left-r.left+20,
+                r.width-260
+              )
             ) + 'px';
-
 
           tip.style.top =
-            Math.min(
-              b.top-r.top-6,
-              r.height-90
+            Math.max(
+              0,
+              Math.min(
+                b.top-r.top-6,
+                r.height-90
+              )
             ) + 'px';
-
 
           tip.innerHTML =
             detailed
@@ -1447,17 +1307,13 @@ function bind(
             '</strong><small>' +
             dot.dataset.text +
             '</small>'
-
             :
-
             '<strong>' +
             dot.dataset.title +
             '</strong>';
 
-
           tip.style.display =
             'block';
-
 
           e.stopPropagation();
 
@@ -1467,7 +1323,6 @@ function bind(
 
     });
 
-
   stage.addEventListener(
     'click',
     () =>
@@ -1476,106 +1331,16 @@ function bind(
 
 }
 
-
 bind(
   'stage1',
   'tip1'
 );
-
 
 bind(
   'stage2',
   'tip2',
   true
 );
-
-
-/* =========================
-   AUTOMATIC VIDEO THUMBNAILS
-========================= */
-
-document
-  .querySelectorAll('.video-gallery video')
-  .forEach((video) => {
-
-    const makeThumbnail = () => {
-
-      if(
-        video.poster ||
-        !video.videoWidth ||
-        !video.videoHeight
-      ){
-        return;
-      }
-
-
-      const canvas =
-        document.createElement('canvas');
-
-
-      canvas.width =
-        video.videoWidth;
-
-      canvas.height =
-        video.videoHeight;
-
-
-      const ctx =
-        canvas.getContext('2d');
-
-
-      ctx.drawImage(
-        video,
-        0,
-        0,
-        canvas.width,
-        canvas.height
-      );
-
-
-      try{
-
-        video.poster =
-          canvas.toDataURL(
-            'image/jpeg',
-            0.82
-          );
-
-      }catch(e){}
-
-    };
-
-
-    video.addEventListener(
-      'loadeddata',
-      makeThumbnail,
-      {once:true}
-    );
-
-
-    video.addEventListener(
-      'loadedmetadata',
-      () => {
-
-        try{
-
-          video.currentTime =
-            0.1;
-
-        }catch(e){}
-
-      },
-      {once:true}
-    );
-
-
-    video.addEventListener(
-      'seeked',
-      makeThumbnail,
-      {once:true}
-    );
-
-  });
 
 
 /* =========================
@@ -1587,7 +1352,6 @@ const movieVideo =
     '#movie video'
   );
 
-
 if(movieVideo){
 
   movieVideo.addEventListener(
@@ -1597,51 +1361,19 @@ if(movieVideo){
       const movieCard =
         this.closest('.movie-card');
 
-      movieCard.insertAdjacentHTML(
-        'beforeend',
+      if(
+        !movieCard.querySelector('.movie-error')
+      ){
 
-        '<p style="margin-top:12px;color:#b42318;font-weight:700;">' +
-        'Movie could not be loaded. Make sure the video file is named exactly movie.mp4 and is in the same folder as gallery.html.' +
-        '</p>'
-      );
+        movieCard.insertAdjacentHTML(
+          'beforeend',
 
-    }
-  );
+          '<p class="movie-error" style="margin-top:12px;color:#b42318;font-weight:700;">' +
+          'Movie could not be loaded. Make sure the file is named exactly movie.mp4 and is in the same folder as gallery.html.' +
+          '</p>'
+        );
 
-}
-
-
-/* =========================
-   VIDEO 1 ERROR MESSAGE
-========================= */
-
-const firstVideo =
-  document.querySelector(
-    '.video-gallery video'
-  );
-
-
-if(firstVideo){
-
-  firstVideo.addEventListener(
-    'error',
-    function(){
-
-      const body =
-        this
-          .closest('.video-card')
-          .querySelector(
-            '.video-card-body'
-          );
-
-
-      body.insertAdjacentHTML(
-        'beforeend',
-
-        '<p style="margin-top:8px;color:#b42318;font-weight:700;">' +
-        'Video 1 could not be loaded. Make sure the file is named video.mp4 and is in the same folder as gallery.html.' +
-        '</p>'
-      );
+      }
 
     }
   );
